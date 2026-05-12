@@ -1,1 +1,13 @@
-@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Spinnaker&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&display=swap');
+@import 'tailwindcss';
+
+@theme {
+  --color-beaver: #78614d;
+  --color-beaver-dark: #3c3127;
+  --color-cream: #fff5e3;
+  --color-iron-orange: #b96e16;
+
+  --font-body: 'Spinnaker', sans-serif;
+  --font-display: 'Fraunces', serif;
+}

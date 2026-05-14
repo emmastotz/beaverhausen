@@ -2,6 +2,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&display=swap');
 @import 'tailwindcss';
 
+@font-face {
+  font-family: 'Magic Retro';
+  src:
+    url('/assets/fonts/magic-retro.woff2') format('woff2'),
+    url('/assets/fonts/magic-retro.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Magic Retro';
+  src:
+    url('/assets/fonts/magic-retro-slant.woff2') format('woff2'),
+    url('/assets/fonts/magic-retro-slant.woff') format('woff');
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
 @theme {
   --color-beaver: #78614d;
   --color-beaver-dark: #3c3127;
@@ -9,5 +29,6 @@
   --color-iron-orange: #b96e16;
 
   --font-body: 'Spinnaker', sans-serif;
+  --font-header: 'Magic Retro', serif;
   --font-display: 'Fraunces', serif;
 }

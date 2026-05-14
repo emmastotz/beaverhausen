@@ -64,7 +64,7 @@ export function ScrollJackTypewriter({
         )}
 
         <div className="flex w-full flex-1 items-center justify-center">
-          <div className="relative w-full max-w-xl px-8 text-center lg:px-0">
+          <div className="relative w-full max-w-xl px-8 pb-36 text-center sm:pb-28 lg:px-0">
             {lines.map((line, i) => {
               const isActive = i === activeIndex
               const isPast = i < activeIndex

@@ -44,7 +44,9 @@ export function DefaultLayout({
     <>
       <PageStyles grid={grid} />
 
-      <div className={`page relative bg-cream ${className}`}>{children}</div>
+      <div className={`page relative min-h-screen bg-cream ${className}`}>
+        {children}
+      </div>
     </>
   )
 }

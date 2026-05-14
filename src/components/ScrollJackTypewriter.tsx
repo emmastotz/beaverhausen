@@ -33,7 +33,7 @@ export function ScrollJackTypewriter({
     startDelay: 0,
   })
 
-  const progressOpacity = Math.max(0, 1 - (progress - 0.8) / 0.15)
+  const progressOpacity = Math.min(1, progress / 0.15)
 
   return (
     <div
@@ -42,6 +42,27 @@ export function ScrollJackTypewriter({
       className="relative w-full"
     >
       <div className="sticky top-0 flex h-screen w-full flex-col items-center">
+        {showProgress && (
+          <div
+            className="mt-8 flex gap-1.5 transition-opacity duration-500"
+            style={{ opacity: progressOpacity }}
+          >
+            {lines.map((_, i) => (
+              <div
+                key={i}
+                className="h-px transition-all duration-500"
+                style={{
+                  width: i === activeIndex ? '24px' : '8px',
+                  backgroundColor:
+                    i <= activeIndex
+                      ? 'rgb(185,110,22)'
+                      : 'rgba(120,97,77,0.3)',
+                }}
+              />
+            ))}
+          </div>
+        )}
+
         <div className="flex w-full flex-1 items-center justify-center">
           <div className="relative w-full max-w-xl px-8 text-center lg:px-0">
             {lines.map((line, i) => {
@@ -79,27 +100,6 @@ export function ScrollJackTypewriter({
             })}
           </div>
         </div>
-
-        {showProgress && (
-          <div
-            className="mb-8 flex gap-1.5 transition-opacity duration-500"
-            style={{ opacity: progressOpacity }}
-          >
-            {lines.map((_, i) => (
-              <div
-                key={i}
-                className="h-px transition-all duration-500"
-                style={{
-                  width: i === activeIndex ? '24px' : '8px',
-                  backgroundColor:
-                    i <= activeIndex
-                      ? 'rgb(185,110,22)'
-                      : 'rgba(120,97,77,0.3)',
-                }}
-              />
-            ))}
-          </div>
-        )}
       </div>
     </div>
   )

@@ -10,7 +10,7 @@ type Props = {
   renderText?: (displayed: string) => React.ReactNode
 }
 
-export const Typewriter: React.FC<Props> = ({
+export function Typewriter({
   text,
   charSpeed,
   startDelay,
@@ -18,7 +18,7 @@ export const Typewriter: React.FC<Props> = ({
   className = '',
   cursorClassName = '',
   renderText,
-}) => {
+}: Props) {
   const { displayed, isComplete } = useTypewriter({
     text,
     charSpeed,

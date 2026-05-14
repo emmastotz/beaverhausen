@@ -10,14 +10,14 @@ type Props = {
   persistLast?: boolean
 }
 
-export const ScrollJackTypewriter: React.FC<Props> = ({
+export function ScrollJackTypewriter({
   lines,
   className = '',
   windowsPerLine = 1,
   charSpeed = 18,
   showProgress = true,
   persistLast = false,
-}) => {
+}: Props) {
   const { containerRef, activeIndex, scrollHeight, progress } = useScrollJack({
     totalLines: lines.length,
     windowsPerLine,

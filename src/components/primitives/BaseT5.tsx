@@ -3,7 +3,7 @@ type Props = {
   className?: string
 }
 
-export const BaseT5: React.FC<Props> = ({ children, className = '' }) => {
+export function BaseT5({ children, className = '' }: Props) {
   return (
     <span
       className={`font-body text-base font-normal tracking-wide antialiased sm:text-lg ${className}`}

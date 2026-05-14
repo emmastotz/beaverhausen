@@ -1,5 +1,3 @@
-import React from 'react'
-
 // ─── Types ────────────────────────────────────────────────────────────────────
 
 type StyleProps = {
@@ -63,14 +61,14 @@ const SectionStyles = ({ grid, vignette }: StyleProps) => (
 
 // ─── Component ────────────────────────────────────────────────────────────────
 
-export const SectionLayout: React.FC<Props> = ({
+export function SectionLayout({
   children,
   className = '',
   id,
   ariaLabel,
   grid = true,
   vignette = true,
-}) => {
+}: Props) {
   return (
     <>
       <SectionStyles grid={grid} vignette={vignette} />

@@ -6,13 +6,13 @@ type Props = {
   className?: string
 }
 
-export const BeaverMark: React.FC<Props> = ({
+export function BeaverMark({
   bColor = '#3c3127',
   beaverColor = '#78614d',
   borderColor = '#b96e16',
   bgColor = '#fff5e3',
   className,
-}) => {
+}: Props) {
   return (
     <svg
       viewBox="0 0 158.69 158.69"

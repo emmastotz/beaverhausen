@@ -5,12 +5,12 @@ type Props = {
   className?: string
 }
 
-export const Wordmark: React.FC<Props> = ({
+export function Wordmark({
   bColor = '#3c3127',
   beaverColor = '#78614d',
   hausenColor = '#b96e16',
   className,
-}) => {
+}: Props) {
   return (
     <svg
       viewBox="0 0 696.1 89.67"

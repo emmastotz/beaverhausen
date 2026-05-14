@@ -6,7 +6,7 @@ type Props = {
 export const BaseT3: React.FC<Props> = ({ children, className = '' }) => {
   return (
     <span
-      className={`font-display text-2xl font-medium tracking-normal antialiased sm:text-3xl ${className}`}
+      className={`font-display text-xs font-normal tracking-wide antialiased sm:text-sm ${className}`}
     >
       {children}
     </span>

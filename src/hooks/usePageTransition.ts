@@ -3,9 +3,9 @@ import { useNavigate } from 'react-router'
 
 export type TransitionState = 'idle' | 'flooding' | 'holding' | 'draining'
 
-const FLOOD_DURATION = 600
-const HOLD_DURATION = 300
-const DRAIN_DURATION = 600
+const FLOOD_DURATION = 1200
+const HOLD_DURATION = 500
+const DRAIN_DURATION = 1200
 
 export const usePageTransition = () => {
   const navigate = useNavigate()

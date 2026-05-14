@@ -17,7 +17,7 @@ export function About() {
       <AboutMe />
 
       <div className="relative">
-        <div className="sticky top-[calc(45vh-8rem)] flex justify-center">
+        <div className="sticky top-[calc(35vh-8rem)] flex justify-center sm:top-[calc(40vh-8rem)] md:top-[calc(35vh)] lg:top-[calc(40vh-8rem)]">
           <BeaverMark
             className="size-24 lg:size-36"
             bgColor="#3c3127"

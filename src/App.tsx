@@ -6,6 +6,7 @@ import {
   TransitionProvider,
 } from './components/transition/TransitionContext'
 import { TransitionOverlay } from './components/transition/TransitionOverlay'
+import AboutPage from './pages/about'
 import LandingPage from './pages/index'
 import PortfolioPage from './pages/portfolio'
 
@@ -30,6 +31,7 @@ const router = createBrowserRouter([
     children: [
       { path: '/', element: <LandingPage /> },
       { path: '/portfolio', element: <PortfolioPage /> },
+      { path: '/about', element: <AboutPage /> },
     ],
   },
 ])

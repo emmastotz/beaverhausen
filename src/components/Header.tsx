@@ -53,7 +53,7 @@ export function Header() {
           e.preventDefault()
           transitionTo('/')
         }}
-        className="pointer-events-auto opacity-80 transition-opacity duration-300 hover:opacity-100"
+        className="pointer-events-auto rounded-full outline-none hover:ring-2 hover:ring-iron-orange/30 hover:ring-offset-2"
         aria-label="Beaverhausen home"
       >
         <BeaverMark className="size-10" bgColor="#3c3127" bColor="#fff5e3" />
@@ -67,7 +67,7 @@ export function Header() {
               <a
                 href={href}
                 onClick={onClick}
-                className="font-body text-xs tracking-[0.2em] text-beaver-dark uppercase no-underline opacity-70 transition-opacity duration-300 hover:opacity-100"
+                className="font-body text-xs tracking-[0.2em] text-beaver uppercase no-underline hover:text-beaver-dark"
               >
                 {label}
               </a>

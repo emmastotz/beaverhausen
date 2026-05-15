@@ -1,7 +1,7 @@
 type ButtonVariant = 'primary' | 'ghost'
 type ButtonSize = 'sm' | 'md' | 'lg'
 
-interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: ButtonVariant
   size?: ButtonSize
   children: React.ReactNode
@@ -86,7 +86,7 @@ export function Button({
   className = '',
   children,
   ...props
-}: ButtonProps) {
+}: Props) {
   return (
     <>
       <ButtonStyles />

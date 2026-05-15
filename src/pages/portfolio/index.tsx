@@ -4,7 +4,7 @@ export default function PortfolioPage() {
   return (
     <>
       <DefaultLayout>
-        <main className="relative">Hello world</main>
+        <main className="relative">Portfolio Page</main>
       </DefaultLayout>
     </>
   )

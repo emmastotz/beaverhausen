@@ -2,7 +2,9 @@ import { SectionLayout } from '../layouts/SectionLayout'
 import { AboutBeavers } from './AboutBeavers'
 import { AboutMe } from './AboutMe'
 import { BeaverMark } from './brand/BeaverMark'
+import { Button } from './primitives/Button'
 import { ScrollJackTypewriter } from './ScrollJackTypewriter'
+import { useTransition } from './transition/TransitionContext'
 
 const CLOSING_COPY: React.ReactNode[] = [
   "The beaverhausen doesn't build itself.",
@@ -10,6 +12,7 @@ const CLOSING_COPY: React.ReactNode[] = [
 // ─── Component ────────────────────────────────────────────────────────────────
 
 export function About() {
+  const { transitionTo } = useTransition()
   return (
     <SectionLayout id="about" className="w-full" aria-label="About">
       <AboutBeavers />
@@ -27,10 +30,16 @@ export function About() {
 
         <ScrollJackTypewriter
           lines={CLOSING_COPY}
-          className="relative font-display text-base text-[clamp(1.05rem,2.2vw,1.3rem)] leading-[1.8] tracking-[0.01em] text-iron-orange italic antialiased"
+          className="relative font-display text-[clamp(1.05rem,2.2vw,1.3rem)] leading-[1.8] tracking-[0.01em] text-iron-orange italic antialiased"
           showProgress={false}
           persistLast
         />
+
+        <div className="absolute bottom-1/5 left-1/2 -translate-x-1/2">
+          <Button onClick={() => transitionTo('/portfolio')}>
+            Enter the lodge
+          </Button>
+        </div>
       </div>
     </SectionLayout>
   )

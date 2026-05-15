@@ -66,10 +66,20 @@ const ButtonStyles = () => (
     }
 
     .btn--primary {
+      color: #78614d;
+      transition: color 200ms ease;
+    }
+
+    .btn--primary:hover {
       color: #3c3127;
     }
 
     .btn--ghost {
+      color: #b96e16;
+      transition: color 200ms ease;
+    }
+
+    .btn--ghost:hover {
       color: #78614d;
     }
 

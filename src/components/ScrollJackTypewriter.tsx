@@ -86,6 +86,7 @@ export function ScrollJackTypewriter({
                         ? 'translateY(-12px)'
                         : 'translateY(12px)',
                     pointerEvents: shouldShow ? 'auto' : 'none',
+                    willChange: 'opacity, transform',
                   }}
                 >
                   {content}

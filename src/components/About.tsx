@@ -1,3 +1,5 @@
+import { useEffect, useState } from 'react'
+
 import { SectionLayout } from '../layouts/SectionLayout'
 import { AboutBeavers } from './AboutBeavers'
 import { AboutMe } from './AboutMe'
@@ -9,12 +11,44 @@ import { useTransition } from './transition/TransitionContext'
 const CLOSING_COPY: React.ReactNode[] = [
   "The beaverhausen doesn't build itself.",
 ]
-// ─── Component ────────────────────────────────────────────────────────────────
 
 export function About() {
   const { transitionTo } = useTransition()
+
+  const [isAboutInView, setIsAboutInView] = useState(false)
+  useEffect(() => {
+    const handleScroll = () => {
+      const about = document.getElementById('about')
+      if (!about) return
+
+      const scrolledToAbout =
+        window.scrollY >= about.offsetTop - window.innerHeight * 0.1
+      const stillInAbout = window.scrollY < about.offsetTop + about.offsetHeight
+      setIsAboutInView(scrolledToAbout && stillInAbout)
+    }
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    handleScroll()
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
+  const handleSkip = () => {
+    const about = document.getElementById('about')
+    if (!about) return
+    const bottom = about.offsetTop + about.offsetHeight
+    window.scrollTo({ top: bottom, behavior: 'smooth' })
+  }
+
   return (
     <SectionLayout id="about" className="w-full" aria-label="About">
+      <button
+        onClick={handleSkip}
+        className="fixed bottom-4 left-1/2 z-30 -translate-x-1/2 cursor-pointer border-none bg-transparent font-body text-xs tracking-[0.2em] text-water uppercase transition-opacity duration-700 hover:text-iron-orange"
+        style={{ opacity: isAboutInView ? 1 : 0 }}
+        aria-label="Skip to end of about section"
+      >
+        skip
+      </button>
+
       <AboutBeavers />
 
       <AboutMe />

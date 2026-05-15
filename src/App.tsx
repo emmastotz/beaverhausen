@@ -1,5 +1,6 @@
 import { createBrowserRouter, RouterProvider, Outlet } from 'react-router'
 
+import { Header } from './components/Header'
 import {
   useTransition,
   TransitionProvider,
@@ -12,6 +13,7 @@ function RootLayout() {
   const { state } = useTransition()
   return (
     <>
+      <Header />
       <TransitionOverlay state={state} />
       <Outlet />
     </>

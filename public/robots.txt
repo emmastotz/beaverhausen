@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /assets/resume.pdf
+Disallow: /assets/fonts/
+
+Sitemap: https://beaverhausen.co/sitemap.xml

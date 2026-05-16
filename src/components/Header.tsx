@@ -56,18 +56,7 @@ const HeaderStyles = () => (
 )
 
 export function Header() {
-  const { pathname } = useLocation()
   const { transitionTo } = useTransition()
-
-  const handleAbout = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    if (pathname === '/') {
-      e.preventDefault()
-      document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })
-    } else {
-      e.preventDefault()
-      transitionTo('/about')
-    }
-  }
 
   const navItems: NavItem[] = [
     {
@@ -83,7 +72,10 @@ export function Header() {
       label: 'About',
       href: '/about',
       icon: <UserIcon className="size-5" />,
-      onClick: handleAbout,
+      onClick: (e) => {
+        e.preventDefault()
+        transitionTo('/about')
+      },
     },
     {
       label: 'Contact',

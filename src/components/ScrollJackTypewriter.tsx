@@ -44,22 +44,13 @@ export function ScrollJackTypewriter({
 
   const isLockedRef = useRef(false)
   const isCompleteRef = useRef(false)
-  const savedScrollY = useRef(0)
-
-  console.log('isLocked:', isLockedRef.current)
-  console.log('isComplete:', isCompleteRef.current)
-  console.log('savedScrollY:', savedScrollY.current)
 
   const lock = useCallback(() => {
     isLockedRef.current = true
-    document.documentElement.style.overflow = 'hidden'
   }, [])
 
   const unlock = useCallback(() => {
-    const scrollY = savedScrollY.current
     isLockedRef.current = false
-    document.documentElement.style.overflow = ''
-    window.scrollTo(0, scrollY)
   }, [])
 
   useEffect(() => {
@@ -76,13 +67,48 @@ export function ScrollJackTypewriter({
   }, [activeIndex, lock])
 
   useEffect(() => {
-    const handleScroll = () => {
-      if (!isLockedRef.current) {
-        savedScrollY.current = window.scrollY
+    const handleWheel = (e: WheelEvent) => {
+      if (isLockedRef.current && e.deltaY > 0) {
+        e.preventDefault()
       }
     }
-    window.addEventListener('scroll', handleScroll, { passive: true })
-    return () => window.removeEventListener('scroll', handleScroll)
+
+    const handleTouchMove = (e: TouchEvent) => {
+      if (isLockedRef.current) {
+        e.preventDefault()
+      }
+    }
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (!isLockedRef.current) return
+      if (e.key === 'ArrowDown') {
+        e.preventDefault()
+      }
+    }
+
+    const handleVisibilityChange = () => {
+      if (document.visibilityState === 'visible') {
+        isLockedRef.current = false
+      }
+    }
+
+    const handleFocus = () => {
+      isLockedRef.current = false
+    }
+
+    window.addEventListener('wheel', handleWheel, { passive: false })
+    window.addEventListener('touchmove', handleTouchMove, { passive: false })
+    window.addEventListener('keydown', handleKeyDown)
+    window.addEventListener('focus', handleFocus)
+    document.addEventListener('visibilitychange', handleVisibilityChange)
+
+    return () => {
+      window.removeEventListener('wheel', handleWheel)
+      window.removeEventListener('touchmove', handleTouchMove)
+      window.removeEventListener('keydown', handleKeyDown)
+      window.removeEventListener('focus', handleFocus)
+      document.removeEventListener('visibilitychange', handleVisibilityChange)
+    }
   }, [])
 
   return (

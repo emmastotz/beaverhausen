@@ -1,5 +1,4 @@
 import { createPortal } from 'react-dom'
-import { useLocation } from 'react-router'
 
 import { BeaverMark } from './brand/BeaverMark'
 import { BriefcaseIcon } from './brand/icons/BriefcaseIcon'

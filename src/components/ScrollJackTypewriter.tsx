@@ -1,3 +1,5 @@
+import { useEffect, useState } from 'react'
+
 import { useScrollJack } from '../hooks/useScrollJack'
 import { useTypewriter } from '../hooks/useTypewriter'
 
@@ -35,16 +37,24 @@ export function ScrollJackTypewriter({
 
   const progressOpacity = Math.min(1, progress / 0.15)
 
+  const [mounted, setMounted] = useState(false)
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
   return (
     <div
       ref={containerRef}
       style={{ height: scrollHeight }}
       className="relative w-full"
     >
-      <div className="sticky top-0 flex h-screen w-full flex-col items-center">
+      <div
+        className="sticky top-0 flex h-screen w-full flex-col items-center"
+        style={{ opacity: mounted ? 1 : 0 }}
+      >
         {showProgress && (
           <div
-            className="mt-8 flex gap-1.5 transition-opacity duration-500"
+            className="mt-16 flex gap-1.5 transition-opacity duration-500"
             style={{ opacity: progressOpacity }}
           >
             {lines.map((_, i) => (
@@ -64,14 +74,13 @@ export function ScrollJackTypewriter({
         )}
 
         <div className="flex w-full flex-1 items-center justify-center">
-          <div className="relative w-full max-w-xl px-8 pb-36 text-center sm:pb-28 lg:px-0">
+          <div className="relative w-full max-w-2xl px-8 pb-36 text-center sm:pb-28 lg:px-0">
             {lines.map((line, i) => {
               const isActive = i === activeIndex
               const isPast = i < activeIndex
               const isLast = i === lines.length - 1
               const isString = typeof line === 'string'
               const shouldShow = isActive || (persistLast && isLast && isPast)
-
               const content = isActive && isString ? displayed : line
 
               return (

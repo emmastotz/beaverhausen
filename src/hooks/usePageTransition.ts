@@ -1,5 +1,5 @@
-import { useCallback, useState } from 'react'
-import { useNavigate } from 'react-router'
+import { useCallback, useEffect, useRef, useState } from 'react'
+import { useLocation, useNavigate } from 'react-router'
 
 export type TransitionState = 'idle' | 'flooding' | 'holding' | 'draining'
 
@@ -9,32 +9,46 @@ const DRAIN_DURATION = 1200
 
 export const usePageTransition = () => {
   const navigate = useNavigate()
+  const { pathname } = useLocation()
   const [state, setState] = useState<TransitionState>('idle')
+  const timeoutRefs = useRef<ReturnType<typeof setTimeout>[]>([])
+
+  useEffect(() => {
+    return () => {
+      timeoutRefs.current.forEach(clearTimeout)
+    }
+  }, [])
 
   const transitionTo = useCallback(
     (path: string) => {
       if (state !== 'idle') return
+      if (path === pathname) return
 
-      // 1. Flood
+      timeoutRefs.current.forEach(clearTimeout)
+      timeoutRefs.current = []
+
       setState('flooding')
 
-      setTimeout(() => {
-        // 2. Hold — navigate while water is covering the screen
+      const t1 = setTimeout(() => {
         setState('holding')
         navigate(path)
 
-        setTimeout(() => {
-          // 3. Drain
+        const t2 = setTimeout(() => {
           setState('draining')
 
-          setTimeout(() => {
-            // 4. Done
+          const t3 = setTimeout(() => {
             setState('idle')
           }, DRAIN_DURATION)
+
+          timeoutRefs.current.push(t3)
         }, HOLD_DURATION)
+
+        timeoutRefs.current.push(t2)
       }, FLOOD_DURATION)
+
+      timeoutRefs.current.push(t1)
     },
-    [state, navigate],
+    [state, navigate, pathname],
   )
 
   return { transitionTo, state }

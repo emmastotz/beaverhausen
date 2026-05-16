@@ -22,6 +22,19 @@
   font-display: swap;
 }
 
+@keyframes grow {
+  from {
+    transform: scaleY(0);
+  }
+  to {
+    transform: scaleY(1);
+  }
+}
+
+.animate-grow {
+  animation: grow 1s ease forwards;
+}
+
 @theme {
   --color-beaver: #78614d;
   --color-beaver-dark: #3c3127;

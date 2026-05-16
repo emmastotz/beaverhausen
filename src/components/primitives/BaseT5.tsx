@@ -1,14 +1,18 @@
+import { BodyT4 } from './BodyT4'
+import { DisplayT4 } from './DisplayT4'
+
+type Variant = 'display' | 'body'
+
 type Props = {
   children: React.ReactNode
   className?: string
+  variant?: Variant
 }
 
-export function BaseT5({ children, className = '' }: Props) {
-  return (
-    <span
-      className={`font-body text-base font-normal tracking-wide antialiased sm:text-lg ${className}`}
-    >
-      {children}
-    </span>
+export function BaseT5({ children, className = '', variant = 'body' }: Props) {
+  return variant === 'body' ? (
+    <BodyT4 className={className}>{children}</BodyT4>
+  ) : (
+    <DisplayT4 className={className}>{children}</DisplayT4>
   )
 }

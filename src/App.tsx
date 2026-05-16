@@ -10,6 +10,7 @@ import { TransitionOverlay } from './components/transition/TransitionOverlay'
 import AboutPage from './pages/about'
 import LandingPage from './pages/index'
 import PortfolioPage from './pages/portfolio'
+import BeaverhausenPortfolioPage from './pages/portfolio/beaverhausen'
 
 function RootLayout() {
   const { state } = useTransition()
@@ -32,8 +33,12 @@ const router = createBrowserRouter([
     ),
     children: [
       { path: '/', element: <LandingPage /> },
-      { path: '/portfolio', element: <PortfolioPage /> },
       { path: '/about', element: <AboutPage /> },
+      { path: '/portfolio', element: <PortfolioPage /> },
+      {
+        path: '/portfolio/beaverhausen',
+        element: <BeaverhausenPortfolioPage />,
+      },
     ],
   },
 ])

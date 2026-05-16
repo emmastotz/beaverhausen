@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 
 import { useScrollJack } from '../hooks/useScrollJack'
 import { useTypewriter } from '../hooks/useTypewriter'
@@ -40,6 +40,49 @@ export function ScrollJackTypewriter({
   const [mounted, setMounted] = useState(false)
   useEffect(() => {
     setMounted(true)
+  }, [])
+
+  const isLockedRef = useRef(false)
+  const isCompleteRef = useRef(false)
+  const savedScrollY = useRef(0)
+
+  console.log('isLocked:', isLockedRef.current)
+  console.log('isComplete:', isCompleteRef.current)
+  console.log('savedScrollY:', savedScrollY.current)
+
+  const lock = useCallback(() => {
+    isLockedRef.current = true
+    document.documentElement.style.overflow = 'hidden'
+  }, [])
+
+  const unlock = useCallback(() => {
+    const scrollY = savedScrollY.current
+    isLockedRef.current = false
+    document.documentElement.style.overflow = ''
+    window.scrollTo(0, scrollY)
+  }, [])
+
+  useEffect(() => {
+    isCompleteRef.current = isComplete
+    if (isComplete) {
+      unlock()
+    } else {
+      lock()
+    }
+  }, [isComplete, lock, unlock])
+
+  useEffect(() => {
+    lock()
+  }, [activeIndex, lock])
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!isLockedRef.current) {
+        savedScrollY.current = window.scrollY
+      }
+    }
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
   return (

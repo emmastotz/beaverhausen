@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 
 import { SectionLayout } from '../layouts/SectionLayout'
 import { Wordmark } from './brand/Wordmark'
-import { BaseT8 } from './primitives/BaseT8'
+import { BaseT6 } from './primitives/BaseT6'
 import { Typewriter } from './Typewriter'
 
 type DefinitionPart = {
@@ -93,9 +93,9 @@ export const Hero = () => {
               showWordmark ? 'opacity-100' : 'opacity-0',
             ].join(' ')}
           >
-            <BaseT8 className="text-beaver uppercase">
+            <BaseT6 className="text-beaver uppercase">
               Designing systems. Engineering experiences.
-            </BaseT8>
+            </BaseT6>
           </p>
         </div>
 
@@ -111,7 +111,7 @@ export const Hero = () => {
           }
           aria-label="Scroll to about"
         >
-          <BaseT8 className="text-beaver uppercase sm:pb-0">scroll</BaseT8>
+          <BaseT6 className="text-beaver uppercase sm:pb-0">scroll</BaseT6>
           <div className="animate-grow h-10 w-px origin-top bg-iron-orange md:flex" />
         </button>
       </div>
@@ -128,7 +128,7 @@ export const Hero = () => {
         }
         aria-label="Scroll to about"
       >
-        <BaseT8 className="text-beaver uppercase sm:pb-0">scroll</BaseT8>
+        <BaseT6 className="text-beaver uppercase sm:pb-0">scroll</BaseT6>
         <div className="animate-grow h-10 w-px origin-top bg-iron-orange lg:flex" />
       </button>
     </SectionLayout>

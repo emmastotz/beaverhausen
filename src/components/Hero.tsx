@@ -5,14 +5,10 @@ import { Wordmark } from './brand/Wordmark'
 import { BaseT8 } from './primitives/BaseT8'
 import { Typewriter } from './Typewriter'
 
-// ─── Types ────────────────────────────────────────────────────────
-
 type DefinitionPart = {
   text: string
   className: string
 }
-
-// ─── Constants ───────────────────────────────────────────────────────────────
 
 const DEFINITION_PARTS: DefinitionPart[] = [
   {
@@ -27,8 +23,6 @@ const DEFINITION_PARTS: DefinitionPart[] = [
 const FULL_TEXT = DEFINITION_PARTS.map((p) => p.text).join('')
 const WORDMARK_DELAY = 600
 const SCROLL_DELAY = WORDMARK_DELAY + 1200
-
-// ─── Component ───────────────────────────────────────────────────────────────
 
 export const Hero = () => {
   const [showWordmark, setShowWordmark] = useState(false)
@@ -76,7 +70,7 @@ export const Hero = () => {
               setTimeout(() => setShowWordmark(true), WORDMARK_DELAY)
               setTimeout(() => setShowScroll(true), SCROLL_DELAY)
             }}
-            className="mb-8 min-h-[4.5em] font-display text-[clamp(1.05rem,2.2vw,1.3rem)] leading-[1.75] tracking-[0.01em] text-beaver-dark antialiased sm:mb-10 md:mb-16"
+            className="mb-8 min-h-[4.5em] font-display text-[clamp(1.05rem,2.2vw,1.3rem)] leading-[1.75] tracking-[0.01em] text-beaver-dark antialiased sm:my-4 md:mt-0 md:mb-16"
             renderText={(displayed) => renderDefinition(displayed)}
           />
 

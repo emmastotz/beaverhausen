@@ -27,7 +27,7 @@ export const ParallaxLandscape = () => {
     backgroundImage: `url(${url})`,
     backgroundRepeat: 'repeat-x',
     backgroundPosition: 'bottom',
-    backgroundSize: `auto calc(${backgroundSize} + 1px)`,
+    backgroundSize: `auto calc(${backgroundSize} + 2px)`,
     transform: `translateX(-${offset}px)`,
     width: `calc(100% + ${1671}px)`,
     left: 0,

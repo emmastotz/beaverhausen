@@ -1,6 +1,7 @@
 import { createBrowserRouter, RouterProvider, Outlet } from 'react-router'
 
 import { Header } from './components/Header'
+import { ScrollToTop } from './components/ScrollToTop'
 import {
   useTransition,
   TransitionProvider,
@@ -14,6 +15,7 @@ function RootLayout() {
   const { state } = useTransition()
   return (
     <>
+      <ScrollToTop />
       <Header />
       <TransitionOverlay state={state} />
       <Outlet />

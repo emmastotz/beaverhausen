@@ -17,13 +17,15 @@ export const useTypewriter = ({
   const [isComplete, setIsComplete] = useState(false)
   const indexRef = useRef(0)
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null)
+  const onCompleteRef = useRef(onComplete)
+  onCompleteRef.current = onComplete
 
   useEffect(() => {
     indexRef.current = 0
     setDisplayed('')
     setIsComplete(false)
 
-    const startDelay$ = setTimeout(() => {
+    const timeout = setTimeout(() => {
       timerRef.current = setInterval(() => {
         indexRef.current += 1
         setDisplayed(text.slice(0, indexRef.current))
@@ -31,13 +33,13 @@ export const useTypewriter = ({
         if (indexRef.current >= text.length) {
           clearInterval(timerRef.current!)
           setIsComplete(true)
-          onComplete?.()
+          onCompleteRef.current?.()
         }
       }, charSpeed)
     }, startDelay)
 
     return () => {
-      clearTimeout(startDelay$)
+      clearTimeout(timeout)
       if (timerRef.current) clearInterval(timerRef.current)
     }
   }, [text, charSpeed, startDelay])

@@ -19,12 +19,14 @@ export function About() {
   useEffect(() => {
     const handleScroll = () => {
       const about = document.getElementById('about')
-      if (!about) return
+      const cta = document.getElementById('about-cta')
+      if (!about || !cta) return
 
       const scrolledToAbout =
         window.scrollY >= about.offsetTop - window.innerHeight * 0.1
-      const stillInAbout = window.scrollY < about.offsetTop + about.offsetHeight
-      setIsAboutInView(scrolledToAbout && stillInAbout)
+      const ctaInView = cta.getBoundingClientRect().top < window.innerHeight
+
+      setIsAboutInView(scrolledToAbout && !ctaInView)
     }
     window.addEventListener('scroll', handleScroll, { passive: true })
     handleScroll()
@@ -42,7 +44,7 @@ export function About() {
     <SectionLayout id="about" className="w-full" aria-label="About">
       <button
         onClick={handleSkip}
-        className="fixed bottom-4 left-1/2 z-30 -translate-x-1/2 cursor-pointer border-none bg-transparent font-body text-xs tracking-[0.2em] text-water uppercase transition-opacity duration-700 hover:text-iron-orange"
+        className="fixed bottom-[1vh] left-1/2 z-30 -translate-x-1/2 cursor-pointer border-none bg-transparent font-body text-xs tracking-[0.2em] text-water uppercase transition-opacity duration-700 hover:text-iron-orange"
         style={{ opacity: isAboutInView ? 1 : 0 }}
         aria-label="Skip to end of about section"
       >
@@ -69,7 +71,10 @@ export function About() {
           persistLast
         />
 
-        <div className="absolute bottom-1/5 left-1/2 -translate-x-1/2">
+        <div
+          id="about-cta"
+          className="absolute bottom-1/5 left-1/2 -translate-x-1/2"
+        >
           <Button onClick={() => transitionTo('/portfolio')}>
             Enter the lodge
           </Button>

@@ -106,13 +106,13 @@ export const Hero = () => {
           ].join(' ')}
           onClick={() =>
             document
-              .getElementById('work')
+              .getElementById('about')
               ?.scrollIntoView({ behavior: 'smooth' })
           }
-          aria-label="Scroll to work"
+          aria-label="Scroll to about"
         >
           <BaseT8 className="text-beaver uppercase sm:pb-0">scroll</BaseT8>
-          <div className="animate-grow hidden h-10 w-px origin-top bg-iron-orange md:flex" />
+          <div className="animate-grow h-10 w-px origin-top bg-iron-orange md:flex" />
         </button>
       </div>
 
@@ -123,15 +123,13 @@ export const Hero = () => {
         ].join(' ')}
         onClick={() =>
           document
-            .getElementById('work')
+            .getElementById('about')
             ?.scrollIntoView({ behavior: 'smooth' })
         }
-        aria-label="Scroll to work"
+        aria-label="Scroll to about"
       >
-        <span className="pb-6 font-body text-[0.7rem] tracking-[0.2em] text-beaver uppercase sm:pb-0 md:mb-8">
-          scroll
-        </span>
-        <div className="animate-grow hidden h-10 w-px origin-top bg-iron-orange lg:flex" />
+        <BaseT8 className="text-beaver uppercase sm:pb-0">scroll</BaseT8>
+        <div className="animate-grow h-10 w-px origin-top bg-iron-orange lg:flex" />
       </button>
     </SectionLayout>
   )

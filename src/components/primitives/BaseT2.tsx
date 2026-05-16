@@ -1,14 +1,18 @@
+import { BodyT1 } from './BodyT1'
+import { DisplayT1 } from './DisplayT1'
+
+type Variant = 'display' | 'body'
+
 type Props = {
   children: React.ReactNode
   className?: string
+  variant?: Variant
 }
 
-export function BaseT2({ children, className = '' }: Props) {
-  return (
-    <span
-      className={`font-display text-sm font-normal tracking-[0.4em] tracking-wide antialiased sm:text-base ${className}`}
-    >
-      {children}
-    </span>
+export function BaseT2({ children, className = '', variant = 'body' }: Props) {
+  return variant === 'body' ? (
+    <BodyT1 className={className}>{children}</BodyT1>
+  ) : (
+    <DisplayT1 className={className}>{children}</DisplayT1>
   )
 }

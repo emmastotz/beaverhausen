@@ -1,5 +1,3 @@
-// ─── Types ────────────────────────────────────────────────────────────────────
-
 type StyleProps = {
   grid: boolean
 }
@@ -9,8 +7,6 @@ type Props = {
   className?: string
   grid?: boolean
 }
-
-// ─── Styles ───────────────────────────────────────────────────────────────────
 
 const PageStyles = ({ grid }: StyleProps) => (
   <style>{`
@@ -32,8 +28,6 @@ const PageStyles = ({ grid }: StyleProps) => (
     }
   `}</style>
 )
-
-// ─── Component ────────────────────────────────────────────────────────────────
 
 export function DefaultLayout({
   children,

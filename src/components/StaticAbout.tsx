@@ -34,7 +34,7 @@ export function StaticAbout() {
 
   return (
     <div className="flex flex-col gap-10">
-      <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
+      <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
         <AutoH>
           <BaseT1 className="text-beaver-dark">About</BaseT1>
         </AutoH>

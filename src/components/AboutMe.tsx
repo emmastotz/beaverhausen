@@ -6,15 +6,21 @@ const PROFESSIONAL_LINES: React.ReactNode[] = [
   "I've led full rebrands, built design systems from scratch, and shipped enterprise-grade interfaces for clients who care about the details.",
   'I prototype in Figma and in code.',
   "I care too much about the feel of interactions and have a hard time leaving details alone when they're not quite right.",
-  <em key="gnawing">Some might call it gnawing.</em>,
+  'Some might call it gnawing.',
   "I work best in small, focused teams where craft is a baseline expectation, designers and engineers finish each other's sentences, and quality is understood to be a competitive advantage, not a nice-to-have.",
 ]
+
+function emphasizeText(displayed: string, lineIndex: number) {
+  if (lineIndex === 5) return <em>{displayed}</em>
+  return displayed
+}
 
 export function AboutMe() {
   return (
     <ScrollJackTypewriter
       lines={PROFESSIONAL_LINES}
       className="leading-[1.8] text-beaver-dark"
+      renderText={emphasizeText}
     />
   )
 }

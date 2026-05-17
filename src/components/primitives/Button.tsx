@@ -83,9 +83,9 @@ const ButtonStyles = () => (
       color: #78614d;
     }
 
-    .btn--sm { font-size: 0.7rem; padding: 0.5rem 1.25rem; }
-    .btn--md { font-size: 0.8rem; padding: 0.75rem 1.75rem; }
-    .btn--lg { font-size: 0.85rem; padding: 0.875rem 2rem; }
+    .btn--sm { font-size: 0.7rem; padding: 0.5rem; }
+    .btn--md { font-size: 0.8rem; padding: 0.75rem; }
+    .btn--lg { font-size: 0.85rem; padding: 0.875rem; }
 
   `}</style>
 )

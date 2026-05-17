@@ -6,7 +6,7 @@ type Props = {
 export function DisplayT2({ children, className = '' }: Props) {
   return (
     <span
-      className={`font-display text-lg font-medium tracking-wide antialiased sm:text-xl ${className}`}
+      className={`font-display text-lg tracking-wide antialiased sm:text-xl ${className}`}
     >
       {children}
     </span>

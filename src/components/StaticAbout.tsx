@@ -2,6 +2,8 @@ import { Button } from '../components/primitives/Button'
 import { FadeIn } from './FadeIn'
 import { AutoH } from './primitives/AutoH'
 import { BaseT1 } from './primitives/BaseT1'
+import { BaseT3 } from './primitives/BaseT3'
+import { BaseT4 } from './primitives/BaseT4'
 
 const BEAVER_PARAGRAPHS = [
   `Beavers are one of the only animals besides humans that fundamentally reshape their environment.`,
@@ -31,49 +33,60 @@ export function StaticAbout() {
   }
 
   return (
-    <>
-      <AutoH>
-        <BaseT1 className="mb-20 text-beaver-dark">About</BaseT1>
-      </AutoH>
-      {/* Beaver copy */}
-      <section aria-label="About beavers" className="mb-20">
+    <div className="flex flex-col gap-10">
+      <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
+        <AutoH>
+          <BaseT1 className="text-beaver-dark">About</BaseT1>
+        </AutoH>
+
+        <FadeIn>
+          <Button onClick={handleDownload}>Download résumé</Button>
+        </FadeIn>
+      </div>
+
+      <section aria-label="About beavers">
         {BEAVER_PARAGRAPHS.map((p, i) => (
-          <FadeIn key={i} delay={i * 100} className="mb-6">
-            <p
-              className={`font-display leading-[1.8] tracking-[0.01em] antialiased ${
-                i === 2
-                  ? 'text-[clamp(1.05rem,2.2vw,1.3rem)] text-iron-orange italic'
-                  : 'text-[clamp(0.95rem,1.8vw,1.1rem)] text-beaver-dark'
-              }`}
-            >
-              {p}
-            </p>
+          <FadeIn key={i} delay={i * 100} className="mb-6 last:mb-0">
+            {i === 2 ? (
+              <p>
+                <BaseT3
+                  variant="display"
+                  className="leading-[1.9] text-beaver-dark italic"
+                >
+                  {p}
+                </BaseT3>
+              </p>
+            ) : (
+              <p>
+                <BaseT4 variant="display" className="leading-[1.9] text-beaver">
+                  {p}
+                </BaseT4>
+              </p>
+            )}
           </FadeIn>
         ))}
       </section>
 
-      {/* Professional copy */}
-      <section aria-label="About me" className="mb-20">
+      <section aria-label="About me">
         {PROFESSIONAL_PARAGRAPHS.map((p, i) => (
-          <FadeIn key={i} delay={i * 100} className="mb-6">
-            <p className="font-body text-[clamp(0.95rem,1.8vw,1.1rem)] leading-[1.9] text-beaver-dark opacity-80">
-              {p}
+          <FadeIn key={i} delay={i * 100} className="mb-6 last:mb-0">
+            <p>
+              <BaseT4 className="leading-[1.9] text-beaver">{p}</BaseT4>
             </p>
           </FadeIn>
         ))}
       </section>
 
-      {/* Resume download */}
-      <FadeIn className="mb-24">
-        <Button onClick={handleDownload}>Download résumé</Button>
-      </FadeIn>
-
-      {/* Closing line */}
       <FadeIn>
-        <p className="font-display text-[clamp(1.05rem,2.2vw,1.3rem)] leading-[1.8] tracking-[0.01em] text-iron-orange italic antialiased">
-          {CLOSING}
+        <p>
+          <BaseT3
+            variant="display"
+            className="leading-[1.9] text-iron-orange italic"
+          >
+            {CLOSING}
+          </BaseT3>
         </p>
       </FadeIn>
-    </>
+    </div>
   )
 }

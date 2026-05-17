@@ -20,7 +20,9 @@ function highlightOrange(displayed: string, lineIndex: number) {
   return (
     <>
       {displayed.slice(0, idx)}
-      <span className="text-iron-orange">{displayed.slice(idx, idx + word.length)}</span>
+      <span className="text-iron-orange">
+        {displayed.slice(idx, idx + word.length)}
+      </span>
       {displayed.slice(idx + word.length)}
     </>
   )

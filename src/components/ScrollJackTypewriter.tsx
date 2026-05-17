@@ -124,7 +124,9 @@ export function ScrollJackTypewriter({
             const shouldShow = isActive || (persistLast && isLast && isPast)
             const content =
               isActive && isString
-                ? (renderText ? renderText(displayed, i) : displayed)
+                ? renderText
+                  ? renderText(displayed, i)
+                  : displayed
                 : line
 
             return (

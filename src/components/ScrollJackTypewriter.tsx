@@ -42,7 +42,6 @@ export function ScrollJackTypewriter({
   }, [])
 
   const isLockedRef = useRef(false)
-  const isCompleteRef = useRef(false)
 
   const lock = () => {
     isLockedRef.current = true
@@ -52,17 +51,12 @@ export function ScrollJackTypewriter({
   }
 
   useEffect(() => {
-    isCompleteRef.current = isComplete
     if (isComplete) {
       unlock()
     } else {
       lock()
     }
-  }, [isComplete, lock, unlock])
-
-  useEffect(() => {
-    lock()
-  }, [activeIndex, lock])
+  }, [isComplete])
 
   useEffect(() => {
     const handleWheel = (e: WheelEvent) => {

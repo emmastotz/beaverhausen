@@ -66,8 +66,8 @@ export function About() {
 
         <ScrollJackTypewriter
           lines={CLOSING_COPY}
-          className="relative font-display text-[clamp(1.05rem,2.2vw,1.3rem)] leading-[1.8] tracking-[0.01em] text-iron-orange italic antialiased"
-          showProgress={false}
+          variant="display"
+          className="relative leading-[1.8] text-iron-orange italic"
           persistLast
         />
 

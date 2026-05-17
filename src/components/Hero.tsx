@@ -28,12 +28,23 @@ export const Hero = () => {
   const [showWordmark, setShowWordmark] = useState(false)
   const [showScroll, setShowScroll] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const [typewriterDone, setTypewriterDone] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50)
     window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
+
+  useEffect(() => {
+    if (!typewriterDone) return
+    const t1 = setTimeout(() => setShowWordmark(true), WORDMARK_DELAY)
+    const t2 = setTimeout(() => setShowScroll(true), SCROLL_DELAY)
+    return () => {
+      clearTimeout(t1)
+      clearTimeout(t2)
+    }
+  }, [typewriterDone])
 
   const renderDefinition = (displayed: string) => {
     let charsRendered = 0
@@ -64,15 +75,15 @@ export const Hero = () => {
     >
       <div className="flex w-full max-w-2xl flex-col items-center justify-between sm:gap-6">
         <div className="mb-16 flex w-full max-w-2xl flex-1 flex-col items-start sm:mb-0">
-          <Typewriter
-            text={FULL_TEXT}
-            onComplete={() => {
-              setTimeout(() => setShowWordmark(true), WORDMARK_DELAY)
-              setTimeout(() => setShowScroll(true), SCROLL_DELAY)
-            }}
-            className="mb-8 min-h-[4.5em] font-display text-[clamp(1.05rem,2.2vw,1.3rem)] leading-[1.75] tracking-[0.01em] text-beaver-dark antialiased sm:my-4 md:mt-0 md:mb-16"
-            renderText={(displayed) => renderDefinition(displayed)}
-          />
+          <div className="mb-8 min-h-[4.5em] sm:my-4 md:mt-0 md:mb-16">
+            <Typewriter
+              text={FULL_TEXT}
+              onComplete={() => setTypewriterDone(true)}
+              className="leading-[1.75] text-beaver-dark"
+              variant="display"
+              renderText={(displayed) => renderDefinition(displayed)}
+            />
+          </div>
 
           <div
             className={[

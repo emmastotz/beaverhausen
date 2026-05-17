@@ -74,7 +74,6 @@ export const Hero = () => {
             renderText={(displayed) => renderDefinition(displayed)}
           />
 
-          {/* Wordmark reveal */}
           <div
             className={[
               'w-full transition-all duration-[900ms] ease-[cubic-bezier(0.16,1,0.3,1)] outline-none',
@@ -86,7 +85,6 @@ export const Hero = () => {
             <Wordmark className="h-auto w-full max-w-2xl" />
           </div>
 
-          {/* Tagline */}
           <p
             className={[
               'mt-3 md:mt-6 transition-opacity duration-[800ms] delay-300',

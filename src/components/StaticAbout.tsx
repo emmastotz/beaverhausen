@@ -40,7 +40,9 @@ export function StaticAbout() {
         </AutoH>
 
         <FadeIn>
-          <Button onClick={handleDownload}>Download résumé</Button>
+          <Button variant="ghost" onClick={handleDownload}>
+            Download résumé
+          </Button>
         </FadeIn>
       </div>
 
@@ -51,7 +53,7 @@ export function StaticAbout() {
               <p>
                 <BaseT3
                   variant="display"
-                  className="leading-[1.9] text-beaver-dark italic"
+                  className="leading-[1.8] text-beaver-dark italic"
                 >
                   {p}
                 </BaseT3>
@@ -81,7 +83,7 @@ export function StaticAbout() {
         <p>
           <BaseT3
             variant="display"
-            className="leading-[1.9] text-iron-orange italic"
+            className="leading-[1.8] text-beaver-dark italic"
           >
             {CLOSING}
           </BaseT3>

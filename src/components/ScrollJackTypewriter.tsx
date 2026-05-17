@@ -2,10 +2,12 @@ import { useEffect, useRef, useState } from 'react'
 
 import { useScrollJack } from '../hooks/useScrollJack'
 import { useTypewriter } from '../hooks/useTypewriter'
+import { BaseT3 } from './primitives/BaseT3'
 
 type Props = {
   lines: React.ReactNode[]
   className?: string
+  variant?: 'display' | 'body'
   windowsPerLine?: number
   charSpeed?: number
   persistLast?: boolean
@@ -14,6 +16,7 @@ type Props = {
 export function ScrollJackTypewriter({
   lines,
   className = '',
+  variant = 'body',
   windowsPerLine = 1,
   charSpeed = 18,
   persistLast = false,
@@ -128,7 +131,7 @@ export function ScrollJackTypewriter({
             return (
               <p
                 key={i}
-                className={`absolute inset-x-0 px-8 transition-all duration-700 ease-out ${className}`}
+                className="absolute inset-x-0 px-8 transition-all duration-700 ease-out"
                 style={{
                   opacity: shouldShow ? 1 : 0,
                   transform: shouldShow
@@ -140,13 +143,15 @@ export function ScrollJackTypewriter({
                   willChange: 'opacity, transform',
                 }}
               >
-                {content}
-                {isActive && isString && !isComplete && (
-                  <span
-                    className="animate-blink ml-[2px] inline-block h-[1.1em] w-[2px] bg-iron-orange align-text-bottom"
-                    aria-hidden="true"
-                  />
-                )}
+                <BaseT3 className={className} variant={variant}>
+                  {content}
+                  {isActive && isString && !isComplete && (
+                    <span
+                      className="animate-blink ml-[2px] inline-block h-[1.1em] w-[2px] bg-iron-orange align-text-bottom"
+                      aria-hidden="true"
+                    />
+                  )}
+                </BaseT3>
               </p>
             )
           })}

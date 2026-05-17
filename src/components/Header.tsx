@@ -87,8 +87,8 @@ export function Header() {
   return createPortal(
     <>
       <HeaderStyles />
-      <header className="pointer-events-none fixed top-0 right-0 left-0 z-40 flex items-center justify-between px-8 py-4">
-        {/* Beaver mark */}
+
+      <header className="pointer-events-none fixed top-0 right-0 left-0 z-40 flex h-28 items-start justify-between bg-gradient-to-b from-cream via-cream to-transparent px-8 pt-4 xl:h-auto xl:items-center xl:py-4">
         <a
           href="/"
           onClick={(e) => {
@@ -101,11 +101,13 @@ export function Header() {
           <BeaverMark className="size-10" bgColor="#3c3127" bColor="#fff5e3" />
         </a>
 
-        {/* Nav */}
         <nav className="pointer-events-auto" aria-label="Main navigation">
           <ul className="flex list-none items-center gap-6 md:gap-8">
             {navItems.map(({ label, href, icon, onClick }) => (
-              <li key={label} className="group group-hover:text-beaver-dark">
+              <li
+                key={label}
+                className="group pt-3 group-hover:text-beaver-dark xl:pt-0"
+              >
                 <a
                   href={href}
                   onClick={onClick}

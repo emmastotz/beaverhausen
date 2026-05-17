@@ -14,7 +14,7 @@ export function AboutMe() {
   return (
     <ScrollJackTypewriter
       lines={PROFESSIONAL_LINES}
-      className="font-body text-[clamp(1.05rem,2.2vw,1.3rem)] leading-[1.8] tracking-[0.02em] text-beaver-dark antialiased"
+      className="leading-[1.8] text-beaver-dark"
     />
   )
 }

@@ -11,6 +11,7 @@ type Props = {
   windowsPerLine?: number
   charSpeed?: number
   persistLast?: boolean
+  renderText?: (displayed: string, lineIndex: number) => React.ReactNode
 }
 
 export function ScrollJackTypewriter({
@@ -20,6 +21,7 @@ export function ScrollJackTypewriter({
   windowsPerLine = 1,
   charSpeed = 18,
   persistLast = false,
+  renderText,
 }: Props) {
   const { containerRef, activeIndex, scrollHeight } = useScrollJack({
     totalLines: lines.length,
@@ -120,12 +122,15 @@ export function ScrollJackTypewriter({
             const isLast = i === lines.length - 1
             const isString = typeof line === 'string'
             const shouldShow = isActive || (persistLast && isLast && isPast)
-            const content = isActive && isString ? displayed : line
+            const content =
+              isActive && isString
+                ? (renderText ? renderText(displayed, i) : displayed)
+                : line
 
             return (
               <p
                 key={i}
-                className="absolute inset-x-0 px-8 transition-all duration-700 ease-out"
+                className="absolute inset-x-0 px-8 text-pretty transition-all duration-700 ease-out"
                 style={{
                   opacity: shouldShow ? 1 : 0,
                   transform: shouldShow

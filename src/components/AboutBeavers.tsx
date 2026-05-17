@@ -19,7 +19,8 @@ export function AboutBeavers() {
   return (
     <ScrollJackTypewriter
       lines={BEAVER_LINES}
-      className="font-display text-[clamp(1.05rem,2.2vw,1.3rem)] leading-[1.8] tracking-[0.01em] text-beaver-dark antialiased"
+      variant="display"
+      className="leading-[1.8] text-beaver-dark"
     />
   )
 }

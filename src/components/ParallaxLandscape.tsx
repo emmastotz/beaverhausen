@@ -27,7 +27,7 @@ export const ParallaxLandscape = () => {
     backgroundImage: `url(${url})`,
     backgroundRepeat: 'repeat-x',
     backgroundPosition: 'bottom',
-    backgroundSize: `auto calc(${backgroundSize} + 2px)`,
+    backgroundSize: `auto calc(${backgroundSize} + 3px)`,
     transform: `translateX(-${offset}px)`,
     width: `calc(100% + ${1671}px)`,
     left: 0,
@@ -45,7 +45,7 @@ export const ParallaxLandscape = () => {
       />
       <div
         className="absolute inset-0"
-        style={layerStyle(landscapeMidground, midgroundOffset, '16%')}
+        style={layerStyle(landscapeMidground, midgroundOffset, '17.5%')}
       />
       <div
         className="absolute inset-0"

@@ -41,7 +41,7 @@ export function StaticAbout() {
 
         <FadeIn>
           <Button variant="ghost" onClick={handleDownload}>
-            Download résumé
+            Download resume
           </Button>
         </FadeIn>
       </div>

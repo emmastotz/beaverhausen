@@ -13,6 +13,19 @@ const CLOSING_COPY: React.ReactNode[] = [
 ]
 
 export function About() {
+  const handleDownload = async () => {
+    const response = await fetch(
+      'https://beaverhausen-worker.beaverhausen.workers.dev/resume',
+    )
+    const blob = await response.blob()
+    const url = URL.createObjectURL(blob)
+    const a = document.createElement('a')
+    a.href = url
+    a.download = 'Emma-Stotz-Resume-2026.pdf'
+    a.click()
+    URL.revokeObjectURL(url)
+  }
+
   const { transitionTo } = useTransition()
 
   const [isAboutInView, setIsAboutInView] = useState(false)
@@ -73,11 +86,15 @@ export function About() {
 
         <div
           id="about-cta"
-          className="absolute bottom-1/5 left-1/2 -translate-x-1/2"
+          className="absolute top-4/5 left-1/2 -translate-x-1/2"
         >
-          <Button onClick={() => transitionTo('/portfolio')}>
-            Enter the lodge
-          </Button>
+          <div className="flex flex-col justify-center gap-4">
+            <Button onClick={handleDownload}>Download my resume</Button>
+
+            <Button variant="ghost" onClick={() => transitionTo('/portfolio')}>
+              Continue the journey
+            </Button>
+          </div>
         </div>
       </div>
     </SectionLayout>

@@ -1,4 +1,4 @@
-import { PortfolioParallax } from '../../components/PortfolioParallax'
+import { PortfolioParallax } from '../../components/portfolio/PortfolioParallax'
 import { DefaultLayout } from '../../layouts/DefaultLayout'
 
 export default function PortfolioPage() {

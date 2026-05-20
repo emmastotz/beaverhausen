@@ -1,10 +1,13 @@
+import { PortfolioParallax } from '../../components/PortfolioParallax'
 import { DefaultLayout } from '../../layouts/DefaultLayout'
 
 export default function PortfolioPage() {
   return (
     <>
       <DefaultLayout>
-        <main className="relative">Portfolio Page</main>
+        <main className="relative">
+          <PortfolioParallax />
+        </main>
       </DefaultLayout>
     </>
   )

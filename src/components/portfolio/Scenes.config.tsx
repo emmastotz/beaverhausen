@@ -36,7 +36,7 @@ export const SCENES: SceneConfig[] = [
     wordmark: <Wordmark className="mx-auto mb-4 w-2/3" />,
     title: 'Beaverhausen',
     description:
-      'Brand identity, design system, and portfolio site. Built from scratch.',
+      'Brand identity, design system, and a showcase of my selected works. Built from scratch.',
     role: 'Designer & Engineer',
     href: '/portfolio/beaverhausen',
     available: true,
@@ -53,7 +53,8 @@ export const SCENES: SceneConfig[] = [
     landmark: <FelledTreeLandmark />,
     wordmark: null,
     title: 'WhiteHawk',
-    description: 'Work in progress. Rebranding within ',
+    description:
+      'Design system, rebrand, and enterprise platforms for a cybersecurity firm. Built and designed throughout.',
     role: 'Designer & Engineer',
     href: '/portfolio/whitehawk',
     available: false,
@@ -70,7 +71,8 @@ export const SCENES: SceneConfig[] = [
     landmark: <BeaverLandmark />,
     wordmark: null,
     title: 'RiskWise',
-    description: 'Work in progress. Coming soon.',
+    description:
+      'Enterprise risk assessment platform. Leading the engineering team. Work in progress; coming soon.',
     role: 'Lead Engineer',
     href: '/portfolio/riskwise',
     available: false,

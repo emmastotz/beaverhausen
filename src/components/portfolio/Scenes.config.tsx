@@ -1,7 +1,9 @@
+import beaverScene from '../../assets/landscape/portfolio/beaver-landmark-scene.svg'
 import damScene from '../../assets/landscape/portfolio/dam-landmark-scene.svg'
 import felledTreeScene from '../../assets/landscape/portfolio/felled-tree-landmark-scene.svg'
 import { Wordmark } from '../brand/Wordmark'
 import { BeaverDamLandmark } from './BeaverDamLandmark'
+import { BeaverLandmark } from './BeaverLandmark'
 import { FelledTreeLandmark } from './FelledTreeLandmark'
 
 export interface HitArea {
@@ -10,13 +12,6 @@ export interface HitArea {
   width: string
   height: string
 }
-
-// export const DEFAULT_HIT_AREA: HitArea = {
-//   bottom: '92%',
-//   left:   '42%',
-//   width:  '16%',
-//   height: '30%',
-// }
 
 export interface SceneConfig {
   id: string
@@ -58,7 +53,7 @@ export const SCENES: SceneConfig[] = [
     landmark: <FelledTreeLandmark />,
     wordmark: null,
     title: 'WhiteHawk',
-    description: 'Coming soon.',
+    description: 'Work in progress. Rebranding within ',
     role: 'Designer & Engineer',
     href: '/portfolio/whitehawk',
     available: false,
@@ -66,6 +61,23 @@ export const SCENES: SceneConfig[] = [
       bottom: '2%',
       left: '15%',
       width: '22%',
+      height: '92%',
+    },
+  },
+  {
+    id: 'beaver',
+    scene: beaverScene,
+    landmark: <BeaverLandmark />,
+    wordmark: null,
+    title: 'RiskWise',
+    description: 'Work in progress. Coming soon.',
+    role: 'Lead Engineer',
+    href: '/portfolio/riskwise',
+    available: false,
+    hitArea: {
+      bottom: '20%',
+      left: '65%',
+      width: '21%',
       height: '92%',
     },
   },

@@ -43,7 +43,7 @@ export function PortfolioParallax() {
             backgroundImage: `url(${cloudBg})`,
             backgroundSize: `${RENDERED_WIDTH}px auto`,
             width: panoramaWidth,
-            transform: `translateX(-${offset * 0.4}px)`,
+            transform: `translateX(-${offset * 0.2}px)`,
           }}
         />
 

@@ -417,7 +417,7 @@ export function BeaverhausenCaseStudy() {
       <img
         src={lodgeBlueprint}
         alt=""
-        className="pointer-events-none absolute top-[10%] left-[15%] hidden w-80 -rotate-4 shadow-sm lg:block"
+        className="pointer-events-none absolute top-[10%] left-[5%] hidden w-80 -rotate-4 shadow-lg lg:block xl:left-[10%] 2xl:left-[20%]"
       />
 
       <Flipbook chapters={CHAPTERS} wordmark={<Wordmark bColor="#fff5e3" />}>

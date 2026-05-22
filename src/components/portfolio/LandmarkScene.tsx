@@ -79,6 +79,11 @@ export function LandmarkScene({ scene }: Props) {
         } `}
         style={{ left, width }}
       >
+        {scene.available ? (
+          ''
+        ) : (
+          <BaseT6 className="text-iron-orange uppercase">Coming soon</BaseT6>
+        )}
         {scene.wordmark ? (
           scene.wordmark
         ) : (
@@ -87,7 +92,7 @@ export function LandmarkScene({ scene }: Props) {
           </p>
         )}
 
-        <p className="mx-auto mb-2 max-w-sm">
+        <p className="mx-auto mb-2 max-w-sm text-pretty">
           <BaseT5 className="leading-relaxed tracking-[0.12em] text-beaver">
             {scene.description}
           </BaseT5>

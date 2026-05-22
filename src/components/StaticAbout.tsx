@@ -7,7 +7,7 @@ import { BaseT4 } from './primitives/BaseT4'
 
 const BEAVER_PARAGRAPHS = [
   `Beavers are one of the only animals besides humans that fundamentally reshape their environment.`,
-  `They are nature's engineers: tireless, systems-minded, and constitutionally incapable of leaving something half-built. They transform entire environments not through brute force but through accumulated craft; one precise cut at a time, one carefully placed log, one structure that holds against the current. They are also, by most accounts, a little feral. They work in the dark, they bite through things most animals would walk around, and they take a kind of unreasonable pride in the structural integrity of what they build. Their teeth are orange because the enamel is reinforced with iron, and self-sharp as they work. That detail feels important.`,
+  `They are nature's engineers: tireless, systems-minded, and constitutionally incapable of leaving something half-built. They transform entire environments not through brute force but through accumulated craft; one precise cut at a time, one carefully placed log, one structure that holds against the current. They are also, by most accounts, a little feral. They work in the dark, they bite through things most animals would walk around, and they take a kind of unreasonable pride in the structural integrity of what they build. Their teeth are orange because their enamel is reinforced with iron, self-sharpening as they work. That detail feels important.`,
   `Beavers build things that outlast them. That's the kind of work I'm interested in doing.`,
 ]
 

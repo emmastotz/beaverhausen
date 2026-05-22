@@ -1,4 +1,8 @@
+import beaverGnawing from '../../../assets/portfolio/beaver-gnawing.svg'
+import damLandmarkAll from '../../../assets/portfolio/dam-landmark-all.svg'
 import lodgeBlueprint from '../../../assets/portfolio/lodge-blueprint.svg'
+import logoV1 from '../../../assets/portfolio/logo-v1.svg'
+import logoV2 from '../../../assets/portfolio/logo-v2.svg'
 import { Wordmark } from '../../brand/Wordmark'
 import { Flipbook, type Chapter } from '../../gsap/Flipbook'
 import { BaseT4 } from '../../primitives/BaseT4'
@@ -109,11 +113,19 @@ function Content({ id }: { id: string }) {
             </BaseT4>
           </p>
           <div className="my-8 grid gap-4 sm:grid-cols-2">
-            <div className="flex aspect-square items-center justify-center rounded-md bg-beaver/10">
-              <span className="text-xs text-beaver/40">Sketch placeholder</span>
+            <div className="flex aspect-square items-center justify-center rounded-md">
+              <img
+                src={logoV1}
+                alt="early version logo"
+                className="pointer-events-none size-full"
+              />
             </div>
-            <div className="flex aspect-square items-center justify-center rounded-md bg-beaver/10">
-              <span className="text-xs text-beaver/40">Sketch placeholder</span>
+            <div className="flex aspect-square items-center justify-center rounded-lg bg-beaver-dark p-4">
+              <img
+                src={logoV2}
+                alt="mid version logo"
+                className="pointer-events-none size-full"
+              />
             </div>
           </div>
           <p>
@@ -251,11 +263,12 @@ function Content({ id }: { id: string }) {
             </BaseT4>
           </p>
 
-          <div className="my-8 flex aspect-video items-center justify-center rounded-md bg-beaver/10">
-            <span className="text-xs text-beaver/40">
-              Screenshot placeholder
-              {/* Parallax landscape mid-scroll or a code snippet? */}
-            </span>
+          <div className="my-8 flex aspect-video items-center justify-center rounded-md border border-beaver/20">
+            <img
+              src={damLandmarkAll}
+              alt="portfolio parallax"
+              className="pointer-events-none size-full object-cover"
+            />
           </div>
           <p>
             <BaseT4 className="text-beaver">
@@ -285,12 +298,12 @@ function Content({ id }: { id: string }) {
             </p>
           </div>
 
-          <div className="my-8 flex aspect-video items-center justify-center rounded-md bg-beaver/10">
+          {/* <div className="my-8 flex aspect-video items-center justify-center rounded-md bg-beaver/10">
             <span className="text-xs text-beaver/40">
               Screenshot placeholder
-              {/* Water flood transition (as a gif) or a code snippet? */}
+              Water flood transition (as a gif) or a code snippet?
             </span>
-          </div>
+          </div> */}
 
           <p>
             <BaseT4 className="text-beaver">
@@ -418,6 +431,12 @@ export function BeaverhausenCaseStudy() {
         src={lodgeBlueprint}
         alt=""
         className="pointer-events-none absolute top-[10%] left-[5%] hidden w-80 -rotate-4 shadow-lg lg:block xl:left-[10%] 2xl:left-[20%]"
+      />
+
+      <img
+        src={beaverGnawing}
+        alt=""
+        className="pointer-events-none absolute right-0 bottom-[5%] hidden w-80 lg:block xl:right-[5%] 2xl:right-[12%]"
       />
 
       <Flipbook chapters={CHAPTERS} wordmark={<Wordmark bColor="#fff5e3" />}>

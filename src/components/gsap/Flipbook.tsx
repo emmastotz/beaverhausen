@@ -1,4 +1,4 @@
-import { useLayoutEffect, useRef, useState } from 'react'
+import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 
 import { gsap, useGSAP } from '../../deps/gsap'
 import { BaseT1 } from '../primitives/BaseT1'
@@ -35,11 +35,18 @@ function PageChrome({
   chapter: Chapter
   children: React.ReactNode
 }) {
+  const scrollRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    scrollRef.current?.scrollTo(0, 0)
+  }, [chapter.id])
+
   return (
     <div className="relative size-full overflow-hidden rounded-r-lg bg-[#fdf6e3]">
       <div className="pointer-events-none absolute top-0 bottom-0 left-5 w-px bg-iron-orange/30 sm:left-8" />
 
       <div
+        ref={scrollRef}
         className="relative z-10 h-full overflow-y-auto px-9 py-10 sm:px-12"
         style={{
           backgroundImage:

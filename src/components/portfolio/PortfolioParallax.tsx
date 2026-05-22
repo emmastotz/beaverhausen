@@ -36,7 +36,6 @@ export function PortfolioParallax() {
         ref={containerRef}
         className="sticky top-0 h-screen w-full overflow-hidden"
       >
-        {/* ── Cloud layer (parallax slower) ──────────────────────────────────── */}
         <div
           className="absolute inset-0 bg-bottom bg-repeat-x"
           style={{
@@ -47,7 +46,6 @@ export function PortfolioParallax() {
           }}
         />
 
-        {/* ── Scene backgrounds ──────────────────────────────────────────────── */}
         <div
           className="absolute inset-0"
           style={{
@@ -70,7 +68,6 @@ export function PortfolioParallax() {
           ))}
         </div>
 
-        {/* ── Landmarks ──────────────────────────────────────────────────────── */}
         <div
           className="absolute bottom-0"
           style={{

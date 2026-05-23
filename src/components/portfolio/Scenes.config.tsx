@@ -72,7 +72,7 @@ export const SCENES: SceneConfig[] = [
     wordmark: null,
     title: 'RiskWise',
     description:
-      'Enterprise risk assessment platform for an Australian cybersecurity firm. Engineering lead. Work in progress.',
+      'Enterprise risk assessment platform for an Australian cybersecurity firm.',
     role: 'Lead Engineer',
     href: '/portfolio/riskwise',
     available: false,

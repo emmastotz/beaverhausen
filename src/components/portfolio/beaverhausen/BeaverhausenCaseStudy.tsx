@@ -3,6 +3,7 @@ import damLandmarkAll from '../../../assets/portfolio/dam-landmark-all.svg'
 import lodgeBlueprint from '../../../assets/portfolio/lodge-blueprint.svg'
 import logoV1 from '../../../assets/portfolio/logo-v1.svg'
 import logoV2 from '../../../assets/portfolio/logo-v2.svg'
+import { BeaverMark } from '../../brand/BeaverMark'
 import { Wordmark } from '../../brand/Wordmark'
 import { Flipbook, type Chapter } from '../../gsap/Flipbook'
 import { BaseT4 } from '../../primitives/BaseT4'
@@ -143,7 +144,9 @@ function Content({ id }: { id: string }) {
               intention.
             </BaseT4>
           </p>
-
+          <div className="flex items-center justify-center">
+            <BeaverMark className="max-w-3xs" />
+          </div>
           <p>
             <BaseT4 className="text-beaver">
               The beaver silhouette is embedded within the B, completing the

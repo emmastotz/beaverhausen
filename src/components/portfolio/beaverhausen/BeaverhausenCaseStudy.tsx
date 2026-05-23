@@ -113,14 +113,14 @@ function Content({ id }: { id: string }) {
             </BaseT4>
           </p>
           <div className="my-8 grid gap-4 sm:grid-cols-2">
-            <div className="flex aspect-square items-center justify-center rounded-md">
+            <div className="flex aspect-square items-center justify-center rounded-md border border-beaver/20 bg-cream p-4 shadow-sm">
               <img
                 src={logoV1}
                 alt="early version logo"
                 className="pointer-events-none size-full"
               />
             </div>
-            <div className="flex aspect-square items-center justify-center rounded-lg bg-beaver-dark p-4">
+            <div className="flex aspect-square items-center justify-center rounded-lg bg-beaver-dark p-4 shadow-sm">
               <img
                 src={logoV2}
                 alt="mid version logo"
@@ -184,7 +184,7 @@ function Content({ id }: { id: string }) {
             ].map(({ name, bg }) => (
               <div key={name}>
                 <div
-                  className={`${bg} aspect-square rounded-md ${name === 'Cream' ? 'ring-1 ring-beaver/20' : ''}`}
+                  className={`${bg} aspect-square rounded-md shadow-sm ${name === 'Cream' ? 'ring-1 ring-beaver/20' : ''}`}
                 />
                 <p>
                   <BaseT6 className="text-iron-orange uppercase">{name}</BaseT6>
@@ -264,7 +264,7 @@ function Content({ id }: { id: string }) {
             </BaseT4>
           </p>
 
-          <div className="my-8 flex aspect-video items-center justify-center overflow-hidden rounded-md border border-beaver/20 bg-cream">
+          <div className="my-8 flex aspect-video items-center justify-center overflow-hidden rounded-md border border-beaver/20 bg-cream shadow-sm">
             <img
               src={damLandmarkAll}
               alt="portfolio parallax"
@@ -384,8 +384,8 @@ function Content({ id }: { id: string }) {
                 className="tracking-normal text-beaver italic"
               >
                 <strong className="tracking-wide">Field note:</strong> the gap
-                between a thing that works and a thing that is done is, it turns
-                out, quite wide.
+                between a thing that works and a thing that is done, it turns
+                out, is quite wide.
               </BaseT5>
             </p>
           </div>

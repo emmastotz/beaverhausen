@@ -264,7 +264,7 @@ function Content({ id }: { id: string }) {
             </BaseT4>
           </p>
 
-          <div className="my-8 flex aspect-video items-center justify-center rounded-md border border-beaver/20">
+          <div className="my-8 flex aspect-video items-center justify-center overflow-hidden rounded-md border border-beaver/20 bg-cream">
             <img
               src={damLandmarkAll}
               alt="portfolio parallax"

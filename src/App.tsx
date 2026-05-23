@@ -11,6 +11,7 @@ import AboutPage from './pages/about'
 import LandingPage from './pages/index'
 import PortfolioPage from './pages/portfolio'
 import BeaverhausenPortfolioPage from './pages/portfolio/beaverhausen'
+import WhiteHawkPortfolioPage from './pages/portfolio/whitehawk'
 
 function RootLayout() {
   const { state } = useTransition()
@@ -38,6 +39,10 @@ const router = createBrowserRouter([
       {
         path: '/portfolio/beaverhausen',
         element: <BeaverhausenPortfolioPage />,
+      },
+      {
+        path: '/portfolio/whitehawk',
+        element: <WhiteHawkPortfolioPage />,
       },
     ],
   },

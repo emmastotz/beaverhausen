@@ -59,7 +59,6 @@ export function LandmarkScene({ scene }: Props) {
     >
       {scene.landmark}
 
-      {/* Invisible hit area */}
       <div
         className="absolute cursor-pointer"
         style={{ bottom, left, width, height }}
@@ -72,7 +71,6 @@ export function LandmarkScene({ scene }: Props) {
         onKeyDown={handleKeyDown}
       />
 
-      {/* Scene info */}
       <div
         className={`pointer-events-auto absolute bottom-full mb-60 text-center transition-all duration-300 ease-out ${
           hovered ? 'translate-y-0 opacity-100' : 'translate-y-2 opacity-0'
@@ -82,7 +80,9 @@ export function LandmarkScene({ scene }: Props) {
         {scene.available ? (
           ''
         ) : (
-          <BaseT6 className="text-iron-orange uppercase">Coming soon</BaseT6>
+          <BaseT6 className="text-iron-orange uppercase">
+            Work in progress
+          </BaseT6>
         )}
         {scene.wordmark ? (
           scene.wordmark

@@ -17,9 +17,9 @@ export function TypeSpecimen() {
         </div>
 
         {/* Fonts */}
-        <div className="relative ml-4 flex flex-col gap-6 sm:ml-12">
+        <div className="relative ml-4 flex min-w-0 flex-col gap-6 sm:ml-12">
           {/* Magic Retro */}
-          <div className="flex flex-col">
+          <div className="flex flex-col overflow-hidden">
             <BaseT6 className="text-beaver uppercase">Magic Retro</BaseT6>
             <BaseT1 className="truncate leading-snug text-beaver-dark">
               Beaverhausen

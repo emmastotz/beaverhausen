@@ -38,13 +38,11 @@ const CHAPTERS: Chapter[] = [
   { id: 'study', tab: 'V', title: 'Ongoing Study', subtitle: 'Reflections' },
 ]
 
-// ─── Content ──────────────────────────────────────────────────────────────────
-
 function Content({ id }: { id: string }) {
   switch (id) {
     case 'habitat':
       return (
-        <div className="space-y-6">
+        <div className="flex flex-col space-y-6">
           <p>
             <BaseT4 className="text-beaver">
               Every portfolio is, at its core, a hypothesis. Followed quickly by
@@ -68,7 +66,7 @@ function Content({ id }: { id: string }) {
               same.
             </BaseT4>
           </p>
-          <div className="my-8 border-l-2 border-iron-orange pl-4">
+          <div className="mt-2 mb-8 border-l-2 border-iron-orange pl-4">
             <p>
               <BaseT5
                 variant="display"
@@ -104,7 +102,7 @@ function Content({ id }: { id: string }) {
 
     case 'sketches':
       return (
-        <div className="space-y-6">
+        <div className="flex flex-col space-y-6">
           <p>
             <BaseT4 className="text-beaver">
               The beaver was the <em>only</em> choice for the logo. Refining
@@ -112,7 +110,7 @@ function Content({ id }: { id: string }) {
               was where the real work began.
             </BaseT4>
           </p>
-          <div className="my-8 grid gap-4 sm:grid-cols-2">
+          <div className="mt-2 mb-8 grid gap-4 sm:grid-cols-2">
             <div className="flex aspect-square items-center justify-center rounded-md border border-beaver/20 bg-cream p-4 shadow-sm">
               <img
                 src={logoV1}
@@ -164,7 +162,7 @@ function Content({ id }: { id: string }) {
 
     case 'taxonomy':
       return (
-        <div className="space-y-6">
+        <div className="flex flex-col space-y-6">
           <p>
             <BaseT4 className="text-beaver">
               A design system for yourself is a strange thing to build. It is,
@@ -175,7 +173,7 @@ function Content({ id }: { id: string }) {
               taxonomy writes itself.
             </BaseT4>
           </p>
-          <div className="my-8 grid grid-cols-2 gap-4 sm:grid-cols-4">
+          <div className="mt-2 mb-8 grid grid-cols-2 gap-4 sm:grid-cols-4">
             {[
               { name: 'Beaver', bg: 'bg-beaver' },
               { name: 'Beaver Dark', bg: 'bg-beaver-dark' },
@@ -202,7 +200,7 @@ function Content({ id }: { id: string }) {
             </BaseT4>
           </p>
 
-          <div className="my-8 border-l-2 border-iron-orange pl-4">
+          <div className="mt-2 mb-8 border-l-2 border-iron-orange pl-4">
             <p>
               <BaseT5
                 variant="display"
@@ -251,7 +249,7 @@ function Content({ id }: { id: string }) {
 
     case 'construction':
       return (
-        <div className="space-y-6">
+        <div className="flex flex-col space-y-6">
           <p>
             <BaseT4 className="text-beaver">
               The stack was chosen for nostalgia as much as longevity. Working
@@ -264,7 +262,7 @@ function Content({ id }: { id: string }) {
             </BaseT4>
           </p>
 
-          <div className="my-8 flex aspect-video items-center justify-center overflow-hidden rounded-md border border-beaver/20 bg-cream shadow-sm">
+          <div className="mt-2 mb-8 flex aspect-video items-center justify-center overflow-hidden rounded-md border border-beaver/20 bg-cream shadow-sm">
             <img
               src={damLandmarkAll}
               alt="portfolio parallax"
@@ -286,7 +284,7 @@ function Content({ id }: { id: string }) {
               harder to debug.
             </BaseT4>
           </p>
-          <div className="my-8 border-l-2 border-iron-orange pl-4">
+          <div className="mt-2 mb-8 border-l-2 border-iron-orange pl-4">
             <p>
               <BaseT5
                 variant="display"
@@ -299,7 +297,7 @@ function Content({ id }: { id: string }) {
             </p>
           </div>
 
-          {/* <div className="my-8 flex aspect-video items-center justify-center rounded-md bg-beaver/10">
+          {/* <div className="mt-2 mb-8 flex aspect-video items-center justify-center rounded-md bg-beaver/10">
             <span className="text-xs text-beaver/40">
               Screenshot placeholder
               Water flood transition (as a gif) or a code snippet?
@@ -316,7 +314,7 @@ function Content({ id }: { id: string }) {
               was the point.
             </BaseT4>
           </p>
-          <div className="my-8 border-l-2 border-iron-orange pl-4">
+          <div className="mt-2 mb-8 border-l-2 border-iron-orange pl-4">
             <p>
               <BaseT5
                 variant="display"
@@ -359,7 +357,7 @@ function Content({ id }: { id: string }) {
 
     case 'study':
       return (
-        <div className="space-y-6">
+        <div className="flex flex-col space-y-6">
           <p>
             <BaseT4 className="text-beaver">
               A portfolio is never truly finished. It is a living document of
@@ -377,7 +375,7 @@ function Content({ id }: { id: string }) {
               Tests.
             </BaseT4>
           </p>
-          <div className="my-8 border-l-2 border-iron-orange pl-4">
+          <div className="mt-2 mb-8 border-l-2 border-iron-orange pl-4">
             <p>
               <BaseT5
                 variant="display"

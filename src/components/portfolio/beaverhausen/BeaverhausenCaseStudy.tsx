@@ -373,8 +373,7 @@ function Content({ id }: { id: string }) {
               portfolio pages. Deeper accessibility for the parallax, a
               visual-heavy interaction that currently asks too much of keyboard
               and screen reader users. Dark mode. An HTML semantics audit.
-              Tests. The gap between a thing that works and a thing that is done
-              is, it turns out, quite wide.
+              Tests.
             </BaseT4>
           </p>
           <div className="my-8 border-l-2 border-iron-orange pl-4">

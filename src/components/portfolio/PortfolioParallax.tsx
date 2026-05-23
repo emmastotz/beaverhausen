@@ -13,9 +13,16 @@ export const PORTFOLIO_SCROLL_HEIGHT = SCENES.length * SCROLL_HEIGHT
 export function PortfolioParallax() {
   const containerRef = useRef<HTMLDivElement>(null)
   const [offset, setOffset] = useState(0)
+  const [viewportWidth, setViewportWidth] = useState(window.innerWidth)
 
   useEffect(() => {
-    const totalPanorama = RENDERED_WIDTH * SCENES.length - window.innerWidth
+    const onResize = () => setViewportWidth(window.innerWidth)
+    window.addEventListener('resize', onResize)
+    return () => window.removeEventListener('resize', onResize)
+  }, [])
+
+  useEffect(() => {
+    const totalPanorama = RENDERED_WIDTH * SCENES.length - viewportWidth
 
     const onScroll = () => {
       const scrolled = window.scrollY
@@ -25,10 +32,11 @@ export function PortfolioParallax() {
     }
 
     window.addEventListener('scroll', onScroll, { passive: true })
+    onScroll()
     return () => window.removeEventListener('scroll', onScroll)
-  }, [])
+  }, [viewportWidth])
 
-  const panoramaWidth = RENDERED_WIDTH * SCENES.length + window.innerWidth
+  const panoramaWidth = RENDERED_WIDTH * SCENES.length + viewportWidth
 
   return (
     <div style={{ height: PORTFOLIO_SCROLL_HEIGHT }}>

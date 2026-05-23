@@ -132,16 +132,17 @@ function Content({ id }: { id: string }) {
             <BaseT4 className="text-beaver">
               The first sketches were too simplistic: a line art beaver, clean
               and friendly, that explained the joke instead of landing it.
+              Predictably, I overcomplicated it. Too much detail in the beaver,
+              too much trying to say everything at once.
             </BaseT4>
           </p>
           <p>
             <BaseT4 className="text-beaver">
-              Predictably, I overcomplicated it. Too much detail in the beaver,
-              too much trying to say everything at once. The right direction
-              came from reduction; pulling back until only the essential gesture
-              remained. Not a highly detailed beaver, but a silhouette with just
-              enough precision to disappear into something larger. The mark of
-              something that builds with intention.
+              The right direction came from reduction; pulling back until only
+              the essential gesture remained. Not a highly detailed beaver, but
+              a silhouette with just enough precision to disappear into
+              something larger. The mark of something that builds with
+              intention.
             </BaseT4>
           </p>
 

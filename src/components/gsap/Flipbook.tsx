@@ -1,8 +1,8 @@
 import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 
-import { gsap, useGSAP } from '@/deps/gsap'
 import { BaseT1 } from '@/components/primitives/BaseT1'
 import { BaseT6 } from '@/components/primitives/BaseT6'
+import { gsap, useGSAP } from '@/deps/gsap'
 
 export interface Chapter {
   id: string
@@ -145,9 +145,9 @@ export function Flipbook({ chapters, children, wordmark }: Props) {
   }
 
   return (
-    <div className="flex min-h-screen items-center justify-center pt-28 pr-14 pb-14 pl-4">
+    <div className="flex min-h-screen items-center justify-center px-4 pt-20 pb-14 sm:pt-24 sm:pr-14">
       <div className="flex w-full justify-center">
-        <div className="z-10 flex w-12 flex-shrink-0 flex-col items-center justify-between gap-3 bg-beaver-dark py-8">
+        <div className="z-10 flex w-8 flex-shrink-0 flex-col items-center justify-between gap-3 bg-beaver-dark py-8 sm:w-12">
           {Array.from({ length: 12 }).map((_, i) => (
             <div
               key={i}
@@ -164,15 +164,15 @@ export function Flipbook({ chapters, children, wordmark }: Props) {
             transformStyle: 'preserve-3d',
           }}
         >
-          <div className="absolute top-8 -right-10 z-20 flex flex-col gap-1">
+          <div className="absolute -bottom-10 left-2 z-20 flex w-[86%] justify-between gap-1 sm:top-8 sm:-right-10 sm:bottom-0 sm:left-full sm:w-full sm:flex-col sm:justify-start">
             {chapters.map((ch, i) => (
               <button
                 key={ch.id}
                 onClick={() => goTo(i)}
-                className={`transition-color flex h-10 w-10 items-center justify-center rounded-r-md font-body text-xs tracking-widest shadow-sm duration-75 ${
+                className={`transition-color flex size-10 items-center justify-center rounded-b-md font-body text-xs tracking-widest shadow-sm duration-75 sm:rounded-r-md sm:rounded-bl-none ${
                   !showCover && i === (pending ?? current)
-                    ? 'border border-beaver/20 bg-cream text-beaver-dark'
-                    : 'bg-beaver/60 text-cream/60 hover:bg-beaver hover:text-cream'
+                    ? 'border border-beaver/20 bg-beaver-dark text-cream'
+                    : 'bg-beaver text-cream hover:bg-beaver hover:text-cream lg:bg-beaver/60 lg:text-cream/60'
                 } `}
                 aria-label={ch.title}
               >

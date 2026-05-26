@@ -4,6 +4,51 @@ import { useScrollJack } from '../hooks/useScrollJack'
 import { useTypewriter } from '../hooks/useTypewriter'
 import { BaseT3 } from './primitives/BaseT3'
 
+type LineProps = { variant?: 'display' | 'body'; className?: string }
+
+export type ScrollSection = {
+  lines: string[]
+  variant?: 'display' | 'body'
+  className?: string
+  renderText?: (displayed: string, localIndex: number) => React.ReactNode
+}
+
+export function composeScrollSections(sections: ScrollSection[]): {
+  lines: string[]
+  sectionOffsets: number[]
+  renderText: (displayed: string, globalIndex: number) => React.ReactNode
+  getLineProps: (globalIndex: number) => LineProps
+} {
+  const allLines: string[] = []
+  const offsets: number[] = []
+
+  for (const section of sections) {
+    offsets.push(allLines.length)
+    allLines.push(...section.lines)
+  }
+
+  function resolve(globalIndex: number) {
+    const s = offsets.findLastIndex((o) => globalIndex >= o)
+    return { section: sections[s], localIndex: globalIndex - offsets[s] }
+  }
+
+  return {
+    lines: allLines,
+    sectionOffsets: offsets,
+    renderText(displayed, globalIndex) {
+      const { section, localIndex } = resolve(globalIndex)
+      return section.renderText ? section.renderText(displayed, localIndex) : displayed
+    },
+    getLineProps(globalIndex) {
+      const { section } = resolve(globalIndex)
+      return {
+        ...(section.variant !== undefined && { variant: section.variant }),
+        ...(section.className !== undefined && { className: section.className }),
+      }
+    },
+  }
+}
+
 type Props = {
   lines: React.ReactNode[]
   className?: string
@@ -12,6 +57,7 @@ type Props = {
   charSpeed?: number
   persistLast?: boolean
   renderText?: (displayed: string, lineIndex: number) => React.ReactNode
+  getLineProps?: (lineIndex: number) => LineProps
 }
 
 export function ScrollJackTypewriter({
@@ -22,6 +68,7 @@ export function ScrollJackTypewriter({
   charSpeed = 18,
   persistLast = false,
   renderText,
+  getLineProps,
 }: Props) {
   const { containerRef, pinnedRef, activeIndex } = useScrollJack({
     totalLines: lines.length,
@@ -63,6 +110,10 @@ export function ScrollJackTypewriter({
                   : displayed
                 : line
 
+            const perLine = getLineProps ? getLineProps(i) : {}
+            const lineVariant = perLine.variant ?? variant
+            const lineClassName = perLine.className ?? className
+
             return (
               <p
                 key={i}
@@ -78,7 +129,7 @@ export function ScrollJackTypewriter({
                   willChange: 'opacity, transform',
                 }}
               >
-                <BaseT3 className={className} variant={variant}>
+                <BaseT3 className={lineClassName} variant={lineVariant}>
                   {content}
                   {isActive && isString && !isComplete && (
                     <span

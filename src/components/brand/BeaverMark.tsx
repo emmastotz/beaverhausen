@@ -7,10 +7,10 @@ type Props = {
 }
 
 export function BeaverMark({
-  bColor = '#3c3127',
+  bColor = '#fff5e3',
   beaverColor = '#78614d',
   borderColor = '#b96e16',
-  bgColor = '#fff5e3',
+  bgColor = '#3c3127',
   className,
 }: Props) {
   return (

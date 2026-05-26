@@ -10,7 +10,7 @@ export function DefaultLayout({
   grid = true,
 }: Props) {
   return (
-    <div className="relative min-h-screen bg-cream">
+    <div className="relative bg-cream">
       {grid && (
         <div
           className="pointer-events-none fixed top-16 right-0 bottom-0 left-0"

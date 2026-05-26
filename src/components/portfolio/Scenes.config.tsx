@@ -1,10 +1,10 @@
-import beaverScene from '../../assets/landscape/portfolio/beaver-landmark-scene.svg'
-import damScene from '../../assets/landscape/portfolio/dam-landmark-scene.svg'
-import felledTreeScene from '../../assets/landscape/portfolio/felled-tree-landmark-scene.svg'
-import { Wordmark } from '../brand/Wordmark'
-import { BeaverDamLandmark } from './BeaverDamLandmark'
-import { BeaverLandmark } from './BeaverLandmark'
-import { FelledTreeLandmark } from './FelledTreeLandmark'
+import beaverScene from '@/assets/landscape/portfolio/beaver-landmark-scene.svg'
+import damScene from '@/assets/landscape/portfolio/dam-landmark-scene.svg'
+import felledTreeScene from '@/assets/landscape/portfolio/felled-tree-landmark-scene.svg'
+import { Wordmark } from '@/components/brand/Wordmark'
+import { BeaverDamLandmark } from '@/components/portfolio/BeaverDamLandmark'
+import { BeaverLandmark } from '@/components/portfolio/BeaverLandmark'
+import { FelledTreeLandmark } from '@/components/portfolio/FelledTreeLandmark'
 
 export interface HitArea {
   bottom: string

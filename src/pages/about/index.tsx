@@ -1,5 +1,5 @@
-import { StaticAbout } from '../../components/StaticAbout'
-import { DefaultLayout } from '../../layouts/DefaultLayout'
+import { StaticAbout } from '@/components/StaticAbout'
+import { DefaultLayout } from '@/layouts/DefaultLayout'
 
 export default function AboutPage() {
   return (

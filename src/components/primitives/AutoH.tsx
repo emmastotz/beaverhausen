@@ -2,7 +2,7 @@ import {
   useHeadingLevel,
   type HeadingLevel,
   HEADING_TAGS,
-} from '../../hooks/useHeadingLevel'
+} from '@/hooks/useHeadingLevel'
 
 type Props = {
   level?: HeadingLevel

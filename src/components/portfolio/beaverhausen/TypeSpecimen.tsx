@@ -1,6 +1,6 @@
-import { BaseT1 } from '../../primitives/BaseT1'
-import { BaseT5 } from '../../primitives/BaseT5'
-import { BaseT6 } from '../../primitives/BaseT6'
+import { BaseT1 } from '@/components/primitives/BaseT1'
+import { BaseT5 } from '@/components/primitives/BaseT5'
+import { BaseT6 } from '@/components/primitives/BaseT6'
 
 export function TypeSpecimen() {
   return (

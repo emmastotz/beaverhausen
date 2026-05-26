@@ -1,8 +1,8 @@
 import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 
-import { gsap, useGSAP } from '../../deps/gsap'
-import { BaseT1 } from '../primitives/BaseT1'
-import { BaseT6 } from '../primitives/BaseT6'
+import { gsap, useGSAP } from '@/deps/gsap'
+import { BaseT1 } from '@/components/primitives/BaseT1'
+import { BaseT6 } from '@/components/primitives/BaseT6'
 
 export interface Chapter {
   id: string

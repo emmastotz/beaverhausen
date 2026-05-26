@@ -1,11 +1,11 @@
 import { useState } from 'react'
 
-import type { SceneConfig } from './Scenes.config'
+import type { SceneConfig } from '@/components/portfolio/Scenes.config'
 
-import { BaseT1 } from '../primitives/BaseT1'
-import { BaseT5 } from '../primitives/BaseT5'
-import { BaseT6 } from '../primitives/BaseT6'
-import { useTransition } from '../transition/TransitionContext'
+import { BaseT1 } from '@/components/primitives/BaseT1'
+import { BaseT5 } from '@/components/primitives/BaseT5'
+import { BaseT6 } from '@/components/primitives/BaseT6'
+import { useTransition } from '@/components/transition/TransitionContext'
 
 interface Props {
   scene: SceneConfig

@@ -1,6 +1,6 @@
-import { Flipbook, type Chapter } from '../../gsap/Flipbook'
-import { BaseT4 } from '../../primitives/BaseT4'
-import { BaseT5 } from '../../primitives/BaseT5'
+import { Flipbook, type Chapter } from '@/components/gsap/Flipbook'
+import { BaseT4 } from '@/components/primitives/BaseT4'
+import { BaseT5 } from '@/components/primitives/BaseT5'
 
 const CHAPTERS: Chapter[] = [
   {

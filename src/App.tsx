@@ -1,17 +1,17 @@
 import { createBrowserRouter, RouterProvider, Outlet } from 'react-router'
 
-import { Header } from './components/Header'
-import { ScrollToTop } from './components/ScrollToTop'
+import { Header } from '@/components/Header'
+import { ScrollToTop } from '@/components/ScrollToTop'
 import {
   useTransition,
   TransitionProvider,
-} from './components/transition/TransitionContext'
-import { TransitionOverlay } from './components/transition/TransitionOverlay'
-import AboutPage from './pages/about'
-import LandingPage from './pages/index'
-import PortfolioPage from './pages/portfolio'
-import BeaverhausenPortfolioPage from './pages/portfolio/beaverhausen'
-import WhiteHawkPortfolioPage from './pages/portfolio/whitehawk'
+} from '@/components/transition/TransitionContext'
+import { TransitionOverlay } from '@/components/transition/TransitionOverlay'
+import AboutPage from '@/pages/about'
+import LandingPage from '@/pages/index'
+import PortfolioPage from '@/pages/portfolio'
+import BeaverhausenPortfolioPage from '@/pages/portfolio/beaverhausen'
+import WhiteHawkPortfolioPage from '@/pages/portfolio/whitehawk'
 
 function RootLayout() {
   const { state } = useTransition()

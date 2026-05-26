@@ -1,5 +1,5 @@
-import { useTypewriter } from '../hooks/useTypewriter'
-import { BaseT3 } from './primitives/BaseT3'
+import { useTypewriter } from '@/hooks/useTypewriter'
+import { BaseT3 } from '@/components/primitives/BaseT3'
 
 type Props = {
   text: string

@@ -4,7 +4,7 @@ import {
   HeadingLevelProvider,
   type HeadingLevel,
   isHeadingLevel,
-} from '../../hooks/useHeadingLevel'
+} from '@/hooks/useHeadingLevel'
 
 interface Props {
   level?: HeadingLevel

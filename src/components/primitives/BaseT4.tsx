@@ -1,5 +1,5 @@
-import { BodyT3 } from './BodyT3'
-import { DisplayT3 } from './DisplayT3'
+import { BodyT3 } from '@/components/primitives/BodyT3'
+import { DisplayT3 } from '@/components/primitives/DisplayT3'
 
 type Variant = 'display' | 'body'
 

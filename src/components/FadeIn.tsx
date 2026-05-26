@@ -1,4 +1,4 @@
-import { useFadeIn } from '../hooks/useFadeIn'
+import { useFadeIn } from '@/hooks/useFadeIn'
 
 type Props = {
   children: React.ReactNode

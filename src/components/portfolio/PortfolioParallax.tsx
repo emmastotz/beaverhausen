@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from 'react'
 
-import cloudBg from '../../assets/landscape/portfolio/portfolio-cloud-background.svg'
-import { LandmarkScene } from './LandmarkScene'
-import { SCENES } from './Scenes.config'
+import cloudBg from '@/assets/landscape/portfolio/portfolio-cloud-background.svg'
+import { LandmarkScene } from '@/components/portfolio/LandmarkScene'
+import { SCENES } from '@/components/portfolio/Scenes.config'
 
 const SCENE_WIDTH = 3342
 const SCENE_SCALE = 0.9

@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 
-import { gsap, ScrollTrigger } from '../deps/gsap'
+import { gsap, ScrollTrigger } from '@/deps/gsap'
 
 type ScrollJackOptions = {
   totalLines: number

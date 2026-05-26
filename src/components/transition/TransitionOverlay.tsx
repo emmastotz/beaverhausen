@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react'
 import { createPortal } from 'react-dom'
 
-import type { TransitionState } from '../../hooks/usePageTransition'
+import type { TransitionState } from '@/hooks/usePageTransition'
 
 interface TransitionOverlayProps {
   state: TransitionState

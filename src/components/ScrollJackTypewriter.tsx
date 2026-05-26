@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
 
-import { useScrollJack } from '../hooks/useScrollJack'
-import { useTypewriter } from '../hooks/useTypewriter'
-import { BaseT3 } from './primitives/BaseT3'
+import { BaseT3 } from '@/components/primitives/BaseT3'
+import { useScrollJack } from '@/hooks/useScrollJack'
+import { useTypewriter } from '@/hooks/useTypewriter'
 
 type LineProps = { variant?: 'display' | 'body'; className?: string }
 
@@ -37,13 +37,17 @@ export function composeScrollSections(sections: ScrollSection[]): {
     sectionOffsets: offsets,
     renderText(displayed, globalIndex) {
       const { section, localIndex } = resolve(globalIndex)
-      return section.renderText ? section.renderText(displayed, localIndex) : displayed
+      return section.renderText
+        ? section.renderText(displayed, localIndex)
+        : displayed
     },
     getLineProps(globalIndex) {
       const { section } = resolve(globalIndex)
       return {
         ...(section.variant !== undefined && { variant: section.variant }),
-        ...(section.className !== undefined && { className: section.className }),
+        ...(section.className !== undefined && {
+          className: section.className,
+        }),
       }
     },
   }

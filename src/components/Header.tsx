@@ -1,11 +1,11 @@
 import { createPortal } from 'react-dom'
 
-import { BeaverMark } from './brand/BeaverMark'
-import { BriefcaseIcon } from './brand/icons/BriefcaseIcon'
-import { EnvelopeIcon } from './brand/icons/EnvelopeIcon'
-import { UserIcon } from './brand/icons/UserIcon'
-import { BaseT6 } from './primitives/BaseT6'
-import { useTransition } from './transition/TransitionContext'
+import { BeaverMark } from '@/components/brand/BeaverMark'
+import { BriefcaseIcon } from '@/components/brand/icons/BriefcaseIcon'
+import { EnvelopeIcon } from '@/components/brand/icons/EnvelopeIcon'
+import { UserIcon } from '@/components/brand/icons/UserIcon'
+import { BaseT6 } from '@/components/primitives/BaseT6'
+import { useTransition } from '@/components/transition/TransitionContext'
 
 interface NavItem {
   label: string

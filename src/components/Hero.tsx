@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react'
 
-import { SectionLayout } from '../layouts/SectionLayout'
-import { Wordmark } from './brand/Wordmark'
-import { BaseT6 } from './primitives/BaseT6'
-import { Typewriter } from './Typewriter'
+import { SectionLayout } from '@/layouts/SectionLayout'
+import { Wordmark } from '@/components/brand/Wordmark'
+import { BaseT6 } from '@/components/primitives/BaseT6'
+import { Typewriter } from '@/components/Typewriter'
 
 type DefinitionPart = {
   text: string

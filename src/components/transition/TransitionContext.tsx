@@ -3,8 +3,8 @@ import type { ReactNode } from 'react'
 import {
   usePageTransition,
   type TransitionState,
-} from '../../hooks/usePageTransition'
-import { createDependency } from '../../util/dependency'
+} from '@/hooks/usePageTransition'
+import { createDependency } from '@/util/dependency'
 
 interface TransitionContextValue {
   transitionTo: (path: string) => void

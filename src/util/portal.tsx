@@ -1,7 +1,7 @@
 import { useState, type ReactNode } from 'react'
 import { createPortal } from 'react-dom'
 
-import { createDependency } from './dependency'
+import { createDependency } from '@/util/dependency'
 
 interface PortalContextValue {
   setTarget: (el: HTMLElement | null) => void

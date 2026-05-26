@@ -1,8 +1,8 @@
-import landscapeBackground from '../assets/landscape/landscape-background.svg'
-import landscapeForeground from '../assets/landscape/landscape-foreground.svg'
-import landscapeMidground from '../assets/landscape/landscape-midground.svg'
-import { useFixedInSection } from '../hooks/useFixedInSection'
-import { useHorizontalParallax } from '../hooks/useHorizontalParallax'
+import landscapeBackground from '@/assets/landscape/landscape-background.svg'
+import landscapeForeground from '@/assets/landscape/landscape-foreground.svg'
+import landscapeMidground from '@/assets/landscape/landscape-midground.svg'
+import { useFixedInSection } from '@/hooks/useFixedInSection'
+import { useHorizontalParallax } from '@/hooks/useHorizontalParallax'
 
 export const ParallaxLandscape = () => {
   const isVisible = useFixedInSection('about')

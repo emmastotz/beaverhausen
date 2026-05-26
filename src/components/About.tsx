@@ -1,15 +1,15 @@
 import { useEffect, useState } from 'react'
 
-import { SectionLayout } from '../layouts/SectionLayout'
-import { BeaverMark } from './brand/BeaverMark'
-import { BaseT6 } from './primitives/BaseT6'
-import { Button } from './primitives/Button'
+import { SectionLayout } from '@/layouts/SectionLayout'
+import { BeaverMark } from '@/components/brand/BeaverMark'
+import { BaseT6 } from '@/components/primitives/BaseT6'
+import { Button } from '@/components/primitives/Button'
 import {
   composeScrollSections,
   ScrollJackTypewriter,
-} from './ScrollJackTypewriter'
-import type { ScrollSection } from './ScrollJackTypewriter'
-import { useTransition } from './transition/TransitionContext'
+} from '@/components/ScrollJackTypewriter'
+import type { ScrollSection } from '@/components/ScrollJackTypewriter'
+import { useTransition } from '@/components/transition/TransitionContext'
 
 const BEAVER_SECTION: ScrollSection = {
   lines: [

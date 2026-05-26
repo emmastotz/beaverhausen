@@ -36,7 +36,7 @@ const HeaderStyles = () => (
     .nav-link::after {
       content: '';
       position: absolute;
-      bottom: -5px;
+      bottom: -20px;
       height: 2px;
       width: 0%;
       background: #b96e16;
@@ -88,7 +88,7 @@ export function Header() {
     <>
       <HeaderStyles />
 
-      <header className="pointer-events-none fixed top-0 right-0 left-0 z-40 flex h-28 items-start justify-between bg-gradient-to-b from-cream via-cream to-transparent px-8 pt-4 xl:h-auto xl:items-center xl:py-4">
+      <header className="pointer-events-none fixed top-0 right-0 left-0 z-40 flex h-auto items-center justify-between border-b border-beaver/10 bg-cream px-4 py-3">
         <a
           href="/"
           onClick={(e) => {
@@ -102,12 +102,9 @@ export function Header() {
         </a>
 
         <nav className="pointer-events-auto" aria-label="Main navigation">
-          <ul className="flex list-none items-center gap-6 md:gap-8">
+          <ul className="-mb-3 flex list-none items-center gap-6 md:gap-8">
             {navItems.map(({ label, href, icon, onClick }) => (
-              <li
-                key={label}
-                className="group pt-3 group-hover:text-beaver-dark xl:pt-0"
-              >
+              <li key={label} className="group group-hover:text-beaver-dark">
                 <a
                   href={href}
                   onClick={onClick}

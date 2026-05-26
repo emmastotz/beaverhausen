@@ -6,10 +6,10 @@ import logoV2 from '@/assets/portfolio/logo-v2.svg'
 import { BeaverMark } from '@/components/brand/BeaverMark'
 import { Wordmark } from '@/components/brand/Wordmark'
 import { Flipbook, type Chapter } from '@/components/gsap/Flipbook'
+import { TypeSpecimen } from '@/components/portfolio/beaverhausen/TypeSpecimen'
 import { BaseT4 } from '@/components/primitives/BaseT4'
 import { BaseT5 } from '@/components/primitives/BaseT5'
 import { BaseT6 } from '@/components/primitives/BaseT6'
-import { TypeSpecimen } from '@/components/portfolio/beaverhausen/TypeSpecimen'
 
 const CHAPTERS: Chapter[] = [
   {
@@ -112,7 +112,7 @@ function Content({ id }: { id: string }) {
             </BaseT4>
           </p>
           <div className="mt-2 mb-8 grid gap-4 sm:grid-cols-2">
-            <div className="flex aspect-square items-center justify-center rounded-md border border-beaver/20 bg-cream p-4 shadow-sm">
+            <div className="flex aspect-square items-center justify-center rounded-md border border-beaver/20 bg-beaver-dark p-4 shadow-sm">
               <img
                 src={logoV1}
                 alt="early version logo"

@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import { useScrollJack } from '../hooks/useScrollJack'
 import { useTypewriter } from '../hooks/useTypewriter'
@@ -23,7 +23,7 @@ export function ScrollJackTypewriter({
   persistLast = false,
   renderText,
 }: Props) {
-  const { containerRef, activeIndex, scrollHeight } = useScrollJack({
+  const { containerRef, pinnedRef, activeIndex } = useScrollJack({
     totalLines: lines.length,
     windowsPerLine,
     extraWindows: persistLast ? 1 : 0,
@@ -43,77 +43,11 @@ export function ScrollJackTypewriter({
     setMounted(true)
   }, [])
 
-  const isLockedRef = useRef(false)
-
-  const lock = () => {
-    isLockedRef.current = true
-  }
-  const unlock = () => {
-    isLockedRef.current = false
-  }
-
-  useEffect(() => {
-    if (isComplete) {
-      unlock()
-    } else {
-      lock()
-    }
-  }, [isComplete])
-
-  useEffect(() => {
-    const handleWheel = (e: WheelEvent) => {
-      if (isLockedRef.current && e.deltaY > 0) {
-        e.preventDefault()
-      }
-    }
-
-    const handleTouchMove = (e: TouchEvent) => {
-      if (isLockedRef.current) {
-        e.preventDefault()
-      }
-    }
-
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (!isLockedRef.current) return
-      if (e.key === 'ArrowDown') {
-        e.preventDefault()
-      }
-    }
-
-    const handleVisibilityChange = () => {
-      if (document.visibilityState === 'visible') {
-        isLockedRef.current = false
-      }
-    }
-
-    const handleFocus = () => {
-      isLockedRef.current = false
-    }
-
-    window.addEventListener('wheel', handleWheel, { passive: false })
-    window.addEventListener('touchmove', handleTouchMove, { passive: false })
-    window.addEventListener('keydown', handleKeyDown)
-    window.addEventListener('focus', handleFocus)
-    document.addEventListener('visibilitychange', handleVisibilityChange)
-
-    return () => {
-      window.removeEventListener('wheel', handleWheel)
-      window.removeEventListener('touchmove', handleTouchMove)
-      window.removeEventListener('keydown', handleKeyDown)
-      window.removeEventListener('focus', handleFocus)
-      document.removeEventListener('visibilitychange', handleVisibilityChange)
-    }
-  }, [])
-
   return (
-    <div
-      ref={containerRef}
-      style={{ height: scrollHeight }}
-      className="relative w-full"
-    >
+    <div ref={containerRef} className="relative w-full">
       <div
-        className="sticky top-0 flex h-screen w-full items-center justify-center"
-        style={{ opacity: mounted ? 1 : 0 }}
+        ref={pinnedRef}
+        className={`flex h-screen w-full items-center justify-center transition-opacity duration-75 ${mounted ? 'opacity-100' : 'opacity-0'}`}
       >
         <div className="relative w-full max-w-2xl px-8 pb-36 text-center sm:pb-28 lg:px-0">
           {lines.map((line, i) => {

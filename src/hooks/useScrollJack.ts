@@ -1,5 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 
+import { gsap, ScrollTrigger } from '../deps/gsap'
+
 type ScrollJackOptions = {
   totalLines: number
   windowsPerLine?: number
@@ -12,40 +14,41 @@ export const useScrollJack = ({
   extraWindows = 0,
 }: ScrollJackOptions) => {
   const containerRef = useRef<HTMLDivElement>(null)
+  const pinnedRef = useRef<HTMLDivElement>(null)
   const [activeIndex, setActiveIndex] = useState(0)
-  const [isInView, setIsInView] = useState(true)
-  const [progress, setProgress] = useState(0)
-
-  // Total scroll height = one viewport per line * windowsPerLine
-  const scrollHeight = `${(totalLines * windowsPerLine + extraWindows) * 100}vh`
 
   useEffect(() => {
-    const el = containerRef.current
-    if (!el) return
+    const container = containerRef.current
+    const pinned = pinnedRef.current
+    if (!container || !pinned) return
 
-    const handleScroll = () => {
-      const { top, height } = el.getBoundingClientRect()
-      const scrollable = height - window.innerHeight
-      const p = Math.min(Math.max(-top / scrollable, 0), 1)
-      setProgress(p)
-      const index = Math.min(Math.floor(p * totalLines), totalLines - 1)
-      setActiveIndex(index)
-    }
+    const totalWindows = totalLines * windowsPerLine + extraWindows
 
-    const observer = new IntersectionObserver(
-      ([entry]) => setIsInView(entry.isIntersecting),
-      { threshold: 0.01 },
-    )
+    const ctx = gsap.context(() => {
+      ScrollTrigger.create({
+        trigger: container,
+        start: 'top top',
+        end: () => `+=${(totalWindows - 1) * window.innerHeight}`,
+        pin: pinned,
+        pinSpacing: true,
+        snap: {
+          snapTo: 1 / (totalWindows - 1),
+          duration: { min: 0.2, max: 0.5 },
+          delay: 0.15,
+          ease: 'power1.inOut',
+        },
+        onUpdate: (self) => {
+          const index = Math.min(
+            Math.floor(self.progress * totalLines),
+            totalLines - 1,
+          )
+          setActiveIndex(index)
+        },
+      })
+    }, container)
 
-    window.addEventListener('scroll', handleScroll, { passive: true })
-    observer.observe(el)
-    handleScroll()
+    return () => ctx.revert()
+  }, [totalLines, windowsPerLine, extraWindows])
 
-    return () => {
-      window.removeEventListener('scroll', handleScroll)
-      observer.disconnect()
-    }
-  }, [totalLines])
-
-  return { containerRef, activeIndex, scrollHeight, isInView, progress }
+  return { containerRef, pinnedRef, activeIndex }
 }

@@ -10,6 +10,7 @@ import { TypeSpecimen } from '@/components/portfolio/beaverhausen/TypeSpecimen'
 import { BaseT4 } from '@/components/primitives/BaseT4'
 import { BaseT5 } from '@/components/primitives/BaseT5'
 import { BaseT6 } from '@/components/primitives/BaseT6'
+import { ExternalLink } from '@/components/primitives/ExternalLink'
 
 const CHAPTERS: Chapter[] = [
   {
@@ -264,7 +265,15 @@ function Content({ id }: { id: string }) {
               <em>but in where they go wrong</em>.
             </BaseT4>
           </p>
-
+          <div>
+            <ExternalLink
+              href="https://github.com/emmastotz/beaverhausen"
+              size="sm"
+              variant="ghost"
+            >
+              View the repo
+            </ExternalLink>
+          </div>
           <div className="mt-2 mb-8 flex aspect-video items-center justify-center overflow-hidden rounded-md border border-beaver/20 bg-cream shadow-sm">
             <img
               src={damLandmarkAll}
@@ -299,14 +308,6 @@ function Content({ id }: { id: string }) {
               </BaseT5>
             </p>
           </div>
-
-          {/* <div className="mt-2 mb-8 flex aspect-video items-center justify-center rounded-md bg-beaver/10">
-            <span className="text-xs text-beaver/40">
-              Screenshot placeholder
-              Water flood transition (as a gif) or a code snippet?
-            </span>
-          </div> */}
-
           <p>
             <BaseT4 className="text-beaver">
               Some problems found more elegant solutions than others. GSAP was
@@ -329,7 +330,6 @@ function Content({ id }: { id: string }) {
               </BaseT5>
             </p>
           </div>
-
           <p>
             <BaseT4 className="text-beaver">
               The file structure was a deliberate departure from the
@@ -341,7 +341,6 @@ function Content({ id }: { id: string }) {
               things without making the structure a project in itself.
             </BaseT4>
           </p>
-
           <p>
             <BaseT4 className="text-beaver">
               The ambition behind all of it was simple, if a little earnest:

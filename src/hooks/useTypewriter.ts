@@ -1,4 +1,5 @@
-import { useEffect, useRef, useState } from 'react'
+import { useRef, useState } from 'react'
+import { gsap, useGSAP } from '@/deps/gsap'
 
 interface TypewriterOptions {
   text: string
@@ -15,33 +16,30 @@ export const useTypewriter = ({
 }: TypewriterOptions) => {
   const [displayed, setDisplayed] = useState('')
   const [isComplete, setIsComplete] = useState(false)
-  const indexRef = useRef(0)
-  const timerRef = useRef<ReturnType<typeof setInterval> | null>(null)
   const onCompleteRef = useRef(onComplete)
   onCompleteRef.current = onComplete
 
-  useEffect(() => {
-    indexRef.current = 0
+  useGSAP(() => {
     setDisplayed('')
     setIsComplete(false)
 
-    const timeout = setTimeout(() => {
-      timerRef.current = setInterval(() => {
-        indexRef.current += 1
-        setDisplayed(text.slice(0, indexRef.current))
+    if (!text.length) return
 
-        if (indexRef.current >= text.length) {
-          clearInterval(timerRef.current!)
-          setIsComplete(true)
-          onCompleteRef.current?.()
-        }
-      }, charSpeed)
-    }, startDelay)
+    const obj = { index: 0 }
 
-    return () => {
-      clearTimeout(timeout)
-      if (timerRef.current) clearInterval(timerRef.current)
-    }
+    gsap.to(obj, {
+      index: text.length,
+      duration: (text.length * charSpeed) / 1000,
+      delay: startDelay / 1000,
+      ease: `steps(${text.length})`,
+      onUpdate() {
+        setDisplayed(text.slice(0, Math.round(obj.index)))
+      },
+      onComplete() {
+        setIsComplete(true)
+        onCompleteRef.current?.()
+      },
+    })
   }, [text, charSpeed, startDelay])
 
   return { displayed, isComplete }

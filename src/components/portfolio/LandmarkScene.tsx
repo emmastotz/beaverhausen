@@ -11,6 +11,29 @@ interface Props {
   scene: SceneConfig
 }
 
+function ArrowCue({ visible }: { visible: boolean }) {
+  return (
+    <div
+      className={`absolute flex flex-col items-center gap-0.5 transition-all duration-200 ${visible ? 'translate-y-0 opacity-100' : '-translate-y-1 opacity-0'}`}
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        strokeWidth="1"
+        stroke="currentColor"
+        className="size-6 animate-bounce text-iron-orange"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M15.75 17.25 12 21m0 0-3.75-3.75M12 21V3"
+        />
+      </svg>
+    </div>
+  )
+}
+
 export function LandmarkScene({ scene }: Props) {
   const [hovered, setHovered] = useState(false)
   const { transitionTo } = useTransition()
@@ -93,6 +116,13 @@ export function LandmarkScene({ scene }: Props) {
             {scene.role}
           </BaseT6>
         </p>
+      </div>
+
+      <div
+        className="absolute flex items-center justify-center"
+        style={{ bottom: `calc(${bottom} + 100% + 2rem)`, left, width }}
+      >
+        <ArrowCue visible={hovered} />
       </div>
     </div>
   )

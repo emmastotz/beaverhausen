@@ -11,16 +11,12 @@ interface Props {
   scene: SceneConfig
 }
 
-
 export function LandmarkScene({ scene }: Props) {
   const [hovered, setHovered] = useState(false)
   const { transitionTo } = useTransition()
   const { bottom, left, width, height } = scene.hitArea
   const hitAreaRef = useRef<HTMLDivElement>(null)
 
-  // Reveal details as the landmark scrolls into the horizontal center of the viewport.
-  // getBoundingClientRect is used instead of IntersectionObserver because the panorama moves
-  // via CSS transform, which IntersectionObserver does not account for.
   useEffect(() => {
     const el = hitAreaRef.current
     if (!el) return
@@ -98,8 +94,6 @@ export function LandmarkScene({ scene }: Props) {
           </BaseT6>
         </p>
       </div>
-
-
     </div>
   )
 }

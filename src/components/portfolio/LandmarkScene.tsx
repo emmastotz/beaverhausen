@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 import type { SceneConfig } from '@/components/portfolio/Scenes.config'
 
@@ -11,35 +11,30 @@ interface Props {
   scene: SceneConfig
 }
 
-function ArrowCue({ visible }: { visible: boolean }) {
-  return (
-    <div
-      className={`absolute flex flex-col items-center gap-0.5 transition-all duration-200 ${visible ? 'translate-y-0 opacity-100' : '-translate-y-1 opacity-0'} `}
-    >
-      <BaseT6 className="mb-2 text-iron-orange uppercase">Hover</BaseT6>
-
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        fill="none"
-        viewBox="0 0 24 24"
-        strokeWidth="1"
-        stroke="currentColor"
-        className="size-6 animate-bounce text-iron-orange"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          d="M15.75 17.25 12 21m0 0-3.75-3.75M12 21V3"
-        />
-      </svg>
-    </div>
-  )
-}
 
 export function LandmarkScene({ scene }: Props) {
   const [hovered, setHovered] = useState(false)
   const { transitionTo } = useTransition()
   const { bottom, left, width, height } = scene.hitArea
+  const hitAreaRef = useRef<HTMLDivElement>(null)
+
+  // Reveal details as the landmark scrolls into the horizontal center of the viewport.
+  // getBoundingClientRect is used instead of IntersectionObserver because the panorama moves
+  // via CSS transform, which IntersectionObserver does not account for.
+  useEffect(() => {
+    const el = hitAreaRef.current
+    if (!el) return
+
+    const checkVisibility = () => {
+      const { left: x, right } = el.getBoundingClientRect()
+      const centerX = (x + right) / 2
+      setHovered(centerX > 0 && centerX < window.innerWidth)
+    }
+
+    window.addEventListener('scroll', checkVisibility, { passive: true })
+    checkVisibility()
+    return () => window.removeEventListener('scroll', checkVisibility)
+  }, [])
 
   const handleClick = () => {
     if (scene.available) transitionTo(scene.href)
@@ -60,10 +55,10 @@ export function LandmarkScene({ scene }: Props) {
       {scene.landmark}
 
       <div
+        ref={hitAreaRef}
         className="absolute cursor-pointer"
         style={{ bottom, left, width, height }}
-        onMouseEnter={() => setHovered(true)}
-        onMouseLeave={() => setHovered(false)}
+        onFocus={() => setHovered(true)}
         onClick={handleClick}
         role="button"
         aria-label={`View ${scene.title} case study`}
@@ -72,7 +67,7 @@ export function LandmarkScene({ scene }: Props) {
       />
 
       <div
-        className={`pointer-events-auto absolute bottom-full mb-60 text-center transition-all duration-300 ease-out ${
+        className={`pointer-events-auto absolute bottom-full mb-40 text-center transition-all duration-700 ease-out sm:mb-60 ${
           hovered ? 'translate-y-0 opacity-100' : 'translate-y-2 opacity-0'
         } `}
         style={{ left, width }}
@@ -92,7 +87,7 @@ export function LandmarkScene({ scene }: Props) {
           </p>
         )}
 
-        <p className="mx-auto mb-2 max-w-sm text-pretty">
+        <p className="mx-auto mb-2 max-w-2xs text-pretty sm:max-w-xs">
           <BaseT5 className="leading-relaxed tracking-[0.12em] text-beaver">
             {scene.description}
           </BaseT5>
@@ -104,12 +99,7 @@ export function LandmarkScene({ scene }: Props) {
         </p>
       </div>
 
-      <div
-        className="absolute flex items-center justify-center"
-        style={{ bottom: `calc(${bottom} + 100% + 2rem)`, left, width }}
-      >
-        <ArrowCue visible={!hovered} />
-      </div>
+
     </div>
   )
 }

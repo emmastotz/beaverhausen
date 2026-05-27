@@ -29,16 +29,16 @@ const navItems: NavItem[] = [
 
 const navLinkClass = [
   'relative inline-flex items-center md:gap-1.5 text-beaver no-underline hover:text-beaver-dark p-3 md:p-0',
-  "before:content-[''] before:absolute before:-bottom-1 md:before:-bottom-5 before:h-[2px] before:w-0 before:bg-iron-orange before:right-1/2",
+  "before:content-[''] before:absolute before:-bottom-3 md:before:-bottom-5.5 before:h-[2px] before:w-0 before:bg-iron-orange before:right-1/2",
   'before:[transition:width_0.4s_cubic-bezier(0.33,0,0.66,1)] hover:before:w-1/2 focus-visible:before:w-1/2 focus-visible:before:[transition:none]',
-  "after:content-[''] after:absolute after:-bottom-1 md:after:-bottom-5 after:h-[2px] after:w-0 after:bg-iron-orange after:left-1/2",
+  "after:content-[''] after:absolute after:-bottom-3 md:after:-bottom-5.5 after:h-[2px] after:w-0 after:bg-iron-orange after:left-1/2",
   'after:[transition:width_0.4s_cubic-bezier(0.33,0,0.66,1)] hover:after:w-1/2 focus-visible:after:w-1/2 focus-visible:after:[transition:none]',
 ].join(' ')
 
 export function Header() {
   return createPortal(
     <header className="pointer-events-none fixed top-0 right-0 left-0 z-40 flex h-auto items-center justify-between border-b border-beaver/10 bg-cream px-4 py-3">
-      <div className="flex items-center gap-4">
+      <div className="flex items-center gap-3 md:gap-4">
         <TransitionLink
           to="/"
           className="pointer-events-auto rounded-full no-underline outline-none hover:ring-2 hover:ring-iron-orange/30 hover:ring-offset-2"
@@ -50,7 +50,7 @@ export function Header() {
       </div>
 
       <nav className="pointer-events-auto" aria-label="Main navigation">
-        <ul className="-mb-3 flex list-none items-center gap-1 md:gap-8">
+        <ul className="flex list-none items-center gap-1 md:-mb-1.5 md:gap-8">
           {navItems.map(({ label, href, icon }) => (
             <li key={label}>
               {href.startsWith('/') ? (

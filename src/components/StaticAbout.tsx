@@ -1,9 +1,11 @@
-import { Button } from '@/components/primitives/Button'
 import { FadeIn } from '@/components/FadeIn'
 import { AutoH } from '@/components/primitives/AutoH'
 import { BaseT1 } from '@/components/primitives/BaseT1'
 import { BaseT3 } from '@/components/primitives/BaseT3'
 import { BaseT4 } from '@/components/primitives/BaseT4'
+import { Button } from '@/components/primitives/Button'
+
+import { useTransition } from './transition/TransitionContext'
 
 const BEAVER_PARAGRAPHS = [
   `Beavers are one of the only animals besides humans that fundamentally reshape their environment.`,
@@ -19,6 +21,8 @@ const PROFESSIONAL_PARAGRAPHS = [
 const CLOSING = `The beaverhausen doesn't build itself.`
 
 export function StaticAbout() {
+  const { transitionTo } = useTransition()
+
   const handleDownload = async () => {
     const response = await fetch(
       'https://beaverhausen-worker.beaverhausen.workers.dev/resume',
@@ -88,6 +92,12 @@ export function StaticAbout() {
             {CLOSING}
           </BaseT3>
         </p>
+      </FadeIn>
+
+      <FadeIn>
+        <Button variant="ghost" onClick={() => transitionTo('/portfolio')}>
+          View my work
+        </Button>
       </FadeIn>
     </div>
   )

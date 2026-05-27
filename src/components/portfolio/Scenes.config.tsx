@@ -33,7 +33,7 @@ export const SCENES: SceneConfig[] = [
     id: 'dam',
     scene: damScene,
     landmark: <BeaverDamLandmark />,
-    wordmark: <Wordmark className="mx-auto mb-4 sm:w-2/3" />,
+    wordmark: <Wordmark className="mx-auto mb-4 sm:w-2/3 2xl:mb-7" />,
     title: 'Beaverhausen',
     description:
       'Brand identity, design system, and a portfolio of selected works. Built from scratch.',

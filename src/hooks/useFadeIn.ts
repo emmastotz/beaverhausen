@@ -1,33 +1,35 @@
-import { useEffect, useRef, useState } from 'react'
+import { useRef } from 'react'
+import { gsap, useGSAP } from '@/deps/gsap'
 
 interface FadeInOptions {
   threshold?: number
   once?: boolean
+  delay?: number
 }
 
 export function useFadeIn({
   threshold = 0.2,
   once = true,
+  delay = 0,
 }: FadeInOptions = {}) {
   const ref = useRef<HTMLDivElement>(null)
-  const [isVisible, setIsVisible] = useState(false)
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true)
-          if (once) observer.disconnect()
-        } else if (!once) {
-          setIsVisible(false)
-        }
+  useGSAP(() => {
+    if (!ref.current) return
+
+    gsap.from(ref.current, {
+      opacity: 0,
+      y: 16,
+      duration: 0.8,
+      delay: delay / 1000,
+      ease: 'power2.out',
+      scrollTrigger: {
+        trigger: ref.current,
+        start: `top ${100 - threshold * 100}%`,
+        once,
       },
-      { threshold },
-    )
+    })
+  }, [threshold, once, delay])
 
-    if (ref.current) observer.observe(ref.current)
-    return () => observer.disconnect()
-  }, [threshold, once])
-
-  return { ref, isVisible }
+  return { ref }
 }

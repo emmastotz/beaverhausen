@@ -164,7 +164,7 @@ export function Flipbook({ chapters, children, wordmark }: Props) {
             transformStyle: 'preserve-3d',
           }}
         >
-          <div className="absolute -bottom-10 left-6 z-20 flex w-[86%] justify-between gap-1 sm:top-8 sm:-right-10 sm:bottom-0 sm:left-full sm:w-full sm:flex-col sm:justify-start">
+          <div className="absolute -bottom-10 left-6 z-20 flex w-[86%] justify-between gap-1 sm:top-8 sm:-right-10 sm:bottom-0 sm:left-full sm:w-auto sm:flex-col sm:justify-start">
             {/* TODO: figure out why the border flashes white before it transitions to border-beaver/20 */}
             {chapters.map((ch, i) => (
               <button

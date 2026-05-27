@@ -57,7 +57,7 @@ export const SCENES: SceneConfig[] = [
       'Design system, rebrand, and enterprise cybersecurity platforms. Built and designed throughout.',
     role: 'Designer & Engineer',
     href: '/portfolio/whitehawk',
-    available: false,
+    available: true,
     hitArea: {
       bottom: '2%',
       left: '15%',

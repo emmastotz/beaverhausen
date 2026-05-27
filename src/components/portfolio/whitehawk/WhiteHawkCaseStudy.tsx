@@ -363,7 +363,7 @@ function Content({ id }: { id: string }) {
                 className="tracking-normal text-beaver italic"
               >
                 <strong className="tracking-wide">Field note: </strong>
-                there is a particular kind of widsom that only comes from
+                there is a particular kind of wisdom that only comes from
                 staying; from watching a codebase age; from being the person who
                 wrote the comment you're now debugging. It's surreal in the
                 moment and clarifying in retrospect.
@@ -424,7 +424,7 @@ function Content({ id }: { id: string }) {
           <div className="mx-auto mt-2 mb-8 aspect-auto max-w-md overflow-hidden rounded-md shadow">
             <img
               src={newWhitePaper}
-              alt="Rebgranded WhiteHawk Product White Paper"
+              alt="Rebranded WhiteHawk Product White Paper"
               className="pointer-events-none size-full object-contain"
             />
           </div>

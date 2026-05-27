@@ -42,8 +42,8 @@ function PageChrome({
   }, [chapter.id])
 
   return (
-    <div className="relative size-full overflow-hidden rounded-r-lg bg-[#fdf6e3]">
-      <div className="pointer-events-none absolute top-0 bottom-0 left-5 w-px bg-iron-orange/30 sm:left-8" />
+    <div className="relative size-full overflow-hidden rounded-r-lg bg-[#FFFEFC]">
+      <div className="pointer-events-none absolute top-0 bottom-0 left-4 w-px bg-iron-orange/30 sm:left-8" />
 
       <div
         ref={scrollRef}
@@ -145,13 +145,13 @@ export function Flipbook({ chapters, children, wordmark }: Props) {
   }
 
   return (
-    <div className="flex min-h-screen items-center justify-center px-4 pt-20 pb-14 sm:pt-24 sm:pr-14">
+    <div className="flex min-h-screen items-center justify-center px-4 pt-20 pb-14 sm:pt-24 sm:pr-14 lg:px-0">
       <div className="flex w-full justify-center">
         <div className="z-10 flex w-8 flex-shrink-0 flex-col items-center justify-between gap-3 bg-beaver-dark py-8 sm:w-12">
           {Array.from({ length: 12 }).map((_, i) => (
             <div
               key={i}
-              className="h-5 w-5 rounded-full border-2 border-beaver/40 bg-beaver-dark"
+              className="size-5 rounded-full border-2 border-beaver/40 bg-beaver-dark"
             />
           ))}
         </div>
@@ -164,7 +164,7 @@ export function Flipbook({ chapters, children, wordmark }: Props) {
             transformStyle: 'preserve-3d',
           }}
         >
-          <div className="absolute -bottom-10 left-2 z-20 flex w-[86%] justify-between gap-1 sm:top-8 sm:-right-10 sm:bottom-0 sm:left-full sm:w-full sm:flex-col sm:justify-start">
+          <div className="absolute -bottom-10 left-6 z-20 flex w-[86%] justify-between gap-1 sm:top-8 sm:-right-10 sm:bottom-0 sm:left-full sm:w-full sm:flex-col sm:justify-start">
             {chapters.map((ch, i) => (
               <button
                 key={ch.id}

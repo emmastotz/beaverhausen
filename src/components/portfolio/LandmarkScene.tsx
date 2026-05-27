@@ -5,7 +5,7 @@ import type { SceneConfig } from '@/components/portfolio/Scenes.config'
 import { BaseT1 } from '@/components/primitives/BaseT1'
 import { BaseT5 } from '@/components/primitives/BaseT5'
 import { BaseT6 } from '@/components/primitives/BaseT6'
-import { useTransition } from '@/components/transition/TransitionContext'
+import { useTransition } from '@/context/TransitionContext'
 
 interface Props {
   scene: SceneConfig

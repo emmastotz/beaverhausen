@@ -5,7 +5,7 @@ import { BriefcaseIcon } from '@/components/brand/icons/BriefcaseIcon'
 import { EnvelopeIcon } from '@/components/brand/icons/EnvelopeIcon'
 import { UserIcon } from '@/components/brand/icons/UserIcon'
 import { BaseT6 } from '@/components/primitives/BaseT6'
-import { useTransition } from '@/components/transition/TransitionContext'
+import { useTransition } from '@/context/TransitionContext'
 
 interface NavItem {
   label: string

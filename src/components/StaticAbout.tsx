@@ -4,8 +4,7 @@ import { BaseT1 } from '@/components/primitives/BaseT1'
 import { BaseT3 } from '@/components/primitives/BaseT3'
 import { BaseT4 } from '@/components/primitives/BaseT4'
 import { Button } from '@/components/primitives/Button'
-
-import { useTransition } from './transition/TransitionContext'
+import { useTransition } from '@/context/TransitionContext'
 
 const BEAVER_PARAGRAPHS = [
   `Beavers are one of the only animals besides humans that fundamentally reshape their environment.`,

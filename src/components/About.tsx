@@ -9,7 +9,7 @@ import {
   ScrollJackTypewriter,
 } from '@/components/ScrollJackTypewriter'
 import type { ScrollSection } from '@/components/ScrollJackTypewriter'
-import { useTransition } from '@/components/transition/TransitionContext'
+import { useTransition } from '@/context/TransitionContext'
 
 const BEAVER_SECTION: ScrollSection = {
   lines: [

@@ -5,8 +5,8 @@ import { ScrollToTop } from '@/components/ScrollToTop'
 import {
   useTransition,
   TransitionProvider,
-} from '@/components/transition/TransitionContext'
-import { TransitionOverlay } from '@/components/transition/TransitionOverlay'
+} from '@/context/TransitionContext'
+import { TransitionOverlay } from '@/context/TransitionOverlay'
 import AboutPage from '@/pages/about'
 import LandingPage from '@/pages/index'
 import PortfolioPage from '@/pages/portfolio'

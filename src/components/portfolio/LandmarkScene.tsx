@@ -76,7 +76,7 @@ export function LandmarkScene({ scene }: Props) {
 
       <div
         ref={hitAreaRef}
-        className="absolute cursor-pointer"
+        className="absolute cursor-pointer rounded-md outline-none focus-visible:ring-2 focus-visible:ring-iron-orange/50"
         style={{ bottom, left, width, height }}
         onFocus={() => setActive(true)}
         onClick={handleClick}

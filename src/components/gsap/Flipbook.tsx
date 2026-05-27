@@ -145,7 +145,7 @@ export function Flipbook({ chapters, children, wordmark }: Props) {
   }
 
   return (
-    <div className="flex min-h-screen items-center justify-center px-4 pt-20 pb-14 sm:pt-24 sm:pr-14 lg:px-0">
+    <div className="flex h-full flex-1 items-center justify-center px-4 pt-20 pb-14 sm:pt-24 sm:pr-14 lg:px-0">
       <div className="flex w-full justify-center">
         <div className="z-10 flex w-8 flex-shrink-0 flex-col items-center justify-between gap-3 bg-beaver-dark py-8 sm:w-12">
           {Array.from({ length: 12 }).map((_, i) => (
@@ -158,18 +158,19 @@ export function Flipbook({ chapters, children, wordmark }: Props) {
 
         <div
           ref={bookRef}
-          className="relative h-[80vh] max-w-2xl flex-1 rounded-r-lg"
+          className="relative h-[80vh] max-w-3xl flex-1 rounded-r-lg lg:h-[64rem]"
           style={{
             boxShadow: '0 40px 80px rgba(0,0,0,0.5)',
             transformStyle: 'preserve-3d',
           }}
         >
           <div className="absolute -bottom-10 left-6 z-20 flex w-[86%] justify-between gap-1 sm:top-8 sm:-right-10 sm:bottom-0 sm:left-full sm:w-full sm:flex-col sm:justify-start">
+            {/* TODO: figure out why the border flashes white before it transitions to border-beaver/20 */}
             {chapters.map((ch, i) => (
               <button
                 key={ch.id}
                 onClick={() => goTo(i)}
-                className={`transition-color flex size-10 items-center justify-center rounded-b-md font-body text-xs tracking-widest shadow-sm duration-75 sm:rounded-r-md sm:rounded-bl-none ${
+                className={`transition-color flex size-10 items-center justify-center rounded-b-md font-body text-xs tracking-widest shadow-sm duration-75 focus-visible:border focus-visible:border-iron-orange focus-visible:outline-none sm:rounded-r-md sm:rounded-bl-none ${
                   !showCover && i === (pending ?? current)
                     ? 'border border-beaver/20 bg-beaver-dark text-cream'
                     : 'bg-beaver text-cream hover:bg-beaver hover:text-cream lg:bg-beaver/60 lg:text-cream/60'

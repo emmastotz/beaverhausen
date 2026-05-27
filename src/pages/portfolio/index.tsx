@@ -23,7 +23,7 @@ export default function PortfolioPage() {
           <div
             className={`absolute inset-0 top-30 transition-opacity duration-300 lg:top-50 ${heroVisible ? 'opacity-100' : 'pointer-events-none opacity-0'}`}
           >
-            <div className="flex flex-col gap-4 text-center sm:gap-8">
+            <div className="flex flex-col gap-4 text-center">
               <div className="mx-auto max-w-md lg:max-w-none">
                 <BaseT6 className="text-iron-orange uppercase">
                   Selected works
@@ -35,12 +35,10 @@ export default function PortfolioPage() {
                 </AutoH>
               </div>
 
-              <p className="mx-auto max-w-lg">
-                <BaseT3 className="hidden text-beaver lg:block">
-                  Click on a site for a more in-depth exploration.
-                </BaseT3>
-                <BaseT3 className="text-beaver lg:hidden">
-                  Tap on a site for a more in-depth exploration.
+              <p className="mx-auto mt-4 max-w-lg sm:mt-8">
+                <BaseT3 className="text-beaver">
+                  Scroll to continue the journey. Click on a site for a more
+                  in-depth exploration.
                 </BaseT3>
               </p>
             </div>

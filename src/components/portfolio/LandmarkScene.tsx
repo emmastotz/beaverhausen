@@ -35,7 +35,7 @@ function ArrowCue({ visible }: { visible: boolean }) {
 }
 
 export function LandmarkScene({ scene }: Props) {
-  const [hovered, setHovered] = useState(false)
+  const [active, setActive] = useState(false)
   const { transitionTo } = useTransition()
   const { bottom, left, width, height } = scene.hitArea
   const hitAreaRef = useRef<HTMLDivElement>(null)
@@ -47,7 +47,7 @@ export function LandmarkScene({ scene }: Props) {
     const checkVisibility = () => {
       const { left: x, right } = el.getBoundingClientRect()
       const centerX = (x + right) / 2
-      setHovered(centerX > 0 && centerX < window.innerWidth)
+      setActive(centerX > 0 && centerX < window.innerWidth)
     }
 
     window.addEventListener('scroll', checkVisibility, { passive: true })
@@ -67,7 +67,7 @@ export function LandmarkScene({ scene }: Props) {
     <div
       className="relative w-full"
       style={{
-        filter: hovered ? 'brightness(1.1)' : 'none',
+        filter: active ? 'brightness(1.1)' : 'none',
         transition: 'filter 300ms ease',
       }}
     >
@@ -77,7 +77,7 @@ export function LandmarkScene({ scene }: Props) {
         ref={hitAreaRef}
         className="absolute cursor-pointer"
         style={{ bottom, left, width, height }}
-        onFocus={() => setHovered(true)}
+        onFocus={() => setActive(true)}
         onClick={handleClick}
         role="button"
         aria-label={`View ${scene.title} case study`}
@@ -87,7 +87,7 @@ export function LandmarkScene({ scene }: Props) {
 
       <div
         className={`pointer-events-auto absolute bottom-full mb-40 text-center transition-all duration-700 ease-out sm:mb-60 ${
-          hovered ? 'translate-y-0 opacity-100' : 'translate-y-2 opacity-0'
+          active ? 'translate-y-0 opacity-100' : 'translate-y-2 opacity-0'
         } `}
         style={{ left, width }}
       >
@@ -122,7 +122,7 @@ export function LandmarkScene({ scene }: Props) {
         className="absolute flex items-center justify-center"
         style={{ bottom: `calc(${bottom} + 100% + 2rem)`, left, width }}
       >
-        <ArrowCue visible={hovered} />
+        <ArrowCue visible={active} />
       </div>
     </div>
   )

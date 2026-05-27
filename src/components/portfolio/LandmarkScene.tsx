@@ -14,15 +14,16 @@ interface Props {
 function ArrowCue({ visible }: { visible: boolean }) {
   return (
     <div
-      className={`absolute flex flex-col items-center gap-0.5 transition-all duration-200 ${visible ? 'translate-y-0 opacity-100' : '-translate-y-1 opacity-0'}`}
+      className={`absolute flex flex-col items-center gap-0.5 text-iron-orange transition-all duration-200 ${visible ? 'translate-y-0 opacity-100' : '-translate-y-1 opacity-0'}`}
     >
+      <BaseT6 className="mb-1 uppercase">Click to explore</BaseT6>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
         viewBox="0 0 24 24"
         strokeWidth="1"
         stroke="currentColor"
-        className="size-6 animate-bounce text-iron-orange"
+        className={`size-6 animate-bounce`}
       >
         <path
           strokeLinecap="round"
@@ -120,7 +121,7 @@ export function LandmarkScene({ scene }: Props) {
 
       <div
         className="absolute flex items-center justify-center"
-        style={{ bottom: `calc(${bottom} + 100% + 2rem)`, left, width }}
+        style={{ bottom: `calc(${bottom} + 100%)`, left, width }}
       >
         <ArrowCue visible={active} />
       </div>

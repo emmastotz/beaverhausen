@@ -28,10 +28,10 @@ const navItems: NavItem[] = [
 ]
 
 const navLinkClass = [
-  'relative inline-flex items-center gap-1.5 text-beaver no-underline hover:text-beaver-dark',
-  "before:content-[''] before:absolute before:-bottom-5 before:h-[2px] before:w-0 before:bg-iron-orange before:right-1/2",
+  'relative inline-flex items-center md:gap-1.5 text-beaver no-underline hover:text-beaver-dark p-3 md:p-0',
+  "before:content-[''] before:absolute before:-bottom-1 md:before:-bottom-5 before:h-[2px] before:w-0 before:bg-iron-orange before:right-1/2",
   'before:[transition:width_0.4s_cubic-bezier(0.33,0,0.66,1)] hover:before:w-1/2 focus-visible:before:w-1/2 focus-visible:before:[transition:none]',
-  "after:content-[''] after:absolute after:-bottom-5 after:h-[2px] after:w-0 after:bg-iron-orange after:left-1/2",
+  "after:content-[''] after:absolute after:-bottom-1 md:after:-bottom-5 after:h-[2px] after:w-0 after:bg-iron-orange after:left-1/2",
   'after:[transition:width_0.4s_cubic-bezier(0.33,0,0.66,1)] hover:after:w-1/2 focus-visible:after:w-1/2 focus-visible:after:[transition:none]',
 ].join(' ')
 
@@ -50,7 +50,7 @@ export function Header() {
       </div>
 
       <nav className="pointer-events-auto" aria-label="Main navigation">
-        <ul className="-mb-3 flex list-none items-center gap-6 md:gap-8">
+        <ul className="-mb-3 flex list-none items-center gap-1 md:gap-8">
           {navItems.map(({ label, href, icon }) => (
             <li key={label}>
               {href.startsWith('/') ? (

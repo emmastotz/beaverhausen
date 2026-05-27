@@ -430,13 +430,13 @@ export function BeaverhausenCaseStudy() {
       <img
         src={lodgeBlueprint}
         alt=""
-        className="pointer-events-none absolute top-[10%] left-[5%] hidden w-80 -rotate-4 shadow-lg lg:block xl:left-[10%] 2xl:left-[20%]"
+        className="pointer-events-none absolute top-[7%] left-[2%] hidden w-80 -rotate-4 shadow-lg lg:block xl:left-[1%]"
       />
 
       <img
         src={beaverGnawing}
         alt=""
-        className="pointer-events-none absolute right-0 bottom-[5%] hidden w-80 lg:block xl:right-[5%] 2xl:right-[12%]"
+        className="pointer-events-none absolute bottom-0 hidden w-80 lg:-right-[7%] lg:block xl:right-0"
       />
 
       <Flipbook chapters={CHAPTERS} wordmark={<Wordmark bColor="#fff5e3" />}>

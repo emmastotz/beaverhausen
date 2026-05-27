@@ -77,10 +77,10 @@ export const SCENES: SceneConfig[] = [
     href: '/portfolio/riskwise',
     available: false,
     hitArea: {
-      bottom: '20%',
-      left: '65%',
-      width: '21%',
-      height: '92%',
+      bottom: '10%',
+      left: '67%',
+      width: '16%',
+      height: '70%',
     },
   },
 ]

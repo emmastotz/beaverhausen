@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react'
 
-import { SectionLayout } from '@/layouts/SectionLayout'
 import { Wordmark } from '@/components/brand/Wordmark'
 import { BaseT6 } from '@/components/primitives/BaseT6'
 import { Typewriter } from '@/components/Typewriter'
+import { SectionLayout } from '@/layouts/SectionLayout'
 
 type DefinitionPart = {
   text: string
@@ -109,10 +109,7 @@ export const Hero = () => {
         </div>
 
         <button
-          className={[
-            'hidden sm:flex flex-col items-center gap-2 cursor-pointer transition-opacity duration-[800ms] bg-transparent border-none p-0 md:hidden',
-            showScroll && !scrolled ? 'opacity-100' : 'opacity-0',
-          ].join(' ')}
+          className={`hidden cursor-pointer flex-col items-center gap-2 border-none bg-transparent p-0 transition-opacity duration-[800ms] sm:flex md:hidden ${showScroll && !scrolled ? 'opacity-100' : 'opacity-0'}`}
           onClick={() =>
             document
               .getElementById('about')
@@ -126,10 +123,7 @@ export const Hero = () => {
       </div>
 
       <button
-        className={[
-          'absolute bottom-1/5 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 cursor-pointer transition-opacity duration-[800ms] bg-transparent border-none p-0 sm:hidden md:flex',
-          showScroll && !scrolled ? 'opacity-100' : 'opacity-0',
-        ].join(' ')}
+        className={`absolute bottom-1/5 left-1/2 flex -translate-x-1/2 cursor-pointer flex-col items-center gap-2 border-none bg-transparent p-0 transition-opacity duration-[800ms] sm:hidden md:flex ${showScroll && !scrolled ? 'opacity-100' : 'opacity-0'}`}
         onClick={() =>
           document
             .getElementById('about')

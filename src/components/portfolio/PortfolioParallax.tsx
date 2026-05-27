@@ -17,7 +17,8 @@ export function PortfolioParallax() {
   const [viewportHeight, setViewportHeight] = useState(window.innerHeight)
   const usingKeyboard = useRef(false)
 
-  const widthBasedWidth = SCENE_WIDTH * (viewportWidth < 640 ? 0.4 : 0.9)
+  const widthBasedWidth =
+    SCENE_WIDTH * (viewportWidth < 640 ? 0.4 : viewportWidth < 1024 ? 0.6 : 0.9)
   const heightBasedWidth =
     (viewportHeight / viewportWidth) *
     viewportHeight *

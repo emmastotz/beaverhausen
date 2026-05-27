@@ -86,12 +86,11 @@ export const Hero = () => {
           </div>
 
           <div
-            className={[
-              'w-full transition-all duration-[900ms] ease-[cubic-bezier(0.16,1,0.3,1)] outline-none',
+            className={`w-full transition-all duration-[900ms] ease-[cubic-bezier(0.16,1,0.3,1)] outline-none ${
               showWordmark
-                ? 'opacity-100 translate-y-0'
-                : 'opacity-0 translate-y-3',
-            ].join(' ')}
+                ? 'translate-y-0 opacity-100'
+                : 'translate-y-3 opacity-0'
+            }`}
           >
             <Wordmark className="h-auto w-full max-w-2xl" />
           </div>

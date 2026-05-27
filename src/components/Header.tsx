@@ -14,29 +14,6 @@ interface NavItem {
   onClick: (e: React.MouseEvent<HTMLAnchorElement>) => void
 }
 
-const HeaderStyles = () => (
-  <style>{`
-    .nav-link::before,
-    .nav-link::after {
-      content: '';
-      position: absolute;
-      bottom: -20px;
-      height: 2px;
-      width: 0%;
-      background: #b96e16;
-      transition: width 0.4s cubic-bezier(0.33, 0, 0.66, 1);
-    }
-
-    .nav-link::before { right: 50%; }
-    .nav-link::after  { left: 50%; }
-
-    .nav-link:hover::before,
-    .nav-link:hover::after { width: 50%; }
-
-    .nav-link:focus-visible::before,
-    .nav-link:focus-visible::after { width: 50%; transition: none; }
-  `}</style>
-)
 
 export function Header() {
   const { transitionTo } = useTransition()
@@ -70,8 +47,6 @@ export function Header() {
 
   return createPortal(
     <>
-      <HeaderStyles />
-
       <header className="pointer-events-none fixed top-0 right-0 left-0 z-40 flex h-auto items-center justify-between border-b border-beaver/10 bg-cream px-4 py-3">
         <div className="flex items-center gap-4">
           <a
@@ -97,7 +72,13 @@ export function Header() {
                 <a
                   href={href}
                   onClick={onClick}
-                  className="nav-link group relative inline-flex items-center gap-1.5 text-beaver no-underline hover:text-beaver-dark"
+                  className={[
+                    'relative inline-flex items-center gap-1.5 text-beaver no-underline hover:text-beaver-dark',
+                    "before:content-[''] before:absolute before:-bottom-5 before:h-[2px] before:w-0 before:bg-iron-orange before:right-1/2",
+                    'before:[transition:width_0.4s_cubic-bezier(0.33,0,0.66,1)] hover:before:w-1/2 focus-visible:before:w-1/2 focus-visible:before:[transition:none]',
+                    "after:content-[''] after:absolute after:-bottom-5 after:h-[2px] after:w-0 after:bg-iron-orange after:left-1/2",
+                    'after:[transition:width_0.4s_cubic-bezier(0.33,0,0.66,1)] hover:after:w-1/2 focus-visible:after:w-1/2 focus-visible:after:[transition:none]',
+                  ].join(' ')}
                   aria-label={label}
                 >
                   <span aria-hidden="true" className="inline-flex">

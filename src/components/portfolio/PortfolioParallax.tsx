@@ -19,10 +19,11 @@ export function PortfolioParallax() {
 
   const widthBasedWidth =
     SCENE_WIDTH * (viewportWidth < 640 ? 0.4 : viewportWidth < 1024 ? 0.6 : 0.9)
+  const aspectRatio = viewportHeight / viewportWidth
+  const multiplier =
+    aspectRatio <= 0.75 ? 1 : 1 - 0.5 * ((aspectRatio - 0.75) / 0.25)
   const heightBasedWidth =
-    (viewportHeight / viewportWidth) *
-    viewportHeight *
-    (SCENE_WIDTH / SCENE_HEIGHT)
+    multiplier * aspectRatio * viewportHeight * (SCENE_WIDTH / SCENE_HEIGHT)
   const renderedWidth = Math.min(widthBasedWidth, heightBasedWidth)
 
   useEffect(() => {

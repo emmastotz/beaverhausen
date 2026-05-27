@@ -28,7 +28,7 @@ const navItems: NavItem[] = [
 ]
 
 const navLinkClass = [
-  'relative inline-flex items-center md:gap-1.5 text-beaver no-underline hover:text-beaver-dark p-3 md:p-0',
+  'relative inline-flex items-center md:gap-1.5 text-beaver no-underline hover:text-beaver-dark p-3 md:p-0 outline-none',
   "before:content-[''] before:absolute before:-bottom-3 md:before:-bottom-5.5 before:h-[2px] before:w-0 before:bg-iron-orange before:right-1/2",
   'before:[transition:width_0.4s_cubic-bezier(0.33,0,0.66,1)] hover:before:w-1/2 focus-visible:before:w-1/2 focus-visible:before:[transition:none]',
   "after:content-[''] after:absolute after:-bottom-3 md:after:-bottom-5.5 after:h-[2px] after:w-0 after:bg-iron-orange after:left-1/2",
@@ -41,7 +41,7 @@ export function Header() {
       <div className="flex items-center gap-3 md:gap-4">
         <TransitionLink
           to="/"
-          className="pointer-events-auto rounded-full no-underline outline-none hover:ring-2 hover:ring-iron-orange/30 hover:ring-offset-2"
+          className="pointer-events-auto rounded-full no-underline outline-none hover:ring-2 hover:ring-iron-orange/30 hover:ring-offset-2 focus-visible:ring-2 focus-visible:ring-iron-orange focus-visible:ring-offset-2"
           aria-label="Beaverhausen home"
         >
           <BeaverMark className="size-10" />

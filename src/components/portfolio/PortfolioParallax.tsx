@@ -24,7 +24,8 @@ export function PortfolioParallax() {
     aspectRatio <= 0.75 ? 1 : 1 - 0.5 * ((aspectRatio - 0.75) / 0.25)
   const heightBasedWidth =
     multiplier * aspectRatio * viewportHeight * (SCENE_WIDTH / SCENE_HEIGHT)
-  const renderedWidth = Math.min(widthBasedWidth, heightBasedWidth)
+  const renderedWidth =
+    heightBasedWidth > 0 ? Math.min(widthBasedWidth, heightBasedWidth) : widthBasedWidth
 
   useEffect(() => {
     const onResize = () => {

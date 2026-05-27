@@ -7,88 +7,16 @@ interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode
 }
 
-const ButtonStyles = () => (
-  <style>{`
-    .btn {
-      position: relative;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      background: transparent;
-      border: none;
-      cursor: pointer;
-      outline: none;
-      font-family: var(--font-body);
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: #3c3127;
-      transition: color 200ms ease;
-    }
+const variantClasses: Record<ButtonVariant, string> = {
+  primary: 'text-beaver hover:text-beaver-dark',
+  ghost: 'text-iron-orange hover:text-beaver',
+}
 
-    .btn::before,
-    .btn::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      height: 2px;
-      width: 0%;
-      background: #b96e16;
-      transition: width 0.4s cubic-bezier(0.33, 0, 0.66, 1);
-    }
-
-    .btn::before {
-      right: 50%;
-    }
-
-    .btn::after {
-      left: 50%;
-    }
-
-    .btn:hover::before,
-    .btn:hover::after {
-      width: 50%;
-    }
-
-    .btn:focus-visible::before,
-    .btn:focus-visible::after {
-      width: 50%;
-      transition: none;
-    }
-
-    .btn:focus-visible {
-      outline: none;
-    }
-
-    .btn:disabled {
-      opacity: 0.4;
-      cursor: not-allowed;
-      pointer-events: none;
-    }
-
-    .btn--primary {
-      color: #78614d;
-      transition: color 200ms ease;
-    }
-
-    .btn--primary:hover {
-      color: #3c3127;
-    }
-
-    .btn--ghost {
-      color: #b96e16;
-      transition: color 200ms ease;
-    }
-
-    .btn--ghost:hover {
-      color: #78614d;
-    }
-
-    .btn--sm { font-size: 0.7rem; padding: 0.5rem; }
-    .btn--md { font-size: 0.8rem; padding: 0.75rem; }
-    .btn--lg { font-size: 0.85rem; padding: 0.875rem; }
-
-  `}</style>
-)
+const sizeClasses: Record<ButtonSize, string> = {
+  sm: 'text-[0.7rem] p-2',
+  md: 'text-[0.8rem] p-3',
+  lg: 'text-[0.85rem] p-[0.875rem]',
+}
 
 export function Button({
   variant = 'primary',
@@ -99,9 +27,22 @@ export function Button({
 }: Props) {
   return (
     <>
-      <ButtonStyles />
       <button
-        className={`btn btn--${variant} btn--${size} ${className}`}
+        className={[
+          'relative inline-flex items-center justify-center',
+          'bg-transparent border-0 cursor-pointer outline-none',
+          'font-body tracking-[0.18em] uppercase transition-colors duration-200',
+          'disabled:opacity-40 disabled:cursor-not-allowed disabled:pointer-events-none',
+          "before:content-[''] before:absolute before:bottom-0 before:h-[2px] before:w-0 before:bg-iron-orange before:right-1/2",
+          'before:[transition:width_0.4s_cubic-bezier(0.33,0,0.66,1)]',
+          'hover:before:w-1/2 focus-visible:before:w-1/2 focus-visible:before:[transition:none]',
+          "after:content-[''] after:absolute after:bottom-0 after:h-[2px] after:w-0 after:bg-iron-orange after:left-1/2",
+          'after:[transition:width_0.4s_cubic-bezier(0.33,0,0.66,1)]',
+          'hover:after:w-1/2 focus-visible:after:w-1/2 focus-visible:after:[transition:none]',
+          variantClasses[variant],
+          sizeClasses[size],
+          className,
+        ].join(' ')}
         {...props}
       >
         {children}

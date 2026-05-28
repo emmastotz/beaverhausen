@@ -226,22 +226,22 @@ function Content({ id }: { id: string }) {
           <div className="mt-2 mb-6 lg:mx-auto lg:max-w-2xl">
             <ColorPalette
               palette={[
-              { name: 'Primary Blue', bg: 'bg-[#0000FF]' },
-              { name: 'Navy', bg: 'bg-[#14275d]' },
+                { name: 'Primary Blue', bg: 'bg-[#0000FF]' },
+                { name: 'Navy', bg: 'bg-[#14275d]' },
               ]}
-                />
+            />
           </div>
           <div className="mt-2 mb-8 lg:mx-auto lg:max-w-2xl">
             <ColorPalette
               palette={[
-              { name: 'Dark Gray', bg: 'bg-[#374151]' },
-              { name: 'Gray', bg: 'bg-[#6B7280]' },
-              { name: 'White', bg: 'bg-white' },
-              { name: 'Teal', bg: 'bg-[#2DD4BF]' },
-              { name: 'Indigo', bg: 'bg-[#5850EC]' },
+                { name: 'Dark Gray', bg: 'bg-[#374151]' },
+                { name: 'Gray', bg: 'bg-[#6B7280]' },
+                { name: 'White', bg: 'bg-white' },
+                { name: 'Teal', bg: 'bg-[#2DD4BF]' },
+                { name: 'Indigo', bg: 'bg-[#5850EC]' },
               ]}
               isPrimary={false}
-                />
+            />
           </div>
           <p>
             <BaseT4 className="text-beaver">
@@ -452,23 +452,22 @@ function Content({ id }: { id: string }) {
 export function WhiteHawkCaseStudy() {
   return (
     <div className="relative">
-      <div className="absolute inset-0 size-full">
-        <img
-          src={newWhitePaperBlue}
-          alt=""
-          className="pointer-events-none hidden w-120 -rotate-4 lg:absolute lg:top-16 lg:left-0 lg:block 2xl:-left-30"
-        />
-        <img
-          src={newWhitePaperCmmc}
-          alt=""
-          className="pointer-events-none hidden w-120 rotate-6 lg:absolute lg:right-8 lg:bottom-24 lg:block 2xl:-right-20"
-        />
-        <img
-          src={whitehawkLogo}
-          alt="WhiteHawk logo"
-          className="pointer-events-none hidden w-80 lg:absolute lg:right-0 lg:bottom-0 lg:block"
-        />
-      </div>
+      <img
+        src={newWhitePaperBlue}
+        alt=""
+        className="pointer-events-none hidden w-120 -rotate-4 lg:absolute lg:top-16 lg:left-0 lg:block 2xl:-left-30"
+      />
+      <img
+        src={newWhitePaperCmmc}
+        alt=""
+        className="pointer-events-none hidden w-120 rotate-6 lg:absolute lg:right-8 lg:bottom-24 lg:block 2xl:-right-20"
+      />
+      <img
+        src={whitehawkLogo}
+        alt="WhiteHawk logo"
+        className="pointer-events-none hidden w-80 lg:absolute lg:right-0 lg:bottom-0 lg:block"
+      />
+
       <div className="relative">
         <Flipbook
           chapters={CHAPTERS}

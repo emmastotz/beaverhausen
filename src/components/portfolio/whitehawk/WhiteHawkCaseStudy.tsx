@@ -2,10 +2,13 @@ import brandGuidelines from '@/assets/portfolio/brand-guidelines.png'
 import landingHeroNewDark from '@/assets/portfolio/landing-hero-new-dark.png'
 import landingHeroNew from '@/assets/portfolio/landing-hero-new.png'
 import landingHeroOld from '@/assets/portfolio/landing-hero-old.png'
+import newWhitePaperCmmc from '@/assets/portfolio/new-cyber-risk-radar-whitepaper-cmmc.png'
+import newWhitePaperBlue from '@/assets/portfolio/new-cyber-risk-radar-whitepaper-cover-blue.png'
 import newWhitePaper from '@/assets/portfolio/new-cyber-risk-radar-whitepaper-cover.png'
 import oldWhitePaper from '@/assets/portfolio/old-cyber-risk-radar-whitepaper-cover.png'
 import typographyScale from '@/assets/portfolio/typography-scale.svg'
 import whitehawkFileStructure from '@/assets/portfolio/whitehawk-file-structure.svg'
+import whitehawkLogo from '@/assets/portfolio/whitehawk-logo.svg'
 import { Flipbook, type Chapter } from '@/components/gsap/Flipbook'
 import { BaseT1 } from '@/components/primitives/BaseT1'
 import { BaseT4 } from '@/components/primitives/BaseT4'
@@ -462,12 +465,31 @@ function Content({ id }: { id: string }) {
 export function WhiteHawkCaseStudy() {
   return (
     <div className="relative">
-      <Flipbook
-        chapters={CHAPTERS}
-        wordmark={<BaseT1 className="text-cream">WhiteHawk</BaseT1>}
-      >
-        {(id) => <Content id={id} />}
-      </Flipbook>
+      <div className="absolute inset-0 size-full">
+        <img
+          src={newWhitePaperBlue}
+          alt=""
+          className="pointer-events-none hidden w-120 -rotate-4 lg:absolute lg:top-16 lg:left-0 lg:block 2xl:-left-30"
+        />
+        <img
+          src={newWhitePaperCmmc}
+          alt=""
+          className="pointer-events-none hidden w-120 rotate-6 lg:absolute lg:right-8 lg:bottom-24 lg:block 2xl:-right-20"
+        />
+        <img
+          src={whitehawkLogo}
+          alt="WhiteHawk logo"
+          className="pointer-events-none hidden w-80 lg:absolute lg:right-0 lg:bottom-0 lg:block"
+        />
+      </div>
+      <div className="relative">
+        <Flipbook
+          chapters={CHAPTERS}
+          wordmark={<BaseT1 className="text-cream">WhiteHawk</BaseT1>}
+        >
+          {(id) => <Content id={id} />}
+        </Flipbook>
+      </div>
     </div>
   )
 }

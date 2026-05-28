@@ -5,6 +5,8 @@ import { BaseT6 } from '@/components/primitives/BaseT6'
 import { Typewriter } from '@/components/Typewriter'
 import { SectionLayout } from '@/layouts/SectionLayout'
 
+import { DownloadResumeButton } from './DownloadResumeButton'
+
 type DefinitionPart = {
   text: string
   className: string
@@ -97,7 +99,7 @@ export const Hero = () => {
 
           <p
             className={[
-              'mt-3 md:mt-6 transition-opacity duration-[800ms] delay-300',
+              'mt-3 md:mt-6 transition-opacity duration-[800ms] delay-500',
               showWordmark ? 'opacity-100' : 'opacity-0',
             ].join(' ')}
           >
@@ -105,6 +107,15 @@ export const Hero = () => {
               Designing systems. Engineering experiences.
             </BaseT6>
           </p>
+
+          <div
+            className={[
+              'mt-3 transition-opacity duration-[800ms] delay-700',
+              showWordmark ? 'opacity-100' : 'opacity-0',
+            ].join(' ')}
+          >
+            <DownloadResumeButton variant="ghost" />
+          </div>
         </div>
 
         <button

@@ -17,40 +17,38 @@ export default function PortfolioPage() {
   }, [])
 
   return (
-    <>
-      <DefaultLayout>
-        <main>
-          <div className="relative mx-4 md:mx-12 lg:mx-0">
-            <div
-              className={`absolute inset-0 top-30 transition-opacity duration-300 lg:top-50 ${heroVisible ? 'opacity-100' : 'pointer-events-none opacity-0'}`}
-            >
-              <div className="flex flex-col gap-4 text-center">
-                <div className="mx-auto max-w-md lg:max-w-none">
-                  <BaseT6 className="text-iron-orange uppercase">
-                    Selected works
-                  </BaseT6>
-                  <AutoH>
-                    <BaseT1 className="text-beaver-dark">
-                      Something is always being built
-                    </BaseT1>
-                  </AutoH>
-                </div>
-
-                <p className="mx-auto mt-4 max-w-lg sm:mt-8">
-                  <BaseT3 className="text-beaver">
-                    Scroll to continue the journey. Click on a site for a more
-                    in-depth exploration.
-                  </BaseT3>
-                </p>
+    <DefaultLayout>
+      <main>
+        <div className="relative mx-4 md:mx-12 lg:mx-0">
+          <div
+            className={`absolute inset-0 top-30 transition-opacity duration-300 lg:top-50 ${heroVisible ? 'opacity-100' : 'pointer-events-none opacity-0'}`}
+          >
+            <div className="flex flex-col gap-4 text-center">
+              <div className="mx-auto max-w-md lg:max-w-none">
+                <BaseT6 className="text-iron-orange uppercase">
+                  Selected works
+                </BaseT6>
+                <AutoH>
+                  <BaseT1 className="text-beaver-dark">
+                    Something is always being built
+                  </BaseT1>
+                </AutoH>
               </div>
+
+              <p className="mx-auto mt-4 max-w-lg sm:mt-8">
+                <BaseT3 className="text-beaver">
+                  Scroll to continue the journey. Click on a site for a more
+                  in-depth exploration.
+                </BaseT3>
+              </p>
             </div>
           </div>
+        </div>
 
-          <div onFocus={() => setHeroVisible(false)}>
-            <PortfolioParallax />
-          </div>
-        </main>
-      </DefaultLayout>
-    </>
+        <div onFocus={() => setHeroVisible(false)}>
+          <PortfolioParallax />
+        </div>
+      </main>
+    </DefaultLayout>
   )
 }

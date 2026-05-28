@@ -7,9 +7,9 @@ import { BeaverMark } from '@/components/brand/BeaverMark'
 import { Wordmark } from '@/components/brand/Wordmark'
 import { Flipbook, type Chapter } from '@/components/gsap/Flipbook'
 import { TypeSpecimen } from '@/components/portfolio/beaverhausen/TypeSpecimen'
+import { ColorPalette } from '@/components/portfolio/ColorPalette'
 import { BaseT4 } from '@/components/primitives/BaseT4'
 import { BaseT5 } from '@/components/primitives/BaseT5'
-import { BaseT6 } from '@/components/primitives/BaseT6'
 import { ExternalLink } from '@/components/primitives/ExternalLink'
 
 const CHAPTERS: Chapter[] = [
@@ -177,22 +177,16 @@ function Content({ id }: { id: string }) {
               taxonomy writes itself.
             </BaseT4>
           </p>
-          <div className="mt-2 mb-8 grid grid-cols-2 gap-4 sm:grid-cols-4">
-            {[
+
+          <div className="mt-2 mb-8 lg:mx-auto lg:max-w-2xl">
+            <ColorPalette
+              palette={[
               { name: 'Beaver', bg: 'bg-beaver' },
               { name: 'Beaver Dark', bg: 'bg-beaver-dark' },
               { name: 'Iron Orange', bg: 'bg-iron-orange' },
               { name: 'Cream', bg: 'bg-cream', ring: true },
-            ].map(({ name, bg }) => (
-              <div key={name}>
-                <div
-                  className={`${bg} aspect-square rounded-md shadow-sm ${name === 'Cream' ? 'ring-1 ring-beaver/20' : ''}`}
+              ]}
                 />
-                <p>
-                  <BaseT6 className="text-iron-orange uppercase">{name}</BaseT6>
-                </p>
-              </div>
-            ))}
           </div>
           <p>
             <BaseT4 className="text-beaver">

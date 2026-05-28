@@ -82,7 +82,7 @@ export function StaticAbout() {
         ))}
       </section>
 
-      <FadeIn>
+      <div className="flex flex-col items-start gap-6">
         <p>
           <BaseT3
             variant="display"
@@ -91,13 +91,14 @@ export function StaticAbout() {
             {CLOSING}
           </BaseT3>
         </p>
-      </FadeIn>
 
-      <FadeIn>
-        <Button variant="ghost" onClick={() => transitionTo('/portfolio')}>
+        <Button
+          variant="ghost"
+          onClick={() => transitionTo('/portfolio/beaverhausen')}
+        >
           View my work
         </Button>
-      </FadeIn>
+      </div>
     </div>
   )
 }

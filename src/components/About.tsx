@@ -1,15 +1,15 @@
 import { useEffect, useState } from 'react'
 
-import { SectionLayout } from '@/layouts/SectionLayout'
+import type { ScrollSection } from '@/components/ScrollJackTypewriter'
+
 import { BeaverMark } from '@/components/brand/BeaverMark'
-import { BaseT6 } from '@/components/primitives/BaseT6'
 import { Button } from '@/components/primitives/Button'
 import {
   composeScrollSections,
   ScrollJackTypewriter,
 } from '@/components/ScrollJackTypewriter'
-import type { ScrollSection } from '@/components/ScrollJackTypewriter'
 import { useTransition } from '@/context/TransitionContext'
+import { SectionLayout } from '@/layouts/SectionLayout'
 
 const BEAVER_SECTION: ScrollSection = {
   lines: [
@@ -60,8 +60,11 @@ const PROFESSIONAL_SECTION: ScrollSection = {
   },
 }
 
-const { lines: ABOUT_LINES, renderText: renderAboutText, getLineProps: getAboutLineProps } =
-  composeScrollSections([BEAVER_SECTION, PROFESSIONAL_SECTION])
+const {
+  lines: ABOUT_LINES,
+  renderText: renderAboutText,
+  getLineProps: getAboutLineProps,
+} = composeScrollSections([BEAVER_SECTION, PROFESSIONAL_SECTION])
 
 const CLOSING_COPY: React.ReactNode[] = [
   "The beaverhausen doesn't build itself.",
@@ -94,25 +97,19 @@ export function About() {
     return () => observer.disconnect()
   }, [])
 
-  const handleSkip = () => {
-    const about = document.getElementById('about')
-    if (!about) return
-    const bottom = about.offsetTop + about.offsetHeight
-    window.scrollTo({ top: bottom, behavior: 'smooth' })
-  }
-
   return (
     <SectionLayout id="about" className="w-full" aria-label="About">
       <div
-        className={`fixed bottom-[1vh] left-1/2 z-30 -translate-x-1/2 ${isCtaInView ? 'opacity-100' : 'opacity-0'}`}
+        className={`fixed bottom-[0.5vh] left-1/2 z-30 -translate-x-1/2 ${isCtaInView ? 'opacity-100' : 'opacity-0'}`}
       >
-        <button
-          onClick={handleSkip}
-          className="cursor-pointer text-iron-orange hover:text-beaver"
+        <Button
+          onClick={() => transitionTo('/portfolio/beaverhausen')}
+          variant="ghost"
+          size="sm"
           aria-label="Skip to end of about section"
         >
-          <BaseT6 className="uppercase">Skip</BaseT6>
-        </button>
+          Skip to work
+        </Button>
       </div>
 
       <ScrollJackTypewriter

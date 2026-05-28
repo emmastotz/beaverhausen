@@ -225,7 +225,7 @@ function Content({ id }: { id: string }) {
               </div>
             ))}
           </div>
-          <div className="mt-2 mb-8 grid grid-cols-2 gap-8 sm:grid-cols-6">
+          <div className="mt-2 mb-8 grid grid-cols-3 gap-4 sm:grid-cols-6 sm:gap-8">
             {[
               { name: 'Dark Gray', bg: 'bg-[#374151]' },
               { name: 'Gray', bg: 'bg-[#6B7280]' },

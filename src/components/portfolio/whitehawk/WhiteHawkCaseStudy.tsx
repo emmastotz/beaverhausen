@@ -11,6 +11,7 @@ import { BaseT1 } from '@/components/primitives/BaseT1'
 import { BaseT4 } from '@/components/primitives/BaseT4'
 import { BaseT5 } from '@/components/primitives/BaseT5'
 import { BaseT6 } from '@/components/primitives/BaseT6'
+import { ExternalLink } from '@/components/primitives/ExternalLink'
 
 const CHAPTERS: Chapter[] = [
   {
@@ -55,7 +56,16 @@ function Content({ id }: { id: string }) {
               engineering across the public site through two major migrations.
             </BaseT4>
           </p>
-          <div className="mt-2 mb-8 border-l-2 border-iron-orange pl-4">
+          <div>
+            <ExternalLink
+              href="https://whitehawk.com/"
+              size="sm"
+              variant="ghost"
+            >
+              whitehawk.com
+            </ExternalLink>
+          </div>
+          <div className="mb-8 border-l-2 border-iron-orange pl-4">
             <p>
               <BaseT5
                 variant="display"

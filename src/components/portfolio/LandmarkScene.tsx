@@ -15,6 +15,7 @@ function ArrowCue({ visible }: { visible: boolean }) {
   return (
     <div
       className={`absolute flex flex-col items-center gap-0.5 text-iron-orange transition-all duration-200 ${visible ? 'translate-y-0 opacity-100' : '-translate-y-1 opacity-0'}`}
+      aria-hidden="true"
     >
       <BaseT6 className="mb-1 uppercase">Click to explore</BaseT6>
       <svg

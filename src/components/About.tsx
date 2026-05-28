@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import type { ScrollSection } from '@/components/ScrollJackTypewriter'
 
 import { BeaverMark } from '@/components/brand/BeaverMark'
+import { DownloadResumeButton } from '@/components/DownloadResumeButton'
 import { Button } from '@/components/primitives/Button'
 import {
   composeScrollSections,
@@ -71,19 +72,6 @@ const CLOSING_COPY: React.ReactNode[] = [
 ]
 
 export function About() {
-  const handleDownload = async () => {
-    const response = await fetch(
-      'https://beaverhausen-worker.beaverhausen.workers.dev/resume',
-    )
-    const blob = await response.blob()
-    const url = URL.createObjectURL(blob)
-    const a = document.createElement('a')
-    a.href = url
-    a.download = 'Emma-Stotz-Resume-2026.pdf'
-    a.click()
-    URL.revokeObjectURL(url)
-  }
-
   const { transitionTo } = useTransition()
 
   const [isCtaInView, setIsCtaInView] = useState(false)
@@ -135,9 +123,9 @@ export function About() {
           className="absolute top-4/5 left-1/2 -translate-x-1/2"
         >
           <div className="flex flex-col justify-center gap-1 sm:gap-3">
-            <Button onClick={handleDownload}>Download my resume</Button>
+            <DownloadResumeButton variant="ghost" />
 
-            <Button variant="ghost" onClick={() => transitionTo('/portfolio')}>
+            <Button onClick={() => transitionTo('/portfolio')}>
               Continue the journey
             </Button>
           </div>

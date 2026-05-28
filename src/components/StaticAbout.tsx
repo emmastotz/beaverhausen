@@ -1,3 +1,4 @@
+import { DownloadResumeButton } from '@/components/DownloadResumeButton'
 import { FadeIn } from '@/components/FadeIn'
 import { AutoH } from '@/components/primitives/AutoH'
 import { BaseT1 } from '@/components/primitives/BaseT1'
@@ -22,19 +23,6 @@ const CLOSING = `The beaverhausen doesn't build itself.`
 export function StaticAbout() {
   const { transitionTo } = useTransition()
 
-  const handleDownload = async () => {
-    const response = await fetch(
-      'https://beaverhausen-worker.beaverhausen.workers.dev/resume',
-    )
-    const blob = await response.blob()
-    const url = URL.createObjectURL(blob)
-    const a = document.createElement('a')
-    a.href = url
-    a.download = 'Emma-Stotz-Resume-2026.pdf'
-    a.click()
-    URL.revokeObjectURL(url)
-  }
-
   return (
     <div className="flex flex-col gap-10">
       <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
@@ -43,9 +31,7 @@ export function StaticAbout() {
         </AutoH>
 
         <FadeIn>
-          <Button variant="ghost" onClick={handleDownload}>
-            Download resume
-          </Button>
+          <DownloadResumeButton variant="ghost" />
         </FadeIn>
       </div>
 

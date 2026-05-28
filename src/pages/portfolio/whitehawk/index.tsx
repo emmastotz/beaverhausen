@@ -5,7 +5,7 @@ import { DefaultLayout } from '@/layouts/DefaultLayout'
 export default function WhiteHawkPortfolioPage() {
   return (
     <DefaultLayout>
-      <main className="relative mx-auto min-h-screen max-w-7xl overflow-x-hidden">
+      <main className="relative mx-auto min-h-screen max-w-7xl">
         <WhiteHawkCaseStudy />
         <CaseStudyNav currentHref="/portfolio/whitehawk" />
       </main>

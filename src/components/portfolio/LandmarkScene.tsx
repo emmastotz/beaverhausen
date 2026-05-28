@@ -5,7 +5,7 @@ import type { SceneConfig } from '@/components/portfolio/Scenes.config'
 import { BaseT1 } from '@/components/primitives/BaseT1'
 import { BaseT5 } from '@/components/primitives/BaseT5'
 import { BaseT6 } from '@/components/primitives/BaseT6'
-import { useTransition } from '@/context/TransitionContext'
+import { TransitionLink } from '@/components/primitives/TransitionLink'
 
 interface Props {
   scene: SceneConfig
@@ -37,7 +37,6 @@ function ArrowCue({ visible }: { visible: boolean }) {
 
 export function LandmarkScene({ scene }: Props) {
   const [active, setActive] = useState(false)
-  const { transitionTo } = useTransition()
   const { bottom, left, width, height } = scene.hitArea
   const hitAreaRef = useRef<HTMLDivElement>(null)
 
@@ -56,14 +55,6 @@ export function LandmarkScene({ scene }: Props) {
     return () => window.removeEventListener('scroll', checkVisibility)
   }, [])
 
-  const handleClick = () => {
-    if (scene.available) transitionTo(scene.href)
-  }
-
-  const handleKeyDown = (e: React.KeyboardEvent) => {
-    if (e.key === 'Enter' && scene.available) transitionTo(scene.href)
-  }
-
   return (
     <div
       className="relative w-full"
@@ -76,15 +67,18 @@ export function LandmarkScene({ scene }: Props) {
 
       <div
         ref={hitAreaRef}
-        className="absolute cursor-pointer rounded-md outline-none focus-visible:ring-2 focus-visible:ring-iron-orange/50"
+        className="absolute"
         style={{ bottom, left, width, height }}
-        onFocus={() => setActive(true)}
-        onClick={handleClick}
-        role="button"
-        aria-label={`View ${scene.title} case study`}
-        tabIndex={0}
-        onKeyDown={handleKeyDown}
-      />
+      >
+        {scene.available && (
+          <TransitionLink
+            to={scene.href}
+            className="block size-full rounded-md outline-none focus-visible:ring-2 focus-visible:ring-iron-orange/50"
+            onFocus={() => setActive(true)}
+            aria-label={`View ${scene.title} case study`}
+          />
+        )}
+      </div>
 
       <div
         className={`pointer-events-auto absolute bottom-full mb-40 text-center transition-all duration-700 ease-out sm:mb-60 ${

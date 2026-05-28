@@ -36,7 +36,7 @@ export function CaseStudyNav({ currentHref }: Props) {
         <TransitionLink
           to={prev.href}
           aria-label={`Previous case study: ${prev.title}`}
-          className="group flex flex-col gap-1 pt-6 pr-4 pb-4 transition-colors duration-200 focus-visible:outline-none"
+          className="group flex flex-col gap-1 px-4 pt-6 pb-4 transition-colors duration-200 focus-visible:outline-none lg:pl-0"
         >
           <BaseT6 className="text-iron-orange/70 uppercase group-hover:text-iron-orange group-focus-visible:text-iron-orange">
             ← Previous

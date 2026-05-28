@@ -119,12 +119,14 @@ export function LandmarkScene({ scene }: Props) {
         </p>
       </div>
 
-      <div
-        className="absolute flex items-center justify-center"
-        style={{ bottom: `calc(${bottom} + 100%)`, left, width }}
-      >
-        <ArrowCue visible={active} />
-      </div>
+      {scene.available && (
+        <div
+          className="absolute flex items-center justify-center"
+          style={{ bottom: `calc(${bottom} + 100%)`, left, width }}
+        >
+          <ArrowCue visible={active} />
+        </div>
+      )}
     </div>
   )
 }

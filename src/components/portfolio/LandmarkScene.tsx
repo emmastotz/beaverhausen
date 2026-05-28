@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 
 import type { SceneConfig } from '@/components/portfolio/Scenes.config'
 
+import { AutoH } from '@/components/primitives/AutoH'
 import { BaseT1 } from '@/components/primitives/BaseT1'
 import { BaseT5 } from '@/components/primitives/BaseT5'
 import { BaseT6 } from '@/components/primitives/BaseT6'
@@ -57,8 +58,9 @@ export function LandmarkScene({ scene }: Props) {
   }, [])
 
   return (
-    <div
+    <section
       className="relative w-full"
+      aria-label={scene.title}
       style={{
         filter: active ? 'brightness(1.1)' : 'none',
         transition: 'filter 300ms ease',
@@ -77,29 +79,32 @@ export function LandmarkScene({ scene }: Props) {
             className="block size-full rounded-md outline-none focus-visible:ring-2 focus-visible:ring-iron-orange/50"
             onFocus={() => setActive(true)}
             aria-label={`View ${scene.title} case study`}
+            aria-describedby={`scene-${scene.id}`}
           />
         )}
       </div>
 
       <div
+        id={`scene-${scene.id}`}
         className={`pointer-events-auto absolute bottom-full mb-40 text-center transition-all duration-700 ease-out sm:mb-60 ${
           active ? 'translate-y-0 opacity-100' : 'translate-y-2 opacity-0'
         } `}
         style={{ left, width }}
       >
-        {scene.available ? (
-          ''
-        ) : (
+        {!scene.available && (
           <BaseT6 className="text-iron-orange uppercase">
             Work in progress
           </BaseT6>
         )}
         {scene.wordmark ? (
-          scene.wordmark
+          <>
+            <AutoH className="sr-only">{scene.title}</AutoH>
+            {scene.wordmark}
+          </>
         ) : (
-          <p className="mb-4">
+          <AutoH className="mb-4">
             <BaseT1 className="text-beaver-dark">{scene.title}</BaseT1>
-          </p>
+          </AutoH>
         )}
 
         <p className="mx-auto mb-2 max-w-2xs text-pretty sm:max-w-xs">
@@ -122,6 +127,6 @@ export function LandmarkScene({ scene }: Props) {
           <ArrowCue visible={active} />
         </div>
       )}
-    </div>
+    </section>
   )
 }

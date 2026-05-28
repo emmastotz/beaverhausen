@@ -5,6 +5,8 @@ import { LandmarkScene } from '@/components/portfolio/LandmarkScene'
 import { SCENES } from '@/components/portfolio/Scenes.config'
 import { gsap } from '@/deps/gsap'
 
+import { AutoHProvider } from '../primitives/AutoHProvider'
+
 const SCENE_WIDTH = 3342
 const SCENE_HEIGHT = 866
 const SCROLL_HEIGHT = 6000
@@ -147,7 +149,9 @@ export function PortfolioParallax() {
                   scrollToHitAreaCenter(e.target as HTMLElement)
               }}
             >
-              <LandmarkScene scene={scene} />
+              <AutoHProvider>
+                <LandmarkScene scene={scene} />
+              </AutoHProvider>
             </div>
           ))}
         </div>

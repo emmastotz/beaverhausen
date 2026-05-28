@@ -54,11 +54,11 @@ function PageChrome({
           backgroundAttachment: 'local',
         }}
       >
-        <div className="mb-10 flex flex-col">
+        <div className="mx-auto mb-10 flex max-w-3xl flex-col">
           <h1 className="text-beaver-dark">
             <BaseT1>{chapter.title}</BaseT1>
           </h1>
-          <div className="mt-1 flex flex-col gap-1 sm:ml-3 sm:flex-row sm:items-center">
+          <div className="flex flex-col gap-1 sm:ml-3 sm:flex-row sm:items-center">
             <BaseT6 className="leading-[5%] text-iron-orange uppercase">
               Chapter {chapter.tab}:
             </BaseT6>
@@ -69,7 +69,7 @@ function PageChrome({
         </div>
 
         {/* Chapter content */}
-        <div className="max-w-prose">{children}</div>
+        <div className="mx-auto max-w-3xl">{children}</div>
       </div>
     </div>
   )

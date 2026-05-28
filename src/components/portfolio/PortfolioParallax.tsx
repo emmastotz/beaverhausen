@@ -12,7 +12,6 @@ export const PORTFOLIO_SCROLL_HEIGHT = SCENES.length * SCROLL_HEIGHT
 
 export function PortfolioParallax() {
   const containerRef = useRef<HTMLDivElement>(null)
-  const [offset, setOffset] = useState(0)
   const [viewportWidth, setViewportWidth] = useState(window.innerWidth)
   const [viewportHeight, setViewportHeight] = useState(window.innerHeight)
   const usingKeyboard = useRef(false)
@@ -25,7 +24,12 @@ export function PortfolioParallax() {
   const heightBasedWidth =
     multiplier * aspectRatio * viewportHeight * (SCENE_WIDTH / SCENE_HEIGHT)
   const renderedWidth =
-    heightBasedWidth > 0 ? Math.min(widthBasedWidth, heightBasedWidth) : widthBasedWidth
+    heightBasedWidth > 0
+      ? Math.min(widthBasedWidth, heightBasedWidth)
+      : widthBasedWidth
+
+  const panoramaWidth =
+    renderedWidth * SCENES.length + viewportWidth + SCENES.length
 
   useEffect(() => {
     const onResize = () => {
@@ -40,10 +44,12 @@ export function PortfolioParallax() {
     const totalPanorama = renderedWidth * SCENES.length - viewportWidth
 
     const onScroll = () => {
-      const scrolled = window.scrollY
       const maxScroll = PORTFOLIO_SCROLL_HEIGHT - window.innerHeight
-      const progress = Math.min(scrolled / maxScroll, 1)
-      setOffset(progress * totalPanorama)
+      const progress = Math.min(window.scrollY / maxScroll, 1)
+      containerRef.current?.style.setProperty(
+        '--offset',
+        `${progress * totalPanorama}px`,
+      )
     }
 
     window.addEventListener('scroll', onScroll, { passive: true })
@@ -72,17 +78,19 @@ export function PortfolioParallax() {
     const { left, right } = target.getBoundingClientRect()
     const deltaX = (left + right) / 2 - viewportWidth / 2
     const maxScroll = PORTFOLIO_SCROLL_HEIGHT - window.innerHeight
+
+    const prefersReducedMotion = window.matchMedia(
+      '(prefers-reduced-motion: reduce)',
+    ).matches
     gsap.to(window, {
       scrollTo: Math.max(
         0,
         window.scrollY + (deltaX / totalPanorama) * maxScroll,
       ),
-      duration: 0.8,
+      duration: prefersReducedMotion ? 0 : 0.8,
       ease: 'power2.inOut',
     })
   }
-
-  const panoramaWidth = renderedWidth * SCENES.length + viewportWidth
 
   return (
     <div style={{ height: PORTFOLIO_SCROLL_HEIGHT }}>
@@ -96,7 +104,7 @@ export function PortfolioParallax() {
             backgroundImage: `url(${cloudBg})`,
             backgroundSize: `${renderedWidth}px auto`,
             width: panoramaWidth,
-            transform: `translateX(-${offset * 0.2}px)`,
+            transform: 'translateX(calc(var(--offset, 0px) * -0.2))',
           }}
         />
 
@@ -104,7 +112,7 @@ export function PortfolioParallax() {
           className="absolute inset-0"
           style={{
             width: panoramaWidth,
-            transform: `translateX(-${offset}px)`,
+            transform: 'translateX(calc(-1 * var(--offset, 0px)))',
           }}
         >
           {SCENES.map((scene, i) => (
@@ -114,7 +122,7 @@ export function PortfolioParallax() {
               style={{
                 backgroundImage: `url(${scene.scene})`,
                 backgroundSize: `${renderedWidth}px auto`,
-                backgroundPosition: `left bottom`,
+                backgroundPosition: 'left bottom',
                 left: i * renderedWidth - i,
                 width: renderedWidth,
               }}
@@ -126,7 +134,7 @@ export function PortfolioParallax() {
           className="absolute bottom-0"
           style={{
             width: panoramaWidth,
-            transform: `translateX(-${offset}px)`,
+            transform: 'translateX(calc(-1 * var(--offset, 0px)))',
           }}
         >
           {SCENES.map((scene, i) => (

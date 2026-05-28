@@ -10,10 +10,10 @@ import typographyScale from '@/assets/portfolio/typography-scale.svg'
 import whitehawkFileStructure from '@/assets/portfolio/whitehawk-file-structure.svg'
 import whitehawkLogo from '@/assets/portfolio/whitehawk-logo.svg'
 import { Flipbook, type Chapter } from '@/components/gsap/Flipbook'
+import { ColorPalette } from '@/components/portfolio/ColorPalette'
 import { BaseT1 } from '@/components/primitives/BaseT1'
 import { BaseT4 } from '@/components/primitives/BaseT4'
 import { BaseT5 } from '@/components/primitives/BaseT5'
-import { BaseT6 } from '@/components/primitives/BaseT6'
 import { ExternalLink } from '@/components/primitives/ExternalLink'
 
 const CHAPTERS: Chapter[] = [
@@ -223,38 +223,25 @@ function Content({ id }: { id: string }) {
             </p>
           </div>
 
-          <div className="mt-2 mb-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
-            {[
+          <div className="mt-2 mb-6 lg:mx-auto lg:max-w-2xl">
+            <ColorPalette
+              palette={[
               { name: 'Primary Blue', bg: 'bg-[#0000FF]' },
               { name: 'Navy', bg: 'bg-[#14275d]' },
-            ].map(({ name, bg }) => (
-              <div key={name}>
-                <div
-                  className={`${bg} aspect-square rounded-md shadow-sm ${name === 'Cream' ? 'ring-1 ring-beaver/20' : ''}`}
+              ]}
                 />
-                <p>
-                  <BaseT6 className="text-iron-orange uppercase">{name}</BaseT6>
-                </p>
-              </div>
-            ))}
           </div>
-          <div className="mt-2 mb-8 grid grid-cols-3 gap-4 sm:grid-cols-6 sm:gap-8">
-            {[
+          <div className="mt-2 mb-8 lg:mx-auto lg:max-w-2xl">
+            <ColorPalette
+              palette={[
               { name: 'Dark Gray', bg: 'bg-[#374151]' },
               { name: 'Gray', bg: 'bg-[#6B7280]' },
               { name: 'White', bg: 'bg-white' },
               { name: 'Teal', bg: 'bg-[#2DD4BF]' },
               { name: 'Indigo', bg: 'bg-[#5850EC]' },
-            ].map(({ name, bg }) => (
-              <div key={name}>
-                <div
-                  className={`${bg} aspect-square rounded-md shadow-sm ${name === 'Cream' ? 'ring-1 ring-beaver/20' : ''}`}
+              ]}
+              isPrimary={false}
                 />
-                <p>
-                  <BaseT6 className="text-iron-orange uppercase">{name}</BaseT6>
-                </p>
-              </div>
-            ))}
           </div>
           <p>
             <BaseT4 className="text-beaver">

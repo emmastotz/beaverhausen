@@ -181,12 +181,12 @@ function Content({ id }: { id: string }) {
           <div className="mt-2 mb-8 lg:mx-auto lg:max-w-2xl">
             <ColorPalette
               palette={[
-              { name: 'Beaver', bg: 'bg-beaver' },
-              { name: 'Beaver Dark', bg: 'bg-beaver-dark' },
-              { name: 'Iron Orange', bg: 'bg-iron-orange' },
-              { name: 'Cream', bg: 'bg-cream', ring: true },
+                { name: 'Beaver', bg: 'bg-beaver' },
+                { name: 'Beaver Dark', bg: 'bg-beaver-dark' },
+                { name: 'Iron Orange', bg: 'bg-iron-orange' },
+                { name: 'Cream', bg: 'bg-cream', ring: true },
               ]}
-                />
+            />
           </div>
           <p>
             <BaseT4 className="text-beaver">
@@ -422,20 +422,21 @@ export function BeaverhausenCaseStudy() {
   return (
     <div className="relative">
       <img
-        src={lodgeBlueprint}
-        alt=""
-        className="pointer-events-none absolute top-[7%] left-[2%] hidden w-80 -rotate-4 shadow-lg lg:block xl:left-[1%]"
-      />
-
-      <img
         src={beaverGnawing}
         alt=""
-        className="pointer-events-none absolute bottom-0 hidden w-80 lg:-right-[7%] lg:block xl:right-0"
+        className="pointer-events-none hidden w-60 lg:absolute lg:top-14 lg:left-0 lg:block xl:top-20 xl:left-[1%] xl:w-80"
+      />
+      <img
+        src={lodgeBlueprint}
+        alt=""
+        className="pointer-events-none hidden w-80 rotate-4 shadow-lg lg:absolute lg:right-6 lg:bottom-0 lg:block xl:w-120"
       />
 
-      <Flipbook chapters={CHAPTERS} wordmark={<Wordmark bColor="#fff5e3" />}>
-        {(id) => <Content id={id} />}
-      </Flipbook>
+      <div className="relative">
+        <Flipbook chapters={CHAPTERS} wordmark={<Wordmark bColor="#fff5e3" />}>
+          {(id) => <Content id={id} />}
+        </Flipbook>
+      </div>
     </div>
   )
 }

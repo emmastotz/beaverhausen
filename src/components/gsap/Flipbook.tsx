@@ -4,6 +4,8 @@ import { BaseT1 } from '@/components/primitives/BaseT1'
 import { BaseT6 } from '@/components/primitives/BaseT6'
 import { gsap, useGSAP } from '@/deps/gsap'
 
+import { AutoH } from '../primitives/AutoH'
+
 export interface Chapter {
   id: string
   tab: string
@@ -12,6 +14,7 @@ export interface Chapter {
 }
 
 interface Props {
+  label: string
   chapters: Chapter[]
   children: (id: string) => React.ReactNode
   wordmark?: React.ReactNode
@@ -42,7 +45,11 @@ function PageChrome({
   }, [chapter.id])
 
   return (
-    <div className="relative size-full overflow-hidden rounded-r-lg bg-[#FFFEFC]">
+    <section
+      role="tabpanel"
+      aria-labelledby={`tab-${chapter.id}`}
+      className="relative size-full overflow-hidden rounded-r-lg bg-[#FFFEFC]"
+    >
       <div className="pointer-events-none absolute top-0 bottom-0 left-4 w-px bg-iron-orange/30 sm:left-8" />
 
       <div
@@ -55,9 +62,9 @@ function PageChrome({
         }}
       >
         <div className="mx-auto mb-10 flex max-w-3xl flex-col">
-          <h1 className="text-beaver-dark">
+          <AutoH className="text-beaver-dark">
             <BaseT1>{chapter.title}</BaseT1>
-          </h1>
+          </AutoH>
           <div className="flex flex-col gap-1 sm:ml-3 sm:flex-row sm:items-center">
             <BaseT6 className="leading-[5%] text-iron-orange uppercase">
               Chapter {chapter.tab}:
@@ -71,11 +78,11 @@ function PageChrome({
         {/* Chapter content */}
         <div className="mx-auto max-w-3xl">{children}</div>
       </div>
-    </div>
+    </section>
   )
 }
 
-export function Flipbook({ chapters, children, wordmark }: Props) {
+export function Flipbook({ label, chapters, children, wordmark }: Props) {
   const [current, setCurrent] = useState<number | null>(null)
   const [pending, setPending] = useState<number | null>(null)
   const [next, setNext] = useState<number | null>(null)
@@ -167,11 +174,18 @@ export function Flipbook({ chapters, children, wordmark }: Props) {
             transformStyle: 'preserve-3d',
           }}
         >
-          <div className="absolute -bottom-10 left-6 z-20 flex w-[86%] justify-between gap-1 sm:top-8 sm:-right-10 sm:bottom-0 sm:left-full sm:w-auto sm:flex-col sm:justify-start">
+          <div
+            role="tablist"
+            aria-label={label}
+            className="absolute -bottom-10 left-6 z-20 flex w-[86%] justify-between gap-1 sm:top-8 sm:-right-10 sm:bottom-0 sm:left-full sm:w-auto sm:flex-col sm:justify-start"
+          >
             {/* TODO: figure out why the border flashes white before it transitions to border-beaver/20 */}
             {chapters.map((ch, i) => (
               <button
                 key={ch.id}
+                id={`tab-${ch.id}`}
+                role="tab"
+                aria-selected={!showCover && i === (pending ?? current)}
                 onClick={() => goTo(i)}
                 className={`transition-color flex size-10 items-center justify-center rounded-b-md font-body text-xs tracking-widest shadow-sm duration-75 focus-visible:border focus-visible:border-iron-orange focus-visible:outline-none sm:rounded-r-md sm:rounded-bl-none ${
                   !showCover && i === (pending ?? current)

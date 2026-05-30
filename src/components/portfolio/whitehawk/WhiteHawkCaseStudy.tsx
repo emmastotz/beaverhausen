@@ -470,6 +470,7 @@ export function WhiteHawkCaseStudy() {
 
       <div className="relative">
         <Flipbook
+          label="WhiteHawk"
           chapters={CHAPTERS}
           wordmark={<BaseT1 className="text-cream">WhiteHawk</BaseT1>}
         >

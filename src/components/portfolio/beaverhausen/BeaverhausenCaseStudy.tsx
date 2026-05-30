@@ -433,7 +433,11 @@ export function BeaverhausenCaseStudy() {
       />
 
       <div className="relative">
-        <Flipbook chapters={CHAPTERS} wordmark={<Wordmark bColor="#fff5e3" />}>
+        <Flipbook
+          label="Beaverhausen"
+          chapters={CHAPTERS}
+          wordmark={<Wordmark bColor="#fff5e3" />}
+        >
           {(id) => <Content id={id} />}
         </Flipbook>
       </div>

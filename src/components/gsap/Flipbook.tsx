@@ -147,7 +147,10 @@ export function Flipbook({ chapters, children, wordmark }: Props) {
   return (
     <div className="flex h-full flex-1 items-center justify-center px-4 pt-20 pb-14 sm:pt-24 sm:pr-14 lg:px-0">
       <div className="flex w-full justify-center">
-        <div className="z-10 flex w-8 flex-shrink-0 flex-col items-center justify-between gap-3 bg-beaver-dark py-8 sm:w-12">
+        <div
+          aria-hidden="true"
+          className="z-10 flex w-8 flex-shrink-0 flex-col items-center justify-between gap-3 bg-beaver-dark py-8 sm:w-12"
+        >
           {Array.from({ length: 12 }).map((_, i) => (
             <div
               key={i}

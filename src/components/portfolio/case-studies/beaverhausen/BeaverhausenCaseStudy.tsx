@@ -145,7 +145,7 @@ export function BeaverhausenCaseStudy() {
       <img
         src={lodgeBlueprint}
         alt=""
-        className="pointer-events-none hidden w-80 rotate-4 shadow-lg lg:absolute lg:right-6 lg:bottom-0 lg:block xl:w-120"
+        className="pointer-events-none hidden w-80 rotate-4 border-x border-t-2 border-black/15 shadow-lg lg:absolute lg:right-6 lg:bottom-0 lg:block xl:w-120"
       />
 
       <div className="relative">

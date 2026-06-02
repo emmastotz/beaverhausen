@@ -30,13 +30,13 @@ export function CaseStudyNav({ currentHref }: Props) {
   return (
     <nav
       aria-label="Case study navigation"
-      className="mx-auto flex max-w-3xl items-center justify-between"
+      className="mx-auto flex max-w-3xl items-center justify-between focus:outline-none"
     >
       {prev ? (
         <TransitionLink
           to={prev.href}
           aria-label={`Previous case study: ${prev.title}`}
-          className="group flex flex-col gap-1 px-4 pt-6 pb-4 transition-colors duration-200 focus-visible:outline-none lg:pl-0"
+          className="group mt-2 flex flex-col gap-1 rounded-md p-4 transition-colors duration-200 focus-visible:ring-2 focus-visible:ring-iron-orange/50 focus-visible:outline-none lg:-ml-4"
         >
           <BaseT6 className="text-iron-orange/70 uppercase group-hover:text-iron-orange group-focus-visible:text-iron-orange">
             ← Previous
@@ -53,7 +53,7 @@ export function CaseStudyNav({ currentHref }: Props) {
         <TransitionLink
           to={next.href}
           aria-label={`Next case study: ${next.title}`}
-          className="group flex flex-col items-end gap-1 px-4 pt-6 pb-4 text-right transition-colors duration-200 focus-visible:outline-none lg:pr-0"
+          className="group mt-2 flex flex-col items-end gap-1 rounded-md p-4 text-right transition-colors duration-200 focus-visible:ring-2 focus-visible:ring-iron-orange focus-visible:outline-none lg:-mr-4"
         >
           <BaseT6 className="text-iron-orange/70 uppercase group-hover:text-iron-orange group-focus-visible:text-iron-orange">
             Next →

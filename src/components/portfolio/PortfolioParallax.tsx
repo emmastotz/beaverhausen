@@ -8,13 +8,14 @@ import { gsap } from '@/deps/gsap'
 
 const SCENE_WIDTH = 3342
 const SCENE_HEIGHT = 866
-const SCROLL_HEIGHT = 6000
-export const PORTFOLIO_SCROLL_HEIGHT = SCENES.length * SCROLL_HEIGHT
 
 export function PortfolioParallax() {
   const containerRef = useRef<HTMLDivElement>(null)
   const [viewportWidth, setViewportWidth] = useState(window.innerWidth)
   const [viewportHeight, setViewportHeight] = useState(window.innerHeight)
+
+  const scrollHeight = viewportWidth < 1024 ? 3000 : 6000
+  const portfolioScrollHeight = SCENES.length * scrollHeight
   const usingKeyboard = useRef(false)
 
   const widthBasedWidth =
@@ -45,7 +46,7 @@ export function PortfolioParallax() {
     const totalPanorama = renderedWidth * SCENES.length - viewportWidth
 
     const onScroll = () => {
-      const maxScroll = PORTFOLIO_SCROLL_HEIGHT - window.innerHeight
+      const maxScroll = portfolioScrollHeight - window.innerHeight
       const progress = Math.min(window.scrollY / maxScroll, 1)
       containerRef.current?.style.setProperty(
         '--offset',
@@ -78,7 +79,7 @@ export function PortfolioParallax() {
     if (totalPanorama <= 0) return
     const { left, right } = target.getBoundingClientRect()
     const deltaX = (left + right) / 2 - viewportWidth / 2
-    const maxScroll = PORTFOLIO_SCROLL_HEIGHT - window.innerHeight
+    const maxScroll = portfolioScrollHeight - window.innerHeight
 
     const prefersReducedMotion = window.matchMedia(
       '(prefers-reduced-motion: reduce)',
@@ -94,7 +95,7 @@ export function PortfolioParallax() {
   }
 
   return (
-    <div style={{ height: PORTFOLIO_SCROLL_HEIGHT }}>
+    <div style={{ height: portfolioScrollHeight }}>
       <div
         ref={containerRef}
         className="sticky top-0 h-screen w-full overflow-clip"

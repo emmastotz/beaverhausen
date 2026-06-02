@@ -1,86 +1,30 @@
-import beaverScene from '@/assets/landscape/portfolio/beaver-landmark-scene.svg'
-import damScene from '@/assets/landscape/portfolio/dam-landmark-scene.svg'
-import felledTreeScene from '@/assets/landscape/portfolio/felled-tree-landmark-scene.svg'
+import type { CaseStudy } from '@/content/case-studies'
+
 import { Wordmark } from '@/components/brand/Wordmark'
 import { BeaverDamLandmark } from '@/components/portfolio/BeaverDamLandmark'
 import { BeaverLandmark } from '@/components/portfolio/BeaverLandmark'
 import { FelledTreeLandmark } from '@/components/portfolio/FelledTreeLandmark'
+import { CASE_STUDIES } from '@/content/case-studies'
 
-export interface HitArea {
-  bottom: string
-  left: string
-  width: string
-  height: string
-}
+export type { HitArea, CaseStudy } from '@/content/case-studies'
 
-export interface SceneConfig {
-  id: string
-  scene: string
+export interface SceneConfig extends CaseStudy {
   landmark: React.ReactNode
   wordmark: React.ReactNode | null
-  title: string
-  description: string
-  role: string
-  href: string
-  available: boolean
-  hitArea: HitArea
 }
 
-// ─── Scenes ───────────────────────────────────────────────────────────────────
+const LANDMARKS: Record<string, React.ReactNode> = {
+  'dam': <BeaverDamLandmark />,
+  'felled-tree': <FelledTreeLandmark />,
+  'beaver': <BeaverLandmark />,
+}
 
-export const SCENES: SceneConfig[] = [
-  {
-    id: 'dam',
-    scene: damScene,
-    landmark: <BeaverDamLandmark />,
-    wordmark: <Wordmark className="mx-auto mb-4 sm:w-2/3 2xl:mb-7" />,
-    title: 'Beaverhausen',
-    description:
-      'Brand identity, design system, and a portfolio of selected works. Built from scratch.',
-    role: 'Designer & Engineer',
-    href: '/portfolio/beaverhausen',
-    available: true,
-    hitArea: {
-      bottom: '20%',
-      left: '57%',
-      width: '21%',
-      height: '92%',
-    },
-  },
-  {
-    id: 'felled-tree',
-    scene: felledTreeScene,
-    landmark: <FelledTreeLandmark />,
-    wordmark: null,
-    title: 'WhiteHawk',
-    description:
-      'Design system, rebrand, and enterprise cybersecurity platforms. Built and designed throughout.',
-    role: 'Designer & Engineer',
-    href: '/portfolio/whitehawk',
-    available: true,
-    hitArea: {
-      bottom: '2%',
-      left: '15%',
-      width: '22%',
-      height: '92%',
-    },
-  },
-  {
-    id: 'beaver',
-    scene: beaverScene,
-    landmark: <BeaverLandmark />,
-    wordmark: null,
-    title: 'RiskWise',
-    description:
-      'Enterprise risk assessment platform for an Australian cybersecurity firm.',
-    role: 'Lead Engineer',
-    href: '/portfolio/riskwise',
-    available: false,
-    hitArea: {
-      bottom: '10%',
-      left: '67%',
-      width: '16%',
-      height: '70%',
-    },
-  },
-]
+const WORDMARKS: Record<string, React.ReactNode> = {
+  dam: <Wordmark className="mx-auto mb-4 sm:w-2/3 2xl:mb-7" />,
+}
+
+export const SCENES: SceneConfig[] = CASE_STUDIES.map((data) => ({
+  ...data,
+  landmark: LANDMARKS[data.id],
+  wordmark: WORDMARKS[data.id] ?? null,
+}))

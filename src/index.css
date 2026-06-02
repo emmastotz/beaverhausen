@@ -36,6 +36,12 @@
 }
 
 @layer utilities {
+  .z-raised   { z-index: var(--z-raised); }
+  .z-tabs     { z-index: var(--z-tabs); }
+  .z-floating { z-index: var(--z-floating); }
+  .z-header   { z-index: var(--z-header); }
+  .z-overlay  { z-index: var(--z-overlay); }
+
   .underline-build {
     &::before,
     &::after {
@@ -80,5 +86,17 @@
 
   --duration-interaction: 0.4s;
   --duration-transition: 1.2s;
-  --ease-out-cubic: cubic-bezier(0.33,0,0.66,1);
+  --ease-out-cubic: cubic-bezier(0.33, 0, 0.66, 1);
+
+  /* Elevation layer contract — nothing should use a raw z-index outside this scale.
+     raised   → component-internal page layering (flipbook pages, content chrome)
+     tabs     → component UI above its own page layers (flipbook tab nav)
+     floating → fixed elements above content but below the header (floating CTAs)
+     header   → fixed site header, always above page content
+     overlay  → full-screen overlays that cover everything (page transition) */
+  --z-raised: 10;
+  --z-tabs: 20;
+  --z-floating: 30;
+  --z-header: 40;
+  --z-overlay: 50;
 }

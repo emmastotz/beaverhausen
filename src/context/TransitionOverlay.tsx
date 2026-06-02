@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react'
 import { createPortal } from 'react-dom'
 
+import { DRAIN_DURATION, FLOOD_DURATION } from '@/hooks/usePageTransition'
 import type { TransitionState } from '@/hooks/usePageTransition'
 
 interface TransitionOverlayProps {
@@ -12,9 +13,6 @@ export function TransitionOverlay({ state }: TransitionOverlayProps) {
   const animRef = useRef<number>(0)
   const startTimeRef = useRef<number>(0)
   const fillRef = useRef<number>(0)
-
-  const FLOOD_DURATION = 1200
-  const DRAIN_DURATION = 1200
 
   useEffect(() => {
     const canvas = canvasRef.current
@@ -158,7 +156,8 @@ export function TransitionOverlay({ state }: TransitionOverlayProps) {
     }
   }, [state])
 
-  if (state === 'idle') return null
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  if (state === 'idle' || prefersReducedMotion) return null
 
   return createPortal(
     <canvas

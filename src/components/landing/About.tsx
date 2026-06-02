@@ -69,7 +69,7 @@ export function About() {
   return (
     <SectionLayout id="about" className="w-full" aria-label="About">
       <div
-        className={`fixed bottom-[0.5vh] left-1/2 z-30 -translate-x-1/2 ${isCtaInView ? 'opacity-100' : 'opacity-0'}`}
+        className={`fixed bottom-[0.5vh] left-1/2 z-floating -translate-x-1/2 ${isCtaInView ? 'opacity-100' : 'opacity-0'}`}
       >
         <Button
           onClick={() => transitionTo('/portfolio/beaverhausen')}

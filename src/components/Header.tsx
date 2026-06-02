@@ -35,7 +35,7 @@ const navLinkClass = [
 
 export function Header() {
   return createPortal(
-    <header className="pointer-events-none fixed top-0 right-0 left-0 z-40 flex h-auto items-center justify-between border-b border-beaver/10 bg-cream px-4 py-3">
+    <header className="pointer-events-none fixed top-0 right-0 left-0 z-header flex h-auto items-center justify-between border-b border-beaver/10 bg-cream px-4 py-3">
       <div className="flex items-center gap-3 md:gap-4">
         <TransitionLink
           to="/"

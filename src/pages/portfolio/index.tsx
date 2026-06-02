@@ -22,7 +22,7 @@ export default function PortfolioPage() {
       <main>
         <div className="relative mx-4 md:mx-12 lg:mx-0">
           <div
-            className={`absolute inset-0 top-30 transition-opacity duration-300 lg:top-50 ${heroVisible ? 'opacity-100' : 'pointer-events-none opacity-0'}`}
+            className={`pointer-events-none absolute inset-0 top-30 transition-opacity duration-300 lg:top-50 ${heroVisible ? 'opacity-100' : 'opacity-0'}`}
           >
             <FadeIn delay={500} className="flex flex-col gap-4 text-center">
               <div className="mx-auto max-w-md lg:max-w-none">

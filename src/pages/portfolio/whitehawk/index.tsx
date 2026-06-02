@@ -1,5 +1,5 @@
-import { CaseStudyNav } from '@/components/portfolio/CaseStudyNav'
-import { WhiteHawkCaseStudy } from '@/components/portfolio/whitehawk/WhiteHawkCaseStudy'
+import { CaseStudyNav } from '@/components/portfolio/case-studies/CaseStudyNav'
+import { WhiteHawkCaseStudy } from '@/components/portfolio/case-studies/whitehawk/WhiteHawkCaseStudy'
 import { DefaultLayout } from '@/layouts/DefaultLayout'
 
 export default function WhiteHawkPortfolioPage() {

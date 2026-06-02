@@ -162,7 +162,7 @@ export function TransitionOverlay({ state }: TransitionOverlayProps) {
   return createPortal(
     <canvas
       ref={canvasRef}
-      className="pointer-events-none fixed inset-0 z-50"
+      className="pointer-events-none fixed inset-0 z-overlay"
       style={{ backdropFilter: 'blur(2px)' }}
     />,
     document.body,

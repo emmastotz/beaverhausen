@@ -6,15 +6,12 @@ import logoV2 from '@/assets/portfolio/logo-v2.svg'
 import { BeaverMark } from '@/components/brand/BeaverMark'
 import { Wordmark } from '@/components/brand/Wordmark'
 import { Flipbook } from '@/components/gsap/Flipbook'
-import { TypeSpecimen } from '@/components/portfolio/beaverhausen/TypeSpecimen'
-import { ColorPalette } from '@/components/portfolio/ColorPalette'
-import { FieldNote } from '@/components/portfolio/FieldNote'
-import { Paragraph } from '@/components/portfolio/Paragraph'
+import { TypeSpecimen } from '@/components/portfolio/case-studies/beaverhausen/TypeSpecimen'
+import { ColorPalette } from '@/components/portfolio/case-studies/ColorPalette'
+import { FieldNote } from '@/components/portfolio/case-studies/FieldNote'
+import { Paragraph } from '@/components/portfolio/case-studies/Paragraph'
 import { ExternalLink } from '@/components/primitives/ExternalLink'
-import {
-  CHAPTERS,
-  CHAPTER_COPY,
-} from '@/content/case-study-beaverhausen'
+import { CHAPTERS, CHAPTER_COPY } from '@/content/case-study-beaverhausen'
 
 function Content({ id }: { id: string }) {
   const copy = CHAPTER_COPY[id]

@@ -22,7 +22,7 @@ interface Props {
 function CoverPage({ wordmark }: { wordmark?: React.ReactNode }) {
   return (
     <div className="relative size-full overflow-hidden rounded-r-lg bg-beaver-dark">
-      <div className="relative z-10 flex h-full flex-col items-center justify-center px-12">
+      <div className="z-raised relative flex h-full flex-col items-center justify-center px-12">
         <BaseT6 className="text-iron-orange uppercase">Field Notes</BaseT6>
         {wordmark}
       </div>
@@ -53,7 +53,7 @@ function PageChrome({
 
       <div
         ref={scrollRef}
-        className="relative z-10 h-full overflow-y-auto px-9 py-10 sm:px-12"
+        className="z-raised relative h-full overflow-y-auto px-9 py-10 sm:px-12"
         style={{
           backgroundImage:
             'repeating-linear-gradient(transparent, transparent 27px, #c5946a22 27px, #c5946a22 28px)',
@@ -160,7 +160,7 @@ export function Flipbook({ label, chapters, children, wordmark }: Props) {
       <div className="flex w-full justify-center">
         <div
           aria-hidden="true"
-          className="z-10 flex w-8 flex-shrink-0 flex-col items-center justify-between gap-3 bg-beaver-dark py-8 sm:w-12"
+          className="z-raised flex w-8 flex-shrink-0 flex-col items-center justify-between gap-3 border-r-2 border-black/30 bg-beaver-dark py-8 sm:w-12 lg:py-12"
         >
           {Array.from({ length: 12 }).map((_, i) => (
             <div
@@ -181,7 +181,7 @@ export function Flipbook({ label, chapters, children, wordmark }: Props) {
           <div
             role="tablist"
             aria-label={label}
-            className="absolute -bottom-10 left-6 z-20 flex w-[86%] justify-between gap-1 sm:top-8 sm:-right-10 sm:bottom-0 sm:left-full sm:w-auto sm:flex-col sm:justify-start"
+            className="z-tabs absolute -bottom-10 left-6 flex w-[86%] justify-between gap-1 sm:top-8 sm:-right-10 sm:bottom-0 sm:left-full sm:w-auto sm:flex-col sm:justify-start"
           >
             {/* TODO: figure out why the border flashes white before it transitions to border-beaver/20 */}
             {chapters.map((ch, i) => (
@@ -217,7 +217,7 @@ export function Flipbook({ label, chapters, children, wordmark }: Props) {
 
           <div
             ref={currentPageRef}
-            className="absolute inset-0 z-10"
+            className="z-raised absolute inset-0"
             style={{ backfaceVisibility: 'hidden' }}
           >
             {showCover ? (

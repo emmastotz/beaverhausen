@@ -162,10 +162,10 @@ export function Flipbook({ label, chapters, children, wordmark }: Props) {
           aria-hidden="true"
           className="z-raised flex w-8 flex-shrink-0 flex-col items-center justify-between gap-3 border-r-2 border-black/30 bg-beaver-dark py-8 sm:w-12 lg:py-12"
         >
-          {Array.from({ length: 12 }).map((_, i) => (
+          {Array.from({ length: 3 }).map((_, i) => (
             <div
               key={i}
-              className="size-5 rounded-full border-2 border-beaver/40 bg-beaver-dark"
+              className="size-4 rounded-full bg-cream shadow-inner outline-2 outline-black/30"
             />
           ))}
         </div>

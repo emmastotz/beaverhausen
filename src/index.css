@@ -35,12 +35,73 @@
   animation: grow 1s ease forwards;
 }
 
+@keyframes cattails-sway-a {
+  0%,
+  100% {
+    transform: rotate(-1.2deg);
+  }
+  50% {
+    transform: rotate(0.9deg);
+  }
+}
+@keyframes cattails-sway-b {
+  0%,
+  100% {
+    transform: rotate(1.2deg);
+  }
+  50% {
+    transform: rotate(-0.9deg);
+  }
+}
+
+@keyframes lily-pad-bob {
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  30% {
+    transform: translateY(-2px) rotate(0.4deg);
+  }
+  60% {
+    transform: translateY(1.5px) rotate(-0.25deg);
+  }
+  80% {
+    transform: translateY(-1px) rotate(0.15deg);
+  }
+}
+
+@layer components {
+  .animate-cattails-sway-a {
+    animation: cattails-sway-a 4s 0s infinite ease-in-out;
+  }
+  .animate-cattails-sway-b {
+    animation: cattails-sway-b 4s 0s infinite ease-in-out;
+  }
+  .animate-lily-pad-bob {
+    animation: lily-pad-bob 4s 0s infinite ease-in-out;
+  }
+}
+
 @layer utilities {
-  .z-raised   { z-index: var(--z-raised); }
-  .z-tabs     { z-index: var(--z-tabs); }
-  .z-floating { z-index: var(--z-floating); }
-  .z-header   { z-index: var(--z-header); }
-  .z-overlay  { z-index: var(--z-overlay); }
+  .transform-box-fill {
+    transform-box: fill-box;
+  }
+
+  .z-raised {
+    z-index: var(--z-raised);
+  }
+  .z-tabs {
+    z-index: var(--z-tabs);
+  }
+  .z-floating {
+    z-index: var(--z-floating);
+  }
+  .z-header {
+    z-index: var(--z-header);
+  }
+  .z-overlay {
+    z-index: var(--z-overlay);
+  }
 
   .underline-build {
     &::before,

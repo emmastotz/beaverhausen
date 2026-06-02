@@ -1,5 +1,4 @@
 import { DownloadResumeButton } from '@/components/DownloadResumeButton'
-import { FadeIn } from '@/components/FadeIn'
 import { AutoH } from '@/components/primitives/AutoH'
 import { BaseT1 } from '@/components/primitives/BaseT1'
 import { BaseT3 } from '@/components/primitives/BaseT3'
@@ -12,24 +11,24 @@ import {
 } from '@/content/about'
 import { useTransition } from '@/context/TransitionContext'
 
+import { FadeIn } from '../FadeIn'
+
 export function StaticAbout() {
   const { transitionTo } = useTransition()
 
   return (
-    <div className="flex flex-col gap-10">
+    <FadeIn delay={1000} className="flex flex-col gap-10">
       <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
         <AutoH>
           <BaseT1 className="text-beaver-dark">About</BaseT1>
         </AutoH>
 
-        <FadeIn>
-          <DownloadResumeButton variant="ghost" />
-        </FadeIn>
+        <DownloadResumeButton variant="ghost" />
       </div>
 
       <section aria-label="About beavers">
         {BEAVER_PARAGRAPHS.map((p, i) => (
-          <FadeIn key={i} delay={i * 100} className="mb-6 last:mb-0">
+          <div key={i} className="mb-6 last:mb-0">
             {i === 2 ? (
               <p>
                 <BaseT3
@@ -46,17 +45,17 @@ export function StaticAbout() {
                 </BaseT4>
               </p>
             )}
-          </FadeIn>
+          </div>
         ))}
       </section>
 
       <section aria-label="About me">
         {PROFESSIONAL_PARAGRAPHS.map((p, i) => (
-          <FadeIn key={i} delay={i * 100} className="mb-6 last:mb-0">
+          <div key={i} className="mb-6 last:mb-0">
             <p>
               <BaseT4 className="leading-[1.9] text-beaver">{p}</BaseT4>
             </p>
-          </FadeIn>
+          </div>
         ))}
       </section>
 
@@ -77,6 +76,6 @@ export function StaticAbout() {
           View my work
         </Button>
       </div>
-    </div>
+    </FadeIn>
   )
 }

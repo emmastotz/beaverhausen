@@ -174,16 +174,16 @@ export function WhiteHawkCaseStudy() {
       <img
         src={newWhitePaperCmmc}
         alt=""
-        className="pointer-events-none hidden w-120 -rotate-4 shadow-lg lg:absolute lg:bottom-40 lg:left-0 lg:block 2xl:-left-30"
+        className="pointer-events-none hidden w-120 -rotate-4 border-x border-t border-black/10 shadow-lg lg:absolute lg:bottom-40 lg:left-0 lg:block 2xl:-left-30"
       />
       <img
         src={newWhitePaperBlue}
         alt=""
-        className="pointer-events-none hidden w-120 rotate-6 shadow-lg lg:absolute lg:right-8 lg:bottom-16 lg:block 2xl:-right-20"
+        className="pointer-events-none hidden w-120 rotate-6 border-x border-t-2 border-black/15 shadow-lg lg:absolute lg:right-8 lg:bottom-16 lg:block 2xl:-right-20"
       />
       <img
         src={whitehawkLogo}
-        alt="WhiteHawk logo"
+        alt=""
         className="pointer-events-none hidden w-80 lg:absolute lg:bottom-0 lg:left-0 lg:block"
       />
 

@@ -3,9 +3,8 @@ import { useEffect, useRef, useState } from 'react'
 import cloudBg from '@/assets/landscape/portfolio/portfolio-cloud-background.svg'
 import { LandmarkScene } from '@/components/portfolio/LandmarkScene'
 import { SCENES } from '@/components/portfolio/Scenes.config'
+import { AutoHProvider } from '@/components/primitives/AutoHProvider'
 import { gsap } from '@/deps/gsap'
-
-import { AutoHProvider } from '../primitives/AutoHProvider'
 
 const SCENE_WIDTH = 3342
 const SCENE_HEIGHT = 866

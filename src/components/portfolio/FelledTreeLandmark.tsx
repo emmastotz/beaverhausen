@@ -124,7 +124,7 @@ export function FelledTreeLandmark({ className = '' }: Props) {
           </g>
           <g
             id="frog_on_a_lily_pad"
-            className="transform-box-fill animate-lily-pad-bob origin-center [animation-duration:4.8s]"
+            className="transform-box-fill animate-lily-pad-bob origin-center [animation-duration:4.8s] motion-reduce:animate-none"
           >
             <g id="lily_pad_ripples_sm">
               <path
@@ -198,7 +198,7 @@ export function FelledTreeLandmark({ className = '' }: Props) {
           </g>
           <g
             id="lily_pad_sm"
-            className="transform-box-fill animate-lily-pad-bob origin-center [animation-delay:0.75s] [animation-duration:4.8s]"
+            className="transform-box-fill animate-lily-pad-bob origin-center [animation-delay:0.75s] [animation-duration:4.8s] motion-reduce:animate-none"
           >
             <path
               id="lily_pad_sm_fill"
@@ -218,7 +218,7 @@ export function FelledTreeLandmark({ className = '' }: Props) {
             <g id="ft_right_animation">
               <g
                 id="ft_right_animation_3"
-                className="transform-box-fill animate-cattails-sway-a origin-bottom [animation-delay:0.5s] [animation-duration:4.4s]"
+                className="transform-box-fill animate-cattails-sway-a origin-bottom [animation-delay:0.5s] [animation-duration:4.4s] motion-reduce:animate-none"
               >
                 <path
                   fill="#905e25"
@@ -235,7 +235,7 @@ export function FelledTreeLandmark({ className = '' }: Props) {
               </g>
               <g
                 id="ft_right_animation_2"
-                className="transform-box-fill animate-cattails-sway-b origin-bottom [animation-delay:1.2s] [animation-duration:3.6s]"
+                className="transform-box-fill animate-cattails-sway-b origin-bottom [animation-delay:1.2s] [animation-duration:3.6s] motion-reduce:animate-none"
               >
                 <path
                   fill="#905e25"
@@ -252,7 +252,7 @@ export function FelledTreeLandmark({ className = '' }: Props) {
               </g>
               <g
                 id="ft_right_animation_1"
-                className="transform-box-fill animate-cattails-sway-a origin-bottom [animation-delay:0.7s] [animation-duration:4.0s]"
+                className="transform-box-fill animate-cattails-sway-a origin-bottom [animation-delay:0.7s] [animation-duration:4.0s] motion-reduce:animate-none"
               >
                 <path
                   fill="#905e25"
@@ -289,7 +289,7 @@ export function FelledTreeLandmark({ className = '' }: Props) {
             <g id="ft_middle_animation">
               <g
                 id="ft_middle_animation_3"
-                className="transform-box-fill animate-cattails-sway-b origin-bottom [animation-delay:0.2s] [animation-duration:4.6s]"
+                className="transform-box-fill animate-cattails-sway-b origin-bottom [animation-delay:0.2s] [animation-duration:4.6s] motion-reduce:animate-none"
               >
                 <path
                   fill="#905e25"
@@ -306,7 +306,7 @@ export function FelledTreeLandmark({ className = '' }: Props) {
               </g>
               <g
                 id="ft_middle_animation_2"
-                className="transform-box-fill animate-cattails-sway-a origin-bottom [animation-delay:0.9s] [animation-duration:3.9s]"
+                className="transform-box-fill animate-cattails-sway-a origin-bottom [animation-delay:0.9s] [animation-duration:3.9s] motion-reduce:animate-none"
               >
                 <path
                   fill="#905e25"
@@ -323,7 +323,7 @@ export function FelledTreeLandmark({ className = '' }: Props) {
               </g>
               <g
                 id="ft_middle_animation_1"
-                className="transform-box-fill animate-cattails-sway-b origin-bottom [animation-delay:0.4s] [animation-duration:4.3s]"
+                className="transform-box-fill animate-cattails-sway-b origin-bottom [animation-delay:0.4s] [animation-duration:4.3s] motion-reduce:animate-none"
               >
                 <path
                   fill="#905e25"
@@ -360,7 +360,7 @@ export function FelledTreeLandmark({ className = '' }: Props) {
             <g id="ft_left_animation">
               <g
                 id="ft_left_animation_4"
-                className="transform-box-fill animate-cattails-sway-b origin-bottom [animation-delay:0.3s] [animation-duration:3.5s]"
+                className="transform-box-fill animate-cattails-sway-b origin-bottom [animation-delay:0.3s] [animation-duration:3.5s] motion-reduce:animate-none"
               >
                 <path
                   fill="#905e25"
@@ -377,7 +377,7 @@ export function FelledTreeLandmark({ className = '' }: Props) {
               </g>
               <g
                 id="ft_left_animation_3"
-                className="transform-box-fill animate-cattails-sway-a origin-bottom [animation-delay:1.1s] [animation-duration:4.8s]"
+                className="transform-box-fill animate-cattails-sway-a origin-bottom [animation-delay:1.1s] [animation-duration:4.8s] motion-reduce:animate-none"
               >
                 <path
                   fill="#905e25"
@@ -394,7 +394,7 @@ export function FelledTreeLandmark({ className = '' }: Props) {
               </g>
               <g
                 id="ft_left_animation_2"
-                className="transform-box-fill animate-cattails-sway-b origin-bottom [animation-delay:0.6s] [animation-duration:3.7s]"
+                className="transform-box-fill animate-cattails-sway-b origin-bottom [animation-delay:0.6s] [animation-duration:3.7s] motion-reduce:animate-none"
               >
                 <path
                   fill="#905e25"
@@ -411,7 +411,7 @@ export function FelledTreeLandmark({ className = '' }: Props) {
               </g>
               <g
                 id="ft_left_animation_1"
-                className="transform-box-fill animate-cattails-sway-a origin-bottom [animation-delay:0.0s] [animation-duration:4.1s]"
+                className="transform-box-fill animate-cattails-sway-a origin-bottom [animation-delay:0.0s] [animation-duration:4.1s] motion-reduce:animate-none"
               >
                 <path
                   fill="#905e25"

@@ -140,7 +140,7 @@ export function BeaverhausenCaseStudy() {
       <img
         src={beaverGnawing}
         alt=""
-        className="pointer-events-none hidden w-60 lg:absolute lg:top-14 lg:left-0 lg:block xl:top-20 xl:left-[1%] xl:w-80"
+        className="pointer-events-none hidden w-60 lg:absolute lg:top-14 lg:left-0 lg:block xl:top-28 xl:left-[1%] xl:w-80"
       />
       <img
         src={lodgeBlueprint}

@@ -172,19 +172,19 @@ export function WhiteHawkCaseStudy() {
   return (
     <div className="relative">
       <img
-        src={newWhitePaperBlue}
-        alt=""
-        className="pointer-events-none hidden w-120 -rotate-4 shadow-lg lg:absolute lg:top-16 lg:left-0 lg:block 2xl:-left-30"
-      />
-      <img
         src={newWhitePaperCmmc}
         alt=""
-        className="pointer-events-none hidden w-120 rotate-6 shadow-lg lg:absolute lg:right-8 lg:bottom-24 lg:block 2xl:-right-20"
+        className="pointer-events-none hidden w-120 -rotate-4 shadow-lg lg:absolute lg:bottom-40 lg:left-0 lg:block 2xl:-left-30"
+      />
+      <img
+        src={newWhitePaperBlue}
+        alt=""
+        className="pointer-events-none hidden w-120 rotate-6 shadow-lg lg:absolute lg:right-8 lg:bottom-16 lg:block 2xl:-right-20"
       />
       <img
         src={whitehawkLogo}
         alt="WhiteHawk logo"
-        className="pointer-events-none hidden w-80 lg:absolute lg:right-0 lg:bottom-0 lg:block"
+        className="pointer-events-none hidden w-80 lg:absolute lg:bottom-0 lg:left-0 lg:block"
       />
 
       <div className="relative">

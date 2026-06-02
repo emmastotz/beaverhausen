@@ -3,26 +3,12 @@ import { useEffect, useState } from 'react'
 import { Wordmark } from '@/components/brand/Wordmark'
 import { BaseT6 } from '@/components/primitives/BaseT6'
 import { Typewriter } from '@/components/Typewriter'
+import { HERO_COPY } from '@/content/hero'
 import { SectionLayout } from '@/layouts/SectionLayout'
 
 import { DownloadResumeButton } from './DownloadResumeButton'
 
-type DefinitionPart = {
-  text: string
-  className: string
-}
-
-const DEFINITION_PARTS: DefinitionPart[] = [
-  {
-    text: 'The dwelling of an assiduous creature suspended somewhere between design instinct and engineering precision;',
-    className: 'text-beaver-dark',
-  },
-  {
-    text: ' ecosystem modifications considered routine maintenance.',
-    className: 'italic text-beaver',
-  },
-]
-const FULL_TEXT = DEFINITION_PARTS.map((p) => p.text).join('')
+const FULL_TEXT = HERO_COPY.map((p) => p.text).join('')
 const WORDMARK_DELAY = 600
 const SCROLL_DELAY = WORDMARK_DELAY + 1200
 
@@ -51,7 +37,7 @@ export const Hero = () => {
   const renderDefinition = (displayed: string) => {
     let charsRendered = 0
 
-    return DEFINITION_PARTS.map((part, i) => {
+    return HERO_COPY.map((part, i) => {
       const start = charsRendered
       charsRendered += part.text.length
 

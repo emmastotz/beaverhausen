@@ -184,7 +184,7 @@ export function WhiteHawkCaseStudy() {
       <img
         src={whitehawkLogo}
         alt=""
-        className="pointer-events-none hidden w-80 lg:absolute lg:bottom-0 lg:left-0 lg:block"
+        className="pointer-events-none hidden w-80 lg:absolute lg:bottom-2 lg:left-0 lg:block 2xl:-left-8"
       />
 
       <div className="relative">

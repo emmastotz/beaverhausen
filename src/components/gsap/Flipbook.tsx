@@ -165,7 +165,7 @@ export function Flipbook({ label, chapters, children, wordmark }: Props) {
           {Array.from({ length: 3 }).map((_, i) => (
             <div
               key={i}
-              className="size-4 rounded-full border-8 border-black/15 bg-cream outline-2 outline-black/30"
+              className="size-4 rounded-full bg-cream/80 outline-2 outline-black/30"
             />
           ))}
         </div>

@@ -1,6 +1,6 @@
-import { About } from '@/components/About'
-import { Hero } from '@/components/Hero'
-import { ParallaxLandscape } from '@/components/ParallaxLandscape'
+import { About } from '@/components/landing/About'
+import { Hero } from '@/components/landing/Hero'
+import { ParallaxLandscape } from '@/components/landing/ParallaxLandscape'
 import { DefaultLayout } from '@/layouts/DefaultLayout'
 
 export default function LandingPage() {

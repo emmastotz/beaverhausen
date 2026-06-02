@@ -1,5 +1,5 @@
-import { BeaverhausenCaseStudy } from '@/components/portfolio/beaverhausen/BeaverhausenCaseStudy'
-import { CaseStudyNav } from '@/components/portfolio/CaseStudyNav'
+import { BeaverhausenCaseStudy } from '@/components/portfolio/case-studies/beaverhausen/BeaverhausenCaseStudy'
+import { CaseStudyNav } from '@/components/portfolio/case-studies/CaseStudyNav'
 import { DefaultLayout } from '@/layouts/DefaultLayout'
 
 export default function BeaverhausenPortfolioPage() {

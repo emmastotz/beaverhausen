@@ -22,7 +22,7 @@ export function BeaverLandmark({ className = '' }: Props) {
             <g id="b-right-animation">
               <g
                 id="b-right-animation-5"
-                className="animate-cattails-sway-a origin-bottom transform-box-fill [animation-duration:4.3s] [animation-delay:0.9s]"
+                className="animate-cattails-sway-a motion-reduce:animate-none origin-bottom transform-box-fill [animation-duration:4.3s] [animation-delay:0.9s]"
               >
                 <path
                   fill="#905e25"
@@ -39,7 +39,7 @@ export function BeaverLandmark({ className = '' }: Props) {
               </g>
               <g
                 id="b-right-animation-4"
-                className="animate-cattails-sway-b origin-bottom transform-box-fill [animation-duration:3.5s] [animation-delay:0.3s]"
+                className="animate-cattails-sway-b motion-reduce:animate-none origin-bottom transform-box-fill [animation-duration:3.5s] [animation-delay:0.3s]"
               >
                 <path
                   fill="#905e25"
@@ -56,7 +56,7 @@ export function BeaverLandmark({ className = '' }: Props) {
               </g>
               <g
                 id="b-right-animation-3"
-                className="animate-cattails-sway-a origin-bottom transform-box-fill [animation-duration:4.8s] [animation-delay:1.1s]"
+                className="animate-cattails-sway-a motion-reduce:animate-none origin-bottom transform-box-fill [animation-duration:4.8s] [animation-delay:1.1s]"
               >
                 <path
                   fill="#905e25"
@@ -73,7 +73,7 @@ export function BeaverLandmark({ className = '' }: Props) {
               </g>
               <g
                 id="b-right-animation-2"
-                className="animate-cattails-sway-b origin-bottom transform-box-fill [animation-duration:3.7s] [animation-delay:0.6s]"
+                className="animate-cattails-sway-b motion-reduce:animate-none origin-bottom transform-box-fill [animation-duration:3.7s] [animation-delay:0.6s]"
               >
                 <path
                   fill="#905e25"
@@ -90,7 +90,7 @@ export function BeaverLandmark({ className = '' }: Props) {
               </g>
               <g
                 id="b-right-animation-1"
-                className="animate-cattails-sway-a origin-bottom transform-box-fill [animation-duration:4.1s] [animation-delay:0.0s]"
+                className="animate-cattails-sway-a motion-reduce:animate-none origin-bottom transform-box-fill [animation-duration:4.1s] [animation-delay:0.0s]"
               >
                 <path
                   fill="#905e25"
@@ -182,7 +182,7 @@ export function BeaverLandmark({ className = '' }: Props) {
             <g id="b-left-animation">
               <g
                 id="b-left-animation-5"
-                className="animate-cattails-sway-b origin-bottom transform-box-fill [animation-duration:4.6s] [animation-delay:1.4s]"
+                className="animate-cattails-sway-b motion-reduce:animate-none origin-bottom transform-box-fill [animation-duration:4.6s] [animation-delay:1.4s]"
               >
                 <path
                   fill="#905e25"
@@ -199,7 +199,7 @@ export function BeaverLandmark({ className = '' }: Props) {
               </g>
               <g
                 id="b-left-animation-4"
-                className="animate-cattails-sway-a origin-bottom transform-box-fill [animation-duration:3.9s] [animation-delay:0.2s]"
+                className="animate-cattails-sway-a motion-reduce:animate-none origin-bottom transform-box-fill [animation-duration:3.9s] [animation-delay:0.2s]"
               >
                 <path
                   fill="#905e25"
@@ -216,7 +216,7 @@ export function BeaverLandmark({ className = '' }: Props) {
               </g>
               <g
                 id="b-left-animation-3"
-                className="animate-cattails-sway-b origin-bottom transform-box-fill [animation-duration:4.4s] [animation-delay:0.5s]"
+                className="animate-cattails-sway-b motion-reduce:animate-none origin-bottom transform-box-fill [animation-duration:4.4s] [animation-delay:0.5s]"
               >
                 <path
                   fill="#905e25"
@@ -233,7 +233,7 @@ export function BeaverLandmark({ className = '' }: Props) {
               </g>
               <g
                 id="b-left-animation-2"
-                className="animate-cattails-sway-a origin-bottom transform-box-fill [animation-duration:3.6s] [animation-delay:1.2s]"
+                className="animate-cattails-sway-a motion-reduce:animate-none origin-bottom transform-box-fill [animation-duration:3.6s] [animation-delay:1.2s]"
               >
                 <path
                   fill="#905e25"
@@ -250,7 +250,7 @@ export function BeaverLandmark({ className = '' }: Props) {
               </g>
               <g
                 id="b-left-animation-1"
-                className="animate-cattails-sway-b origin-bottom transform-box-fill [animation-duration:4.0s] [animation-delay:0.7s]"
+                className="animate-cattails-sway-b motion-reduce:animate-none origin-bottom transform-box-fill [animation-duration:4.0s] [animation-delay:0.7s]"
               >
                 <path
                   fill="#905e25"
@@ -348,7 +348,7 @@ export function BeaverLandmark({ className = '' }: Props) {
             <g id="b-center-animation">
               <g
                 id="b-center-animation-3"
-                className="animate-cattails-sway-a origin-bottom transform-box-fill [animation-duration:4.5s] [animation-delay:0.8s]"
+                className="animate-cattails-sway-a motion-reduce:animate-none origin-bottom transform-box-fill [animation-duration:4.5s] [animation-delay:0.8s]"
               >
                 <path
                   fill="#905e25"
@@ -365,7 +365,7 @@ export function BeaverLandmark({ className = '' }: Props) {
               </g>
               <g
                 id="b-center-animation-2"
-                className="animate-cattails-sway-b origin-bottom transform-box-fill [animation-duration:3.8s] [animation-delay:1.0s]"
+                className="animate-cattails-sway-b motion-reduce:animate-none origin-bottom transform-box-fill [animation-duration:3.8s] [animation-delay:1.0s]"
               >
                 <path
                   fill="#905e25"
@@ -382,7 +382,7 @@ export function BeaverLandmark({ className = '' }: Props) {
               </g>
               <g
                 id="b-center-animation-1"
-                className="animate-cattails-sway-a origin-bottom transform-box-fill [animation-duration:4.2s] [animation-delay:0.4s]"
+                className="animate-cattails-sway-a motion-reduce:animate-none origin-bottom transform-box-fill [animation-duration:4.2s] [animation-delay:0.4s]"
               >
                 <path
                   fill="#905e25"

@@ -24,3 +24,5 @@ dist-ssr
 *.sw?
 
 public/resume.html
+docs/
+src/components/brand/TypographySystem.tsx

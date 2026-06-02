@@ -4,7 +4,6 @@ type Props = {
   children: React.ReactNode
   className?: string
   delay?: number
-  threshold?: number
 }
 
 export function FadeIn({ children, className = '', delay = 0 }: Props) {

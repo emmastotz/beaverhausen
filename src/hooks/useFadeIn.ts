@@ -2,13 +2,11 @@ import { useRef } from 'react'
 import { gsap, useGSAP } from '@/deps/gsap'
 
 interface FadeInOptions {
-  threshold?: number
   once?: boolean
   delay?: number
 }
 
 export function useFadeIn({
-  threshold = 0.2,
   once = true,
   delay = 0,
 }: FadeInOptions = {}) {
@@ -25,11 +23,11 @@ export function useFadeIn({
       ease: 'power2.out',
       scrollTrigger: {
         trigger: ref.current,
-        start: `top ${100 - threshold * 100}%`,
+        start: 'top bottom',
         once,
       },
     })
-  }, [threshold, once, delay])
+  }, [once, delay])
 
   return { ref }
 }

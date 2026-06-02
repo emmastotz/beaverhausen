@@ -46,4 +46,8 @@
   --font-body: 'Spinnaker', sans-serif;
   --font-header: 'Magic Retro', serif;
   --font-display: 'Fraunces', serif;
+
+  --duration-interaction: 0.4s;
+  --duration-transition: 1.2s;
+  --ease-out-cubic: cubic-bezier(0.33,0,0.66,1);
 }

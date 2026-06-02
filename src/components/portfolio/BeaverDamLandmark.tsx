@@ -33,7 +33,7 @@ export function BeaverDamLandmark({ className = '' }: Props) {
             <g id="bd_right_animation">
               <g
                 id="bd_right_animation_4"
-                className="transform-box-fill animate-cattails-sway-a origin-bottom [animation-delay:1.4s] [animation-duration:3.5s]"
+                className="transform-box-fill animate-cattails-sway-a motion-reduce:animate-none origin-bottom [animation-delay:1.4s] [animation-duration:3.5s]"
               >
                 <path
                   fill="#905e25"
@@ -50,7 +50,7 @@ export function BeaverDamLandmark({ className = '' }: Props) {
               </g>
               <g
                 id="bd_right_animation_3"
-                className="transform-box-fill animate-cattails-sway-b origin-bottom [animation-delay:0.2s] [animation-duration:4.6s]"
+                className="transform-box-fill animate-cattails-sway-b motion-reduce:animate-none origin-bottom [animation-delay:0.2s] [animation-duration:4.6s]"
               >
                 <path
                   fill="#905e25"
@@ -67,7 +67,7 @@ export function BeaverDamLandmark({ className = '' }: Props) {
               </g>
               <g
                 id="bd_right_animation_2"
-                className="transform-box-fill animate-cattails-sway-a origin-bottom [animation-delay:0.9s] [animation-duration:3.9s]"
+                className="transform-box-fill animate-cattails-sway-a motion-reduce:animate-none origin-bottom [animation-delay:0.9s] [animation-duration:3.9s]"
               >
                 <path
                   fill="#905e25"
@@ -84,7 +84,7 @@ export function BeaverDamLandmark({ className = '' }: Props) {
               </g>
               <g
                 id="bd_right_animation_1"
-                className="transform-box-fill animate-cattails-sway-b origin-bottom [animation-delay:0.4s] [animation-duration:4.3s]"
+                className="transform-box-fill animate-cattails-sway-b motion-reduce:animate-none origin-bottom [animation-delay:0.4s] [animation-duration:4.3s]"
               >
                 <path
                   fill="#905e25"
@@ -122,7 +122,7 @@ export function BeaverDamLandmark({ className = '' }: Props) {
             <g id="bd_left_animation">
               <g
                 id="bd_left_animation_3"
-                className="transform-box-fill animate-cattails-sway-a origin-bottom [animation-delay:1.1s] [animation-duration:4.8s]"
+                className="transform-box-fill animate-cattails-sway-a motion-reduce:animate-none origin-bottom [animation-delay:1.1s] [animation-duration:4.8s]"
               >
                 <path
                   fill="#905e25"
@@ -139,7 +139,7 @@ export function BeaverDamLandmark({ className = '' }: Props) {
               </g>
               <g
                 id="bd_left_animation_2"
-                className="transform-box-fill animate-cattails-sway-b origin-bottom [animation-delay:0.6s] [animation-duration:3.7s]"
+                className="transform-box-fill animate-cattails-sway-b motion-reduce:animate-none origin-bottom [animation-delay:0.6s] [animation-duration:3.7s]"
               >
                 <path
                   fill="#905e25"
@@ -156,7 +156,7 @@ export function BeaverDamLandmark({ className = '' }: Props) {
               </g>
               <g
                 id="bd_left_animation_1"
-                className="transform-box-fill animate-cattails-sway-a origin-bottom [animation-delay:0.0s] [animation-duration:4.1s]"
+                className="transform-box-fill animate-cattails-sway-a motion-reduce:animate-none origin-bottom [animation-delay:0.0s] [animation-duration:4.1s]"
               >
                 <path
                   fill="#905e25"
@@ -193,7 +193,7 @@ export function BeaverDamLandmark({ className = '' }: Props) {
             <g id="bd_front_animation">
               <g
                 id="bd_front_animation_3"
-                className="transform-box-fill animate-cattails-sway-b origin-bottom [animation-delay:0.3s] [animation-duration:4.4s]"
+                className="transform-box-fill animate-cattails-sway-b motion-reduce:animate-none origin-bottom [animation-delay:0.3s] [animation-duration:4.4s]"
               >
                 <path
                   fill="#905e25"
@@ -210,7 +210,7 @@ export function BeaverDamLandmark({ className = '' }: Props) {
               </g>
               <g
                 id="bd_front_animation_2"
-                className="transform-box-fill animate-cattails-sway-a origin-bottom [animation-delay:1.2s] [animation-duration:3.6s]"
+                className="transform-box-fill animate-cattails-sway-a motion-reduce:animate-none origin-bottom [animation-delay:1.2s] [animation-duration:3.6s]"
               >
                 <path
                   fill="#905e25"
@@ -227,7 +227,7 @@ export function BeaverDamLandmark({ className = '' }: Props) {
               </g>
               <g
                 id="bd_front_animation_1"
-                className="transform-box-fill animate-cattails-sway-b origin-bottom [animation-delay:0.7s] [animation-duration:4.0s]"
+                className="transform-box-fill animate-cattails-sway-b motion-reduce:animate-none origin-bottom [animation-delay:0.7s] [animation-duration:4.0s]"
               >
                 <path
                   fill="#905e25"

@@ -2,44 +2,6 @@ type Props = {
   className?: string
 }
 
-const cattailCSS = `
-  @keyframes beaver-sway-a {
-    0%, 100% { transform: rotate(-1.2deg); }
-    50%       { transform: rotate(0.9deg); }
-  }
-  @keyframes beaver-sway-b {
-    0%, 100% { transform: rotate(1.2deg); }
-    50%       { transform: rotate(-0.9deg); }
-  }
-
-  #b-right-animation-1, #b-right-animation-2, #b-right-animation-3,
-  #b-right-animation-4, #b-right-animation-5,
-  #b-left-animation-1,  #b-left-animation-2,  #b-left-animation-3,
-  #b-left-animation-4,  #b-left-animation-5,
-  #b-center-animation-1, #b-center-animation-2, #b-center-animation-3 {
-    transform-box: fill-box;
-    transform-origin: bottom center;
-  }
-
-  #b-right-animation-1  { animation: beaver-sway-a 4.1s  0.0s infinite ease-in-out; }
-  #b-right-animation-2  { animation: beaver-sway-b 3.7s  0.6s infinite ease-in-out; }
-  #b-right-animation-3  { animation: beaver-sway-a 4.8s  1.1s infinite ease-in-out; }
-  #b-right-animation-4  { animation: beaver-sway-b 3.5s  0.3s infinite ease-in-out; }
-  #b-right-animation-5  { animation: beaver-sway-a 4.3s  0.9s infinite ease-in-out; }
-
-  #b-left-animation-1   { animation: beaver-sway-b 4.0s  0.7s infinite ease-in-out; }
-  #b-left-animation-2   { animation: beaver-sway-a 3.6s  1.2s infinite ease-in-out; }
-  #b-left-animation-3   { animation: beaver-sway-b 4.4s  0.5s infinite ease-in-out; }
-  #b-left-animation-4   { animation: beaver-sway-a 3.9s  0.2s infinite ease-in-out; }
-  #b-left-animation-5   { animation: beaver-sway-b 4.6s  1.4s infinite ease-in-out; }
-
-  #b-center-animation-1 { animation: beaver-sway-a 4.2s  0.4s infinite ease-in-out; }
-  #b-center-animation-2 { animation: beaver-sway-b 3.8s  1.0s infinite ease-in-out; }
-  #b-center-animation-3 { animation: beaver-sway-a 4.5s  0.8s infinite ease-in-out; }
-`
-
-// fill="#3c3127"
-
 export function BeaverLandmark({ className = '' }: Props) {
   return (
     <div className="relative w-full">
@@ -49,8 +11,6 @@ export function BeaverLandmark({ className = '' }: Props) {
         viewBox="0 0 3342 382.78"
         className={`block h-auto w-full ${className}`}
       >
-        <style>{cattailCSS}</style>
-
         <path
           id="bg"
           fill="none"
@@ -60,7 +20,10 @@ export function BeaverLandmark({ className = '' }: Props) {
         <g id="cattails_3">
           <g id="b-right">
             <g id="b-right-animation">
-              <g id="b-right-animation-5">
+              <g
+                id="b-right-animation-5"
+                className="animate-cattails-sway-a origin-bottom transform-box-fill [animation-duration:4.3s] [animation-delay:0.9s]"
+              >
                 <path
                   fill="#905e25"
                   d="M3182.04,88.19l-.29,1.5-1.23,6.61-2.61,12.13c-.12.54-1.39,1.34-1.78,1.32s-2.26-.26-2.26-.26c-1.41-.94-1.88-3.28-1.48-5.3l5.77-29.17c.43-2.16,1.39-4.42,2.92-5.36,1.57-.19,3.85,1.37,3.53,3.26l-2.57,15.28Z"
@@ -74,7 +37,10 @@ export function BeaverLandmark({ className = '' }: Props) {
                   d="M3169.89,139.28l-2.01,20.45c-2.44,24.3-1.68,32.44-2.1,42.47,0,.04,1.54-5.97,1.54-5.97l2.12-37.01,1.18-14.79,4.19-31.52-1.29-.15-3.63,26.53Z"
                 />
               </g>
-              <g id="b-right-animation-4">
+              <g
+                id="b-right-animation-4"
+                className="animate-cattails-sway-b origin-bottom transform-box-fill [animation-duration:3.5s] [animation-delay:0.3s]"
+              >
                 <path
                   fill="#905e25"
                   d="M3092.71,80.81l.33,1.49,1.41,6.57,2.95,12.05c.13.54,1.43,1.3,1.82,1.27s2.25-.32,2.25-.32c1.38-.98,1.79-3.33,1.33-5.34l-6.57-29c-.49-2.15-1.51-4.38-3.06-5.28-1.58-.15-3.81,1.47-3.44,3.35l2.99,15.2Z"
@@ -88,7 +54,10 @@ export function BeaverLandmark({ className = '' }: Props) {
                   d="M3087.48,66.05l2.99,15.2v.03s.01.03.01.03l.33,1.47,1.41,6.57v.03s.01.03.01.03l2.95,12.05c.34,1.4,2.02,2.63,3.43,2.93l.2,1.21,5.05,31.35,1.58,14.66,3.14,36.94.02.18.05.17.85,2.97.59,2.04c.33,1.15.67,2.35,2.13,2.25.02,0,.04,0,.06,0l1.78-.16-.12-1.78c-.19-2.73-.29-5.38-.39-8.18-.28-7.44-.62-16.7-2.89-34.33l-2.57-20.38v-.03s-.01-.03-.01-.03l-4.36-26.42-.27-1.66c1.8-1.8,2.13-4.78,1.6-7.15l-6.57-29c.03-2.98-3.18-6.34-5.64-7.31-.33-1.24-.41-1.56-.65-2.46-.31-1.21-.5-1.99-.75-2.91-.53-1.95-.99-3.78-1.39-5.1l-1.33-.45c-1.18.31-.88,2.01-.88,2.01,0,0,.34,1.58,2.02,9.4-1.12.97-2.77,3.57-2.37,5.84ZM3100.62,105.31l1.28-.19,4.36,26.42,2.57,20.38c3.11,24.22,2.58,32.38,3.27,42.4h0s-1.7-5.93-1.7-5.93l-3.14-36.94-1.59-14.75-5.06-31.4ZM3093.17,62.25s0,0,0,0c1.65,1.2,2.58,3.13,3.06,5.28l6.57,29c.46,2.01.05,4.36-1.33,5.34,0,0-1.86.28-2.25.32,0,0,0,0,0,0-.39.03-1.68-.73-1.81-1.27l-2.95-12.05-1.41-6.57-.33-1.49-2.99-15.2c-.11-3.2,3.44-3.35,3.44-3.35Z"
                 />
               </g>
-              <g id="b-right-animation-3">
+              <g
+                id="b-right-animation-3"
+                className="animate-cattails-sway-a origin-bottom transform-box-fill [animation-duration:4.8s] [animation-delay:1.1s]"
+              >
                 <path
                   fill="#905e25"
                   d="M3009.48,32.21l-.23,1.51-.95,6.66-2.11,12.22c-.09.55-1.34,1.4-1.73,1.39s-.84-.74-.8-1.13l.09-.87c.02-.19-.73-.47-.78-.29l-.28,1.03-.49,1.09c-1.45-.88-2.01-3.2-1.7-5.24l4.56-29.39c.34-2.17,1.2-4.48,2.69-5.47,1.57-.25,3.91,1.21,3.67,3.11l-1.93,15.37Z"
@@ -102,7 +71,10 @@ export function BeaverLandmark({ className = '' }: Props) {
                   d="M2999.47,83.77l-1.16,20.51c-1.43,24.38-.33,32.48-.33,42.52,0,.04,1.29-6.03,1.29-6.03l.58-37.07.57-14.82,2.88-31.67-1.29-.1-2.53,26.66Z"
                 />
               </g>
-              <g id="b-right-animation-2">
+              <g
+                id="b-right-animation-2"
+                className="animate-cattails-sway-b origin-bottom transform-box-fill [animation-duration:3.7s] [animation-delay:0.6s]"
+              >
                 <path
                   fill="#905e25"
                   d="M2918.36,53.52l.15,1.27.63,5.6,1.46,10.3c.07.46,1.09,1.2,1.41,1.21s.72-.6.7-.93l-.05-.73c-.01-.16.62-.38.66-.22l.21.87.39.93c1.23-.7,1.77-2.63,1.55-4.35l-3.08-24.74c-.23-1.83-.89-3.78-2.12-4.65-1.31-.25-3.3.91-3.15,2.51l1.24,12.93Z"
@@ -116,7 +88,10 @@ export function BeaverLandmark({ className = '' }: Props) {
                   d="M2925.46,96.97l.46,17.22c.59,20.47-.53,27.23-.79,35.64,0,.03-.93-5.09-.93-5.09l.44-31.08-.1-12.44-1.62-26.61,1.09-.05,1.45,22.4Z"
                 />
               </g>
-              <g id="b-right-animation-1">
+              <g
+                id="b-right-animation-1"
+                className="animate-cattails-sway-a origin-bottom transform-box-fill [animation-duration:4.1s] [animation-delay:0.0s]"
+              >
                 <path
                   fill="#905e25"
                   d="M2950.13,71.3l-.14,1.27-.56,5.61-1.32,10.31c-.06.46-1.07,1.22-1.4,1.23s-1.9-.05-1.9-.05c-1.24-.68-1.8-2.61-1.61-4.32l2.74-24.78c.2-1.83.84-3.79,2.05-4.68,1.3-.27,3.32.87,3.18,2.47l-1.06,12.95Z"
@@ -205,7 +180,10 @@ export function BeaverLandmark({ className = '' }: Props) {
 
           <g id="b-left">
             <g id="b-left-animation">
-              <g id="b-left-animation-5">
+              <g
+                id="b-left-animation-5"
+                className="animate-cattails-sway-b origin-bottom transform-box-fill [animation-duration:4.6s] [animation-delay:1.4s]"
+              >
                 <path
                   fill="#905e25"
                   d="M1291.35,96.38l-.36,1.22-1.57,5.41-3.18,9.9c-.14.44-1.27,1-1.6.95s-.61-.71-.53-1.03l.17-.71c.04-.15-.55-.48-.61-.33l-.35.82-.54.85c-1.1-.9-1.3-2.89-.8-4.54l7.21-23.86c.53-1.77,1.52-3.57,2.87-4.23,1.33-.03,3.1,1.46,2.68,3.01l-3.4,12.54Z"
@@ -219,7 +197,10 @@ export function BeaverLandmark({ className = '' }: Props) {
                   d="M1277.01,138.01l-3.36,16.89c-4.04,20.07-4.07,26.93-5.24,35.26,0,.03,1.77-4.86,1.77-4.86l4.81-30.71,2.2-12.24,6.09-25.96-1.06-.23-5.21,21.83Z"
                 />
               </g>
-              <g id="b-left-animation-4">
+              <g
+                id="b-left-animation-4"
+                className="animate-cattails-sway-a origin-bottom transform-box-fill [animation-duration:3.9s] [animation-delay:0.2s]"
+              >
                 <path
                   fill="#905e25"
                   d="M1264.02,113.7l.12,1.27.48,5.62,1.17,10.33c.05.46,1.05,1.23,1.38,1.25s1.9-.03,1.9-.03c1.25-.67,1.84-2.58,1.67-4.3l-2.39-24.81c-.18-1.84-.79-3.8-1.99-4.71-1.3-.29-3.33.82-3.22,2.42l.88,12.96Z"
@@ -233,7 +214,10 @@ export function BeaverLandmark({ className = '' }: Props) {
                   d="M1261.23,100.86l.88,12.96v.02s0,.02,0,.02l.12,1.26.48,5.62v.03s0,.03,0,.03l1.17,10.33c.14,1.2,1.4,2.41,2.54,2.8l.03,1.03.88,26.61-.24,12.36-1.31,31.05v.15s.02.15.02.15l.39,2.56.27,1.76c.15.99.31,2.02,1.53,2.09.02,0,.03,0,.05,0l1.5.05.09-1.5c.13-2.29.33-4.5.54-6.84.56-6.22,1.25-13.96,1.24-28.85l.02-17.22v-.03s0-.03,0-.03l-.83-22.43-.05-1.41c1.69-1.3,2.28-3.75,2.09-5.77l-2.39-24.81c.35-2.48-1.97-5.61-3.91-6.68-.14-1.07-.18-1.34-.28-2.11-.13-1.04-.21-1.71-.32-2.5-.23-1.67-.42-3.25-.61-4.39l-1.06-.51c-1.01.13-.94,1.58-.94,1.58,0,0,.11,1.35.68,8.03-1.04.69-2.69,2.68-2.59,4.61ZM1267.99,134.91l1.09-.02.83,22.43-.02,17.22c.02,20.47-1.29,27.2-1.78,35.61h0s-.79-5.11-.79-5.11l1.31-31.05.24-12.43-.88-26.65ZM1266.36,98.31s0,0,0,0c1.25,1.17,1.81,2.88,1.99,4.71l2.39,24.81c.17,1.72-.42,3.63-1.67,4.3,0,0-1.58.04-1.9.03,0,0,0,0,0,0-.33-.02-1.32-.79-1.37-1.25l-1.17-10.33-.48-5.62-.12-1.27-.88-12.96c.25-2.67,3.22-2.42,3.22-2.42Z"
                 />
               </g>
-              <g id="b-left-animation-3">
+              <g
+                id="b-left-animation-3"
+                className="animate-cattails-sway-b origin-bottom transform-box-fill [animation-duration:4.4s] [animation-delay:0.5s]"
+              >
                 <path
                   fill="#905e25"
                   d="M1192.83,66.15l.23,1.51.95,6.66,2.11,12.22c.09.55,1.34,1.4,1.73,1.39s.84-.74.8-1.13l-.09-.87c-.02-.19.73-.47.78-.29l.28,1.03.49,1.09c1.45-.88,2.01-3.2,1.7-5.24l-4.56-29.39c-.34-2.17-1.2-4.48-2.69-5.47-1.57-.25-3.91,1.21-3.67,3.11l1.93,15.37Z"
@@ -247,7 +231,10 @@ export function BeaverLandmark({ className = '' }: Props) {
                   d="M1202.84,117.71l1.16,20.51c1.43,24.38.33,32.48.33,42.52,0,.04-1.29-6.03-1.29-6.03l-.58-37.07-.57-14.82-2.88-31.67,1.29-.1,2.53,26.66Z"
                 />
               </g>
-              <g id="b-left-animation-2">
+              <g
+                id="b-left-animation-2"
+                className="animate-cattails-sway-a origin-bottom transform-box-fill [animation-duration:3.6s] [animation-delay:1.2s]"
+              >
                 <path
                   fill="#905e25"
                   d="M1109.6,114.75l-.33,1.49-1.41,6.57-2.95,12.05c-.13.54-1.43,1.3-1.82,1.27s-2.25-.32-2.25-.32c-1.38-.98-1.79-3.33-1.33-5.34l6.57-29c.49-2.15,1.51-4.38,3.06-5.28,1.58-.15,3.81,1.47,3.44,3.35l-2.99,15.2Z"
@@ -261,7 +248,10 @@ export function BeaverLandmark({ className = '' }: Props) {
                   d="M1112.46,94.14c1.68-7.82,2.02-9.4,2.02-9.4,0,0,.3-1.7-.88-2.01l-1.33.45c-.4,1.33-.86,3.16-1.39,5.1-.25.92-.44,1.7-.75,2.91-.23.9-.32,1.21-.65,2.46-2.46.97-5.67,4.33-5.64,7.31l-6.57,29c-.54,2.37-.2,5.35,1.6,7.15l-.27,1.66-4.36,26.42v.03s-.01.03-.01.03l-2.57,20.38c-2.26,17.63-2.61,26.89-2.89,34.33-.1,2.8-.2,5.44-.39,8.18l-.12,1.78,1.78.16s.04,0,.06,0c1.46.1,1.8-1.09,2.13-2.25l.59-2.04.85-2.97.05-.17.02-.18,3.14-36.94,1.58-14.66,5.05-31.35.2-1.21c1.41-.3,3.09-1.53,3.43-2.93l2.95-12.05v-.03s.01-.03.01-.03l1.41-6.57.33-1.47v-.03s.01-.03.01-.03l2.99-15.2c.41-2.27-1.24-4.87-2.37-5.84ZM1096.64,170.65l-1.59,14.75-3.14,36.94s-1.69,5.93-1.7,5.93h0c.69-10.02.16-18.18,3.27-42.4l2.57-20.38,4.36-26.42,1.28.19-5.06,31.4ZM1112.59,99.54l-2.99,15.2-.33,1.49-1.41,6.57-2.95,12.05c-.13.54-1.42,1.3-1.81,1.27,0,0,0,0,0,0-.39-.03-2.25-.32-2.25-.32-1.38-.98-1.79-3.33-1.33-5.34l6.57-29c.49-2.15,1.41-4.07,3.06-5.28,0,0,0,0,0,0,0,0,3.55.15,3.44,3.35Z"
                 />
               </g>
-              <g id="b-left-animation-1">
+              <g
+                id="b-left-animation-1"
+                className="animate-cattails-sway-b origin-bottom transform-box-fill [animation-duration:4.0s] [animation-delay:0.7s]"
+              >
                 <path
                   fill="#905e25"
                   d="M1024.61,140.57l.72,1.34,3.15,5.94,6.11,10.79c.27.48,1.73.86,2.1.73s2.08-.92,2.08-.92c1.06-1.32.81-3.69-.17-5.5l-14.21-26.12c-1.05-1.93-2.64-3.81-4.38-4.24-1.56.29-3.27,2.46-2.4,4.16l7.01,13.82Z"
@@ -356,7 +346,10 @@ export function BeaverLandmark({ className = '' }: Props) {
 
           <g id="b-center">
             <g id="b-center-animation">
-              <g id="b-center-animation-3">
+              <g
+                id="b-center-animation-3"
+                className="animate-cattails-sway-a origin-bottom transform-box-fill [animation-duration:4.5s] [animation-delay:0.8s]"
+              >
                 <path
                   fill="#905e25"
                   d="M1901.81,129.47l-.27,1.38-1.14,6.11-2.42,11.21c-.11.5-1.29,1.24-1.65,1.22s-2.09-.24-2.09-.24c-1.3-.87-1.74-3.03-1.37-4.9l5.34-26.97c.39-2,1.28-4.09,2.7-4.95,1.46-.18,3.56,1.27,3.27,3.01l-2.38,14.13Z"
@@ -370,7 +363,10 @@ export function BeaverLandmark({ className = '' }: Props) {
                   d="M1890.58,176.71l-1.86,18.91c-2.26,22.47-1.56,30-1.94,39.27,0,.04,1.42-5.52,1.42-5.52l1.96-34.22,1.09-13.67,3.88-29.15-1.19-.14-3.36,24.53Z"
                 />
               </g>
-              <g id="b-center-animation-2">
+              <g
+                id="b-center-animation-2"
+                className="animate-cattails-sway-b origin-bottom transform-box-fill [animation-duration:3.8s] [animation-delay:1.0s]"
+              >
                 <path
                   fill="#905e25"
                   d="M1849.53,88.54l-.21,1.39-.88,6.15-1.95,11.3c-.09.51-1.24,1.29-1.6,1.29s-.78-.69-.74-1.04l.08-.8c.02-.17-.67-.44-.72-.27l-.26.95-.46,1.01c-1.34-.81-1.86-2.96-1.57-4.84l4.21-27.17c.31-2.01,1.11-4.14,2.49-5.06,1.45-.24,3.61,1.12,3.39,2.87l-1.79,14.22Z"
@@ -384,7 +380,10 @@ export function BeaverLandmark({ className = '' }: Props) {
                   d="M1840.26,136.21l-1.07,18.97c-1.33,22.54-.31,30.04-.31,39.32,0,.04,1.19-5.58,1.19-5.58l.54-34.28.53-13.71,2.66-29.28-1.2-.09-2.34,24.65Z"
                 />
               </g>
-              <g id="b-center-animation-1">
+              <g
+                id="b-center-animation-1"
+                className="animate-cattails-sway-a origin-bottom transform-box-fill [animation-duration:4.2s] [animation-delay:0.4s]"
+              >
                 <path
                   fill="#905e25"
                   d="M1818.62,125.31l.31,1.38,1.31,6.08,2.72,11.14c.12.5,1.32,1.2,1.68,1.17s2.08-.29,2.08-.29c1.28-.9,1.65-3.08,1.23-4.94l-6.08-26.82c-.45-1.98-1.39-4.05-2.83-4.88-1.46-.14-3.53,1.36-3.18,3.1l2.77,14.06Z"

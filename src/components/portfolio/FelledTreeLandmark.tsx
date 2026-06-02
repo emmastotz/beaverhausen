@@ -2,38 +2,6 @@ type Props = {
   className?: string
 }
 
-const cattailCSS = `
-  @keyframes ft-sway-a {
-    0%, 100% { transform: rotate(-1.2deg); }
-    50%       { transform: rotate(0.9deg); }
-  }
-  @keyframes ft-sway-b {
-    0%, 100% { transform: rotate(1.2deg); }
-    50%       { transform: rotate(-0.9deg); }
-  }
-
-  #ft_left_animation_1, #ft_left_animation_2,
-  #ft_left_animation_3, #ft_left_animation_4,
-  #ft_middle_animation_1, #ft_middle_animation_2, #ft_middle_animation_3,
-  #ft_right_animation_1, #ft_right_animation_2, #ft_right_animation_3 {
-    transform-box: fill-box;
-    transform-origin: bottom center;
-  }
-
-  #ft_left_animation_1  { animation: ft-sway-a 4.1s  0.0s infinite ease-in-out; }
-  #ft_left_animation_2  { animation: ft-sway-b 3.7s  0.6s infinite ease-in-out; }
-  #ft_left_animation_3  { animation: ft-sway-a 4.8s  1.1s infinite ease-in-out; }
-  #ft_left_animation_4  { animation: ft-sway-b 3.5s  0.3s infinite ease-in-out; }
-
-  #ft_middle_animation_1 { animation: ft-sway-b 4.3s  0.4s infinite ease-in-out; }
-  #ft_middle_animation_2 { animation: ft-sway-a 3.9s  0.9s infinite ease-in-out; }
-  #ft_middle_animation_3 { animation: ft-sway-b 4.6s  0.2s infinite ease-in-out; }
-
-  #ft_right_animation_1 { animation: ft-sway-a 4.0s  0.7s infinite ease-in-out; }
-  #ft_right_animation_2 { animation: ft-sway-b 3.6s  1.2s infinite ease-in-out; }
-  #ft_right_animation_3 { animation: ft-sway-a 4.4s  0.5s infinite ease-in-out; }
-  `
-
 export function FelledTreeLandmark({ className = '' }: Props) {
   return (
     <div className="relative w-full">
@@ -43,8 +11,6 @@ export function FelledTreeLandmark({ className = '' }: Props) {
         viewBox="0 0 3342 368.17"
         className={`block h-auto w-full ${className}`}
       >
-        <style>{cattailCSS}</style>
-
         <path
           id="bank_bg"
           fill="none"
@@ -156,7 +122,10 @@ export function FelledTreeLandmark({ className = '' }: Props) {
               d="M1370.39,157.89c.96-1.04,2.42-1.3,3.7-1.74,3.92-1.02,7.98-1.36,11.98-1.81,5.26-.4,10.79-.83,16.08-.65,0,0,.01.1.01.1l-16,1.54c-4.65.48-9.38.63-13.92,1.78-.63.2-1.3.39-1.77.84l-.07-.07h0ZM1493.91,180.42c-2.78-.52-18.79.42-6.36,1.87,0,0,.01-.1.01-.1-1.31-.59-2.82-.84-4.08-1.46-.04-.01-.06-.08.1.08.07.1.12.19.14.33.03.25-.07.49-.26.64,3.42-.47,7.02-.5,10.46-1.36h0ZM1531.4,165.06s.06.08.06.08c1.11-.52,2.34-.79,3.54-.96,1.04-.2,2.6-.21,3.66-.24,6.18-.34,12.49-.72,18.64-1.56,1.24-.22,2.48-.37,3.72-.64v-.1s-14.97.86-14.97.86c-2.49.15-4.98.45-7.47.66-2.47.17-5.05.54-7.2,1.9h0Z"
             />
           </g>
-          <g id="frog_on_a_lily_pad">
+          <g
+            id="frog_on_a_lily_pad"
+            className="transform-box-fill animate-lily-pad-bob origin-center [animation-duration:4.8s]"
+          >
             <g id="lily_pad_ripples_sm">
               <path
                 fill="#7a9aaa"
@@ -227,7 +196,10 @@ export function FelledTreeLandmark({ className = '' }: Props) {
               />
             </g>
           </g>
-          <g id="lily_pad_sm">
+          <g
+            id="lily_pad_sm"
+            className="transform-box-fill animate-lily-pad-bob origin-center [animation-delay:0.75s] [animation-duration:4.8s]"
+          >
             <path
               id="lily_pad_sm_fill"
               fill="#64612d"
@@ -244,7 +216,10 @@ export function FelledTreeLandmark({ className = '' }: Props) {
         <g id="cattails_2">
           <g id="ft_right">
             <g id="ft_right_animation">
-              <g id="ft_right_animation_3">
+              <g
+                id="ft_right_animation_3"
+                className="transform-box-fill animate-cattails-sway-a origin-bottom [animation-delay:0.5s] [animation-duration:4.4s]"
+              >
                 <path
                   fill="#905e25"
                   d="M3251.77,131.68l-.24,1.25-1.03,5.54-2.19,10.17c-.1.46-1.17,1.12-1.5,1.1s-1.89-.21-1.89-.21c-1.18-.79-1.57-2.75-1.24-4.44l4.84-24.46c.36-1.81,1.16-3.71,2.44-4.49,1.32-.16,3.23,1.15,2.96,2.73l-2.16,12.81Z"
@@ -258,7 +233,10 @@ export function FelledTreeLandmark({ className = '' }: Props) {
                   d="M3241.59,174.52l-1.69,17.14c-2.05,20.37-1.41,27.2-1.76,35.61,0,.03,1.29-5.01,1.29-5.01l1.78-31.03.99-12.4,3.51-26.43-1.08-.13-3.04,22.24Z"
                 />
               </g>
-              <g id="ft_right_animation_2">
+              <g
+                id="ft_right_animation_2"
+                className="transform-box-fill animate-cattails-sway-b origin-bottom [animation-delay:1.2s] [animation-duration:3.6s]"
+              >
                 <path
                   fill="#905e25"
                   d="M3204.37,94.57l-.19,1.26-.8,5.58-1.77,10.25c-.08.46-1.12,1.17-1.45,1.17s-.7-.62-.67-.95l.07-.73c.02-.16-.61-.39-.65-.24l-.23.86-.41.92c-1.21-.74-1.69-2.68-1.42-4.39l3.82-24.64c.28-1.82,1.01-3.75,2.26-4.59,1.31-.21,3.27,1.01,3.07,2.6l-1.62,12.89Z"
@@ -272,7 +250,10 @@ export function FelledTreeLandmark({ className = '' }: Props) {
                   d="M3195.97,137.79l-.97,17.2c-1.2,20.44-.28,27.23-.28,35.65,0,.03,1.08-5.06,1.08-5.06l.49-31.08.48-12.43,2.41-26.55-1.08-.08-2.12,22.35Z"
                 />
               </g>
-              <g id="ft_right_animation_1">
+              <g
+                id="ft_right_animation_1"
+                className="transform-box-fill animate-cattails-sway-a origin-bottom [animation-delay:0.7s] [animation-duration:4.0s]"
+              >
                 <path
                   fill="#905e25"
                   d="M3176.34,127.91l.28,1.25,1.18,5.51,2.47,10.1c.11.45,1.2,1.09,1.53,1.06s1.88-.27,1.88-.27c1.16-.82,1.5-2.79,1.12-4.48l-5.51-24.31c-.41-1.8-1.26-3.67-2.57-4.42-1.32-.12-3.2,1.24-2.89,2.81l2.51,12.75Z"
@@ -306,7 +287,10 @@ export function FelledTreeLandmark({ className = '' }: Props) {
           </g>
           <g id="ft_middle">
             <g id="ft_middle_animation">
-              <g id="ft_middle_animation_3">
+              <g
+                id="ft_middle_animation_3"
+                className="transform-box-fill animate-cattails-sway-b origin-bottom [animation-delay:0.2s] [animation-duration:4.6s]"
+              >
                 <path
                   fill="#905e25"
                   d="M1480.32,129.43l.24,1.25,1.03,5.54,2.19,10.17c.1.46,1.17,1.12,1.5,1.1s1.89-.21,1.89-.21c1.18-.79,1.57-2.75,1.24-4.44l-4.84-24.46c-.36-1.81-1.16-3.71-2.44-4.49-1.32-.16-3.23,1.15-2.96,2.73l2.16,12.81Z"
@@ -320,7 +304,10 @@ export function FelledTreeLandmark({ className = '' }: Props) {
                   d="M1490.51,172.27l1.69,17.14c2.05,20.37,1.41,27.2,1.76,35.61,0,.03-1.29-5.01-1.29-5.01l-1.78-31.03-.99-12.4-3.51-26.43,1.08-.13,3.04,22.24Z"
                 />
               </g>
-              <g id="ft_middle_animation_2">
+              <g
+                id="ft_middle_animation_2"
+                className="transform-box-fill animate-cattails-sway-a origin-bottom [animation-delay:0.9s] [animation-duration:3.9s]"
+              >
                 <path
                   fill="#905e25"
                   d="M1527.73,92.33l.19,1.26.8,5.58,1.77,10.25c.08.46,1.12,1.17,1.45,1.17s.7-.62.67-.95l-.07-.73c-.02-.16.61-.39.65-.24l.23.86.41.92c1.21-.74,1.69-2.68,1.42-4.39l-3.82-24.64c-.28-1.82-1.01-3.75-2.26-4.59-1.31-.21-3.27,1.01-3.07,2.6l1.62,12.89Z"
@@ -334,7 +321,10 @@ export function FelledTreeLandmark({ className = '' }: Props) {
                   d="M1536.13,135.54l.97,17.2c1.2,20.44.28,27.23.28,35.65,0,.03-1.08-5.06-1.08-5.06l-.49-31.08-.48-12.43-2.41-26.55,1.08-.08,2.12,22.35Z"
                 />
               </g>
-              <g id="ft_middle_animation_1">
+              <g
+                id="ft_middle_animation_1"
+                className="transform-box-fill animate-cattails-sway-b origin-bottom [animation-delay:0.4s] [animation-duration:4.3s]"
+              >
                 <path
                   fill="#905e25"
                   d="M1555.75,125.66l-.28,1.25-1.18,5.51-2.47,10.1c-.11.45-1.2,1.09-1.53,1.06s-1.88-.27-1.88-.27c-1.16-.82-1.5-2.79-1.12-4.48l5.51-24.31c.41-1.8,1.26-3.67,2.57-4.42,1.32-.12,3.2,1.24,2.89,2.81l-2.51,12.75Z"
@@ -368,7 +358,10 @@ export function FelledTreeLandmark({ className = '' }: Props) {
           </g>
           <g id="ft_left">
             <g id="ft_left_animation">
-              <g id="ft_left_animation_4">
+              <g
+                id="ft_left_animation_4"
+                className="transform-box-fill animate-cattails-sway-b origin-bottom [animation-delay:0.3s] [animation-duration:3.5s]"
+              >
                 <path
                   fill="#905e25"
                   d="M401.32,63.17l.34,1.49,1.45,6.59,3.01,12.07c.14.54,1.44,1.3,1.83,1.26s2.25-.33,2.25-.33c1.38-.99,1.78-3.35,1.31-5.36l-6.73-29.06c-.5-2.15-1.53-4.39-3.1-5.28-1.59-.14-3.82,1.5-3.44,3.38l3.07,15.24Z"
@@ -382,7 +375,10 @@ export function FelledTreeLandmark({ className = '' }: Props) {
                   d="M415.14,114.01l2.68,20.44c3.23,24.29,2.73,32.48,3.47,42.52,0,.04-1.73-5.94-1.73-5.94l-3.32-37.05-1.66-14.79-5.22-31.48,1.29-.19,4.5,26.48Z"
                 />
               </g>
-              <g id="ft_left_animation_3">
+              <g
+                id="ft_left_animation_3"
+                className="transform-box-fill animate-cattails-sway-a origin-bottom [animation-delay:1.1s] [animation-duration:4.8s]"
+              >
                 <path
                   fill="#905e25"
                   d="M420.27,35.07l.17,1.65.7,7.27,1.64,13.36c.07.6,1.29,1.57,1.68,1.57s.87-.78.85-1.2l-.05-.94c-.01-.2.75-.49.79-.29l.24,1.13.45,1.21c1.48-.9,2.14-3.41,1.9-5.63l-3.42-32.1c-.25-2.38-1.03-4.91-2.48-6.05-1.56-.33-3.96,1.17-3.8,3.24l1.34,16.78Z"
@@ -396,7 +392,10 @@ export function FelledTreeLandmark({ className = '' }: Props) {
                   d="M428.3,91.46l.36,22.33c.49,26.55-.93,35.31-1.32,46.23,0,.04-1.06-6.6-1.06-6.6l.86-40.31v-16.13s-1.65-34.52-1.65-34.52l1.3-.06,1.5,29.06Z"
                 />
               </g>
-              <g id="ft_left_animation_2">
+              <g
+                id="ft_left_animation_2"
+                className="transform-box-fill animate-cattails-sway-b origin-bottom [animation-delay:0.6s] [animation-duration:3.7s]"
+              >
                 <path
                   fill="#905e25"
                   d="M463.15,71.12l-.11,1.53-.43,6.73-1.14,12.39c-.05.56-1.23,1.5-1.62,1.53s-2.28.02-2.28.02c-1.52-.76-2.27-3.04-2.11-5.1l2.22-29.75c.16-2.2.85-4.57,2.26-5.69,1.55-.38,4,.9,3.91,2.81l-.71,15.53Z"
@@ -410,7 +409,10 @@ export function FelledTreeLandmark({ className = '' }: Props) {
                   d="M457.23,123.47l.47,20.61c.51,24.5,1.85,30.07,2.65,40.11,0,.04,1.2-3.69,1.2-3.69l-2.37-37.12-.61-14.87.36-31.9h-1.3s-.41,26.87-.41,26.87Z"
                 />
               </g>
-              <g id="ft_left_animation_1">
+              <g
+                id="ft_left_animation_1"
+                className="transform-box-fill animate-cattails-sway-a origin-bottom [animation-delay:0.0s] [animation-duration:4.1s]"
+              >
                 <path
                   fill="#905e25"
                   d="M488.1,100.61l-.23,1.56-.98,6.89-2.13,12.65c-.1.57-1.29,1.44-1.67,1.43s-.79-.78-.75-1.18l.09-.9c.02-.19-.69-.49-.74-.31l-.28,1.06-.48,1.13c-1.37-.92-1.89-3.33-1.57-5.44l4.64-30.41c.34-2.25,1.19-4.63,2.62-5.65,1.5-.25,3.72,1.29,3.48,3.25l-2,15.91Z"

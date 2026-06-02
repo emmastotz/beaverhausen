@@ -1,6 +1,6 @@
 # Beaverhausen
 
-A personal portfolio site for Emma Stotz — designer, engineer, and the person behind the brand.
+A personal portfolio site for Emma Stotz, a designer and frontend engineer.
 
 Built with Vite, React, TypeScript, and Tailwind CSS. Animations handled by GSAP.
 

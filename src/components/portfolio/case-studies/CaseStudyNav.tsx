@@ -2,7 +2,7 @@ import { BaseT6 } from '@/components/primitives/BaseT6'
 import { TransitionLink } from '@/components/primitives/TransitionLink'
 import { CASE_STUDIES } from '@/content/case-studies'
 
-import { BaseT5 } from '../primitives/BaseT5'
+import { BaseT5 } from '../../primitives/BaseT5'
 
 interface Props {
   currentHref: string

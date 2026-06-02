@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 
+import { FadeIn } from '@/components/FadeIn'
 import { PortfolioParallax } from '@/components/portfolio/PortfolioParallax'
 import { AutoH } from '@/components/primitives/AutoH'
 import { BaseT1 } from '@/components/primitives/BaseT1'
@@ -23,7 +24,7 @@ export default function PortfolioPage() {
           <div
             className={`absolute inset-0 top-30 transition-opacity duration-300 lg:top-50 ${heroVisible ? 'opacity-100' : 'pointer-events-none opacity-0'}`}
           >
-            <div className="flex flex-col gap-4 text-center">
+            <FadeIn delay={500} className="flex flex-col gap-4 text-center">
               <div className="mx-auto max-w-md lg:max-w-none">
                 <BaseT6 className="text-iron-orange uppercase">
                   Selected works
@@ -41,7 +42,7 @@ export default function PortfolioPage() {
                   in-depth exploration.
                 </BaseT3>
               </p>
-            </div>
+            </FadeIn>
           </div>
         </div>
 

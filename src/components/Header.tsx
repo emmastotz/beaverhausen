@@ -30,9 +30,9 @@ const navItems: NavItem[] = [
 const navLinkClass = [
   'relative inline-flex items-center md:gap-1.5 text-beaver no-underline hover:text-beaver-dark p-3 md:p-0 outline-none',
   "before:content-[''] before:absolute before:-bottom-3 md:before:-bottom-5.5 before:h-[2px] before:w-0 before:bg-iron-orange before:right-1/2",
-  'before:[transition:width_0.4s_cubic-bezier(0.33,0,0.66,1)] hover:before:w-1/2 focus-visible:before:w-1/2 focus-visible:before:[transition:none]',
+  'before:[transition:width_var(--duration-interaction)_var(--ease-out-cubic)] hover:before:w-1/2 focus-visible:before:w-1/2 focus-visible:before:[transition:none]',
   "after:content-[''] after:absolute after:-bottom-3 md:after:-bottom-5.5 after:h-[2px] after:w-0 after:bg-iron-orange after:left-1/2",
-  'after:[transition:width_0.4s_cubic-bezier(0.33,0,0.66,1)] hover:after:w-1/2 focus-visible:after:w-1/2 focus-visible:after:[transition:none]',
+  'after:[transition:width_var(--duration-interaction)_var(--ease-out-cubic)] hover:after:w-1/2 focus-visible:after:w-1/2 focus-visible:after:[transition:none]',
 ].join(' ')
 
 export function Header() {

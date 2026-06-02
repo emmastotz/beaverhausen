@@ -1,10 +1,9 @@
 import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 
+import { AutoH } from '@/components/primitives/AutoH'
 import { BaseT1 } from '@/components/primitives/BaseT1'
 import { BaseT6 } from '@/components/primitives/BaseT6'
 import { gsap, useGSAP } from '@/deps/gsap'
-
-import { AutoH } from '../primitives/AutoH'
 
 export interface Chapter {
   id: string

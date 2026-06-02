@@ -113,6 +113,9 @@ export function Flipbook({ label, chapters, children, wordmark }: Props) {
     setNext(index)
     setPending(index)
 
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    const flipDuration = prefersReducedMotion ? 0 : 0.3
+
     gsap.delayedCall(0.05, () => {
       if (!currentPageRef.current) return
 
@@ -131,7 +134,7 @@ export function Flipbook({ label, chapters, children, wordmark }: Props) {
       if (forward) {
         tl.to(currentPageRef.current, {
           rotateY: -90,
-          duration: 0.3,
+          duration: flipDuration,
           ease: 'power2.in',
           transformOrigin: 'left center',
         })
@@ -141,7 +144,7 @@ export function Flipbook({ label, chapters, children, wordmark }: Props) {
           { rotateY: -90 },
           {
             rotateY: 0,
-            duration: 0.3,
+            duration: flipDuration,
             ease: 'power2.out',
             transformOrigin: 'left center',
           },

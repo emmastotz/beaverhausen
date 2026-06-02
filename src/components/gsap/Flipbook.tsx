@@ -65,10 +65,10 @@ function PageChrome({
             <BaseT1>{chapter.title}</BaseT1>
           </AutoH>
           <div className="flex flex-col gap-1 sm:ml-3 sm:flex-row sm:items-center">
-            <BaseT6 className="leading-[5%] text-iron-orange uppercase">
+            <BaseT6 className="leading-none text-iron-orange uppercase">
               Chapter {chapter.tab}:
             </BaseT6>
-            <p className="leading-[5%] text-iron-orange uppercase">
+            <p className="leading-none text-iron-orange uppercase">
               <BaseT6>{chapter.subtitle}</BaseT6>
             </p>
           </div>
@@ -113,7 +113,9 @@ export function Flipbook({ label, chapters, children, wordmark }: Props) {
     setNext(index)
     setPending(index)
 
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    const prefersReducedMotion = window.matchMedia(
+      '(prefers-reduced-motion: reduce)',
+    ).matches
     const flipDuration = prefersReducedMotion ? 0 : 0.3
 
     gsap.delayedCall(0.05, () => {

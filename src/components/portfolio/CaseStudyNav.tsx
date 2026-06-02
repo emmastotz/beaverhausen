@@ -1,6 +1,6 @@
-import { SCENES } from '@/components/portfolio/Scenes.config'
 import { BaseT6 } from '@/components/primitives/BaseT6'
 import { TransitionLink } from '@/components/primitives/TransitionLink'
+import { CASE_STUDIES } from '@/content/case-studies'
 
 import { BaseT5 } from '../primitives/BaseT5'
 
@@ -9,7 +9,7 @@ interface Props {
 }
 
 export function CaseStudyNav({ currentHref }: Props) {
-  const available = SCENES.filter((s) => s.available)
+  const available = CASE_STUDIES.filter((s) => s.available)
   const idx = available.findIndex((s) => s.href === currentHref)
 
   if (idx === -1 || available.length < 2) return null

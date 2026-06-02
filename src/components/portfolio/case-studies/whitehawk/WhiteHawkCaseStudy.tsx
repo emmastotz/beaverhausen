@@ -10,15 +10,12 @@ import typographyScale from '@/assets/portfolio/typography-scale.svg'
 import whitehawkFileStructure from '@/assets/portfolio/whitehawk-file-structure.svg'
 import whitehawkLogo from '@/assets/portfolio/whitehawk-logo.svg'
 import { Flipbook } from '@/components/gsap/Flipbook'
-import { ColorPalette } from '@/components/portfolio/ColorPalette'
-import { FieldNote } from '@/components/portfolio/FieldNote'
-import { Paragraph } from '@/components/portfolio/Paragraph'
+import { ColorPalette } from '@/components/portfolio/case-studies/ColorPalette'
+import { FieldNote } from '@/components/portfolio/case-studies/FieldNote'
+import { Paragraph } from '@/components/portfolio/case-studies/Paragraph'
 import { BaseT1 } from '@/components/primitives/BaseT1'
 import { ExternalLink } from '@/components/primitives/ExternalLink'
-import {
-  CHAPTERS,
-  CHAPTER_COPY,
-} from '@/content/case-study-whitehawk'
+import { CHAPTERS, CHAPTER_COPY } from '@/content/case-study-whitehawk'
 
 function Content({ id }: { id: string }) {
   const copy = CHAPTER_COPY[id]
@@ -31,7 +28,11 @@ function Content({ id }: { id: string }) {
         <div className="flex flex-col space-y-6">
           <Paragraph text={ps[0]} />
           <div>
-            <ExternalLink href="https://whitehawk.com/" size="sm" variant="ghost">
+            <ExternalLink
+              href="https://whitehawk.com/"
+              size="sm"
+              variant="ghost"
+            >
               whitehawk.com
             </ExternalLink>
           </div>

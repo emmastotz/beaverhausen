@@ -1,4 +1,4 @@
-import { StaticAbout } from '@/components/StaticAbout'
+import { StaticAbout } from '@/components/about/StaticAbout'
 import { DefaultLayout } from '@/layouts/DefaultLayout'
 
 export default function AboutPage() {

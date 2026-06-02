@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react'
 
 import { Wordmark } from '@/components/brand/Wordmark'
+import { Typewriter } from '@/components/landing/Typewriter'
 import { BaseT6 } from '@/components/primitives/BaseT6'
-import { Typewriter } from '@/components/Typewriter'
 import { HERO_COPY } from '@/content/hero'
 import { SectionLayout } from '@/layouts/SectionLayout'
 
-import { DownloadResumeButton } from './DownloadResumeButton'
+import { DownloadResumeButton } from '../DownloadResumeButton'
 
 const FULL_TEXT = HERO_COPY.map((p) => p.text).join('')
 const WORDMARK_DELAY = 600

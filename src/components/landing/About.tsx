@@ -1,19 +1,15 @@
 import { useEffect, useState } from 'react'
 
-import type { ScrollSection } from '@/components/ScrollJackTypewriter'
+import type { ScrollSection } from '@/components/landing/ScrollJackTypewriter'
 
 import { BeaverMark } from '@/components/brand/BeaverMark'
-import {
-  BEAVER_LINES,
-  CLOSING,
-  PROFESSIONAL_LINES,
-} from '@/content/about'
 import { DownloadResumeButton } from '@/components/DownloadResumeButton'
-import { Button } from '@/components/primitives/Button'
 import {
   composeScrollSections,
   ScrollJackTypewriter,
-} from '@/components/ScrollJackTypewriter'
+} from '@/components/landing/ScrollJackTypewriter'
+import { Button } from '@/components/primitives/Button'
+import { BEAVER_LINES, CLOSING, PROFESSIONAL_LINES } from '@/content/about'
 import { useTransition } from '@/context/TransitionContext'
 import { SectionLayout } from '@/layouts/SectionLayout'
 

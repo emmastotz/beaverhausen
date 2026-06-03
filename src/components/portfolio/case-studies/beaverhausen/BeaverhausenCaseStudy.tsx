@@ -152,7 +152,7 @@ export function BeaverhausenCaseStudy() {
         <Flipbook
           label="Beaverhausen"
           chapters={CHAPTERS}
-          wordmark={<Wordmark bColor="fill-cream" />}
+          wordmark={<Wordmark bColor="fill-cream dark:fill-beaver-dark" />}
         >
           {(id) => <Content id={id} />}
         </Flipbook>

@@ -113,6 +113,9 @@
       width: 0;
       background-color: var(--color-iron-orange);
       transition: width var(--duration-interaction) var(--ease-out-cubic);
+      @media (prefers-color-scheme: dark) {
+        background-color: var(--color-cream);
+      }
     }
     &::before {
       right: 50%;

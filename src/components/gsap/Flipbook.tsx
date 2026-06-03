@@ -21,9 +21,11 @@ interface Props {
 
 function CoverPage({ wordmark }: { wordmark?: React.ReactNode }) {
   return (
-    <div className="relative size-full overflow-hidden rounded-r-lg bg-beaver-dark">
+    <div className="relative size-full overflow-hidden rounded-r-lg bg-beaver-dark dark:bg-beaver">
       <div className="z-raised relative flex h-full flex-col items-center justify-center px-12">
-        <BaseT6 className="text-iron-orange uppercase">Field Notes</BaseT6>
+        <BaseT6 className="text-iron-orange uppercase dark:text-cream">
+          Field Notes
+        </BaseT6>
         {wordmark}
       </div>
     </div>
@@ -47,17 +49,16 @@ function PageChrome({
     <section
       role="tabpanel"
       aria-labelledby={`tab-${chapter.id}`}
-      className="relative size-full overflow-hidden rounded-r-lg bg-enamel"
+      className="relative size-full overflow-hidden rounded-r-lg bg-enamel dark:bg-cream"
     >
       <div className="pointer-events-none absolute top-0 bottom-0 left-4 w-px bg-iron-orange/30 sm:left-8" />
 
       <div
         ref={scrollRef}
-        className="z-raised relative h-full overflow-y-auto px-9 py-10 sm:px-12"
+        className="z-raised relative h-full overflow-y-auto bg-local px-9 py-10 sm:px-12"
         style={{
           backgroundImage:
             'repeating-linear-gradient(transparent, transparent 27px, #c5946a22 27px, #c5946a22 28px)',
-          backgroundAttachment: 'local',
         }}
       >
         <div className="mx-auto mb-10 flex max-w-3xl flex-col">
@@ -160,12 +161,12 @@ export function Flipbook({ label, chapters, children, wordmark }: Props) {
       <div className="flex w-full justify-center">
         <div
           aria-hidden="true"
-          className="z-raised flex w-8 flex-shrink-0 flex-col items-center justify-between gap-3 border-r-2 border-black/30 bg-beaver-dark py-8 sm:w-12 lg:py-12"
+          className="z-raised flex w-8 flex-shrink-0 flex-col items-center justify-between gap-3 border-r-2 border-black/30 bg-beaver-dark py-8 sm:w-12 lg:py-12 dark:border-black/55 dark:bg-beaver"
         >
           {Array.from({ length: 3 }).map((_, i) => (
             <div
               key={i}
-              className="size-4 rounded-full bg-cream/80 outline-2 outline-black/30"
+              className="size-4 rounded-full bg-cream/80 outline-2 outline-black/30 dark:bg-beaver-dark/80 dark:outline-black/55"
             />
           ))}
         </div>
@@ -193,8 +194,8 @@ export function Flipbook({ label, chapters, children, wordmark }: Props) {
                 onClick={() => goTo(i)}
                 className={`transition-color flex size-10 items-center justify-center rounded-b-md font-body text-xs tracking-widest shadow-sm duration-75 focus-visible:border focus-visible:border-iron-orange focus-visible:outline-none sm:rounded-r-md sm:rounded-bl-none ${
                   !showCover && i === (pending ?? current)
-                    ? 'border border-beaver/20 bg-beaver-dark text-cream'
-                    : 'bg-beaver text-cream hover:bg-beaver hover:text-cream lg:bg-beaver/60 lg:text-cream/60'
+                    ? 'border border-beaver/20 bg-beaver-dark text-cream dark:bg-beaver dark:text-cream'
+                    : 'bg-beaver text-cream hover:bg-beaver-dark dark:bg-cream dark:text-beaver-dark dark:hover:bg-beaver dark:hover:text-cream'
                 } `}
                 aria-label={ch.title}
               >

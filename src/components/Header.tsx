@@ -1,5 +1,3 @@
-import { createPortal } from 'react-dom'
-
 import { BeaverMark } from '@/components/brand/BeaverMark'
 import { BriefcaseIcon } from '@/components/brand/icons/BriefcaseIcon'
 import { EnvelopeIcon } from '@/components/brand/icons/EnvelopeIcon'
@@ -28,23 +26,33 @@ const navItems: NavItem[] = [
 ]
 
 const navLinkClass = [
-  'relative inline-flex items-center md:gap-1.5 text-beaver no-underline hover:text-beaver-dark p-3 md:p-0 outline-none',
+  'relative inline-flex items-center md:gap-1.5 text-beaver-dark dark:text-iron-orange no-underline hover:text-iron-orange focus-visible:text-iron-orange p-3 md:p-0 outline-none dark:hover:text-cream dark:focus-visible:text-cream',
   '[--ub-offset:-0.75rem] md:[--ub-offset:-1.375rem]',
   'underline-build',
 ].join(' ')
 
-export function Header() {
-  return createPortal(
-    <header className="pointer-events-none fixed top-0 right-0 left-0 z-header flex h-auto items-center justify-between border-b border-beaver/10 bg-cream px-4 py-3">
+interface HeaderProps {
+  bgClass?: string
+}
+
+export function Header({
+  bgClass = 'bg-water-dark/55 dark:bg-dusk/55',
+}: HeaderProps) {
+  return (
+    <header
+      className={`z-header xl: fixed inset-x-0 top-0 flex h-auto items-center justify-between border-b border-beaver/10 px-4 py-3 backdrop-blur ${bgClass}`}
+    >
       <div className="flex items-center gap-3 md:gap-4">
         <TransitionLink
           to="/"
-          className="pointer-events-auto rounded-full no-underline outline-none hover:ring-2 hover:ring-iron-orange/30 hover:ring-offset-2 focus-visible:ring-2 focus-visible:ring-iron-orange focus-visible:ring-offset-2"
+          className="pointer-events-auto rounded-full no-underline outline-none hover:ring-2 hover:ring-iron-orange/30 focus-visible:ring-2 focus-visible:ring-iron-orange dark:hover:ring-iron-orange/50"
           aria-label="Beaverhausen home"
         >
           <BeaverMark className="size-10" />
         </TransitionLink>
-        <BaseT6 className="text-wrap text-beaver uppercase">Emma Stotz</BaseT6>
+        <BaseT6 className="text-wrap text-beaver-dark uppercase dark:text-iron-orange">
+          Emma Stotz
+        </BaseT6>
       </div>
 
       <nav className="pointer-events-auto" aria-label="Main navigation">
@@ -78,7 +86,6 @@ export function Header() {
           ))}
         </ul>
       </nav>
-    </header>,
-    document.body,
+    </header>
   )
 }

@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 
+import './parallax-landscape.css'
 import landscapeBackground from '@/assets/landscape/landscape-background.svg'
 import landscapeForeground from '@/assets/landscape/landscape-foreground.svg'
 import landscapeMidground from '@/assets/landscape/landscape-midground.svg'

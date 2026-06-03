@@ -70,45 +70,6 @@
   }
 }
 
-@keyframes parallax-landscape-background {
-  from { background-position-x: 0px; }
-  to { background-position-x: calc(var(--page-scroll-max, 0px) * -0.03); }
-}
-@keyframes parallax-landscape-midground {
-  from { background-position-x: 0px; }
-  to { background-position-x: calc(var(--page-scroll-max, 0px) * -0.08); }
-}
-@keyframes parallax-landscape-foreground {
-  from { background-position-x: 0px; }
-  to { background-position-x: calc(var(--page-scroll-max, 0px) * -0.18); }
-}
-
-.animate-parallax-landscape-background {
-  animation: parallax-landscape-background auto linear;
-  animation-fill-mode: both;
-  animation-timeline: scroll(root);
-  background-size: auto calc(25% + 3.25px);
-}
-.animate-parallax-landscape-midground {
-  animation: parallax-landscape-midground auto linear;
-  animation-fill-mode: both;
-  animation-timeline: scroll(root);
-  background-size: auto calc(24% + 3.25px);
-}
-.animate-parallax-landscape-foreground {
-  animation: parallax-landscape-foreground auto linear;
-  animation-fill-mode: both;
-  animation-timeline: scroll(root);
-  background-size: auto calc(30% + 3.25px);
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .animate-parallax-landscape-background,
-  .animate-parallax-landscape-midground,
-  .animate-parallax-landscape-foreground {
-    animation: none;
-  }
-}
 
 @layer components {
   .animate-cattails-sway-a {

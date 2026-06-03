@@ -19,20 +19,7 @@ function ArrowCue({ visible }: { visible: boolean }) {
       aria-hidden="true"
     >
       <BaseT6 className="mb-1 uppercase">Click to explore</BaseT6>
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        fill="none"
-        viewBox="0 0 24 24"
-        strokeWidth="1"
-        stroke="currentColor"
-        className={`size-6 animate-bounce`}
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          d="M15.75 17.25 12 21m0 0-3.75-3.75M12 21V3"
-        />
-      </svg>
+      <div className="animate-grow h-10 w-px origin-top bg-iron-orange lg:flex" />
     </div>
   )
 }

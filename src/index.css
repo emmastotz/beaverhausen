@@ -149,9 +149,13 @@
   --color-beaver: #78614d;
   --color-beaver-dark: #3c3127;
   --color-cream: #fff5e3;
+  --color-enamel: #fffefc;
   --color-iron-orange: #b96e16;
   --color-olive-green: #5c6b3a;
-  --color-water: #7a9aaa;
+  --color-water-dark: #7a9aaa;
+  --color-water: #b7c4ca;
+  --color-dawn: #ffffc5;
+  --color-dusk: #1e2f38;
 
   --font-body: 'Spinnaker', sans-serif;
   --font-header: 'Magic Retro', serif;

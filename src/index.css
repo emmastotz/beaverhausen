@@ -83,6 +83,15 @@
 }
 
 @layer utilities {
+  .bg-beaver-tail-grid {
+    background-image: var(--gradient-beaver-tail);
+    background-size: var(--gradient-beaver-tail-size);
+
+    @media (prefers-color-scheme: dark) {
+      background-image: var(--gradient-beaver-tail-dark);
+    }
+  }
+
   .transform-box-fill {
     transform-box: fill-box;
   }
@@ -163,4 +172,12 @@
   --z-floating: 30;
   --z-header: 40;
   --z-overlay: 50;
+
+  --gradient-beaver-tail:
+    linear-gradient(rgba(120, 97, 77, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(120, 97, 77, 0.1) 1px, transparent 1px);
+  --gradient-beaver-tail-dark:
+    linear-gradient(rgba(255, 245, 227, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 245, 227, 0.05) 1px, transparent 1px);
+  --gradient-beaver-tail-size: 160px 160px;
 }

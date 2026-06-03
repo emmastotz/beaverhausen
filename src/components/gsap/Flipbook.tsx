@@ -47,7 +47,7 @@ function PageChrome({
     <section
       role="tabpanel"
       aria-labelledby={`tab-${chapter.id}`}
-      className="relative size-full overflow-hidden rounded-r-lg bg-[#FFFEFC]"
+      className="relative size-full overflow-hidden rounded-r-lg bg-enamel"
     >
       <div className="pointer-events-none absolute top-0 bottom-0 left-4 w-px bg-iron-orange/30 sm:left-8" />
 

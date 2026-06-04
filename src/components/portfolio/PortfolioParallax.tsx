@@ -1,6 +1,7 @@
+import '@/components/portfolio/portfolio-parallax.css'
+
 import { useEffect, useRef, useState } from 'react'
 
-import './portfolio-parallax.css'
 import cloudBg from '@/assets/landscape/portfolio/portfolio-cloud-background.svg'
 import { LandmarkScene } from '@/components/portfolio/LandmarkScene'
 import { SCENES } from '@/components/portfolio/Scenes.config'

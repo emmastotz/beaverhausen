@@ -10,16 +10,14 @@ import { DownloadResumeButton } from '../DownloadResumeButton'
 
 const FULL_TEXT = HERO_COPY.map((p) => p.text).join('')
 const WORDMARK_DELAY = 600
-const SCROLL_DELAY = WORDMARK_DELAY + 1200
 
 export const Hero = () => {
   const [showWordmark, setShowWordmark] = useState(false)
-  const [showScroll, setShowScroll] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const [typewriterDone, setTypewriterDone] = useState(false)
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 50)
+    const handleScroll = () => setScrolled(window.scrollY > 20)
     window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
@@ -27,10 +25,8 @@ export const Hero = () => {
   useEffect(() => {
     if (!typewriterDone) return
     const t1 = setTimeout(() => setShowWordmark(true), WORDMARK_DELAY)
-    const t2 = setTimeout(() => setShowScroll(true), SCROLL_DELAY)
     return () => {
       clearTimeout(t1)
-      clearTimeout(t2)
     }
   }, [typewriterDone])
 
@@ -105,7 +101,7 @@ export const Hero = () => {
         </div>
 
         <button
-          className={`hidden cursor-pointer flex-col items-center gap-2 border-none bg-transparent p-0 transition-opacity duration-[800ms] sm:flex md:hidden ${showScroll && !scrolled ? 'opacity-100' : 'opacity-0'}`}
+          className={`hidden min-h-18 flex-col items-center gap-2 border-none bg-transparent p-0 transition-opacity delay-800 duration-[800ms] sm:flex md:hidden ${showWordmark ? 'cursor-pointer opacity-100' : 'pointer-events-none opacity-0'}`}
           onClick={() =>
             document
               .getElementById('about')
@@ -114,12 +110,14 @@ export const Hero = () => {
           aria-label="Scroll to about"
         >
           <BaseT6 className="text-beaver uppercase sm:pb-0">scroll</BaseT6>
-          <div className="animate-grow h-10 w-px origin-top bg-iron-orange md:flex" />
+          <div
+            className={`w-px origin-top bg-iron-orange transition-[height] delay-1000 duration-200 ease-linear ${showWordmark && !scrolled ? 'h-10' : 'h-px'}`}
+          />
         </button>
       </div>
 
       <button
-        className={`absolute bottom-1/5 left-1/2 flex -translate-x-1/2 cursor-pointer flex-col items-center gap-2 border-none bg-transparent p-0 transition-opacity duration-[800ms] sm:hidden md:flex ${showScroll && !scrolled ? 'opacity-100' : 'opacity-0'}`}
+        className={`absolute bottom-1/5 left-1/2 flex min-h-18 -translate-x-1/2 flex-col items-center gap-2 border-none bg-transparent p-0 transition-opacity delay-800 duration-[800ms] sm:hidden md:flex ${showWordmark && !scrolled ? 'cursor-pointer opacity-100' : 'pointer-events-none opacity-0'}`}
         onClick={() =>
           document
             .getElementById('about')
@@ -128,7 +126,9 @@ export const Hero = () => {
         aria-label="Scroll to about"
       >
         <BaseT6 className="text-beaver uppercase sm:pb-0">scroll</BaseT6>
-        <div className="animate-grow h-10 w-px origin-top bg-iron-orange lg:flex" />
+        <div
+          className={`w-px origin-top bg-iron-orange transition-[height] delay-1000 duration-200 ease-linear ${showWordmark && !scrolled ? 'h-10' : 'h-px'}`}
+        />
       </button>
     </SectionLayout>
   )

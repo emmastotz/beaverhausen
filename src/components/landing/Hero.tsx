@@ -101,7 +101,7 @@ export const Hero = () => {
         </div>
 
         <button
-          className={`hidden min-h-18 flex-col items-center gap-2 border-none bg-transparent p-0 transition-opacity delay-800 duration-[800ms] sm:flex md:hidden ${showWordmark ? 'cursor-pointer opacity-100' : 'pointer-events-none opacity-0'}`}
+          className={`hidden min-h-18 flex-col items-center gap-2 border-none bg-transparent p-0 transition-opacity delay-800 duration-[800ms] sm:flex md:hidden ${showWordmark && !scrolled ? 'cursor-pointer opacity-100' : 'pointer-events-none opacity-0'}`}
           onClick={() =>
             document
               .getElementById('about')

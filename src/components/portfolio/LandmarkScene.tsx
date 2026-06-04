@@ -19,7 +19,9 @@ function ArrowCue({ visible }: { visible: boolean }) {
       aria-hidden="true"
     >
       <BaseT6 className="mb-1 uppercase">Click to explore</BaseT6>
-      <div className="animate-grow h-10 w-px origin-top bg-iron-orange lg:flex" />
+      <div
+        className={`w-px origin-top bg-iron-orange transition-[height] delay-200 duration-200 ease-linear ${visible ? 'h-10' : 'h-px'}`}
+      />
     </div>
   )
 }

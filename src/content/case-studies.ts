@@ -1,6 +1,6 @@
-import beaverScene from '@/assets/landscape/portfolio/beaver-landmark-scene.svg'
-import damScene from '@/assets/landscape/portfolio/dam-landmark-scene.svg'
-import felledTreeScene from '@/assets/landscape/portfolio/felled-tree-landmark-scene.svg'
+import beaverScene from '@/assets/portfolio/beaver-landmark-scene.svg'
+import damScene from '@/assets/portfolio/dam-landmark-scene.svg'
+import felledTreeScene from '@/assets/portfolio/felled-tree-landmark-scene.svg'
 
 export interface HitArea {
   bottom: string
@@ -46,7 +46,7 @@ export const CASE_STUDIES: CaseStudy[] = [
   {
     id: 'beaver',
     scene: beaverScene,
-    title: 'RiskWise',
+    title: '?',
     description:
       'Enterprise risk assessment platform for an Australian cybersecurity firm.',
     role: 'Lead Engineer',

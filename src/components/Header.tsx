@@ -27,7 +27,7 @@ const navItems: NavItem[] = [
 
 const navLinkClass = [
   'relative inline-flex items-center md:gap-1.5 text-beaver-dark dark:text-iron-orange no-underline hover:text-iron-orange focus-visible:text-iron-orange p-3 md:p-0 outline-none dark:hover:text-cream dark:focus-visible:text-cream',
-  '[--ub-offset:-0.75rem] md:[--ub-offset:-1.375rem]',
+  '[--ub-offset:-0.8rem] lg:[--ub-offset:-1.375rem]',
   'underline-build',
 ].join(' ')
 
@@ -40,9 +40,9 @@ export function Header({
 }: HeaderProps) {
   return (
     <header
-      className={`z-header xl: fixed inset-x-0 top-0 flex h-auto items-center justify-between border-b border-beaver/10 px-4 py-3 backdrop-blur ${bgClass}`}
+      className={`z-header fixed inset-x-0 top-0 flex items-center justify-between border-b border-beaver/10 px-4 py-3 backdrop-blur ${bgClass}`}
     >
-      <div className="flex items-center gap-3 md:gap-4">
+      <div className="flex items-center gap-x-3 md:gap-x-4">
         <TransitionLink
           to="/"
           className="pointer-events-auto rounded-full no-underline outline-none hover:ring-2 hover:ring-iron-orange/30 focus-visible:ring-2 focus-visible:ring-iron-orange dark:hover:ring-iron-orange/50"
@@ -56,7 +56,7 @@ export function Header({
       </div>
 
       <nav className="pointer-events-auto" aria-label="Main navigation">
-        <ul className="flex list-none items-center gap-1 md:-mb-1.5 md:gap-8">
+        <ul className="flex list-none items-center gap-x-1 md:-mb-1.5 md:items-center md:gap-x-8">
           {navItems.map(({ label, href, icon }) => (
             <li key={label}>
               {href.startsWith('/') ? (
@@ -73,7 +73,13 @@ export function Header({
                   </BaseT6>
                 </TransitionLink>
               ) : (
-                <a href={href} className={navLinkClass} aria-label={label}>
+                <a
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={navLinkClass}
+                  aria-label={label}
+                >
                   <span aria-hidden="true" className="inline-flex">
                     {icon}
                   </span>

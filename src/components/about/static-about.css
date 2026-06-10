@@ -1,0 +1,149 @@
+@keyframes parallax-landscape-clouds {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.parallax-landscape-clouds {
+  animation: parallax-landscape-clouds auto linear both;
+  animation-timeline: scroll(root);
+  animation-range: 0% 100%;
+}
+
+@keyframes parallax-landscape-sun {
+  from {
+    filter: brightness(var(--sun-brightness-from)) blur(var(--sun-blur));
+    transform: translateY(var(--sun-translate-from));
+  }
+  to {
+    filter: brightness(var(--sun-brightness-to)) blur(var(--sun-blur));
+    transform: translateY(var(--sun-translate-to));
+  }
+}
+
+.parallax-landscape-sun {
+  --sun-brightness-from: 100%;
+  --sun-brightness-to: 110%;
+  --sun-blur: 4px;
+  --sun-translate-from: 400%;
+  --sun-translate-to: 0%;
+  animation: parallax-landscape-sun auto linear both;
+  animation-timeline: scroll(root);
+  animation-range: 0% 30%;
+}
+
+@media (max-width: 639px) {
+  .parallax-landscape-sun {
+    animation-range: 0 20svh;
+  }
+}
+
+@media (max-width: 1023px) {
+  .parallax-landscape-sun {
+    animation-range: 0 30svh;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .parallax-landscape-sun {
+    --sun-brightness-from: 100%;
+    --sun-brightness-to: 125%;
+    --sun-blur: 8px;
+    --sun-translate-from: 400%;
+    --sun-translate-to: 250%;
+    animation-direction: reverse;
+  }
+}
+
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+    transform: translateX(0) translateY(0);
+  }
+  20% {
+    transform: translateX(var(--x-mid)) translateY(1rem);
+  }
+  50%,
+  100% {
+    opacity: 0;
+    transform: translateX(var(--x-end)) translateY(2rem);
+  }
+}
+
+.about-fade-out {
+  --x-mid: -3rem;
+  --x-end: -6rem;
+  animation: fade-out auto linear forwards;
+  animation-timeline: scroll(root);
+  animation-range: 0% 80%;
+}
+
+.button-fade-out {
+  --x-mid: 3rem;
+  --x-end: 6rem;
+  animation: fade-out auto linear forwards;
+  animation-timeline: scroll(root);
+  animation-range: 0% 80%;
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: translateX(var(--x-start)) translateY(-6rem);
+  }
+  50%,
+  100% {
+    opacity: 1;
+    transform: translateX(0) translateY(0);
+  }
+}
+
+.about-fade-in {
+  --x-start: 3rem;
+  opacity: 0;
+  animation: fade-in auto linear forwards;
+  animation-timeline: view();
+  animation-range: cover 30% cover 45%;
+}
+
+.button-fade-in {
+  --x-start: -3rem;
+  opacity: 0;
+  animation: fade-in auto linear forwards;
+  animation-timeline: view();
+  animation-range: cover 30% cover 45%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .parallax-landscape-clouds {
+    animation: none;
+    transform: none;
+  }
+  .parallax-landscape-sun {
+    animation: none;
+    filter: none;
+  }
+  .about-fade-out {
+    animation: none;
+    transform: none;
+    opacity: 0;
+  }
+  .button-fade-out {
+    animation: none;
+    transform: none;
+    opacity: 0;
+  }
+  .about-fade-in {
+    animation: none;
+    transform: none;
+    opacity: 1;
+  }
+  .button-fade-in {
+    animation: none;
+    transform: none;
+    opacity: 1;
+  }
+}

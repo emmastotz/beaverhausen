@@ -4,7 +4,6 @@ import { Wordmark } from '@/components/brand/Wordmark'
 import { Typewriter } from '@/components/landing/Typewriter'
 import { BaseT6 } from '@/components/primitives/BaseT6'
 import { HERO_COPY } from '@/content/hero'
-import { SectionLayout } from '@/layouts/SectionLayout'
 
 import { DownloadResumeButton } from '../DownloadResumeButton'
 
@@ -17,7 +16,7 @@ export const Hero = () => {
   const [typewriterDone, setTypewriterDone] = useState(false)
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 20)
+    const handleScroll = () => setScrolled(window.scrollY > 0)
     window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
@@ -52,47 +51,49 @@ export const Hero = () => {
   }
 
   return (
-    <SectionLayout
+    <section
       id="hero"
-      ariaLabel="Beaverhausen hero"
-      className="flex min-h-svh flex-col items-center justify-center px-8 pb-24 sm:px-5 sm:py-12 md:pt-0 md:pb-36"
+      aria-label="Beaverhausen hero"
+      className="flex min-h-[70svh] flex-col items-center justify-center py-12 sm:pt-4 md:py-0"
     >
-      <div className="flex w-full max-w-2xl flex-col items-center justify-between sm:gap-6">
-        <div className="mb-16 flex w-full max-w-2xl flex-1 flex-col items-start sm:mb-0">
-          <div className="mb-8 min-h-[4.5em] sm:my-4 md:mt-0 md:mb-16">
+      <div className="flex w-full max-w-2xl flex-col items-center justify-between gap-5 md:min-h-[65svh] md:gap-0">
+        <div className="flex w-full max-w-2xl flex-1 flex-col items-start gap-4 sm:gap-2 md:justify-center md:gap-6">
+          <div className="min-h-35 sm:min-h-0 md:min-h-21">
             <Typewriter
               text={FULL_TEXT}
               onComplete={() => setTypewriterDone(true)}
-              className="leading-[1.75] text-beaver-dark"
+              className="sm:leading-none md:leading-normal lg:leading-[1.75]"
               variant="display"
               renderText={(displayed) => renderDefinition(displayed)}
             />
           </div>
 
-          <div
-            className={`w-full transition-all duration-[900ms] ease-[cubic-bezier(0.16,1,0.3,1)] outline-none ${
-              showWordmark
-                ? 'translate-y-0 opacity-100'
-                : 'translate-y-3 opacity-0'
-            }`}
-          >
-            <Wordmark className="h-auto w-full max-w-2xl" />
+          <div className="flex w-full flex-col gap-2 sm:gap-0">
+            <div
+              className={`transition-all duration-800 ease-in outline-none ${
+                showWordmark
+                  ? 'translate-y-0 opacity-100'
+                  : '-translate-y-3 opacity-0'
+              }`}
+            >
+              <Wordmark className="h-auto w-full sm:max-w-xs md:max-w-xl lg:max-w-2xl" />
+            </div>
+
+            <p
+              className={[
+                'transition-all duration-800 ease-linear delay-500',
+                showWordmark ? 'opacity-100' : 'opacity-0',
+              ].join(' ')}
+            >
+              <BaseT6 className="text-beaver uppercase md:leading-none dark:text-iron-orange">
+                Designing systems. Engineering experiences.
+              </BaseT6>
+            </p>
           </div>
 
-          <p
-            className={[
-              'mt-3 md:mt-6 transition-opacity duration-[800ms] delay-500',
-              showWordmark ? 'opacity-100' : 'opacity-0',
-            ].join(' ')}
-          >
-            <BaseT6 className="text-beaver uppercase">
-              Designing systems. Engineering experiences.
-            </BaseT6>
-          </p>
-
           <div
             className={[
-              'mt-3 transition-opacity duration-[800ms] delay-700',
+              'transition-opacity duration-800 ease-linear delay-700',
               showWordmark ? 'opacity-100' : 'opacity-0',
             ].join(' ')}
           >
@@ -101,7 +102,7 @@ export const Hero = () => {
         </div>
 
         <button
-          className={`hidden min-h-18 flex-col items-center gap-2 border-none bg-transparent p-0 transition-opacity delay-800 duration-[800ms] sm:flex md:hidden ${showWordmark && !scrolled ? 'cursor-pointer opacity-100' : 'pointer-events-none opacity-0'}`}
+          className={`flex min-h-12 flex-col items-center gap-2 border-none bg-transparent p-0 transition-opacity delay-800 duration-800 ease-in sm:hidden md:flex md:min-h-16 ${showWordmark && !scrolled ? 'cursor-pointer opacity-100' : 'pointer-events-none opacity-0'}`}
           onClick={() =>
             document
               .getElementById('about')
@@ -109,27 +110,14 @@ export const Hero = () => {
           }
           aria-label="Scroll to about"
         >
-          <BaseT6 className="text-beaver uppercase sm:pb-0">scroll</BaseT6>
+          <BaseT6 className="text-beaver uppercase dark:text-beaver-dark">
+            scroll
+          </BaseT6>
           <div
-            className={`w-px origin-top bg-iron-orange transition-[height] delay-1000 duration-200 ease-linear ${showWordmark && !scrolled ? 'h-10' : 'h-px'}`}
+            className={`w-px origin-top bg-iron-orange transition-[height] delay-1000 duration-200 ease-linear dark:bg-beaver-dark ${showWordmark && !scrolled ? 'h-6 md:h-10' : 'h-px'}`}
           />
         </button>
       </div>
-
-      <button
-        className={`absolute bottom-1/5 left-1/2 flex min-h-18 -translate-x-1/2 flex-col items-center gap-2 border-none bg-transparent p-0 transition-opacity delay-800 duration-[800ms] sm:hidden md:flex ${showWordmark && !scrolled ? 'cursor-pointer opacity-100' : 'pointer-events-none opacity-0'}`}
-        onClick={() =>
-          document
-            .getElementById('about')
-            ?.scrollIntoView({ behavior: 'smooth' })
-        }
-        aria-label="Scroll to about"
-      >
-        <BaseT6 className="text-beaver uppercase sm:pb-0">scroll</BaseT6>
-        <div
-          className={`w-px origin-top bg-iron-orange transition-[height] delay-1000 duration-200 ease-linear ${showWordmark && !scrolled ? 'h-10' : 'h-px'}`}
-        />
-      </button>
-    </SectionLayout>
+    </section>
   )
 }

@@ -11,7 +11,6 @@ import {
 import { Button } from '@/components/primitives/Button'
 import { BEAVER_LINES, CLOSING, PROFESSIONAL_LINES } from '@/content/about'
 import { useTransition } from '@/context/TransitionContext'
-import { SectionLayout } from '@/layouts/SectionLayout'
 
 const BEAVER_SECTION: ScrollSection = {
   lines: BEAVER_LINES,
@@ -67,9 +66,9 @@ export function About() {
   }, [])
 
   return (
-    <SectionLayout id="about" className="w-full" aria-label="About">
+    <section id="about" className="w-full" aria-label="About">
       <div
-        className={`fixed bottom-[0.5vh] left-1/2 z-floating -translate-x-1/2 ${isCtaInView ? 'opacity-100' : 'opacity-0'}`}
+        className={`z-floating fixed bottom-[0.5vh] left-1/2 -translate-x-1/2 sm:bottom-px md:bottom-[1vh] ${isCtaInView ? 'opacity-100' : 'opacity-0'}`}
       >
         <Button
           onClick={() => transitionTo('/portfolio/beaverhausen')}
@@ -112,6 +111,6 @@ export function About() {
           </div>
         </div>
       </div>
-    </SectionLayout>
+    </section>
   )
 }

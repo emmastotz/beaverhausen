@@ -42,13 +42,13 @@ export const ParallaxLandscape = () => {
       aria-hidden="true"
     >
       <div
-        className="pointer-events-none inset-0 h-full bg-size-[auto_40%] bg-fixed bg-bottom bg-no-repeat dark:hidden"
+        className="pointer-events-none absolute inset-0 bg-size-[auto_30%] bg-bottom bg-no-repeat dark:hidden"
         style={{
           backgroundImage: `url(${dawnLandscapeClouds})`,
         }}
       />
       <div
-        className="pointer-events-none inset-0 hidden h-full bg-size-[auto_40%] bg-bottom bg-no-repeat dark:bg-fixed"
+        className="pointer-events-none absolute inset-0 hidden bg-size-[auto_30%] bg-bottom bg-no-repeat dark:block"
         style={{
           backgroundImage: `url(${duskLandscapeClouds})`,
         }}

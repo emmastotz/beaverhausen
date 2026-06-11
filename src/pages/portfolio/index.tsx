@@ -22,7 +22,7 @@ export default function PortfolioPage() {
       <main>
         <div className="z-floating relative">
           <div
-            className={`pointer-events-none absolute inset-0 top-[17svh] transition-opacity duration-300 sm:top-[18svh] md:top-[20svh] ${heroVisible ? 'opacity-100' : 'opacity-0'}`}
+            className={`pointer-events-none absolute inset-0 top-[17svh] transition-opacity duration-300 sm:top-[18svh] md:top-[20svh] lg:top-[15svh] ${heroVisible ? 'opacity-100' : 'opacity-0'}`}
           >
             <FadeIn
               delay={500}
@@ -48,6 +48,8 @@ export default function PortfolioPage() {
             </FadeIn>
           </div>
         </div>
+
+        <div className="pointer-events-none fixed top-1/2 left-1/2 size-[25vh] -translate-x-1/2 rounded-full bg-dawn blur-sm dark:bg-iron-orange" />
 
         <div onFocus={() => setHeroVisible(false)}>
           <PortfolioParallax />

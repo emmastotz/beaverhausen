@@ -54,29 +54,28 @@ export const Hero = () => {
     <section
       id="hero"
       aria-label="Beaverhausen hero"
-      className="flex min-h-[70svh] flex-col items-center justify-center py-12 sm:pt-4 md:py-0"
+      className="flex min-h-[65svh] flex-col items-center justify-between sm:min-h-[60svh] lg:min-h-[65svh]"
     >
-      <div className="flex w-full max-w-2xl flex-col items-center justify-between gap-5 md:min-h-[65svh] md:gap-0">
-        <div className="flex w-full max-w-2xl flex-1 flex-col items-start gap-4 sm:gap-2 md:justify-center md:gap-6">
-          <div className="min-h-35 sm:min-h-0 md:min-h-21">
-            <Typewriter
-              text={FULL_TEXT}
-              onComplete={() => setTypewriterDone(true)}
-              className="sm:leading-none md:leading-normal lg:leading-[1.75]"
-              variant="display"
-              renderText={(displayed) => renderDefinition(displayed)}
-            />
-          </div>
+      <div className="flex w-full max-w-2xl flex-1 flex-col items-start justify-evenly lg:justify-center lg:gap-16">
+        <div className="min-h-30 sm:min-h-15 md:min-h-17 lg:min-h-27">
+          <Typewriter
+            text={FULL_TEXT}
+            onComplete={() => setTypewriterDone(true)}
+            className="w-full"
+            renderText={(displayed) => renderDefinition(displayed)}
+          />
+        </div>
 
-          <div className="flex w-full flex-col gap-2 sm:gap-0">
+        <div className="flex w-full flex-col gap-4 sm:gap-2 lg:gap-8">
+          <div className="flex w-full flex-col gap-2 sm:gap-1 lg:gap-2">
             <div
-              className={`transition-all duration-800 ease-in outline-none ${
+              className={`transition-all duration-800 ease-in ${
                 showWordmark
                   ? 'translate-y-0 opacity-100'
                   : '-translate-y-3 opacity-0'
               }`}
             >
-              <Wordmark className="h-auto w-full sm:max-w-xs md:max-w-xl lg:max-w-2xl" />
+              <Wordmark className="h-auto w-full sm:max-w-sm md:max-w-md lg:max-w-none" />
             </div>
 
             <p
@@ -85,7 +84,7 @@ export const Hero = () => {
                 showWordmark ? 'opacity-100' : 'opacity-0',
               ].join(' ')}
             >
-              <BaseT6 className="text-beaver uppercase md:leading-none dark:text-iron-orange">
+              <BaseT6 className="flex text-beaver uppercase lg:leading-7 dark:text-iron-orange">
                 Designing systems. Engineering experiences.
               </BaseT6>
             </p>
@@ -100,24 +99,24 @@ export const Hero = () => {
             <DownloadResumeButton variant="ghost" />
           </div>
         </div>
-
-        <button
-          className={`flex min-h-12 flex-col items-center gap-2 border-none bg-transparent p-0 transition-opacity delay-800 duration-800 ease-in sm:hidden md:flex md:min-h-16 ${showWordmark && !scrolled ? 'cursor-pointer opacity-100' : 'pointer-events-none opacity-0'}`}
-          onClick={() =>
-            document
-              .getElementById('about')
-              ?.scrollIntoView({ behavior: 'smooth' })
-          }
-          aria-label="Scroll to about"
-        >
-          <BaseT6 className="text-beaver uppercase dark:text-beaver-dark">
-            scroll
-          </BaseT6>
-          <div
-            className={`w-px origin-top bg-iron-orange transition-[height] delay-1000 duration-200 ease-linear dark:bg-beaver-dark ${showWordmark && !scrolled ? 'h-6 md:h-10' : 'h-px'}`}
-          />
-        </button>
       </div>
+
+      <button
+        className={`flex min-h-12 flex-col items-center gap-2 border-none bg-transparent p-0 transition-opacity delay-800 duration-800 ease-in sm:hidden lg:flex lg:min-h-16 ${showWordmark && !scrolled ? 'cursor-pointer opacity-100' : 'pointer-events-none opacity-0'}`}
+        onClick={() =>
+          document
+            .getElementById('about')
+            ?.scrollIntoView({ behavior: 'smooth' })
+        }
+        aria-label="Scroll to about"
+      >
+        <BaseT6 className="text-beaver uppercase dark:text-beaver-dark">
+          scroll
+        </BaseT6>
+        <div
+          className={`w-px origin-top bg-iron-orange transition-[height] delay-1000 duration-200 ease-linear dark:bg-beaver-dark ${showWordmark && !scrolled ? 'h-6 lg:h-10' : 'h-px'}`}
+        />
+      </button>
     </section>
   )
 }

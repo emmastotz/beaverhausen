@@ -16,7 +16,6 @@ const SCENE_HEIGHT = 866
 export function PortfolioParallax() {
   const containerRef = useRef<HTMLDivElement>(null)
   const [viewportWidth, setViewportWidth] = useState(window.innerWidth)
-  const [viewportHeight, setViewportHeight] = useState(window.innerHeight)
 
   const showLandscape = viewportWidth >= 1536
   const sceneCount = SCENES.length + (showLandscape ? 1 : 0)
@@ -26,53 +25,26 @@ export function PortfolioParallax() {
   const portfolioScrollHeight = sceneCount * scrollHeight
   const usingKeyboard = useRef(false)
 
-  const widthBasedWidth =
-    SCENE_WIDTH * (viewportWidth < 640 ? 0.4 : viewportWidth < 1024 ? 0.6 : 0.9)
-  const aspectRatio = viewportHeight / viewportWidth
-  const multiplier =
-    aspectRatio <= 0.75 ? 1 : 1 - 0.5 * ((aspectRatio - 0.75) / 0.25)
-  const heightBasedWidth =
-    multiplier * aspectRatio * viewportHeight * (SCENE_WIDTH / SCENE_HEIGHT)
-  const renderedWidth =
-    heightBasedWidth > 0
-      ? Math.min(widthBasedWidth, heightBasedWidth)
-      : widthBasedWidth
-
-  const panoramaWidth = renderedWidth * sceneCount + viewportWidth + sceneCount
-
   useEffect(() => {
-    const onResize = () => {
-      setViewportWidth(window.innerWidth)
-      setViewportHeight(window.innerHeight)
-    }
+    const onResize = () => setViewportWidth(window.innerWidth)
     window.addEventListener('resize', onResize)
     return () => window.removeEventListener('resize', onResize)
   }, [])
 
   useEffect(() => {
-    const totalPanorama = renderedWidth * sceneCount - viewportWidth
-
     const onScroll = () => {
       const maxScroll = portfolioScrollHeight - window.innerHeight
       const progress = Math.min(window.scrollY / maxScroll, 1)
-      containerRef.current?.style.setProperty(
-        '--offset',
-        `${progress * totalPanorama}px`,
-      )
+      containerRef.current?.style.setProperty('--progress', `${progress}`)
     }
-
     window.addEventListener('scroll', onScroll, { passive: true })
     onScroll()
     return () => window.removeEventListener('scroll', onScroll)
-  }, [viewportWidth, viewportHeight])
+  }, [viewportWidth])
 
   useEffect(() => {
-    const onKey = () => {
-      usingKeyboard.current = true
-    }
-    const onPointer = () => {
-      usingKeyboard.current = false
-    }
+    const onKey = () => { usingKeyboard.current = true }
+    const onPointer = () => { usingKeyboard.current = false }
     window.addEventListener('keydown', onKey)
     window.addEventListener('pointerdown', onPointer)
     return () => {
@@ -82,12 +54,12 @@ export function PortfolioParallax() {
   }, [])
 
   const scrollToHitAreaCenter = (target: HTMLElement) => {
-    const totalPanorama = renderedWidth * sceneCount - viewportWidth
+    const panelWidth = window.innerHeight * 0.6 * (SCENE_WIDTH / SCENE_HEIGHT)
+    const totalPanorama = panelWidth * sceneCount - window.innerWidth
     if (totalPanorama <= 0) return
     const { left, right } = target.getBoundingClientRect()
-    const deltaX = (left + right) / 2 - viewportWidth / 2
+    const deltaX = (left + right) / 2 - window.innerWidth / 2
     const maxScroll = portfolioScrollHeight - window.innerHeight
-
     const prefersReducedMotion = window.matchMedia(
       '(prefers-reduced-motion: reduce)',
     ).matches
@@ -105,32 +77,33 @@ export function PortfolioParallax() {
     <div style={{ height: portfolioScrollHeight }}>
       <div
         ref={containerRef}
-        className="sticky top-0 h-screen w-full overflow-clip"
+        className="portfolio-parallax sticky top-0 h-screen w-full overflow-clip"
+        style={{ '--scene-count': sceneCount } as React.CSSProperties}
       >
         <div
           className="absolute inset-0 bg-bottom bg-repeat-x dark:hidden"
           style={{
             backgroundImage: `url(${dawnCloudBg})`,
-            backgroundSize: `${renderedWidth}px auto`,
-            width: panoramaWidth,
-            transform: 'translateX(calc(var(--offset, 0px) * -0.2))',
+            backgroundSize: 'var(--panel-width) auto',
+            width: 'var(--panorama-width)',
+            transform: 'translateX(calc(var(--progress, 0) * -0.3 * var(--total-panorama)))',
           }}
         />
         <div
           className="absolute inset-0 bg-bottom bg-repeat-x not-dark:hidden"
           style={{
             backgroundImage: `url(${duskCloudBg})`,
-            backgroundSize: `${renderedWidth}px auto`,
-            width: panoramaWidth,
-            transform: 'translateX(calc(var(--offset, 0px) * -0.2))',
+            backgroundSize: 'var(--panel-width) auto',
+            width: 'var(--panorama-width)',
+            transform: 'translateX(calc(var(--progress, 0) * -0.3 * var(--total-panorama)))',
           }}
         />
 
         <div
           className="absolute inset-0"
           style={{
-            width: panoramaWidth,
-            transform: 'translateX(calc(-1 * var(--offset, 0px)))',
+            width: 'var(--panorama-width)',
+            transform: 'translateX(calc(-1 * var(--progress, 0) * var(--total-panorama)))',
           }}
         >
           {showLandscape && (
@@ -138,10 +111,10 @@ export function PortfolioParallax() {
               className="absolute inset-y-0 bg-bottom bg-no-repeat"
               style={{
                 backgroundImage: `url(${parallaxLandscape})`,
-                backgroundSize: `${renderedWidth}px auto`,
+                backgroundSize: 'var(--panel-width) auto',
                 backgroundPosition: 'left bottom',
                 left: 0,
-                width: renderedWidth,
+                width: 'var(--panel-width)',
               }}
             />
           )}
@@ -151,11 +124,10 @@ export function PortfolioParallax() {
               className="absolute inset-y-0 bg-bottom bg-no-repeat"
               style={{
                 backgroundImage: `url(${scene.scene})`,
-                backgroundSize: `${renderedWidth}px auto`,
+                backgroundSize: 'var(--panel-width) auto',
                 backgroundPosition: 'left bottom',
-                left:
-                  (i + landscapeOffset) * renderedWidth - (i + landscapeOffset),
-                width: renderedWidth,
+                left: `calc(${i + landscapeOffset} * (var(--panel-width) - 1px))`,
+                width: 'var(--panel-width)',
               }}
             />
           ))}
@@ -164,8 +136,8 @@ export function PortfolioParallax() {
         <div
           className="absolute bottom-0"
           style={{
-            width: panoramaWidth,
-            transform: 'translateX(calc(-1 * var(--offset, 0px)))',
+            width: 'var(--panorama-width)',
+            transform: 'translateX(calc(-1 * var(--progress, 0) * var(--total-panorama)))',
           }}
         >
           {SCENES.map((scene, i) => (
@@ -173,8 +145,8 @@ export function PortfolioParallax() {
               key={scene.id}
               className="absolute bottom-0"
               style={{
-                left: (i + landscapeOffset) * renderedWidth,
-                width: renderedWidth,
+                left: `calc(${i + landscapeOffset} * var(--panel-width))`,
+                width: 'var(--panel-width)',
               }}
               onFocus={(e) => {
                 if (usingKeyboard.current)

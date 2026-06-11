@@ -1,3 +1,9 @@
+.portfolio-parallax {
+  --panel-width: calc(60svh * 3342 / 866);
+  --total-panorama: calc(var(--panel-width) * var(--scene-count, 4) - 100vw);
+  --panorama-width: calc(var(--panel-width) * var(--scene-count, 4) + 100vw + var(--scene-count, 4) * 1px);
+}
+
 @keyframes cattails-sway-a {
   0%,
   100% {

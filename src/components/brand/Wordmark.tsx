@@ -7,7 +7,7 @@ type Props = {
 
 export function Wordmark({
   bColor = 'fill-beaver-dark',
-  beaverColor = 'fill-beaver dark:fill-cream',
+  beaverColor = 'fill-beaver',
   hausenColor = 'fill-iron-orange',
   className,
 }: Props) {

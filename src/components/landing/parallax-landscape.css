@@ -1,4 +1,4 @@
-@keyframes fade-sun {
+@keyframes sun-fade {
   from {
     translate: -50% 0;
   }
@@ -8,7 +8,7 @@
 }
 .sun-fade {
   --sun-target-y: calc(-62.5svh - 3.75rem);
-  animation: fade-sun auto linear both;
+  animation: sun-fade auto linear both;
   animation-timeline: scroll(root);
   animation-range: 94% 100%;
 }

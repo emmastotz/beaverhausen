@@ -26,18 +26,18 @@ export default function PortfolioPage() {
           >
             <FadeIn delay={500} className="flex flex-col gap-4 text-center">
               <div className="mx-auto max-w-md lg:max-w-none">
-                <BaseT6 className="text-iron-orange uppercase">
+                <BaseT6 className="text-iron-orange uppercase dark:text-iron-orange">
                   Selected works
                 </BaseT6>
                 <AutoH>
-                  <BaseT1 className="text-beaver-dark">
+                  <BaseT1 className="text-beaver-dark dark:text-cream">
                     Something is always being built
                   </BaseT1>
                 </AutoH>
               </div>
 
               <p className="mx-auto mt-4 max-w-lg sm:mt-8">
-                <BaseT3 className="text-beaver">
+                <BaseT3 className="text-beaver dark:text-beaver-dark">
                   Scroll to continue the journey. Click on a site for a more
                   in-depth exploration.
                 </BaseT3>

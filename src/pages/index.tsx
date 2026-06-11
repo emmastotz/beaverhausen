@@ -30,7 +30,7 @@ export default function LandingPage() {
         </main>
 
         <div
-          className={`sun-fade pointer-events-none fixed -bottom-15 left-1/2 size-[25svh] -translate-x-1/2 rounded-full bg-dawn blur-xs brightness-120 transition-opacity ease-in will-change-[opacity] md:size-[20svh] dark:bg-iron-orange dark:blur-sm dark:brightness-150 ${isScrollComplete ? 'opacity-0' : 'opacity-100'}`}
+          className={`sun-fade pointer-events-none fixed -bottom-15 left-1/2 size-[25svh] rounded-full bg-dawn blur-xs brightness-120 transition-opacity ease-in will-change-[opacity] md:size-[20svh] dark:bg-iron-orange dark:blur-sm dark:brightness-150 ${isScrollComplete ? 'opacity-0' : 'opacity-100'}`}
         />
         <ParallaxLandscape />
       </DefaultLayout>

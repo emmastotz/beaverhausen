@@ -24,7 +24,7 @@
 .animate-parallax-landscape-background {
   animation: parallax-landscape-background auto linear both;
   animation-timeline: scroll(root);
-  background-size: auto calc(20% + 0.5px);
+  background-size: auto calc(30% + 0.5px);
 }
 
 @keyframes parallax-landscape-midground {
@@ -38,7 +38,7 @@
 .animate-parallax-landscape-midground {
   animation: parallax-landscape-midground auto linear both;
   animation-timeline: scroll(root);
-  background-size: auto calc(23% + 0.5px);
+  background-size: auto calc(30% + 0.5px);
 }
 
 @keyframes parallax-landscape-foreground {

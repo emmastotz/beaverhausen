@@ -2,7 +2,8 @@
   0% {
     opacity: 0;
   }
-  50% {
+  30%,
+  60% {
     opacity: 1;
   }
   100% {
@@ -26,22 +27,17 @@
 }
 
 .reveal {
-  opacity: 0;
   animation: reveal linear both;
   animation-timeline: view();
-  animation-range: cover 10% cover 80%;
 }
 
 .reveal--persist {
-  animation: reveal-persist linear both;
+  animation: reveal-persist linear both forwards;
   animation-timeline: view();
-  animation-range: cover 10% cover 95%;
 }
 
 @media (prefers-reduced-motion: reduce) {
   .reveal {
     animation: none;
-    transform: none;
-    opacity: 1;
   }
 }

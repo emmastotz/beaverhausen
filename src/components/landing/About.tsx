@@ -1,13 +1,12 @@
 import { useEffect, useState } from 'react'
 
-import type { ScrollSection } from '@/components/landing/ScrollJackTypewriter'
-
 import { BeaverMark } from '@/components/brand/BeaverMark'
 import { DownloadResumeButton } from '@/components/DownloadResumeButton'
 import {
+  ScrollRevealText,
   composeScrollSections,
-  ScrollJackTypewriter,
-} from '@/components/landing/ScrollJackTypewriter'
+  type ScrollSection,
+} from '@/components/landing/ScrollRevealText'
 import { Button } from '@/components/primitives/Button'
 import { BEAVER_LINES, CLOSING, PROFESSIONAL_LINES } from '@/content/about'
 import { useTransition } from '@/context/TransitionContext'
@@ -16,18 +15,19 @@ const BEAVER_SECTION: ScrollSection = {
   lines: BEAVER_LINES,
   variant: 'display',
   className: 'leading-[1.8] text-beaver-dark',
-  renderText(displayed, i) {
-    if (i !== 5) return displayed
+  renderText(i) {
+    if (i !== 5) return BEAVER_LINES[i]
+    const text = BEAVER_LINES[5]
     const word = 'orange'
-    const idx = displayed.indexOf(word)
-    if (idx === -1) return displayed
+    const idx = text.indexOf(word)
+    if (idx === -1) return text
     return (
       <>
-        {displayed.slice(0, idx)}
+        {text.slice(0, idx)}
         <span className="text-iron-orange">
-          {displayed.slice(idx, idx + word.length)}
+          {text.slice(idx, idx + word.length)}
         </span>
-        {displayed.slice(idx + word.length)}
+        {text.slice(idx + word.length)}
       </>
     )
   },
@@ -37,9 +37,9 @@ const PROFESSIONAL_SECTION: ScrollSection = {
   lines: PROFESSIONAL_LINES,
   variant: 'body',
   className: 'leading-[1.8] text-beaver-dark',
-  renderText(displayed, i) {
-    if (i === 5) return <em>{displayed}</em>
-    return displayed
+  renderText(i) {
+    if (i === 5) return <em>{PROFESSIONAL_LINES[5]}</em>
+    return PROFESSIONAL_LINES[i]
   },
 }
 
@@ -49,9 +49,21 @@ const {
   getLineProps: getAboutLineProps,
 } = composeScrollSections([BEAVER_SECTION, PROFESSIONAL_SECTION])
 
-const CLOSING_COPY: React.ReactNode[] = [CLOSING]
+const CLOSING_COPY = [CLOSING]
 
 export function About() {
+  const [isScrollComplete, setisScrollComplete] = useState(true)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollMax =
+        document.documentElement.scrollHeight - window.innerHeight
+      setisScrollComplete(window.scrollY === scrollMax)
+    }
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
   const { transitionTo } = useTransition()
 
   const [isCtaInView, setIsCtaInView] = useState(false)
@@ -80,30 +92,35 @@ export function About() {
         </Button>
       </div>
 
-      <ScrollJackTypewriter
+      <ScrollRevealText
         lines={ABOUT_LINES}
         renderText={renderAboutText}
         getLineProps={getAboutLineProps}
+        className="leading-[1.75]"
       />
 
       <div className="relative">
-        <div className="sticky top-[calc(35vh-8rem)] flex justify-center sm:top-[calc(40vh-8rem)] md:top-[calc(35vh)] lg:top-[calc(40vh-8rem)]">
-          <BeaverMark className="size-24 lg:size-36" />
+        <div className="sticky top-[15svh] flex justify-center sm:top-[25svh] md:top-[18svh]">
+          <BeaverMark
+            className={`size-[20svh] transition-opacity ease-out md:size-[15svh] ${isScrollComplete ? 'opacity-100' : 'opacity-0'}`}
+          />
         </div>
 
-        <ScrollJackTypewriter
+        <ScrollRevealText
           lines={CLOSING_COPY}
           variant="display"
-          className="relative leading-[1.8] text-iron-orange italic"
+          className="relative leading-[1.75] text-iron-orange italic dark:text-beaver-dark"
           persistLast
         />
 
         <div
           id="about-cta"
-          className="absolute top-4/5 left-1/2 -translate-x-1/2"
+          className="z-floating absolute inset-x-0 top-[75svh] flex justify-center sm:top-[77svh] md:top-[70svh]"
         >
-          <div className="flex flex-col justify-center gap-1 sm:gap-3">
-            <DownloadResumeButton variant="ghost" />
+          <div className="inline-flex flex-col justify-center gap-2 sm:gap-0 md:gap-3">
+            <div className="place-self-center">
+              <DownloadResumeButton variant="ghost" />
+            </div>
 
             <Button onClick={() => transitionTo('/portfolio')}>
               Continue the journey

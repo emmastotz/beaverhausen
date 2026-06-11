@@ -8,7 +8,7 @@ import { ParallaxLandscape } from '@/components/landing/ParallaxLandscape'
 import { DefaultLayout } from '@/layouts/DefaultLayout'
 
 export default function LandingPage() {
-  const [isScrollComplete, setisScrollComplete] = useState(true)
+  const [isScrollComplete, setisScrollComplete] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {

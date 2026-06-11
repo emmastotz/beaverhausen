@@ -1,0 +1,47 @@
+@keyframes reveal {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes reveal-persist {
+  0% {
+    opacity: 0;
+  }
+  60%,
+  100% {
+    opacity: 1;
+  }
+}
+
+.reveal {
+  display: block;
+  opacity: 1;
+}
+
+.reveal {
+  opacity: 0;
+  animation: reveal linear both;
+  animation-timeline: view();
+  animation-range: cover 10% cover 80%;
+}
+
+.reveal--persist {
+  animation: reveal-persist linear both;
+  animation-timeline: view();
+  animation-range: cover 10% cover 95%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    animation: none;
+    transform: none;
+    opacity: 1;
+  }
+}

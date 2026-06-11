@@ -6,7 +6,7 @@ type Props = {
 export function BaseT1({ children, className = '' }: Props) {
   return (
     <span
-      className={`font-header text-4xl font-normal tracking-wide antialiased sm:text-5xl ${className}`}
+      className={`font-header text-4xl font-normal tracking-wide antialiased sm:text-3xl md:text-5xl ${className}`}
     >
       {children}
     </span>

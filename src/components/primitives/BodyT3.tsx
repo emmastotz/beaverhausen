@@ -6,7 +6,7 @@ type Props = {
 export function BodyT3({ children, className = '' }: Props) {
   return (
     <span
-      className={`font-body text-base tracking-wide antialiased sm:text-lg ${className}`}
+      className={`font-body text-base tracking-wide antialiased md:text-lg ${className}`}
     >
       {children}
     </span>

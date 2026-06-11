@@ -11,15 +11,15 @@ import landscapeMidground from '@/assets/landscape/midground.svg'
 const LAYERS = [
   {
     src: landscapeBackground,
-    className: 'animate-parallax-landscape-background',
+    className: 'parallax-landscape-background',
   },
   {
     src: landscapeMidground,
-    className: 'animate-parallax-landscape-midground',
+    className: 'parallax-landscape-midground',
   },
   {
     src: landscapeForeground,
-    className: 'animate-parallax-landscape-foreground',
+    className: 'parallax-landscape-foreground',
   },
 ] as const
 
@@ -42,13 +42,13 @@ export const ParallaxLandscape = () => {
       aria-hidden="true"
     >
       <div
-        className="pointer-events-none absolute inset-0 bg-size-[auto_30%] bg-bottom bg-no-repeat dark:hidden"
+        className="parallax-landscape-clouds absolute inset-0 bg-bottom bg-repeat-x dark:hidden"
         style={{
           backgroundImage: `url(${dawnLandscapeClouds})`,
         }}
       />
       <div
-        className="pointer-events-none absolute inset-0 hidden bg-size-[auto_30%] bg-bottom bg-no-repeat dark:block"
+        className="parallax-landscape-clouds absolute inset-0 hidden bg-bottom bg-repeat-x dark:block"
         style={{
           backgroundImage: `url(${duskLandscapeClouds})`,
         }}

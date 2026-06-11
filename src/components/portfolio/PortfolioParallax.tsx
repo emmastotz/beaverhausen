@@ -2,7 +2,8 @@ import '@/components/portfolio/portfolio-parallax.css'
 
 import { useEffect, useRef, useState } from 'react'
 
-import cloudBg from '@/assets/portfolio/portfolio-cloud-background.svg'
+import dawnCloudBg from '@/assets/landscape/dawn-clouds-bg.svg'
+import duskCloudBg from '@/assets/landscape/dusk-clouds-bg.svg'
 import { LandmarkScene } from '@/components/portfolio/LandmarkScene'
 import { SCENES } from '@/components/portfolio/Scenes.config'
 import { AutoHProvider } from '@/components/primitives/AutoHProvider'
@@ -103,12 +104,21 @@ export function PortfolioParallax() {
         className="sticky top-0 h-screen w-full overflow-clip"
       >
         <div
-          className="absolute inset-0 bg-bottom bg-repeat-x"
+          className="absolute inset-0 bg-bottom bg-repeat-x dark:hidden"
           style={{
-            backgroundImage: `url(${cloudBg})`,
+            backgroundImage: `url(${dawnCloudBg})`,
             backgroundSize: `${renderedWidth}px auto`,
             width: panoramaWidth,
-            transform: 'translateX(calc(var(--offset, 0px) * -0.2))',
+            transform: 'translateX(calc(var(--offset, 0px) * -0.3))',
+          }}
+        />
+        <div
+          className="absolute inset-0 bg-bottom bg-repeat-x not-dark:hidden"
+          style={{
+            backgroundImage: `url(${duskCloudBg})`,
+            backgroundSize: `${renderedWidth}px auto`,
+            width: panoramaWidth,
+            transform: 'translateX(calc(var(--offset, 0px) * -0.3))',
           }}
         />
 

@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from 'react'
 
 import dawnCloudBg from '@/assets/landscape/dawn-clouds-bg.svg'
 import duskCloudBg from '@/assets/landscape/dusk-clouds-bg.svg'
+import parallaxLandscape from '@/assets/portfolio/landscape-all.svg'
 import { LandmarkScene } from '@/components/portfolio/LandmarkScene'
 import { SCENES } from '@/components/portfolio/Scenes.config'
 import { AutoHProvider } from '@/components/primitives/AutoHProvider'
@@ -17,8 +18,12 @@ export function PortfolioParallax() {
   const [viewportWidth, setViewportWidth] = useState(window.innerWidth)
   const [viewportHeight, setViewportHeight] = useState(window.innerHeight)
 
+  const showLandscape = viewportWidth >= 1536
+  const sceneCount = SCENES.length + (showLandscape ? 1 : 0)
+  const landscapeOffset = showLandscape ? 1 : 0
+
   const scrollHeight = viewportWidth < 1024 ? 3000 : 6000
-  const portfolioScrollHeight = SCENES.length * scrollHeight
+  const portfolioScrollHeight = sceneCount * scrollHeight
   const usingKeyboard = useRef(false)
 
   const widthBasedWidth =
@@ -33,8 +38,7 @@ export function PortfolioParallax() {
       ? Math.min(widthBasedWidth, heightBasedWidth)
       : widthBasedWidth
 
-  const panoramaWidth =
-    renderedWidth * SCENES.length + viewportWidth + SCENES.length
+  const panoramaWidth = renderedWidth * sceneCount + viewportWidth + sceneCount
 
   useEffect(() => {
     const onResize = () => {
@@ -46,7 +50,7 @@ export function PortfolioParallax() {
   }, [])
 
   useEffect(() => {
-    const totalPanorama = renderedWidth * SCENES.length - viewportWidth
+    const totalPanorama = renderedWidth * sceneCount - viewportWidth
 
     const onScroll = () => {
       const maxScroll = portfolioScrollHeight - window.innerHeight
@@ -78,7 +82,7 @@ export function PortfolioParallax() {
   }, [])
 
   const scrollToHitAreaCenter = (target: HTMLElement) => {
-    const totalPanorama = renderedWidth * SCENES.length - viewportWidth
+    const totalPanorama = renderedWidth * sceneCount - viewportWidth
     if (totalPanorama <= 0) return
     const { left, right } = target.getBoundingClientRect()
     const deltaX = (left + right) / 2 - viewportWidth / 2
@@ -109,7 +113,7 @@ export function PortfolioParallax() {
             backgroundImage: `url(${dawnCloudBg})`,
             backgroundSize: `${renderedWidth}px auto`,
             width: panoramaWidth,
-            transform: 'translateX(calc(var(--offset, 0px) * -0.3))',
+            transform: 'translateX(calc(var(--offset, 0px) * -0.2))',
           }}
         />
         <div
@@ -118,7 +122,7 @@ export function PortfolioParallax() {
             backgroundImage: `url(${duskCloudBg})`,
             backgroundSize: `${renderedWidth}px auto`,
             width: panoramaWidth,
-            transform: 'translateX(calc(var(--offset, 0px) * -0.3))',
+            transform: 'translateX(calc(var(--offset, 0px) * -0.2))',
           }}
         />
 
@@ -129,6 +133,18 @@ export function PortfolioParallax() {
             transform: 'translateX(calc(-1 * var(--offset, 0px)))',
           }}
         >
+          {showLandscape && (
+            <div
+              className="absolute inset-y-0 bg-bottom bg-no-repeat"
+              style={{
+                backgroundImage: `url(${parallaxLandscape})`,
+                backgroundSize: `${renderedWidth}px auto`,
+                backgroundPosition: 'left bottom',
+                left: 0,
+                width: renderedWidth,
+              }}
+            />
+          )}
           {SCENES.map((scene, i) => (
             <div
               key={scene.id}
@@ -137,7 +153,8 @@ export function PortfolioParallax() {
                 backgroundImage: `url(${scene.scene})`,
                 backgroundSize: `${renderedWidth}px auto`,
                 backgroundPosition: 'left bottom',
-                left: i * renderedWidth - i,
+                left:
+                  (i + landscapeOffset) * renderedWidth - (i + landscapeOffset),
                 width: renderedWidth,
               }}
             />
@@ -155,7 +172,10 @@ export function PortfolioParallax() {
             <div
               key={scene.id}
               className="absolute bottom-0"
-              style={{ left: i * renderedWidth, width: renderedWidth }}
+              style={{
+                left: (i + landscapeOffset) * renderedWidth,
+                width: renderedWidth,
+              }}
               onFocus={(e) => {
                 if (usingKeyboard.current)
                   scrollToHitAreaCenter(e.target as HTMLElement)

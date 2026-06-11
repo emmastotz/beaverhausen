@@ -15,12 +15,14 @@ interface Props {
 function ArrowCue({ visible }: { visible: boolean }) {
   return (
     <div
-      className={`absolute flex flex-col items-center gap-0.5 text-iron-orange transition-all duration-200 ${visible ? 'translate-y-0 opacity-100' : '-translate-y-1 opacity-0'}`}
+      className={`flex min-h-12 flex-col items-center gap-2 transition-opacity duration-100 ease-in sm:hidden lg:flex lg:min-h-18 ${visible ? 'opacity-100' : 'opacity-0'}`}
       aria-hidden="true"
     >
-      <BaseT6 className="mb-1 uppercase">Click to explore</BaseT6>
+      <BaseT6 className="text-beaver uppercase dark:text-beaver-dark">
+        Click to explore
+      </BaseT6>
       <div
-        className={`w-px origin-top bg-iron-orange transition-[height] delay-200 duration-200 ease-linear ${visible ? 'h-10' : 'h-px'}`}
+        className={`w-px origin-top bg-iron-orange transition-[height] delay-200 duration-200 ease-linear dark:bg-cream ${visible ? 'h-6 lg:h-10' : 'h-px'}`}
       />
     </div>
   )
@@ -92,12 +94,14 @@ export function LandmarkScene({ scene }: Props) {
           </>
         ) : (
           <AutoH className="mb-4">
-            <BaseT1 className="text-beaver-dark">{scene.title}</BaseT1>
+            <BaseT1 className="text-beaver-dark dark:text-cream">
+              {scene.title}
+            </BaseT1>
           </AutoH>
         )}
 
         <p className="mx-auto mb-2 max-w-2xs text-pretty sm:max-w-xs">
-          <BaseT5 className="leading-relaxed tracking-[0.12em] text-beaver">
+          <BaseT5 className="leading-relaxed tracking-[0.12em] text-beaver dark:text-beaver-dark">
             {scene.description}
           </BaseT5>
         </p>

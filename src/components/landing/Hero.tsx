@@ -69,7 +69,7 @@ export const Hero = () => {
         <div className="flex w-full flex-col gap-4 sm:gap-2 lg:gap-8">
           <div className="flex w-full flex-col gap-2 sm:gap-1 lg:gap-2">
             <div
-              className={`will-change-[transform,opacity] transition-[opacity,transform] duration-800 ease-in ${
+              className={`transition-[opacity,transform] duration-800 ease-in will-change-[transform,opacity] ${
                 showWordmark
                   ? 'translate-y-0 opacity-100'
                   : '-translate-y-3 opacity-0'
@@ -102,7 +102,7 @@ export const Hero = () => {
       </div>
 
       <button
-        className={`flex min-h-12 flex-col items-center gap-2 border-none bg-transparent p-0 transition-opacity delay-800 duration-800 ease-in sm:hidden lg:flex lg:min-h-16 ${showWordmark && !scrolled ? 'cursor-pointer opacity-100' : 'pointer-events-none opacity-0'}`}
+        className={`flex min-h-12 flex-col items-center gap-2 rounded-md p-1 transition-opacity delay-800 duration-800 ease-in sm:hidden lg:flex lg:min-h-18 ${showWordmark && !scrolled ? 'cursor-pointer opacity-100' : 'pointer-events-none opacity-0'}`}
         onClick={() =>
           document
             .getElementById('about')
@@ -114,7 +114,7 @@ export const Hero = () => {
           scroll
         </BaseT6>
         <div
-          className={`w-px origin-top bg-iron-orange transition-[height] delay-1000 duration-200 ease-linear dark:bg-beaver-dark ${showWordmark && !scrolled ? 'h-6 lg:h-10' : 'h-px'}`}
+          className={`w-px origin-top bg-iron-orange transition-[height] delay-1000 duration-200 ease-linear dark:bg-cream ${showWordmark && !scrolled ? 'h-6 lg:h-10' : 'h-px'}`}
         />
       </button>
     </section>

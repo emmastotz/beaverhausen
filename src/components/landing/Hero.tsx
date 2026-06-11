@@ -69,7 +69,7 @@ export const Hero = () => {
         <div className="flex w-full flex-col gap-4 sm:gap-2 lg:gap-8">
           <div className="flex w-full flex-col gap-2 sm:gap-1 lg:gap-2">
             <div
-              className={`will-change-[transform,opacity] transition-all duration-800 ease-in ${
+              className={`will-change-[transform,opacity] transition-[opacity,transform] duration-800 ease-in ${
                 showWordmark
                   ? 'translate-y-0 opacity-100'
                   : '-translate-y-3 opacity-0'
@@ -80,7 +80,7 @@ export const Hero = () => {
 
             <p
               className={[
-                'will-change-[opacity] transition-all duration-800 ease-linear delay-500',
+                'will-change-[opacity] transition-opacity duration-800 ease-linear delay-500',
                 showWordmark ? 'opacity-100' : 'opacity-0',
               ].join(' ')}
             >

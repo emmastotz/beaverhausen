@@ -1,3 +1,18 @@
+@keyframes fade-sun {
+  from {
+    translate: -50% 0;
+  }
+  to {
+    translate: -50% var(--sun-target-y);
+  }
+}
+.sun-fade {
+  --sun-target-y: calc(-62.5svh - 3.75rem);
+  animation: fade-sun auto linear both;
+  animation-timeline: scroll(root);
+  animation-range: 94% 100%;
+}
+
 @keyframes parallax-landscape-background {
   from {
     background-position-x: 0px;
@@ -6,6 +21,12 @@
     background-position-x: calc(var(--page-scroll-max, 0px) * -0.03);
   }
 }
+.animate-parallax-landscape-background {
+  animation: parallax-landscape-background auto linear both;
+  animation-timeline: scroll(root);
+  background-size: auto calc(20% + 0.5px);
+}
+
 @keyframes parallax-landscape-midground {
   from {
     background-position-x: 0px;
@@ -14,6 +35,12 @@
     background-position-x: calc(var(--page-scroll-max, 0px) * -0.08);
   }
 }
+.animate-parallax-landscape-midground {
+  animation: parallax-landscape-midground auto linear both;
+  animation-timeline: scroll(root);
+  background-size: auto calc(23% + 0.5px);
+}
+
 @keyframes parallax-landscape-foreground {
   from {
     background-position-x: 0px;
@@ -22,17 +49,6 @@
     background-position-x: calc(var(--page-scroll-max, 0px) * -0.18);
   }
 }
-
-.animate-parallax-landscape-background {
-  animation: parallax-landscape-background auto linear both;
-  animation-timeline: scroll(root);
-  background-size: auto calc(20% + 0.5px);
-}
-.animate-parallax-landscape-midground {
-  animation: parallax-landscape-midground auto linear both;
-  animation-timeline: scroll(root);
-  background-size: auto calc(23% + 0.5px);
-}
 .animate-parallax-landscape-foreground {
   animation: parallax-landscape-foreground auto linear both;
   animation-timeline: scroll(root);
@@ -40,9 +56,16 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .sun-fade,
   .animate-parallax-landscape-background,
   .animate-parallax-landscape-midground,
   .animate-parallax-landscape-foreground {
     animation: none;
+  }
+}
+
+@media (min-width: 768px) {
+  .sun-fade {
+    --sun-target-y: calc(-64.5svh - 3.75rem);
   }
 }

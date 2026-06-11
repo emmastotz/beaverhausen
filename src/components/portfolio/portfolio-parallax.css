@@ -1,7 +1,44 @@
 .portfolio-parallax {
   --panel-width: calc(60svh * 3342 / 866);
   --total-panorama: calc(var(--panel-width) * var(--scene-count, 4) - 100vw);
-  --panorama-width: calc(var(--panel-width) * var(--scene-count, 4) + 100vw + var(--scene-count, 4) * 1px);
+  --panorama-width: calc(
+    var(--panel-width) * var(--scene-count, 4) + 100vw + var(--scene-count, 4) *
+      1px
+  );
+}
+
+.portfolio-parallax-scroll {
+  view-timeline-name: --portfolio;
+  view-timeline-axis: block;
+}
+
+@keyframes portfolio-pan {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-1 * var(--total-panorama)));
+  }
+}
+
+@keyframes portfolio-pan-slow {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-0.3 * var(--total-panorama)));
+  }
+}
+
+.portfolio-parallax-pan {
+  animation: portfolio-pan auto linear both;
+  animation-timeline: --portfolio;
+  animation-range: entry 100% exit 0%;
+}
+.portfolio-parallax-pan-slow {
+  animation: portfolio-pan-slow auto linear both;
+  animation-timeline: --portfolio;
+  animation-range: entry 100% exit 0%;
 }
 
 @keyframes cattails-sway-a {
@@ -52,6 +89,8 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .portfolio-parallax-pan,
+  .portfolio-parallax-pan-slow,
   .animate-cattails-sway-a,
   .animate-cattails-sway-b,
   .animate-lily-pad-bob {

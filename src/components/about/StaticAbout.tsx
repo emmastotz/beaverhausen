@@ -1,5 +1,6 @@
 import '@/components/about/static-about.css'
 
+import underwaterRiverbed from '@/assets/about/underwater-riverbed.svg'
 import { DownloadResumeButton } from '@/components/DownloadResumeButton'
 import { AutoH } from '@/components/primitives/AutoH'
 import { BaseT1 } from '@/components/primitives/BaseT1'
@@ -18,6 +19,11 @@ export function StaticAbout() {
 
   return (
     <div className="relative h-full w-full bg-gradient-to-b from-water from-5% via-water-dark via-50% to-dusk to-150% px-8 pb-14 lg:px-0 lg:pb-0 dark:from-0% dark:via-10% dark:to-80%">
+      <div
+        className="absolute inset-0 bottom-0 bg-bottom bg-repeat-x"
+        style={{ backgroundImage: `url(${underwaterRiverbed})` }}
+      />
+
       <div className="mx-auto flex max-w-prose flex-col">
         <div className="header-fade-in mb-10 flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
           <AutoH className="about-fade-in">
@@ -65,7 +71,7 @@ export function StaticAbout() {
           ))}
         </section>
 
-        <div className="flex flex-col items-start">
+        <div className="z-floating flex flex-col items-start">
           <p className="mb-6">
             <BaseT3
               variant="display"

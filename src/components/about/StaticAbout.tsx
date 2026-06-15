@@ -20,8 +20,11 @@ export function StaticAbout() {
   return (
     <div className="relative h-full w-full bg-gradient-to-b from-water from-5% via-water-dark via-50% to-dusk to-150% px-8 pb-14 lg:px-0 lg:pb-0 dark:from-0% dark:via-10% dark:to-80%">
       <div
-        className="absolute inset-0 bottom-0 bg-bottom bg-repeat-x"
-        style={{ backgroundImage: `url(${underwaterRiverbed})` }}
+        className="pointer-events-none absolute inset-0 h-full bg-scroll bg-bottom-left bg-repeat-x"
+        style={{
+          backgroundImage: `url(${underwaterRiverbed})`,
+          backgroundSize: 'auto calc(13% + 0.5px)',
+        }}
       />
 
       <div className="mx-auto flex max-w-prose flex-col">

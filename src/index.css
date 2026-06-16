@@ -91,11 +91,11 @@
   --color-cream: #fff5e3;
   --color-enamel: #fffefc;
   --color-iron-orange: #b96e16;
-  --color-olive-green: #5c6b3a;
   --color-water-dark: #7a9aaa;
   --color-water: #b7c4ca;
   --color-dawn: #ffffc5;
   --color-dusk: #1e2f38;
+  /* --color-olive-green: #5c6b3a; */
 
   --font-body: 'Spinnaker', sans-serif;
   --font-header: 'Magic Retro', serif;
@@ -118,11 +118,25 @@
   --z-overlay: 50;
 
   --gradient-beaver-tail:
-    linear-gradient(color-mix(in srgb, var(--color-beaver) 10%, transparent) 1px, transparent 1px),
-    linear-gradient(90deg, color-mix(in srgb, var(--color-beaver) 10%, transparent) 1px, transparent 1px);
+    linear-gradient(
+      color-mix(in srgb, var(--color-beaver) 10%, transparent) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      color-mix(in srgb, var(--color-beaver) 10%, transparent) 1px,
+      transparent 1px
+    );
   --gradient-beaver-tail-dark:
-    linear-gradient(color-mix(in srgb, var(--color-cream) 5%, transparent) 1px, transparent 1px),
-    linear-gradient(90deg, color-mix(in srgb, var(--color-cream) 5%, transparent) 1px, transparent 1px);
+    linear-gradient(
+      color-mix(in srgb, var(--color-cream) 5%, transparent) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      color-mix(in srgb, var(--color-cream) 5%, transparent) 1px,
+      transparent 1px
+    );
   --gradient-beaver-tail-size: 160px 160px;
 }
 

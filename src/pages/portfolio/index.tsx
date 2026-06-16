@@ -49,7 +49,7 @@ export default function PortfolioPage() {
           </div>
         </div>
 
-        <div className="pointer-events-none fixed top-1/2 left-1/2 size-[25vh] -translate-x-1/2 rounded-full bg-dawn blur-sm dark:bg-iron-orange" />
+        <div className="pointer-events-none fixed top-3/5 left-1/2 size-[25vh] -translate-x-1/2 rounded-full bg-dawn blur-sm dark:bg-iron-orange" />
 
         <div onFocus={() => setHeroVisible(false)}>
           <PortfolioParallax />

@@ -14,11 +14,17 @@ export const sizeClasses: Record<Size, string> = {
   lg: 'text-[0.925rem] md:text-[1rem] pb-[0.875rem]',
 }
 
-export const baseInteractiveClasses = [
-  'relative inline-flex items-center justify-center',
-  'bg-transparent cursor-pointer outline-none',
-  'font-body tracking-[0.18em] uppercase transition-colors duration-200',
+export const baseLinkClasses = [
+  'relative inline-flex items-center',
+  'outline-none',
   'underline-build',
+].join(' ')
+
+export const baseInteractiveClasses = [
+  baseLinkClasses,
+  'justify-center',
+  'bg-transparent cursor-pointer',
+  'font-body tracking-[0.18em] uppercase transition-colors duration-200',
 ].join(' ')
 
 export function buildInteractiveClass(

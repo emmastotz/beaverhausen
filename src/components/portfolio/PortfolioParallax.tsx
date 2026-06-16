@@ -16,7 +16,8 @@ const SCENE_HEIGHT = 866
 export function PortfolioParallax() {
   const [viewportWidth, setViewportWidth] = useState(window.innerWidth)
 
-  const showLandscape = viewportWidth >= 1536
+  const showLandscape =
+    viewportWidth >= 1536 || (viewportWidth >= 640 && viewportWidth < 768)
   const sceneCount = SCENES.length + (showLandscape ? 1 : 0)
   const landscapeOffset = showLandscape ? 1 : 0
 

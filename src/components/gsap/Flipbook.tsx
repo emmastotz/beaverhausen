@@ -58,7 +58,7 @@ function PageChrome({
         className="z-raised relative h-full overflow-y-auto bg-local px-9 py-10 sm:px-12"
         style={{
           backgroundImage:
-            'repeating-linear-gradient(transparent, transparent 27px, #c5946a22 27px, #c5946a22 28px)',
+            'repeating-linear-gradient(transparent, transparent 27px, color-mix(in srgb, var(--color-iron-orange) 20%, transparent) 27px, color-mix(in srgb, var(--color-iron-orange) 13%, transparent) 28px)',
         }}
       >
         <div className="mx-auto mb-10 flex max-w-3xl flex-col">

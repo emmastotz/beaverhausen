@@ -30,7 +30,7 @@ export default function AboutPage() {
         <div
           className={`sticky top-1/2 -translate-y-1/2 self-start [grid-area:1/1] ${isScrolled ? 'z-raised' : 'z-0'}`}
         >
-          <div className="mx-auto flex max-w-prose flex-col items-center justify-center gap-6">
+          <div className="mx-auto flex flex-col items-center justify-center gap-6">
             <div className="about-fade-out">
               <BaseT1 className="text-beaver-dark">About</BaseT1>
             </div>
@@ -45,10 +45,10 @@ export default function AboutPage() {
           className="pointer-events-none relative h-svh overflow-x-clip [grid-area:1/1]"
           aria-hidden="true"
         >
-          <div className="parallax-landscape-sun pointer-events-none fixed -top-[25svh] left-1/2 size-[25vh] -translate-x-1/2 rounded-full bg-dawn blur-sm dark:bg-iron-orange" />
+          <div className="parallax-landscape-sun fixed -top-[25svh] left-1/2 size-[25vh] -translate-x-1/2 rounded-full bg-dawn blur-sm dark:bg-iron-orange" />
 
           <div
-            className="parallax-landscape-clouds pointer-events-none absolute inset-0 h-full w-[200%] bg-scroll bg-repeat-x lg:bg-bottom dark:hidden"
+            className="parallax-landscape-clouds absolute inset-0 h-full w-[200%] bg-scroll bg-repeat-x lg:bg-bottom dark:hidden"
             style={{
               backgroundImage: `url(${dawnCloudsBg})`,
               backgroundSize: 'auto calc(50%)',
@@ -56,7 +56,7 @@ export default function AboutPage() {
             }}
           />
           <div
-            className="parallax-landscape-clouds pointer-events-none absolute inset-0 hidden h-full w-[200%] bg-scroll bg-repeat-x lg:bg-bottom dark:flex"
+            className="parallax-landscape-clouds absolute inset-0 hidden h-full w-[200%] bg-scroll bg-repeat-x lg:bg-bottom dark:flex"
             style={{
               backgroundImage: `url(${duskCloudsBg})`,
               backgroundSize: 'auto calc(50%)',
@@ -64,7 +64,7 @@ export default function AboutPage() {
             }}
           />
           <div
-            className="pointer-events-none absolute inset-0 h-full border-b border-water-dark bg-scroll bg-bottom bg-repeat-x"
+            className="absolute inset-0 h-full border-b border-water-dark bg-scroll bg-bottom bg-repeat-x"
             style={{
               backgroundImage: `url(${landscape})`,
               backgroundSize: 'auto calc(80% + 0.5px)',

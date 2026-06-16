@@ -118,11 +118,11 @@
   --z-overlay: 50;
 
   --gradient-beaver-tail:
-    linear-gradient(rgba(120, 97, 77, 0.1) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(120, 97, 77, 0.1) 1px, transparent 1px);
+    linear-gradient(color-mix(in srgb, var(--color-beaver) 10%, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, color-mix(in srgb, var(--color-beaver) 10%, transparent) 1px, transparent 1px);
   --gradient-beaver-tail-dark:
-    linear-gradient(rgba(255, 245, 227, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 245, 227, 0.05) 1px, transparent 1px);
+    linear-gradient(color-mix(in srgb, var(--color-cream) 5%, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, color-mix(in srgb, var(--color-cream) 5%, transparent) 1px, transparent 1px);
   --gradient-beaver-tail-size: 160px 160px;
 }
 

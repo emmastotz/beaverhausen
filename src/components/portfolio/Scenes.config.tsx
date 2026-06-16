@@ -20,7 +20,9 @@ const LANDMARKS: Record<string, React.ReactNode> = {
 }
 
 const WORDMARKS: Record<string, React.ReactNode> = {
-  dam: <Wordmark className="mx-auto mb-4 sm:w-2/3 2xl:mb-7" />,
+  dam: (
+    <Wordmark className="mx-auto sm:mb-2 sm:max-w-1/2 md:mb-0 md:max-w-2/3" />
+  ),
 }
 
 export const SCENES: SceneConfig[] = CASE_STUDIES.map((data) => ({

@@ -12,18 +12,26 @@ interface Props {
   scene: SceneConfig
 }
 
-function ArrowCue({ visible }: { visible: boolean }) {
+function ArrowCue({
+  visible,
+  available,
+}: {
+  visible: boolean
+  available: boolean
+}) {
   return (
     <div
-      className={`flex min-h-12 flex-col items-center gap-2 transition-opacity duration-100 ease-in sm:hidden lg:flex lg:min-h-18 ${visible ? 'opacity-100' : 'opacity-0'}`}
+      className={`flex min-h-12 flex-col items-center gap-2 transition-opacity duration-100 ease-in sm:hidden md:flex lg:min-h-18 ${visible ? 'opacity-100' : 'opacity-0'}`}
       aria-hidden="true"
     >
       <BaseT6 className="text-beaver uppercase dark:text-beaver-dark">
-        Click to explore
+        {available ? 'Click to explore' : 'Work in progress'}
       </BaseT6>
-      <div
-        className={`w-px origin-top bg-iron-orange transition-[height] delay-200 duration-200 ease-linear dark:bg-cream ${visible ? 'h-6 lg:h-10' : 'h-px'}`}
-      />
+      {available && (
+        <div
+          className={`w-px origin-top bg-iron-orange transition-[height] delay-200 duration-200 ease-linear dark:bg-cream ${visible ? 'h-6 lg:h-10' : 'h-px'}`}
+        />
+      )}
     </div>
   )
 }
@@ -77,49 +85,40 @@ export function LandmarkScene({ scene }: Props) {
 
       <div
         id={`scene-${scene.id}`}
-        className={`pointer-events-auto absolute bottom-full mb-40 text-center transition-all duration-700 ease-out sm:mb-60 ${
+        className={`pointer-events-auto absolute bottom-full mb-[22svh] flex w-[var(--scene-width)] flex-col gap-4 text-center transition-all duration-700 ease-out sm:w-[calc(var(--scene-width)*3)] sm:-translate-x-1/3 sm:gap-0 md:mb-[22svh] md:w-[var(--scene-width)] md:translate-none md:gap-4 lg:gap-6 ${
           active ? 'translate-y-0 opacity-100' : 'translate-y-2 opacity-0'
         } `}
-        style={{ left, width }}
+        style={{ left, '--scene-width': width } as React.CSSProperties}
       >
-        {!scene.available && (
-          <BaseT6 className="text-iron-orange uppercase">
-            Work in progress
-          </BaseT6>
-        )}
         {scene.wordmark ? (
           <>
             <AutoH className="sr-only">{scene.title}</AutoH>
             {scene.wordmark}
           </>
         ) : (
-          <AutoH className="mb-4">
+          <AutoH>
             <BaseT1 className="text-beaver-dark dark:text-cream">
               {scene.title}
             </BaseT1>
           </AutoH>
         )}
 
-        <p className="mx-auto mb-2 max-w-2xs text-pretty sm:max-w-xs">
-          <BaseT5 className="leading-relaxed tracking-[0.12em] text-beaver dark:text-beaver-dark">
+        <p className="mx-auto max-w-2xs text-pretty sm:max-w-none md:max-w-xs">
+          <BaseT5 className="leading-relaxed tracking-[0.12em] text-beaver sm:leading-none md:leading-relaxed dark:text-beaver-dark">
             {scene.description}
           </BaseT5>
         </p>
         <p>
-          <BaseT6 className="mt-2 text-iron-orange uppercase">
-            {scene.role}
-          </BaseT6>
+          <BaseT6 className="text-iron-orange uppercase">{scene.role}</BaseT6>
         </p>
       </div>
 
-      {scene.available && (
-        <div
-          className="absolute flex items-center justify-center"
-          style={{ bottom: `calc(${bottom} + 100%)`, left, width }}
-        >
-          <ArrowCue visible={active} />
-        </div>
-      )}
+      <div
+        className="absolute flex items-center justify-center"
+        style={{ bottom: `calc(${bottom} + 100%)`, left, width }}
+      >
+        <ArrowCue visible={active} available={scene.available} />
+      </div>
     </section>
   )
 }

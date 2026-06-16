@@ -3,6 +3,7 @@ import { BriefcaseIcon } from '@/components/brand/icons/BriefcaseIcon'
 import { EnvelopeIcon } from '@/components/brand/icons/EnvelopeIcon'
 import { UserIcon } from '@/components/brand/icons/UserIcon'
 import { BaseT6 } from '@/components/primitives/BaseT6'
+import { baseLinkClasses } from '@/components/primitives/interactiveStyles'
 import { TransitionLink } from '@/components/primitives/TransitionLink'
 
 interface NavItem {
@@ -26,9 +27,10 @@ const navItems: NavItem[] = [
 ]
 
 const navLinkClass = [
-  'relative inline-flex items-center md:gap-1.5 text-beaver-dark dark:text-iron-orange no-underline hover:text-iron-orange focus-visible:text-iron-orange p-3 md:p-0 outline-none dark:hover:text-cream dark:focus-visible:text-cream',
+  baseLinkClasses,
+  'md:gap-1.5 no-underline p-3 md:p-0',
+  'text-beaver-dark dark:text-iron-orange hover:text-iron-orange focus-visible:text-iron-orange dark:hover:text-cream dark:focus-visible:text-cream',
   '[--ub-offset:-0.8rem] lg:[--ub-offset:-1.375rem]',
-  'underline-build',
 ].join(' ')
 
 interface HeaderProps {

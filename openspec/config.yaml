@@ -1,0 +1,32 @@
+schema: spec-driven
+
+context: |
+  Tech stack: React 19 + TypeScript 6 (strict), React Router 7, Vite 8, CSS scroll-driven animation, GSAP 3.15, Tailwind CSS 4, Babel + React Compiler, oxfmt
+  I use conventional commits
+  Domain: beaverhausen.co
+  Path alias: @/ → ./src/
+  All GSAP imports come from @/deps/gsap — never from gsap directly
+  Scroll position is written to CSS custom properties, never lifted into React state
+  animation-timeline classes must be top-level in CSS files — polyfill ignores @layer blocks
+  Interactive affordances are underline-only (underline-build + buildInteractiveClass); no filled buttons
+  iron-orange is the single accent color; only used for interactive affordances — never passive text
+  All color values come from @theme tokens (no raw hex)
+  Use AutoH + AutoHProvider for headings — never hardcode h1–h6
+  Use TransitionLink/AppLink for internal nav — never React Router's Link directly
+  Pages are thin; logic belongs in hooks or components
+rules:
+  proposal:
+    - Wrap prose lines at ~100 columns for human readability
+    - Be terse and concise
+    - Always include a "Non-goals" section
+    - Include before/after code snippets to show intent
+    - Avoid using em dashes in copy
+  design:
+    - Wrap prose lines at ~100 columns for human readability
+  specs:
+    - Wrap prose lines at ~100 columns for human readability
+  tasks:
+    - Wrap prose lines at ~100 columns for human readability
+    - Break tasks into chunks of max 2 hours
+    - Each task should target a single module when possible
+    - Include the format step (pnpm run format)

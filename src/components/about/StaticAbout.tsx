@@ -5,15 +5,13 @@ import beaverSwimmingGlide from '@/assets/about/beaver-swimming-glide.svg'
 import underwaterRiverbed from '@/assets/about/underwater-riverbed.svg'
 import { DownloadResumeButton } from '@/components/DownloadResumeButton'
 import { AutoH } from '@/components/primitives/AutoH'
+import { AutoHProvider } from '@/components/primitives/AutoHProvider'
 import { BaseT1 } from '@/components/primitives/BaseT1'
 import { BaseT3 } from '@/components/primitives/BaseT3'
 import { BaseT4 } from '@/components/primitives/BaseT4'
+import { BaseT6 } from '@/components/primitives/BaseT6'
 import { Button } from '@/components/primitives/Button'
-import {
-  BEAVER_PARAGRAPHS,
-  CLOSING,
-  PROFESSIONAL_PARAGRAPHS,
-} from '@/content/about'
+import { EDUCATION, EXPERIENCE, PROFILE, SKILLS } from '@/content/about'
 import { useTransition } from '@/context/TransitionContext'
 
 export function StaticAbout() {
@@ -56,41 +54,103 @@ export function StaticAbout() {
           </div>
         </div>
 
-        <section aria-label="About beavers" className="flex flex-col gap-6">
-          {BEAVER_PARAGRAPHS.map((p, i) => (
-            <div key={i}>
-              {i === 2 ? (
-                <p>
-                  <BaseT3
-                    variant="display"
-                    className="leading-[1.8] text-beaver-dark italic dark:text-iron-orange"
-                  >
-                    {p}
-                  </BaseT3>
-                </p>
-              ) : (
-                <p>
-                  <BaseT4
-                    variant="display"
-                    className="leading-[1.9] text-cream"
-                  >
-                    {p}
-                  </BaseT4>
-                </p>
-              )}
-            </div>
-          ))}
+        <section aria-label="Profile" className="flex flex-col gap-6">
+          <p>
+            <BaseT4 className="leading-[1.9] text-cream italic">
+              {PROFILE}
+            </BaseT4>
+          </p>
         </section>
 
-        <section aria-label="About me" className="flex flex-col gap-6">
-          {PROFESSIONAL_PARAGRAPHS.map((p, i) => (
-            <div key={i}>
-              <p>
-                <BaseT4 className="leading-[1.9] text-cream">{p}</BaseT4>
-              </p>
+        <AutoHProvider>
+          <section aria-label="Skills" className="flex flex-col gap-4">
+            <AutoH>
+              <BaseT6 className="font-bold text-beaver-dark uppercase">
+                Skills
+              </BaseT6>
+            </AutoH>
+            <div className="columns-1 gap-x-8 sm:columns-2">
+              {SKILLS.map(({ label }) => (
+                <div
+                  key={label}
+                  className="mb-1.5 flex break-inside-avoid gap-x-2"
+                >
+                  <span className="shrink-0 text-cream select-none">—</span>
+                  <BaseT4 className="text-cream/80">{label}</BaseT4>
+                </div>
+              ))}
             </div>
-          ))}
-        </section>
+          </section>
+
+          <section aria-label="Experience" className="flex flex-col gap-8">
+            <AutoH>
+              <BaseT6 className="font-bold text-beaver-dark uppercase">
+                Experience
+              </BaseT6>
+            </AutoH>
+            {EXPERIENCE.map((job) => (
+              <div key={job.company} className="flex flex-col gap-4">
+                <div className="flex flex-col gap-0.5">
+                  <div className="flex flex-col gap-0.5 sm:flex-row sm:items-baseline sm:justify-between sm:gap-4">
+                    <BaseT3 variant="display" className="text-cream">
+                      {job.company}
+                    </BaseT3>
+                    <BaseT6 className="shrink-0 text-cream/60 uppercase">
+                      {job.dates}
+                    </BaseT6>
+                  </div>
+                  <BaseT6 className="text-cream/60 uppercase">
+                    {job.location}
+                  </BaseT6>
+                </div>
+                {job.roles.map((role) => (
+                  <div
+                    key={role.title}
+                    className="flex flex-col gap-0.5 sm:flex-row sm:items-baseline sm:justify-between sm:gap-4"
+                  >
+                    <BaseT6 className="text-beaver-dark uppercase">
+                      {role.title}
+                    </BaseT6>
+                    {job.roles.length > 1 && (
+                      <BaseT6 className="shrink-0 text-cream/40 uppercase">
+                        {role.dates}
+                      </BaseT6>
+                    )}
+                  </div>
+                ))}
+              </div>
+            ))}
+          </section>
+
+          <section aria-label="Education" className="flex flex-col gap-4">
+            <AutoH>
+              <BaseT6 className="font-bold text-beaver-dark uppercase">
+                Education
+              </BaseT6>
+            </AutoH>
+            {EDUCATION.map((item) => (
+              <div
+                key={item.school}
+                className="flex flex-col gap-0.5 sm:flex-row sm:items-start sm:justify-between sm:gap-4"
+              >
+                <div className="flex flex-col gap-0.5">
+                  <BaseT3 variant="display" className="text-cream">
+                    {item.school}
+                  </BaseT3>
+                  <BaseT4 className="text-cream/80">{item.degree}</BaseT4>
+                  {item.note && (
+                    <BaseT4 className="text-cream/50 italic">
+                      {item.note}
+                    </BaseT4>
+                  )}
+                </div>
+                <BaseT6 className="shrink-0 text-cream/60 uppercase">
+                  {item.year}
+                </BaseT6>
+              </div>
+            ))}
+          </section>
+        </AutoHProvider>
 
         <div className="z-raised flex flex-col items-start gap-6">
           <p>
@@ -98,7 +158,7 @@ export function StaticAbout() {
               variant="display"
               className="leading-[1.8] text-beaver-dark italic dark:text-iron-orange"
             >
-              {CLOSING}
+              The beaverhausen doesn&apos;t build itself.
             </BaseT3>
           </p>
 

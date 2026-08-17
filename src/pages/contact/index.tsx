@@ -1,0 +1,82 @@
+import '@/components/about/static-about.css'
+
+import landscape from '@/assets/about/half-all.svg'
+import dawnCloudsBg from '@/assets/about/half-dawn-cloud-bg.svg'
+import duskCloudsBg from '@/assets/about/half-dusk-clouds-bg.svg'
+import { ContactForm } from '@/components/contact/ContactForm'
+import { Header } from '@/components/Header'
+import { AutoH } from '@/components/primitives/AutoH'
+import { AutoHProvider } from '@/components/primitives/AutoHProvider'
+import { BaseT1 } from '@/components/primitives/BaseT1'
+import { BaseT4 } from '@/components/primitives/BaseT4'
+import { DefaultLayout } from '@/layouts/DefaultLayout'
+
+export default function ContactPage() {
+  return (
+    <DefaultLayout>
+      <Header />
+
+      <div className="relative grid min-h-svh">
+        {/* Landscape background */}
+        <div
+          className="pointer-events-none absolute inset-0 overflow-x-clip"
+          aria-hidden="true"
+        >
+          <div className="parallax-landscape-sun fixed -top-[25svh] left-1/2 size-[25vh] -translate-x-1/2 rounded-full bg-dawn blur-sm dark:bg-iron-orange" />
+
+          <div
+            className="parallax-landscape-clouds absolute inset-0 h-full w-[200%] bg-scroll bg-repeat-x lg:bg-bottom dark:hidden"
+            style={{
+              backgroundImage: `url(${dawnCloudsBg})`,
+              backgroundSize: 'auto calc(50%)',
+              backgroundPosition: 'center 70%',
+            }}
+          />
+          <div
+            className="parallax-landscape-clouds absolute inset-0 hidden h-full w-[200%] bg-scroll bg-repeat-x lg:bg-bottom dark:flex"
+            style={{
+              backgroundImage: `url(${duskCloudsBg})`,
+              backgroundSize: 'auto calc(50%)',
+              backgroundPosition: 'center 70%',
+            }}
+          />
+          <div
+            className="absolute inset-0 h-full border-b border-water-dark bg-scroll bg-bottom bg-repeat-x"
+            style={{
+              backgroundImage: `url(${landscape})`,
+              backgroundSize: 'auto calc(80% + 0.5px)',
+            }}
+          />
+        </div>
+
+        {/* Form content */}
+        <main className="relative flex items-center justify-center px-6">
+          <div className="w-full max-w-xl rounded-lg border border-beaver/10 bg-cream/80 px-8 py-10 shadow-sm backdrop-blur-sm dark:bg-dusk/80">
+            <AutoHProvider>
+              <div className="flex flex-col gap-10">
+                <div className="flex flex-col gap-3">
+                  <AutoH>
+                    <BaseT1 className="text-beaver-dark dark:text-enamel">
+                      Leave a note
+                    </BaseT1>
+                  </AutoH>
+                  <p className="text-pretty">
+                    <BaseT4
+                      variant="display"
+                      className="flex max-w-md text-beaver dark:text-cream"
+                    >
+                      If you've made it this far, you probably have something
+                      worth saying.
+                    </BaseT4>
+                  </p>
+                </div>
+
+                <ContactForm />
+              </div>
+            </AutoHProvider>
+          </div>
+        </main>
+      </div>
+    </DefaultLayout>
+  )
+}

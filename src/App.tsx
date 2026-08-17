@@ -4,6 +4,7 @@ import { ScrollToTop } from '@/components/ScrollToTop'
 import { useTransition, TransitionProvider } from '@/context/TransitionContext'
 import { TransitionOverlay } from '@/context/TransitionOverlay'
 import AboutPage from '@/pages/about'
+import ContactPage from '@/pages/contact'
 import LandingPage from '@/pages/index'
 import PortfolioPage from '@/pages/portfolio'
 import BeaverhausenPortfolioPage from '@/pages/portfolio/beaverhausen'
@@ -30,6 +31,7 @@ const router = createBrowserRouter([
     children: [
       { path: '/', element: <LandingPage /> },
       { path: '/about', element: <AboutPage /> },
+      { path: '/contact', element: <ContactPage /> },
       { path: '/portfolio', element: <PortfolioPage /> },
       {
         path: '/portfolio/beaverhausen',

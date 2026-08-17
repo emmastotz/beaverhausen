@@ -21,7 +21,7 @@ const navItems: NavItem[] = [
   { label: 'About', href: '/about', icon: <UserIcon className="size-5" /> },
   {
     label: 'Contact',
-    href: 'mailto:stotz.emma@gmail.com',
+    href: '/contact',
     icon: <EnvelopeIcon className="size-5" />,
   },
 ]

@@ -8,7 +8,7 @@ import {
   type ScrollSection,
 } from '@/components/landing/ScrollRevealText'
 import { Button } from '@/components/primitives/Button'
-import { BEAVER_LINES, CLOSING, PROFESSIONAL_LINES } from '@/content/about'
+import { BEAVER_LINES, CLOSING, PROFESSIONAL_LINES } from '@/content/landing'
 import { useTransition } from '@/context/TransitionContext'
 
 const BEAVER_SECTION: ScrollSection = {

@@ -43,7 +43,7 @@ export function StaticAbout() {
         }}
       />
 
-      <div className="relative mx-auto flex max-w-prose flex-col gap-10 rounded-md md:px-4 md:backdrop-blur">
+      <div className="relative mx-auto flex max-w-3xl flex-col gap-10 rounded-md md:px-4 md:backdrop-blur">
         <div className="header-fade-in z-raised flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
           <AutoH className="about-fade-in">
             <BaseT1 className="text-beaver-dark">About</BaseT1>
@@ -65,7 +65,7 @@ export function StaticAbout() {
         <AutoHProvider>
           <section aria-label="Skills" className="flex flex-col gap-4">
             <AutoH>
-              <BaseT6 className="font-bold text-beaver-dark uppercase">
+              <BaseT6 className="font-bold text-beaver-dark uppercase dark:text-iron-orange">
                 Skills
               </BaseT6>
             </AutoH>
@@ -76,7 +76,7 @@ export function StaticAbout() {
                   className="mb-1.5 flex break-inside-avoid gap-x-2"
                 >
                   <span className="shrink-0 text-cream select-none">—</span>
-                  <BaseT4 className="text-cream/80">{label}</BaseT4>
+                  <BaseT4 className="text-cream">{label}</BaseT4>
                 </div>
               ))}
             </div>
@@ -84,7 +84,7 @@ export function StaticAbout() {
 
           <section aria-label="Experience" className="flex flex-col gap-8">
             <AutoH>
-              <BaseT6 className="font-bold text-beaver-dark uppercase">
+              <BaseT6 className="font-bold text-beaver-dark uppercase dark:text-iron-orange">
                 Experience
               </BaseT6>
             </AutoH>
@@ -95,24 +95,22 @@ export function StaticAbout() {
                     <BaseT3 variant="display" className="text-cream">
                       {job.company}
                     </BaseT3>
-                    <BaseT6 className="shrink-0 text-cream/60 uppercase">
+                    <BaseT6 className="shrink-0 text-cream/80 uppercase">
                       {job.dates}
                     </BaseT6>
                   </div>
-                  <BaseT6 className="text-cream/60 uppercase">
+                  <BaseT6 className="text-cream/80 uppercase">
                     {job.location}
                   </BaseT6>
                 </div>
                 {job.roles.map((role) => (
                   <div
                     key={role.title}
-                    className="flex flex-col gap-0.5 sm:flex-row sm:items-baseline sm:justify-between sm:gap-4"
+                    className="mx-4 flex flex-col gap-0.5 sm:flex-row sm:items-baseline sm:justify-between sm:gap-4"
                   >
-                    <BaseT6 className="text-beaver-dark uppercase">
-                      {role.title}
-                    </BaseT6>
+                    <BaseT4 className="text-enamel">{role.title}</BaseT4>
                     {job.roles.length > 1 && (
-                      <BaseT6 className="shrink-0 text-cream/40 uppercase">
+                      <BaseT6 className="shrink-0 text-cream/60 uppercase">
                         {role.dates}
                       </BaseT6>
                     )}
@@ -124,7 +122,7 @@ export function StaticAbout() {
 
           <section aria-label="Education" className="flex flex-col gap-4">
             <AutoH>
-              <BaseT6 className="font-bold text-beaver-dark uppercase">
+              <BaseT6 className="font-bold text-beaver-dark uppercase dark:text-iron-orange">
                 Education
               </BaseT6>
             </AutoH>
@@ -137,14 +135,14 @@ export function StaticAbout() {
                   <BaseT3 variant="display" className="text-cream">
                     {item.school}
                   </BaseT3>
-                  <BaseT4 className="text-cream/80">{item.degree}</BaseT4>
+                  <BaseT4 className="mx-4 text-enamel">{item.degree}</BaseT4>
                   {item.note && (
-                    <BaseT4 className="text-cream/50 italic">
+                    <BaseT6 className="mx-4 text-cream/80 uppercase">
                       {item.note}
-                    </BaseT4>
+                    </BaseT6>
                   )}
                 </div>
-                <BaseT6 className="shrink-0 text-cream/60 uppercase">
+                <BaseT6 className="shrink-0 text-cream/80 uppercase">
                   {item.year}
                 </BaseT6>
               </div>
@@ -156,7 +154,7 @@ export function StaticAbout() {
           <p>
             <BaseT3
               variant="display"
-              className="leading-[1.8] text-beaver-dark italic dark:text-iron-orange"
+              className="leading-[1.8] text-water italic"
             >
               The beaverhausen doesn&apos;t build itself.
             </BaseT3>

@@ -1,9 +1,10 @@
 @keyframes contact-clouds {
-  0% {
-    transform: translateX(0);
+  from {
+    background-position-x: 0;
   }
-  100% {
-    transform: translateX(-50%);
+  to {
+    /* 50svh tile height × SVG aspect ratio (1671 ÷ 717.28) = one full tile width */
+    background-position-x: calc(-50svh * 2.33);
   }
 }
 

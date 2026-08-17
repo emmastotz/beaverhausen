@@ -185,7 +185,7 @@ export function ContactForm() {
           variant="ghost"
           disabled={formState === 'submitting'}
         >
-          {formState === 'submitting' ? 'Sending…' : 'Send message'}
+          {formState === 'submitting' ? 'Sending…' : 'Send note'}
         </Button>
       </div>
     </form>

@@ -1,45 +1,123 @@
-// Each inner array is one paragraph's worth of sentences.
-// .flat()         → individual lines for ScrollJackTypewriter (About.tsx)
-// .map(g.join)    → joined paragraphs for static rendering (StaticAbout.tsx)
+export const PROFILE =
+  "I'm a designer and frontend engineer with roots in graphic design and over six years building production web applications in cybersecurity and enterprise SaaS. I design and I build, no handoff required. I've led a company-wide rebrand from identity through component library, defined the token and type systems underneath it, and shipped the enterprise interfaces those systems govern. I move between brand identity and component architecture without losing the thread of either. I'm interested in building things that outlast the brief."
 
-const BEAVER_SENTENCE_GROUPS = [
-  [
-    'Beavers are one of the only animals besides humans that fundamentally reshape their environment.',
-  ],
-  [
-    "They are nature's engineers: tireless, systems-minded, and constitutionally incapable of leaving something half-built.",
-    'They transform entire environments not through brute force but through accumulated craft; one precise cut at a time, one carefully placed log, one structure that holds against the current.',
-    'They are also, by most accounts, a little feral.',
-    'They work in the dark, they bite through things most animals would walk around, and they take a kind of unreasonable pride in the structural integrity of what they build.',
-    'Their teeth are orange because their enamel is reinforced with iron, self-sharpening as they work.',
-    'That detail feels important.',
-  ],
-  [
-    'Beavers build things that outlast them.',
-    "That's the kind of work I'm interested in doing.",
-  ],
+export interface Skill {
+  label: string
+  tier: 'primary' | 'secondary' | 'accent'
+}
+
+export const SKILLS: Skill[] = [
+  { label: 'Vue 3', tier: 'primary' },
+  { label: 'TypeScript', tier: 'primary' },
+  { label: 'Vite', tier: 'primary' },
+  { label: 'Tailwind CSS', tier: 'primary' },
+  { label: 'React', tier: 'primary' },
+  { label: 'TanStack', tier: 'primary' },
+  { label: 'Turborepo / Monorepos', tier: 'secondary' },
+  { label: 'Astro', tier: 'secondary' },
+  { label: 'REST & gRPC APIs', tier: 'secondary' },
+  { label: 'HTML5 / CSS3', tier: 'secondary' },
+  { label: 'Node.js', tier: 'secondary' },
+  { label: 'Git / GitHub', tier: 'secondary' },
+  { label: 'Responsive Web Design', tier: 'secondary' },
+  { label: 'Design Systems', tier: 'accent' },
+  { label: 'UI/UX Design', tier: 'accent' },
+  { label: 'WCAG / Web Accessibility', tier: 'accent' },
+  { label: 'Figma', tier: 'accent' },
+  { label: 'Adobe Creative Suite', tier: 'accent' },
 ]
 
-const PROFESSIONAL_SENTENCE_GROUPS = [
-  [
-    'I am a designer and frontend engineer with roots in graphic design and over six years building production web applications.',
-    'I think in systems and in pixels simultaneously, moving fluidly between brand identity and component architecture without losing the thread of either.',
-    "I've led full rebrands, built design systems from scratch, and shipped enterprise-grade interfaces for clients who care about the details.",
-    'I prototype in Figma and in code.',
-    "I care too much about the feel of interactions and have a hard time leaving details alone when they're not quite right.",
-    'Some might call it gnawing.',
-  ],
-  [
-    "I work best in small, focused teams where craft is a baseline expectation, designers and engineers finish each other's sentences, and quality is understood to be a competitive advantage, not a nice-to-have.",
-  ],
+export interface Role {
+  title: string
+  dates: string
+  bullets: string[]
+}
+
+export interface Job {
+  company: string
+  location: string
+  dates: string
+  roles: Role[]
+}
+
+export const EXPERIENCE: Job[] = [
+  {
+    company: 'WhiteHawk CEC Inc.',
+    location: 'Alexandria, VA (Remote)',
+    dates: 'Jan 2020 – Present',
+    roles: [
+      {
+        title: 'Senior Frontend Engineer & Product Designer',
+        dates: 'Mar 2024 – Present',
+        bullets: [
+          'Led a company-wide rebrand from an existing but unsystematized identity: defined a seven-token color system with assigned roles, reworked the type system to separate sizing from semantic markup, and built a component library shipped across whitehawk.com, product interfaces, and marketing collateral.',
+          'Wrote the partner-facing brand guidelines governing logo use, clear space, minimum sizes, and approved messaging, extending the system beyond internal surfaces to external partners.',
+          'Led a team of three engineers as technical lead across two enterprise platforms, owning architecture decisions, code review, and delivery alongside sprint planning, client communication, and technical specifications.',
+          'Led frontend architecture and design on a cyber risk assessment platform for an Australian enterprise client: a 42-question assessment flow with auto-save state management, progress dashboards, tiered reporting, and separate admin and client portal architectures.',
+          'Led frontend engineering on a third-party vendor risk management platform for a major enterprise client, using Vue 3, TypeScript, Vite, and Tailwind with Protobuf handling the frontend-backend contract.',
+        ],
+      },
+      {
+        title: 'Frontend Engineer',
+        dates: 'Jan 2020 – Mar 2024',
+        bullets: [
+          'Rebuilt whitehawk.com twice as primary frontend engineer: PHP to Vue 2, then a full migration to Vue 3 with TypeScript.',
+          'Split a single codebase into a Turborepo monorepo separating the marketing site, client portal, and admin portal, establishing a security boundary that did not previously exist.',
+          'Owned the frontend codebase across the public website and multiple client platforms, from architecture decisions through delivery.',
+          'Built accessible components to WCAG standards, including ARIA attributes and screen reader support.',
+        ],
+      },
+    ],
+  },
+  {
+    company: 'Southwest Spirits & Wine',
+    location: 'Dallas, TX (Remote, Contract)',
+    dates: 'May 2019 – Feb 2020',
+    roles: [
+      {
+        title: 'Graphic Designer',
+        dates: 'May 2019 – Feb 2020',
+        bullets: [],
+      },
+    ],
+  },
+  {
+    company: 'Virginia Distillery Company',
+    location: 'Lovingston, VA (Hybrid)',
+    dates: 'Sep 2016 – Sep 2019',
+    roles: [
+      {
+        title: 'Creative & Brand Associate',
+        dates: 'Sep 2016 – Sep 2019',
+        bullets: [
+          'Collaborated directly with a brand agency on the development of the Courage & Conviction brand identity, working alongside their creative team on assets, brand storytelling, and visual consistency.',
+          'Designed derivative product labels for single cask and alternative whisky expressions, plus accompanying print and digital assets, maintaining cohesion with the established Virginia-Highland Whisky visual identity.',
+          'Served as in-house photographer and videographer for the Virginia-Highland Whisky line, producing content for both marketing materials and social media as part of a larger, deliberate creative direction.',
+          'Coordinated with external partners including professional photographers, agency creatives, and a PR firm, managing asset development and creative alignment across multiple stakeholders.',
+        ],
+      },
+    ],
+  },
 ]
 
-export const BEAVER_LINES = BEAVER_SENTENCE_GROUPS.flat()
-export const BEAVER_PARAGRAPHS = BEAVER_SENTENCE_GROUPS.map((g) => g.join(' '))
+export interface EduItem {
+  school: string
+  degree: string
+  note?: string
+  year: string
+}
 
-export const PROFESSIONAL_LINES = PROFESSIONAL_SENTENCE_GROUPS.flat()
-export const PROFESSIONAL_PARAGRAPHS = PROFESSIONAL_SENTENCE_GROUPS.map((g) =>
-  g.join(' '),
-)
-
-export const CLOSING = "The beaverhausen doesn't build itself."
+export const EDUCATION: EduItem[] = [
+  {
+    school: 'George Washington University',
+    degree: 'Full Stack Web Development Certificate',
+    note: 'Arlington, VA',
+    year: 'Dec 2019',
+  },
+  {
+    school: 'University of Mary Washington',
+    degree: 'Bachelor of Arts in Linguistics',
+    note: "Fredericksburg, VA · Magna Cum Laude · Dean's List 2009–2013 · Capstone: Computational Linguistics",
+    year: 'May 2013',
+  },
+]

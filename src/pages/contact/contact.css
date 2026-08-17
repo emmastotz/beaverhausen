@@ -1,0 +1,80 @@
+@keyframes beaver-swim-contact {
+  0% {
+    transform: translateX(-20vw) scaleX(-1);
+  }
+  33% {
+    transform: translateX(110vw) scaleX(-1);
+    animation-timing-function: step-end;
+  }
+  100% {
+    transform: translateX(-20vw) scaleX(-1);
+  }
+}
+
+.beaver-swim-contact {
+  animation: beaver-swim-contact 60s linear infinite;
+}
+
+@keyframes beaver-glide-on {
+  0%,
+  76% {
+    opacity: 1;
+  }
+  77%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes beaver-pull-on {
+  0%,
+  26% {
+    opacity: 1;
+  }
+  27%,
+  100% {
+    opacity: 0;
+  }
+}
+
+.beaver-frame-glide {
+  animation: beaver-glide-on 5s linear infinite;
+}
+
+.beaver-frame-pull {
+  animation: beaver-pull-on 5s linear infinite;
+  animation-delay: -1.25s;
+}
+
+@keyframes water-ripple {
+  from {
+    background-position-x: 0;
+  }
+  to {
+    background-position-x: 320px;
+  }
+}
+
+.water-ripple {
+  animation: water-ripple 6s linear infinite;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='320' height='190'%3E%3Cellipse cx='28' cy='20' rx='240' ry='1' fill='%237a9aaa' opacity='0.45'/%3E%3Cellipse cx='130' cy='8' rx='100' ry='1' fill='%237a9aaa' opacity='0.35'/%3E%3Cellipse cx='245' cy='55' rx='80' ry='1' fill='%237a9aaa' opacity='0.5'/%3E%3Cellipse cx='72' cy='100' rx='60' ry='1' fill='%237a9aaa' opacity='0.4'/%3E%3Cellipse cx='198' cy='140' rx='28' ry='1.2' fill='%237a9aaa' opacity='0.45'/%3E%3Cellipse cx='290' cy='80' rx='45' ry='1' fill='%237a9aaa' opacity='0.3'/%3E%3Cellipse cx='160' cy='175' rx='24' ry='1' fill='%237a9aaa' opacity='0.4'/%3E%3C/svg%3E");
+  background-size: 320px 190px;
+  background-repeat: repeat-x;
+  background-position: 0 bottom;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .beaver-swim-contact {
+    animation: none;
+  }
+  .beaver-frame-glide {
+    animation: none;
+  }
+  .beaver-frame-pull {
+    animation: none;
+    opacity: 0;
+  }
+  .water-ripple {
+    animation: none;
+  }
+}

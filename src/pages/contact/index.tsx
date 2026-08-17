@@ -1,4 +1,3 @@
-import '@/components/about/static-about.css'
 import './contact.css'
 
 import landscape from '@/assets/about/half-all.svg'
@@ -25,10 +24,10 @@ export default function ContactPage() {
           className="pointer-events-none absolute inset-0 overflow-x-clip"
           aria-hidden="true"
         >
-          <div className="parallax-landscape-sun fixed -top-[25svh] left-1/2 size-[25vh] -translate-x-1/2 rounded-full bg-dawn blur-sm dark:bg-iron-orange" />
+          <div className="fixed -top-[12svh] left-1/2 size-[25vh] -translate-x-1/2 rounded-full bg-dawn blur-sm dark:bg-iron-orange" />
 
           <div
-            className="parallax-landscape-clouds absolute inset-0 h-full w-[200%] bg-scroll bg-repeat-x lg:bg-bottom dark:hidden"
+            className="contact-clouds absolute inset-0 h-full w-[200%] bg-scroll bg-repeat-x lg:bg-bottom dark:hidden"
             style={{
               backgroundImage: `url(${dawnCloudsBg})`,
               backgroundSize: 'auto calc(50%)',
@@ -36,7 +35,7 @@ export default function ContactPage() {
             }}
           />
           <div
-            className="parallax-landscape-clouds absolute inset-0 hidden h-full w-[200%] bg-scroll bg-repeat-x lg:bg-bottom dark:flex"
+            className="contact-clouds absolute inset-0 hidden h-full w-[200%] bg-scroll bg-repeat-x lg:bg-bottom dark:flex"
             style={{
               backgroundImage: `url(${duskCloudsBg})`,
               backgroundSize: 'auto calc(50%)',

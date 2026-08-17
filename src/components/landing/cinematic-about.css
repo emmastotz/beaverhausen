@@ -1,0 +1,383 @@
+/* ── Named sentence view timelines ──────────────────────────────────────────
+   Applied to sentence divs. timeline-scope on the container makes these
+   available to scene layers in the sticky canvas (sibling subtree).        */
+
+.ca-s1 { view-timeline-name: --ca-s1; }
+.ca-s2 { view-timeline-name: --ca-s2; }
+.ca-s3 { view-timeline-name: --ca-s3; }
+.ca-s4 { view-timeline-name: --ca-s4; }
+.ca-s5 { view-timeline-name: --ca-s5; }
+.ca-s6 { view-timeline-name: --ca-s6; }
+.ca-s7 { view-timeline-name: --ca-s7; }
+.ca-s8 { view-timeline-name: --ca-s8; }
+.ca-s9 { view-timeline-name: --ca-s9; }
+
+.ca-p1 { view-timeline-name: --ca-p1; }
+.ca-p2 { view-timeline-name: --ca-p2; }
+.ca-p3 { view-timeline-name: --ca-p3; }
+.ca-p4 { view-timeline-name: --ca-p4; }
+.ca-p5 { view-timeline-name: --ca-p5; }
+.ca-p6 { view-timeline-name: --ca-p6; }
+
+.ca-l1 { view-timeline-name: --ca-l1; }
+
+/* ── Container timeline scopes ──────────────────────────────────────────────
+   Exposes sentence timelines to the sibling sticky canvas subtree.         */
+
+.ca-above-ground {
+  timeline-scope:
+    --ca-s1, --ca-s2, --ca-s3, --ca-s4, --ca-s5,
+    --ca-s6, --ca-s7, --ca-s8, --ca-s9;
+}
+
+.ca-underwater {
+  timeline-scope: --ca-p1, --ca-p2, --ca-p3, --ca-p4, --ca-p5, --ca-p6;
+}
+
+.ca-landscape-section {
+  timeline-scope: --ca-l1;
+}
+
+/* ── Above-ground: background ───────────────────────────────────────────────
+   Visible from S1. Fades out when S8 scrolls in.                          */
+
+@keyframes ca-bg-enter {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes ca-bg-exit {
+  from { opacity: 1; }
+  to   { opacity: 0; }
+}
+
+.ca-bg {
+  opacity: 0;
+  animation-name:            ca-bg-enter,         ca-bg-exit;
+  animation-timeline:        --ca-s1,              --ca-s8;
+  animation-range:           entry 0% entry 100%,  entry 0% entry 100%;
+  animation-fill-mode:       forwards,             forwards;
+  animation-duration:        auto,                 auto;
+  animation-timing-function: linear,               linear;
+}
+
+/* ── Above-ground: zoom container ───────────────────────────────────────────
+   Scale 1 (30svh) → 2 (60svh) on S2. Head-zoom on S6.
+   transform-origin: bottom center keeps the ground line anchored.         */
+
+@keyframes ca-zoom-in {
+  from { transform: scale(1); }
+  to   { transform: scale(2); }
+}
+
+@keyframes ca-head-zoom {
+  from { transform: scale(2) translate(0, 0); }
+  to   { transform: scale(6.5) translate(-8%, -5%); }
+}
+
+.ca-zoom {
+  transform-origin: center bottom;
+  animation-name:            ca-zoom-in,           ca-head-zoom;
+  animation-timeline:        --ca-s2,              --ca-s6;
+  animation-range:           entry 0% entry 100%,  entry 0% entry 100%;
+  animation-fill-mode:       forwards,             forwards;
+  animation-duration:        auto,                 auto;
+  animation-timing-function: linear,               linear;
+}
+
+/* ── Above-ground: fg1 ──────────────────────────────────────────────────────
+   Enters from right on S1 (matching ParallaxLandscape foreground direction).
+   Fades out on S3 in sync with fg2 fading in.                             */
+
+@keyframes ca-fg1-enter {
+  from { opacity: 0; transform: translateX(30%); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes ca-fg1-exit {
+  from { opacity: 1; }
+  to   { opacity: 0; }
+}
+
+.ca-fg1 {
+  opacity: 0;
+  animation-name:            ca-fg1-enter,         ca-fg1-exit;
+  animation-timeline:        --ca-s1,              --ca-s3;
+  animation-range:           entry 0% entry 100%,  entry 0% entry 100%;
+  animation-fill-mode:       forwards,             forwards;
+  animation-duration:        auto,                 auto;
+  animation-timing-function: linear,               linear;
+}
+
+/* ── Above-ground: fg2 ──────────────────────────────────────────────────────
+   Fades in on S3 (simultaneous with fg1 fade-out). Fades out on S8.      */
+
+@keyframes ca-fg2-enter {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes ca-fg2-exit {
+  from { opacity: 1; }
+  to   { opacity: 0; }
+}
+
+.ca-fg2 {
+  opacity: 0;
+  animation-name:            ca-fg2-enter,         ca-fg2-exit;
+  animation-timeline:        --ca-s3,              --ca-s8;
+  animation-range:           entry 0% entry 100%,  entry 0% entry 100%;
+  animation-fill-mode:       forwards,             forwards;
+  animation-duration:        auto,                 auto;
+  animation-timing-function: linear,               linear;
+}
+
+/* ── Above-ground: fg3 container ────────────────────────────────────────────
+   Fades in on S4, fades out on S8.
+   Also activates wood-chip fall on S5 and glimmer on S7 via @property.   */
+
+@property --ca-woodchips-play {
+  syntax: '<custom-ident>';
+  inherits: true;
+  initial-value: paused;
+}
+
+@property --ca-glimmer-play {
+  syntax: '<custom-ident>';
+  inherits: true;
+  initial-value: paused;
+}
+
+@keyframes ca-fg3-enter {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes ca-fg3-exit {
+  from { opacity: 1; }
+  to   { opacity: 0; }
+}
+
+@keyframes ca-activate-woodchips {
+  to { --ca-woodchips-play: running; }
+}
+
+@keyframes ca-activate-glimmer {
+  to { --ca-glimmer-play: running; }
+}
+
+.ca-fg3-container {
+  opacity: 0;
+  animation-name:
+    ca-fg3-enter,
+    ca-fg3-exit,
+    ca-activate-woodchips,
+    ca-activate-glimmer;
+  animation-timeline:  --ca-s4,              --ca-s8,             --ca-s5,             --ca-s7;
+  animation-range:
+    entry 0% entry 100%,
+    entry 0% entry 100%,
+    entry 50% entry 100%,
+    entry 0% entry 100%;
+  animation-fill-mode:       forwards, forwards, forwards, forwards;
+  animation-duration:        auto,     auto,     auto,     auto;
+  animation-timing-function: linear,   linear,   linear,   linear;
+}
+
+/* Wood chip fall — activated when --ca-woodchips-play flips to running */
+
+@keyframes ca-wood-chip-fall {
+  0%   { transform: translateY(0)    rotate(0deg);   opacity: 1; }
+  100% { transform: translateY(60px) rotate(20deg);  opacity: 0; }
+}
+
+#wood_chips {
+  animation: ca-wood-chip-fall 0.9s ease-in infinite;
+  animation-play-state: var(--ca-woodchips-play, paused);
+}
+
+/* Glimmer on teeth — activated when --ca-glimmer-play flips to running */
+
+@keyframes ca-glimmer {
+  0%, 100% { filter: brightness(1); }
+  50%       { filter: brightness(1.8) drop-shadow(0 0 4px rgba(255, 255, 200, 0.9)); }
+}
+
+#teeth_fill {
+  animation: ca-glimmer 1.5s ease-in-out infinite;
+  animation-play-state: var(--ca-glimmer-play, paused);
+}
+
+/* ── Above-ground: dark gradient ────────────────────────────────────────────
+   Fades in on S8, held through S9.                                        */
+
+@keyframes ca-dark-gradient-enter {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.ca-dark-gradient {
+  opacity: 0;
+  animation: ca-dark-gradient-enter auto linear forwards;
+  animation-timeline: --ca-s8;
+  animation-range: entry 0% entry 100%;
+}
+
+/* ── Underwater: riverbed ───────────────────────────────────────────────────
+   Descends from above on P1, held through P2, exits below on P3.         */
+
+@keyframes ca-riverbed-enter {
+  from { transform: translateY(-100%); }
+  to   { transform: translateY(0); }
+}
+
+@keyframes ca-riverbed-exit {
+  from { transform: translateY(0); }
+  to   { transform: translateY(100%); }
+}
+
+.ca-riverbed {
+  transform: translateY(-100%);
+  animation-name:            ca-riverbed-enter,    ca-riverbed-exit;
+  animation-timeline:        --ca-p1,              --ca-p3;
+  animation-range:           entry 0% entry 100%,  entry 0% exit 100%;
+  animation-fill-mode:       forwards,             forwards;
+  animation-duration:        auto,                 auto;
+  animation-timing-function: linear,               linear;
+}
+
+/* ── Underwater: beaver swimmers ────────────────────────────────────────────
+   Three separate swimmer elements — each tied to its sentence timeline.   */
+
+@keyframes ca-swim-left {
+  0%   { transform: translateX(-120%) translateY(30%); opacity: 0; }
+  10%  { opacity: 1; }
+  80%  { opacity: 1; }
+  100% { transform: translateX(120%)  translateY(-20%); opacity: 0; }
+}
+
+@keyframes ca-swim-right {
+  0%   { transform: translateX(120%)  translateY(30%); opacity: 0; }
+  10%  { opacity: 1; }
+  80%  { opacity: 1; }
+  100% { transform: translateX(-120%) translateY(-20%); opacity: 0; }
+}
+
+.ca-beaver-p2 {
+  animation: ca-swim-left auto linear both;
+  animation-timeline: --ca-p2;
+  animation-range: entry 0% exit 100%;
+}
+
+.ca-beaver-p4 {
+  animation: ca-swim-right auto linear both;
+  animation-timeline: --ca-p4;
+  animation-range: entry 0% exit 100%;
+}
+
+.ca-beaver-p6 {
+  animation: ca-swim-left auto linear both;
+  animation-timeline: --ca-p6;
+  animation-range: entry 0% exit 100%;
+}
+
+/* ── Underwater: bubbles ────────────────────────────────────────────────────
+   Tied to P5.                                                              */
+
+@keyframes ca-bubble-rise {
+  0%   { transform: translateY(100%); opacity: 0; }
+  15%  { opacity: 0.6; }
+  85%  { opacity: 0.4; }
+  100% { transform: translateY(-120%); opacity: 0; }
+}
+
+.ca-bubble {
+  animation: ca-bubble-rise auto linear both;
+  animation-timeline: --ca-p5;
+  animation-range: entry 0% exit 100%;
+}
+
+.ca-bubble:nth-child(2) { animation-range:  5% 105%; }
+.ca-bubble:nth-child(3) { animation-range: -5%  95%; }
+.ca-bubble:nth-child(4) { animation-range: 10% 110%; }
+.ca-bubble:nth-child(5) { animation-range: 15% 115%; }
+
+/* ── Underwater: diffused light ─────────────────────────────────────────────
+   Fades in during P6.                                                     */
+
+@keyframes ca-light-diffuse {
+  0%, 30%   { opacity: 0; }
+  60%, 100% { opacity: 1; }
+}
+
+.ca-light-diffuse {
+  opacity: 0;
+  animation: ca-light-diffuse auto linear both;
+  animation-timeline: --ca-p6;
+  animation-range: entry 0% exit 100%;
+}
+
+/* ── Landscape layers: descend on L1 (S16) ─────────────────────────────────
+   All three landscape layers descend together. forwards fill holds them
+   at the bottom so they persist into the closing section.                 */
+
+@keyframes ca-landscape-enter {
+  from { transform: translateY(-100%); }
+  to   { transform: translateY(0); }
+}
+
+.ca-landscape-layer {
+  transform: translateY(-100%);
+  animation: ca-landscape-enter auto linear forwards;
+  animation-timeline: --ca-l1;
+  animation-range: entry 0% entry 100%;
+}
+
+/* ── Glide / pull cycle (time-based, loops) ─────────────────────────────────
+   Applied to the glide and pull <img> inside SwimmerPair.                */
+
+@keyframes beaver-swim-glide {
+  0%,  59% { opacity: 1; }
+  60%, 100% { opacity: 0; }
+}
+
+@keyframes beaver-swim-pull {
+  0%,  59% { opacity: 0; }
+  60%, 100% { opacity: 1; }
+}
+
+.beaver-swim-glide { animation: beaver-swim-glide steps(1) 1.2s infinite; }
+.beaver-swim-pull  { animation: beaver-swim-pull  steps(1) 1.2s infinite; }
+
+/* ── Reduced motion ──────────────────────────────────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  .ca-bg,
+  .ca-zoom,
+  .ca-fg1,
+  .ca-fg2,
+  .ca-fg3-container,
+  .ca-dark-gradient,
+  .ca-riverbed,
+  .ca-beaver-p2,
+  .ca-beaver-p4,
+  .ca-beaver-p6,
+  .ca-bubble,
+  .ca-light-diffuse,
+  .ca-landscape-layer,
+  .beaver-swim-glide,
+  .beaver-swim-pull {
+    animation: none;
+  }
+
+  /* Show all layers statically */
+  .ca-bg           { opacity: 1; }
+  .ca-fg1          { opacity: 1; transform: none; }
+  .ca-fg2          { opacity: 1; }
+  .ca-fg3-container { opacity: 1; }
+  .ca-dark-gradient { opacity: 0; }
+  .ca-riverbed      { transform: translateY(0); }
+  .ca-landscape-layer { transform: translateY(0); }
+  .beaver-swim-glide  { opacity: 1; }
+  .beaver-swim-pull   { opacity: 0; }
+}

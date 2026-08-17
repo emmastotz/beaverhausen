@@ -1,0 +1,126 @@
+@keyframes sun-fade {
+  0%,
+  94% {
+    translate: -50% 0;
+  }
+  100% {
+    translate: -50% var(--sun-target-y);
+  }
+}
+.sun-fade {
+  --sun-target-y: calc(-62.5svh - 3.75rem);
+  animation: sun-fade auto linear both;
+  animation-timeline: scroll(root);
+}
+
+.landing-parallax {
+  --panel-width: calc(30svh * 3080 / 1024);
+  --total-panorama: calc(var(--panel-width) * var(--scene-count, 2) - 100vw);
+  --panorama-width: calc(
+    var(--panel-width) * var(--scene-count, 2) + 100vw + var(--scene-count, 2) *
+      1px
+  );
+}
+.landing-parallax-scroll {
+  view-timeline-name: --landing;
+  view-timeline-axis: block;
+}
+@keyframes landing-pan {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-1 * var(--total-panorama)));
+  }
+}
+@keyframes landing-pan-slow {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-0.3 * var(--total-panorama)));
+  }
+}
+
+.landing-parallax-pan {
+  animation: landing-pan auto linear both;
+  animation-timeline: --landing;
+  animation-range: entry 100% exit 0%;
+}
+.landing-parallax-pan-slow {
+  animation: landing-pan-slow auto linear both;
+  animation-timeline: --landing;
+  animation-range: entry 100% exit 0%;
+}
+
+@keyframes parallax-landscape-clouds {
+  from {
+    background-position-x: 0px;
+  }
+  to {
+    background-position-x: calc(var(--page-scroll-max, 0px) * -0.13);
+  }
+}
+.parallax-landscape-clouds {
+  animation: parallax-landscape-clouds auto linear both;
+  animation-timeline: scroll(root);
+  background-size: auto calc(30% + 0.5px);
+}
+
+@keyframes parallax-landscape-background {
+  from {
+    background-position-x: 0px;
+  }
+  to {
+    background-position-x: calc(var(--page-scroll-max, 0px) * -0.13);
+  }
+}
+.parallax-landscape-background {
+  animation: parallax-landscape-background auto linear both;
+  animation-timeline: scroll(root);
+  background-size: auto calc(30% + 0.5px);
+}
+
+@keyframes parallax-landscape-midground {
+  from {
+    background-position-x: 0px;
+  }
+  to {
+    background-position-x: calc(var(--page-scroll-max, 0px) * -0.13);
+  }
+}
+.parallax-landscape-midground {
+  animation: parallax-landscape-midground auto linear both;
+  animation-timeline: scroll(root);
+  background-size: auto calc(30% + 0.5px);
+}
+
+@keyframes parallax-landscape-foreground {
+  from {
+    background-position-x: 0px;
+  }
+  to {
+    background-position-x: calc(var(--page-scroll-max, 0px) * -0.13);
+  }
+}
+.parallax-landscape-foreground {
+  animation: parallax-landscape-foreground auto linear both;
+  animation-timeline: scroll(root);
+  background-size: auto calc(30% + 0.5px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sun-fade,
+  .parallax-landscape-clouds,
+  .parallax-landscape-background,
+  .parallax-landscape-midground,
+  .parallax-landscape-foreground {
+    animation: none;
+  }
+}
+
+@media (min-width: 768px) {
+  .sun-fade {
+    --sun-target-y: calc(-64.5svh - 3.75rem);
+  }
+}

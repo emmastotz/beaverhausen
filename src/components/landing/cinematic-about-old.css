@@ -1,0 +1,263 @@
+/* ─── Scene fade ──────────────────────────────────────────────────────────── */
+
+@keyframes scene-fade {
+  0% {
+    opacity: 0;
+  }
+  20%,
+  70% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.scene-fade {
+  animation: scene-fade linear both;
+  animation-timeline: view();
+}
+
+/* ─── Translate in from right ─────────────────────────────────────────────── */
+
+@keyframes scene-translate-in-left {
+  0% {
+    transform: translateX(50%);
+  }
+  40%,
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.scene-translate-in-left {
+  animation: scene-translate-in-left linear both;
+  animation-timeline: view();
+}
+
+/* ─── Scale zoom (30% → 60%) ──────────────────────────────────────────────── */
+
+@keyframes scene-scale-zoom {
+  0% {
+    transform: scale(0.3);
+  }
+  100% {
+    transform: scale(0.6);
+  }
+}
+
+.scene-scale-zoom {
+  animation: scene-scale-zoom linear both;
+  animation-timeline: view();
+  transform-origin: center center;
+}
+
+/* ─── Riverbed descend from top ───────────────────────────────────────────── */
+
+@keyframes scene-riverbed-descend {
+  0% {
+    transform: translateY(-100vh);
+  }
+  50%,
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.scene-riverbed-descend {
+  animation: scene-riverbed-descend linear both;
+  animation-timeline: view();
+}
+
+/* ─── Riverbed exit to bottom ─────────────────────────────────────────────── */
+
+@keyframes scene-riverbed-exit {
+  0%,
+  40% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(100vh);
+  }
+}
+
+.scene-riverbed-exit {
+  animation: scene-riverbed-exit linear both;
+  animation-timeline: view();
+}
+
+/* ─── Beaver swim: enters left, exits right ───────────────────────────────── */
+
+@keyframes scene-beaver-swim-left {
+  0% {
+    transform: translate(-120%, 30%);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(120%, -20%);
+    opacity: 0;
+  }
+}
+
+.scene-beaver-swim-left {
+  animation: scene-beaver-swim-left linear both;
+  animation-timeline: view();
+}
+
+/* ─── Beaver swim: enters right, exits left ───────────────────────────────── */
+
+@keyframes scene-beaver-swim-right {
+  0% {
+    transform: translate(120%, 30%);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-120%, -20%);
+    opacity: 0;
+  }
+}
+
+.scene-beaver-swim-right {
+  animation: scene-beaver-swim-right linear both;
+  animation-timeline: view();
+}
+
+/* ─── Bubble rise ─────────────────────────────────────────────────────────── */
+
+@keyframes scene-bubble-rise {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.6;
+  }
+  85% {
+    opacity: 0.4;
+  }
+  100% {
+    transform: translateY(-120%);
+    opacity: 0;
+  }
+}
+
+.scene-bubble-rise {
+  animation: scene-bubble-rise linear both;
+  animation-timeline: view();
+}
+
+.scene-bubble-rise:nth-child(2) {
+  animation-range: 5% 105%;
+}
+.scene-bubble-rise:nth-child(3) {
+  animation-range: -5% 95%;
+}
+.scene-bubble-rise:nth-child(4) {
+  animation-range: 10% 110%;
+}
+.scene-bubble-rise:nth-child(5) {
+  animation-range: 15% 115%;
+}
+
+/* ─── Light diffuse (radial overlay fades in) ─────────────────────────────── */
+
+@keyframes scene-light-diffuse {
+  0%,
+  30% {
+    opacity: 0;
+  }
+  60%,
+  100% {
+    opacity: 1;
+  }
+}
+
+.scene-light-diffuse {
+  animation: scene-light-diffuse linear both;
+  animation-timeline: view();
+}
+
+/* ─── Landscape descend from top ──────────────────────────────────────────── */
+
+@keyframes scene-landscape-descend {
+  0% {
+    transform: translateY(-100%);
+  }
+  50%,
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.scene-landscape-descend {
+  animation: scene-landscape-descend linear both;
+  animation-timeline: view();
+}
+
+/* ─── Beaver glide / pull cycle (time-based, loops) ──────────────────────── */
+
+@keyframes beaver-swim-glide {
+  0%,
+  59% {
+    opacity: 1;
+  }
+  60%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes beaver-swim-pull {
+  0%,
+  59% {
+    opacity: 0;
+  }
+  60%,
+  100% {
+    opacity: 1;
+  }
+}
+
+.beaver-swim-glide {
+  animation: beaver-swim-glide steps(1) 1.2s infinite;
+}
+
+.beaver-swim-pull {
+  animation: beaver-swim-pull steps(1) 1.2s infinite;
+}
+
+/* ─── Reduced motion ──────────────────────────────────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  .scene-fade,
+  .scene-translate-in-left,
+  .scene-scale-zoom,
+  .scene-riverbed-descend,
+  .scene-riverbed-exit,
+  .scene-beaver-swim-left,
+  .scene-beaver-swim-right,
+  .scene-bubble-rise,
+  .scene-light-diffuse,
+  .scene-landscape-descend,
+  .beaver-swim-glide,
+  .beaver-swim-pull,
+  .sun-rise-play {
+    animation: none;
+  }
+
+  .beaver-swim-glide {
+    opacity: 1;
+  }
+}

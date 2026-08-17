@@ -27,23 +27,23 @@ export default function ContactPage() {
           <div className="fixed bottom-0 left-1/2 size-[25vh] -translate-x-1/2 rounded-full bg-dawn blur-sm dark:bg-iron-orange" />
 
           <div
-            className="contact-clouds absolute inset-0 h-full w-[200%] bg-scroll bg-repeat-x lg:bg-bottom dark:hidden"
+            className="contact-clouds absolute inset-0 h-full w-[200%] bg-bottom bg-repeat-x dark:hidden"
             style={{
               backgroundImage: `url(${dawnCloudsBg})`,
-              backgroundSize: '50vw auto',
-              backgroundPosition: 'center 70%',
+              backgroundSize: 'auto calc(50%)',
+              backgroundPosition: '0 70%',
             }}
           />
           <div
-            className="contact-clouds absolute inset-0 hidden h-full w-[200%] bg-scroll bg-repeat-x lg:bg-bottom dark:flex"
+            className="contact-clouds absolute inset-0 hidden h-full w-[200%] bg-bottom bg-repeat-x dark:flex"
             style={{
               backgroundImage: `url(${duskCloudsBg})`,
-              backgroundSize: '50vw auto',
-              backgroundPosition: 'center 70%',
+              backgroundSize: 'auto calc(50%)',
+              backgroundPosition: '0 70%',
             }}
           />
           <div
-            className="absolute inset-0 h-full border-b border-water-dark bg-scroll bg-bottom bg-repeat-x"
+            className="absolute inset-0 h-full border-b border-water-dark bg-bottom bg-repeat-x"
             style={{
               backgroundImage: `url(${landscape})`,
               backgroundSize: 'auto calc(80% + 0.5px)',

@@ -1,3 +1,16 @@
+@keyframes contact-clouds {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.contact-clouds {
+  animation: contact-clouds 180s linear infinite;
+}
+
 @keyframes beaver-swim-contact {
   0% {
     transform: translateX(-20vw) scaleX(-1);
@@ -64,6 +77,9 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .contact-clouds {
+    animation: none;
+  }
   .beaver-swim-contact {
     animation: none;
   }

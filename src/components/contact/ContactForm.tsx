@@ -157,7 +157,7 @@ export function ContactForm() {
       <div className="flex flex-col gap-2">
         <label htmlFor="message">
           <BaseT6 className="text-beaver uppercase dark:text-cream">
-            Message
+            Note
           </BaseT6>
         </label>
         <textarea

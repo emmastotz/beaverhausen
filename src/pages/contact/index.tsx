@@ -24,13 +24,13 @@ export default function ContactPage() {
           className="pointer-events-none absolute inset-0 overflow-x-clip"
           aria-hidden="true"
         >
-          <div className="fixed -top-[12svh] left-1/2 size-[25vh] -translate-x-1/2 rounded-full bg-dawn blur-sm dark:bg-iron-orange" />
+          <div className="fixed bottom-0 left-1/2 size-[25vh] -translate-x-1/2 rounded-full bg-dawn blur-sm dark:bg-iron-orange" />
 
           <div
             className="contact-clouds absolute inset-0 h-full w-[200%] bg-scroll bg-repeat-x lg:bg-bottom dark:hidden"
             style={{
               backgroundImage: `url(${dawnCloudsBg})`,
-              backgroundSize: 'auto calc(50%)',
+              backgroundSize: '50vw auto',
               backgroundPosition: 'center 70%',
             }}
           />
@@ -38,7 +38,7 @@ export default function ContactPage() {
             className="contact-clouds absolute inset-0 hidden h-full w-[200%] bg-scroll bg-repeat-x lg:bg-bottom dark:flex"
             style={{
               backgroundImage: `url(${duskCloudsBg})`,
-              backgroundSize: 'auto calc(50%)',
+              backgroundSize: '50vw auto',
               backgroundPosition: 'center 70%',
             }}
           />

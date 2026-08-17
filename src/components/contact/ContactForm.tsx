@@ -18,8 +18,8 @@ interface FormErrors {
 
 const inputClass = [
   'w-full bg-transparent border-b py-2',
-  'text-beaver-dark dark:text-cream',
-  'placeholder:text-beaver/40 dark:placeholder:text-cream/50',
+  'font-body text-beaver-dark dark:text-cream',
+  'placeholder:font-display placeholder:italic placeholder:text-beaver/40 dark:placeholder:text-cream/50',
   'focus:outline-none',
   'transition-colors duration-200 antialiased',
 ].join(' ')

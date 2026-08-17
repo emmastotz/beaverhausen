@@ -1,8 +1,11 @@
 import '@/components/about/static-about.css'
+import './contact.css'
 
 import landscape from '@/assets/about/half-all.svg'
 import dawnCloudsBg from '@/assets/about/half-dawn-cloud-bg.svg'
 import duskCloudsBg from '@/assets/about/half-dusk-clouds-bg.svg'
+import beaverGlide from '@/assets/contact/beaver-swimming-above-glide.svg'
+import beaverPull from '@/assets/contact/beaver-swimming-above-pull.svg'
 import { ContactForm } from '@/components/contact/ContactForm'
 import { Header } from '@/components/Header'
 import { AutoH } from '@/components/primitives/AutoH'
@@ -47,6 +50,25 @@ export default function ContactPage() {
               backgroundSize: 'auto calc(80% + 0.5px)',
             }}
           />
+
+          {/* Water ripples */}
+          <div className="water-ripple pointer-events-none absolute bottom-0 left-0 h-[18%] w-full" />
+
+          {/* Swimming beaver */}
+          <div className="beaver-swim-contact absolute bottom-[3%] left-0">
+            <div className="relative h-[8vh]">
+              <img
+                src={beaverGlide}
+                className="beaver-frame-glide h-full w-auto"
+                alt=""
+              />
+              <img
+                src={beaverPull}
+                className="beaver-frame-pull absolute inset-0 h-full w-auto"
+                alt=""
+              />
+            </div>
+          </div>
         </div>
 
         {/* Form content */}

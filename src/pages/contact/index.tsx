@@ -72,7 +72,7 @@ export default function ContactPage() {
         </div>
 
         {/* Form content */}
-        <main className="relative flex items-center justify-center px-6">
+        <main className="relative flex items-center justify-center px-6 py-24">
           <div className="w-full max-w-xl rounded-lg border border-beaver/10 bg-cream/80 px-8 py-10 shadow-sm backdrop-blur-sm dark:bg-dusk/80">
             <AutoHProvider>
               <div className="flex flex-col gap-10">

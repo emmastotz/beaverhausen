@@ -1,4 +1,4 @@
-import './contact.css'
+import '@/components/contact/contact.css'
 
 import landscape from '@/assets/about/half-all.svg'
 import dawnCloudsBg from '@/assets/about/half-dawn-cloud-bg.svg'

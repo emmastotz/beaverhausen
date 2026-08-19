@@ -156,6 +156,7 @@ export function BeaverhausenCaseStudy() {
             <Wordmark
               bColor="fill-cream dark:fill-beaver-dark"
               beaverColor="fill-beaver dark:fill-cream"
+              className="max-w-md"
             />
           }
           description="Personal brand and design system. Built from first principles."

@@ -1,6 +1,8 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { useLocation, useNavigate } from 'react-router'
 
+import { gsap } from '@/deps/gsap'
+
 export type TransitionState = 'idle' | 'flooding' | 'holding' | 'draining'
 
 export const FLOOD_DURATION = 1200
@@ -11,42 +13,22 @@ export const usePageTransition = () => {
   const navigate = useNavigate()
   const { pathname } = useLocation()
   const [state, setState] = useState<TransitionState>('idle')
-  const timeoutRefs = useRef<ReturnType<typeof setTimeout>[]>([])
+  const tl = useRef<gsap.core.Timeline | null>(null)
 
-  useEffect(() => {
-    return () => {
-      timeoutRefs.current.forEach(clearTimeout)
-    }
-  }, [])
+  useEffect(() => () => { tl.current?.kill() }, [])
 
   const transitionTo = useCallback(
     (path: string) => {
       if (state !== 'idle') return
       if (path === pathname) return
 
-      timeoutRefs.current.forEach(clearTimeout)
-      timeoutRefs.current = []
-
+      tl.current?.kill()
       setState('flooding')
 
-      const t1 = setTimeout(() => {
-        setState('holding')
-        navigate(path)
-
-        const t2 = setTimeout(() => {
-          setState('draining')
-
-          const t3 = setTimeout(() => {
-            setState('idle')
-          }, DRAIN_DURATION)
-
-          timeoutRefs.current.push(t3)
-        }, HOLD_DURATION)
-
-        timeoutRefs.current.push(t2)
-      }, FLOOD_DURATION)
-
-      timeoutRefs.current.push(t1)
+      tl.current = gsap.timeline()
+        .call(() => { setState('holding'); navigate(path) }, [], FLOOD_DURATION / 1000)
+        .call(() => setState('draining'), [], (FLOOD_DURATION + HOLD_DURATION) / 1000)
+        .call(() => setState('idle'), [], (FLOOD_DURATION + HOLD_DURATION + DRAIN_DURATION) / 1000)
     },
     [state, navigate, pathname],
   )

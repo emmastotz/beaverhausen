@@ -83,7 +83,7 @@ export function About() {
         className={`z-floating fixed bottom-[0.5vh] left-1/2 -translate-x-1/2 sm:bottom-px md:bottom-[1vh] ${isCtaInView ? 'opacity-100' : 'opacity-0'}`}
       >
         <Button
-          onClick={() => transitionTo('/portfolio/beaverhausen')}
+          onClick={() => transitionTo('/portfolio/whitehawk')}
           variant="ghost"
           size="sm"
           aria-label="Skip to end of about section"

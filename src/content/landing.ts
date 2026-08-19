@@ -1,7 +1,3 @@
-// Each inner array is one paragraph's worth of sentences.
-// .flat()         → individual lines for ScrollJackTypewriter (About.tsx)
-// .map(g.join)    → joined paragraphs for static rendering (StaticAbout.tsx)
-
 const BEAVER_SENTENCE_GROUPS = [
   [
     'Beavers are one of the only animals besides humans that fundamentally reshape their environment.',
@@ -35,11 +31,7 @@ const PROFESSIONAL_SENTENCE_GROUPS = [
 ]
 
 export const BEAVER_LINES = BEAVER_SENTENCE_GROUPS.flat()
-export const BEAVER_PARAGRAPHS = BEAVER_SENTENCE_GROUPS.map((g) => g.join(' '))
 
 export const PROFESSIONAL_LINES = PROFESSIONAL_SENTENCE_GROUPS.flat()
-export const PROFESSIONAL_PARAGRAPHS = PROFESSIONAL_SENTENCE_GROUPS.map((g) =>
-  g.join(' '),
-)
 
 export const CLOSING = "The beaverhausen doesn't build itself."

@@ -155,7 +155,7 @@ export function BeaverhausenCaseStudy() {
           wordmark={
             <Wordmark
               bColor="fill-cream dark:fill-beaver-dark"
-              beaverColor="dark:fill-cream"
+              beaverColor="fill-beaver dark:fill-cream"
             />
           }
           description="Personal brand and design system. Built from first principles."

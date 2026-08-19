@@ -31,12 +31,12 @@ function CoverPage({
   return (
     <div className="relative size-full overflow-hidden rounded-r-lg bg-beaver-dark dark:bg-beaver">
       <div className="z-raised relative flex h-full flex-col items-center justify-center px-12">
-        <BaseT6 className="text-iron-orange uppercase dark:text-cream">
+        <BaseT6 className="text-iron-orange uppercase dark:text-cream/80">
           Field Notes
         </BaseT6>
         {wordmark}
         {description && (
-          <p className="mt-4 max-w-xs text-center text-cream/80">
+          <p className="mt-4 max-w-xs text-center text-cream/80 dark:text-cream">
             <BaseT5 variant="body">{description}</BaseT5>
           </p>
         )}

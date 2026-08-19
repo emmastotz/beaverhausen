@@ -192,6 +192,7 @@ export function WhiteHawkCaseStudy() {
           label="WhiteHawk"
           chapters={CHAPTERS}
           wordmark={<BaseT1 className="text-cream">WhiteHawk</BaseT1>}
+          description="Six years at a cybersecurity company. Brand system, component library, and the product surfaces they carried. Designer and engineer throughout."
         >
           {(id) => <Content id={id} />}
         </Flipbook>

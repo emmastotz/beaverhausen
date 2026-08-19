@@ -2,6 +2,7 @@ import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 
 import { AutoH } from '@/components/primitives/AutoH'
 import { BaseT1 } from '@/components/primitives/BaseT1'
+import { BaseT5 } from '@/components/primitives/BaseT5'
 import { BaseT6 } from '@/components/primitives/BaseT6'
 import { gsap, useGSAP } from '@/deps/gsap'
 
@@ -17,9 +18,16 @@ interface Props {
   chapters: Chapter[]
   children: (id: string) => React.ReactNode
   wordmark?: React.ReactNode
+  description?: string
 }
 
-function CoverPage({ wordmark }: { wordmark?: React.ReactNode }) {
+function CoverPage({
+  wordmark,
+  description,
+}: {
+  wordmark?: React.ReactNode
+  description?: string
+}) {
   return (
     <div className="relative size-full overflow-hidden rounded-r-lg bg-beaver-dark dark:bg-beaver">
       <div className="z-raised relative flex h-full flex-col items-center justify-center px-12">
@@ -27,6 +35,11 @@ function CoverPage({ wordmark }: { wordmark?: React.ReactNode }) {
           Field Notes
         </BaseT6>
         {wordmark}
+        {description && (
+          <p className="mt-4 max-w-xs text-center text-cream/80">
+            <BaseT5 variant="body">{description}</BaseT5>
+          </p>
+        )}
       </div>
     </div>
   )
@@ -82,7 +95,13 @@ function PageChrome({
   )
 }
 
-export function Flipbook({ label, chapters, children, wordmark }: Props) {
+export function Flipbook({
+  label,
+  chapters,
+  children,
+  wordmark,
+  description,
+}: Props) {
   const [current, setCurrent] = useState<number | null>(null)
   const [pending, setPending] = useState<number | null>(null)
   const [next, setNext] = useState<number | null>(null)
@@ -222,7 +241,7 @@ export function Flipbook({ label, chapters, children, wordmark }: Props) {
             style={{ backfaceVisibility: 'hidden' }}
           >
             {showCover ? (
-              <CoverPage wordmark={wordmark} />
+              <CoverPage wordmark={wordmark} description={description} />
             ) : current !== null ? (
               <PageChrome chapter={chapters[current]}>
                 {children(chapters[current].id)}

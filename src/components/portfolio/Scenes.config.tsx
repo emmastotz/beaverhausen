@@ -20,7 +20,7 @@ const LANDMARKS: Record<string, React.ReactNode> = {
 }
 
 const WORDMARKS: Record<string, React.ReactNode> = {
-  dam: (
+  'felled-tree': (
     <Wordmark className="mx-auto sm:mb-2 sm:max-w-1/2 md:mb-0 md:max-w-2/3" />
   ),
 }

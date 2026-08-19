@@ -156,10 +156,10 @@ export function BeaverhausenCaseStudy() {
             <Wordmark
               bColor="fill-cream dark:fill-beaver-dark"
               beaverColor="fill-beaver dark:fill-cream"
-              className="max-w-md"
+              className="max-w-sm"
             />
           }
-          description="Personal brand and design system. Built from first principles."
+          description="Building a portfolio from first principles. Brand identity, design system, and this."
         >
           {(id) => <Content id={id} />}
         </Flipbook>

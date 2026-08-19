@@ -41,7 +41,7 @@ export function CaseStudyNav({ currentHref }: Props) {
           <BaseT6 className="text-iron-orange/70 uppercase group-hover:text-iron-orange group-focus-visible:text-iron-orange">
             ← Previous
           </BaseT6>
-          <BaseT5 className="tracking-widest text-beaver uppercase group-hover:text-beaver-dark group-focus-visible:text-beaver-dark">
+          <BaseT5 className="tracking-widest text-beaver uppercase group-hover:text-beaver-dark group-focus-visible:text-beaver-dark dark:text-cream/80 dark:group-hover:text-cream dark:group-focus-visible:text-cream">
             {prev.title}
           </BaseT5>
         </TransitionLink>
@@ -58,7 +58,7 @@ export function CaseStudyNav({ currentHref }: Props) {
           <BaseT6 className="text-iron-orange/70 uppercase group-hover:text-iron-orange group-focus-visible:text-iron-orange">
             Next →
           </BaseT6>
-          <BaseT5 className="tracking-widest text-beaver uppercase group-hover:text-beaver-dark group-focus-visible:text-beaver-dark">
+          <BaseT5 className="tracking-widest text-beaver uppercase group-hover:text-beaver-dark group-focus-visible:text-beaver-dark dark:text-cream/80 dark:group-hover:text-cream dark:group-focus-visible:text-cream">
             {next.title}
           </BaseT5>
         </TransitionLink>

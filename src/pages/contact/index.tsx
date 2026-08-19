@@ -9,6 +9,7 @@ import { ContactForm } from '@/components/contact/ContactForm'
 import { Header } from '@/components/Header'
 import { AutoH } from '@/components/primitives/AutoH'
 import { AutoHProvider } from '@/components/primitives/AutoHProvider'
+import { BaseCard } from '@/components/primitives/BaseCard'
 import { BaseT1 } from '@/components/primitives/BaseT1'
 import { BaseT4 } from '@/components/primitives/BaseT4'
 import { DefaultLayout } from '@/layouts/DefaultLayout'
@@ -72,9 +73,9 @@ export default function ContactPage() {
 
         {/* Form content */}
         <main className="relative flex items-center justify-center px-6 py-24">
-          <div className="w-full max-w-xl rounded-lg border border-beaver/10 bg-cream/80 px-8 py-10 shadow-sm backdrop-blur-sm dark:bg-dusk/80">
+          <BaseCard className="w-full max-w-xl">
             <AutoHProvider>
-              <div className="flex flex-col gap-10">
+              <div className="flex flex-col gap-10 px-8 py-10">
                 <div className="flex flex-col gap-3">
                   <AutoH>
                     <BaseT1 className="text-beaver-dark dark:text-enamel">
@@ -95,7 +96,7 @@ export default function ContactPage() {
                 <ContactForm />
               </div>
             </AutoHProvider>
-          </div>
+          </BaseCard>
         </main>
       </div>
     </DefaultLayout>

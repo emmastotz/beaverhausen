@@ -1,8 +1,9 @@
 import { useEffect, useRef } from 'react'
 import { createPortal } from 'react-dom'
 
-import { DRAIN_DURATION, FLOOD_DURATION } from '@/hooks/usePageTransition'
 import type { TransitionState } from '@/hooks/usePageTransition'
+
+import { DRAIN_DURATION, FLOOD_DURATION } from '@/hooks/usePageTransition'
 
 interface TransitionOverlayProps {
   state: TransitionState
@@ -156,13 +157,15 @@ export function TransitionOverlay({ state }: TransitionOverlayProps) {
     }
   }, [state])
 
-  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  const prefersReducedMotion = window.matchMedia(
+    '(prefers-reduced-motion: reduce)',
+  ).matches
   if (state === 'idle' || prefersReducedMotion) return null
 
   return createPortal(
     <canvas
       ref={canvasRef}
-      className="pointer-events-none fixed inset-0 z-overlay"
+      className="z-overlay pointer-events-none fixed inset-0"
       style={{ backdropFilter: 'blur(2px)' }}
     />,
     document.body,

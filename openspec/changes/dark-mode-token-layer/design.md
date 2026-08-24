@@ -13,12 +13,14 @@ primitive/semantic split. Its architecture is the model; its brand values are of
 ## Goals / Non-Goals
 
 **Goals:**
+
 - Semantic tokens in `src/index.css` that resolve light/dark at the token layer.
 - Components use one utility per role; `dark:` color variants disappear from components.
 - Pixel-identical rendering in both modes.
 - Lint enforcement plus `STYLE.md` so the system stays closed.
 
 **Non-Goals:**
+
 - Any visual change, new primitives without approval, WhiteHawk values, toggle-strategy change,
   component refactoring, or visual regression tooling (see proposal Non-goals).
 

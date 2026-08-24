@@ -2,14 +2,14 @@ import { useEffect, useState } from 'react'
 
 import { BeaverMark } from '@/components/brand/BeaverMark'
 import { DownloadResumeButton } from '@/components/DownloadResumeButton'
-import {
-  ScrollRevealText,
-  composeScrollSections,
-  type ScrollSection,
-} from '@/components/landing/ScrollRevealText'
+import { ScrollRevealText } from '@/components/landing/ScrollRevealText'
 import { Button } from '@/components/primitives/Button'
 import { BEAVER_LINES, CLOSING, PROFESSIONAL_LINES } from '@/content/landing'
 import { useTransition } from '@/context/TransitionContext'
+import {
+  composeScrollSections,
+  type ScrollSection,
+} from '@/util/scrollSections'
 
 const BEAVER_SECTION: ScrollSection = {
   lines: BEAVER_LINES,

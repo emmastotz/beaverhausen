@@ -7,11 +7,11 @@ interface Props {
   size?: Size
 }
 
+const RESUME_URL = 'https://beaverhausen-worker.beaverhausen.workers.dev/resume'
+
 export function DownloadResumeButton({ variant, size }: Props) {
   const handleDownload = async () => {
-    const response = await fetch(
-      'https://beaverhausen-worker.beaverhausen.workers.dev/resume',
-    )
+    const response = await fetch(RESUME_URL)
     const blob = await response.blob()
     const url = URL.createObjectURL(blob)
     const a = document.createElement('a')
@@ -26,8 +26,8 @@ export function DownloadResumeButton({ variant, size }: Props) {
       variant={variant}
       size={size}
       onClick={() => {
-        handleDownload().catch((error: unknown) => {
-          console.error('Resume download failed', error)
+        handleDownload().catch(() => {
+          window.open(RESUME_URL, '_blank', 'noopener')
         })
       }}
     >

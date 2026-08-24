@@ -56,16 +56,22 @@ export default defineConfig([
 
       // unused code
       'no-empty': 'warn',
-      '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
+      '@typescript-eslint/no-unused-vars': [
+        'error',
+        { argsIgnorePattern: '^_' },
+      ],
 
       // style
-      curly: 'warn',
+      'curly': 'warn',
       'lines-between-class-members': 'warn',
       'no-var': 'warn',
       'object-shorthand': 'warn',
       'prefer-const': 'warn',
 
-      '@typescript-eslint/array-type': ['warn', { default: 'generic', readonly: 'generic' }],
+      '@typescript-eslint/array-type': [
+        'warn',
+        { default: 'generic', readonly: 'generic' },
+      ],
 
       '@typescript-eslint/consistent-type-imports': [
         'warn',
@@ -78,10 +84,10 @@ export default defineConfig([
         {
           pattern: {
             '': 'never',
-            js: 'always',
-            jsx: 'always',
-            ts: 'never',
-            tsx: 'never',
+            'js': 'always',
+            'jsx': 'always',
+            'ts': 'never',
+            'tsx': 'never',
           },
         },
       ],

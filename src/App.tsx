@@ -1,8 +1,9 @@
 import { createBrowserRouter, RouterProvider, Outlet } from 'react-router'
 
 import { ScrollToTop } from '@/components/ScrollToTop'
-import { useTransition, TransitionProvider } from '@/context/TransitionContext'
+import { useTransition } from '@/context/TransitionContext'
 import { TransitionOverlay } from '@/context/TransitionOverlay'
+import { TransitionProvider } from '@/context/TransitionProvider'
 import AboutPage from '@/pages/about'
 import ContactPage from '@/pages/contact'
 import LandingPage from '@/pages/index'

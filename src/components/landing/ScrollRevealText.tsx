@@ -8,14 +8,14 @@ type LineVariant = 'display' | 'body'
 export type LineProps = { variant?: LineVariant; className?: string }
 
 export type ScrollSection = {
-  lines: string[]
+  lines: Array<string>
   variant?: 'display' | 'body'
   className?: string
   renderText?: (localIndex: number) => React.ReactNode
 }
 
 type Props = {
-  lines: string[]
+  lines: Array<string>
   className?: string
   variant?: LineVariant
   persistLast?: boolean
@@ -23,14 +23,14 @@ type Props = {
   getLineProps?: (lineIndex: number) => LineProps
 }
 
-export function composeScrollSections(sections: ScrollSection[]): {
-  lines: string[]
-  sectionOffsets: number[]
+export function composeScrollSections(sections: Array<ScrollSection>): {
+  lines: Array<string>
+  sectionOffsets: Array<number>
   renderText: (globalIndex: number) => React.ReactNode
   getLineProps: (globalIndex: number) => LineProps
 } {
-  const allLines: string[] = []
-  const offsets: number[] = []
+  const allLines: Array<string> = []
+  const offsets: Array<number> = []
 
   for (const section of sections) {
     offsets.push(allLines.length)

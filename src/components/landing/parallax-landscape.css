@@ -1,5 +1,6 @@
 @keyframes sun-fade {
-  0%, 94% {
+  0%,
+  94% {
     translate: -50% 0;
   }
   100% {

@@ -35,7 +35,7 @@ export const usePageTransition = () => {
         .call(
           () => {
             setState('holding')
-            navigate(path)
+            void navigate(path)
           },
           [],
           FLOOD_DURATION / 1000,

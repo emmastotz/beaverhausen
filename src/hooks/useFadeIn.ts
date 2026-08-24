@@ -1,4 +1,5 @@
 import { useRef } from 'react'
+
 import { gsap, useGSAP } from '@/deps/gsap'
 
 interface FadeInOptions {
@@ -6,10 +7,7 @@ interface FadeInOptions {
   delay?: number
 }
 
-export function useFadeIn({
-  once = true,
-  delay = 0,
-}: FadeInOptions = {}) {
+export function useFadeIn({ once = true, delay = 0 }: FadeInOptions = {}) {
   const ref = useRef<HTMLDivElement>(null)
 
   useGSAP(() => {

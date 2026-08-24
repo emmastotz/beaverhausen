@@ -1,4 +1,8 @@
-import { buildInteractiveClass, type Variant, type Size } from '@/components/primitives/interactiveStyles'
+import {
+  buildInteractiveClass,
+  type Variant,
+  type Size,
+} from '@/components/primitives/interactiveStyles'
 
 interface Props extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
   href: string

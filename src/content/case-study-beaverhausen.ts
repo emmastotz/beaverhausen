@@ -58,7 +58,7 @@ export const CHAPTER_COPY: Record<string, ChapterCopy> = {
       'The beaver was the *only* choice for the logo. Refining that into a mark that could hold both precision and personality was where the real work began.',
       'The first sketches were too simplistic: a line art beaver, clean and friendly, that explained the joke instead of landing it. Predictably, I overcomplicated it. Too much detail in the beaver, too much trying to say everything at once.',
       'The right direction came from reduction; pulling back until only the essential gesture remained. Not a highly detailed beaver, but a silhouette with just enough precision to disappear into something larger. The mark of something that builds with intention.',
-      'The beaver silhouette is embedded within the B, completing the lower bowl of the letterform; visible if you\'re looking, invisible if you\'re not. The kind of thing that rewards a second glance.',
+      "The beaver silhouette is embedded within the B, completing the lower bowl of the letterform; visible if you're looking, invisible if you're not. The kind of thing that rewards a second glance.",
       'The logo is a small argument that precision and playfulness are not opposites, just different tools for the same job.',
     ],
     fieldNotes: [],
@@ -67,9 +67,9 @@ export const CHAPTER_COPY: Record<string, ChapterCopy> = {
   taxonomy: {
     paragraphs: [
       'A design system for yourself is a strange thing to build. It is, in some sense, overkill. But the discipline of naming things, of deciding what *iron-orange* is and why it is not just orange, produces clarity that informal work rarely achieves. It also came naturally. When your brand is named after an animal, the taxonomy writes itself.',
-      'The warm browns are lifted directly from a beaver\'s coat, while the burnt orange is more specific: beaver tooth enamel is reinforced with iron, which turns it a deep, hard orange. The same orange that makes their teeth self-sharpening. It felt like the right color for a brand built on precision.',
-      'The Beaverhausen wordmark is built on a deliberate tension. *Beaver* is set in a high-contrast, organic serif with curves that have opinions, a personality that earns attention. *hausen* follows in a clean, geometric sans-serif: structured, precise, and completely sure of itself. The two halves shouldn\'t work together. They do.',
-      'Magic Retro earns its place in display settings: headlines, the wordmark, moments that call for character. At smaller sizes the contrast becomes a liability, so Fraunces steps in as the workhorse serif: rounder, more legible, better suited to running text. They don\'t share the same personality, but they share a warmth that keeps the system coherent.',
+      "The warm browns are lifted directly from a beaver's coat, while the burnt orange is more specific: beaver tooth enamel is reinforced with iron, which turns it a deep, hard orange. The same orange that makes their teeth self-sharpening. It felt like the right color for a brand built on precision.",
+      "The Beaverhausen wordmark is built on a deliberate tension. *Beaver* is set in a high-contrast, organic serif with curves that have opinions, a personality that earns attention. *hausen* follows in a clean, geometric sans-serif: structured, precise, and completely sure of itself. The two halves shouldn't work together. They do.",
+      "Magic Retro earns its place in display settings: headlines, the wordmark, moments that call for character. At smaller sizes the contrast becomes a liability, so Fraunces steps in as the workhorse serif: rounder, more legible, better suited to running text. They don't share the same personality, but they share a warmth that keeps the system coherent.",
       'The result is a system that knows what it is: warm but structured, playful but precise. The kind of thing that only works if you commit to both halves equally.',
     ],
     fieldNotes: [
@@ -84,11 +84,11 @@ export const CHAPTER_COPY: Record<string, ChapterCopy> = {
       'Z-index management became its own discipline. Absolutely positioned elements interact in ways that are hard to predict and harder to debug.',
       'Some problems found more elegant solutions than others. GSAP was added late, initially for the page flip on this case study. It stayed because it belongs here: the water flood transition, the landmark animations, eventually the parallax itself. It is a large library with a learning curve that demands respect. Learning it was the point.',
       'The file structure was a deliberate departure from the architecture used in client work. In larger projects, dependencies are separated from application code with the aim of keeping the codebase framework agnostic: Vue in, React out, without touching business logic. For a portfolio site, that abstraction is overkill. The default Vite scaffolding is enough structure to find things without making the structure a project in itself.',
-      'The ambition behind all of it was simple, if a little earnest: this site exists to showcase things that don\'t come up in a typical client sprint. The harder question throughout was not technical. It was whether a lay user would find any of this intuitive: is it obvious that the landmarks are clickable? Is it clear that the parallax can be skipped? Does the experience communicate what it is, or does it just look interesting? These are questions without clean answers, and they stayed open longer than the code did.',
+      "The ambition behind all of it was simple, if a little earnest: this site exists to showcase things that don't come up in a typical client sprint. The harder question throughout was not technical. It was whether a lay user would find any of this intuitive: is it obvious that the landmarks are clickable? Is it clear that the parallax can be skipped? Does the experience communicate what it is, or does it just look interesting? These are questions without clean answers, and they stayed open longer than the code did.",
     ],
     fieldNotes: [
-      'when everything is layered, the hardest bugs are the ones you can\'t see.',
-      'the goal throughout was restraint. Microanimations that enhance without announcing themselves. A site that moves, but doesn\'t perform.',
+      "when everything is layered, the hardest bugs are the ones you can't see.",
+      "the goal throughout was restraint. Microanimations that enhance without announcing themselves. A site that moves, but doesn't perform.",
     ],
   },
 

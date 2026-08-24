@@ -20,7 +20,7 @@ export interface CaseStudy {
   hitArea: HitArea
 }
 
-export const CASE_STUDIES: CaseStudy[] = [
+export const CASE_STUDIES: Array<CaseStudy> = [
   {
     id: 'dam',
     scene: damScene,

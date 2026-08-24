@@ -15,7 +15,12 @@ export const usePageTransition = () => {
   const [state, setState] = useState<TransitionState>('idle')
   const tl = useRef<gsap.core.Timeline | null>(null)
 
-  useEffect(() => () => { tl.current?.kill() }, [])
+  useEffect(
+    () => () => {
+      tl.current?.kill()
+    },
+    [],
+  )
 
   const transitionTo = useCallback(
     (path: string) => {
@@ -25,10 +30,26 @@ export const usePageTransition = () => {
       tl.current?.kill()
       setState('flooding')
 
-      tl.current = gsap.timeline()
-        .call(() => { setState('holding'); navigate(path) }, [], FLOOD_DURATION / 1000)
-        .call(() => setState('draining'), [], (FLOOD_DURATION + HOLD_DURATION) / 1000)
-        .call(() => setState('idle'), [], (FLOOD_DURATION + HOLD_DURATION + DRAIN_DURATION) / 1000)
+      tl.current = gsap
+        .timeline()
+        .call(
+          () => {
+            setState('holding')
+            navigate(path)
+          },
+          [],
+          FLOOD_DURATION / 1000,
+        )
+        .call(
+          () => setState('draining'),
+          [],
+          (FLOOD_DURATION + HOLD_DURATION) / 1000,
+        )
+        .call(
+          () => setState('idle'),
+          [],
+          (FLOOD_DURATION + HOLD_DURATION + DRAIN_DURATION) / 1000,
+        )
     },
     [state, navigate, pathname],
   )

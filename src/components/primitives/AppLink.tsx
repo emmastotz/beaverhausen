@@ -1,5 +1,9 @@
+import {
+  buildInteractiveClass,
+  type Variant,
+  type Size,
+} from '@/components/primitives/interactiveStyles'
 import { TransitionLink } from '@/components/primitives/TransitionLink'
-import { buildInteractiveClass, type Variant, type Size } from '@/components/primitives/interactiveStyles'
 
 interface Props extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
   to: string
@@ -16,7 +20,11 @@ export function AppLink({
   ...props
 }: Props) {
   return (
-    <TransitionLink to={to} className={buildInteractiveClass(variant, size, className)} {...props}>
+    <TransitionLink
+      to={to}
+      className={buildInteractiveClass(variant, size, className)}
+      {...props}
+    >
       {children}
     </TransitionLink>
   )

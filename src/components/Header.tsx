@@ -12,7 +12,7 @@ interface NavItem {
   icon: React.ReactNode
 }
 
-const navItems: NavItem[] = [
+const navItems: Array<NavItem> = [
   {
     label: 'Work',
     href: '/portfolio',

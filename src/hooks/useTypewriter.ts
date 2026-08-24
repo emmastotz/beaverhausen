@@ -1,4 +1,5 @@
 import { useRef, useState } from 'react'
+
 import { gsap, useGSAP } from '@/deps/gsap'
 
 interface TypewriterOptions {

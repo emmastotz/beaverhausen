@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 import { gsap, useGSAP } from '@/deps/gsap'
 
@@ -18,7 +18,9 @@ export const useTypewriter = ({
   const [displayed, setDisplayed] = useState('')
   const [isComplete, setIsComplete] = useState(false)
   const onCompleteRef = useRef(onComplete)
-  onCompleteRef.current = onComplete
+  useEffect(() => {
+    onCompleteRef.current = onComplete
+  })
 
   useGSAP(() => {
     setDisplayed('')

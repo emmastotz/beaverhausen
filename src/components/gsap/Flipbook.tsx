@@ -15,7 +15,7 @@ export interface Chapter {
 
 interface Props {
   label: string
-  chapters: Chapter[]
+  chapters: Array<Chapter>
   children: (id: string) => React.ReactNode
   wordmark?: React.ReactNode
   description?: string

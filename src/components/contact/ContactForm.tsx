@@ -97,7 +97,11 @@ export function ContactForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col gap-8" noValidate>
+    <form
+      onSubmit={(e) => void handleSubmit(e)}
+      className="flex flex-col gap-8"
+      noValidate
+    >
       {/* Honeypot — bots fill this, humans don't */}
       <input
         type="text"

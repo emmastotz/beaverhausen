@@ -22,7 +22,15 @@ export function DownloadResumeButton({ variant, size }: Props) {
   }
 
   return (
-    <Button variant={variant} size={size} onClick={handleDownload}>
+    <Button
+      variant={variant}
+      size={size}
+      onClick={() => {
+        handleDownload().catch((error: unknown) => {
+          console.error('Resume download failed', error)
+        })
+      }}
+    >
       Download resume
     </Button>
   )

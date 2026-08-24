@@ -59,7 +59,7 @@ export function ContactForm() {
       let general: string | null = null
 
       if (json?.errors?.length) {
-        for (const err of json.errors as FormspreeError[]) {
+        for (const err of json.errors as Array<FormspreeError>) {
           if (err.field) {
             fieldErrors[err.field] = err.message
           } else {

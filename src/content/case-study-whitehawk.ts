@@ -1,6 +1,6 @@
 import type { Chapter } from '@/components/gsap/Flipbook'
 
-export const CHAPTERS: Chapter[] = [
+export const CHAPTERS: Array<Chapter> = [
   {
     id: 'habitat',
     tab: 'I',
@@ -35,8 +35,8 @@ export const CHAPTERS: Chapter[] = [
 
 // Wrap words in *asterisks* to render as <em> in the component.
 export type ChapterCopy = {
-  paragraphs: string[]
-  fieldNotes: string[]
+  paragraphs: Array<string>
+  fieldNotes: Array<string>
 }
 
 export const CHAPTER_COPY: Record<string, ChapterCopy> = {

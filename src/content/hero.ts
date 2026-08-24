@@ -3,7 +3,7 @@ type DefinitionPart = {
   className: string
 }
 
-export const HERO_COPY: DefinitionPart[] = [
+export const HERO_COPY: Array<DefinitionPart> = [
   {
     text: 'The dwelling of an assiduous creature suspended somewhere between design instinct and engineering precision;',
     className:

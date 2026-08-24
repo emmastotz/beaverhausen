@@ -6,7 +6,7 @@ export interface Skill {
   tier: 'primary' | 'secondary' | 'accent'
 }
 
-export const SKILLS: Skill[] = [
+export const SKILLS: Array<Skill> = [
   { label: 'Vue 3', tier: 'primary' },
   { label: 'TypeScript', tier: 'primary' },
   { label: 'Vite', tier: 'primary' },
@@ -30,17 +30,17 @@ export const SKILLS: Skill[] = [
 export interface Role {
   title: string
   dates: string
-  bullets: string[]
+  bullets: Array<string>
 }
 
 export interface Job {
   company: string
   location: string
   dates: string
-  roles: Role[]
+  roles: Array<Role>
 }
 
-export const EXPERIENCE: Job[] = [
+export const EXPERIENCE: Array<Job> = [
   {
     company: 'WhiteHawk CEC Inc.',
     location: 'Alexandria, VA (Remote)',
@@ -107,7 +107,7 @@ export interface EduItem {
   year: string
 }
 
-export const EDUCATION: EduItem[] = [
+export const EDUCATION: Array<EduItem> = [
   {
     school: 'George Washington University',
     degree: 'Full Stack Web Development Certificate',

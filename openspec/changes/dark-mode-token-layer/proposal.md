@@ -16,11 +16,13 @@ different dark treatments), new components must guess, and nothing enforces cons
   commit, smallest blast radius first.
 
   Before:
+
   ```tsx
   <div className="bg-cream dark:bg-dusk text-beaver-dark dark:text-cream">
   ```
 
   After:
+
   ```tsx
   <div className="bg-surface text-heading">
   ```

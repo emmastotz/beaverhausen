@@ -1,9 +1,52 @@
-# CLAUDE.md — Beaverhausen
+# CLAUDE.md
+
+Be terse and concise.
 
 Personal portfolio for Emma Stotz. A static React + TypeScript SPA deployed on GitHub Pages.
 Animation-forward: GSAP for complex choreography, CSS scroll-driven animations for parallax.
 
 ---
+
+## Git
+
+Pick the conventional-commit type by external-API impact, not by intent:
+
+- `feat!` (breaking change)
+  - Add a method to an interface
+  - Delete a method
+- `feat`
+  - Add a method to a class
+  - Change code to call a different method
+- `refactor`
+  - A class's external API is unchanged (e.g. renaming an internal/private method)
+
+"Migrating" or "converting" something to a new method is still `feat` — it adds and/or switches
+methods.
+
+Prefer commits as small as possible: each commit does one reviewable thing and leaves the build
+green.
+When the same mechanical change spans many files, split it per file — one commit per file.
+Likewise, adding several independent things in one commit (e.g. two unrelated new classes) is
+multiple reviewable things — give each its own commit, even when they look similar or were created
+together.
+
+E.g. renaming a class is 3+ commits:
+
+1. Create the class under the new name.
+2. One commit per caller migrated to the new class.
+3. Delete the old class.
+
+Deleting a feature is also one file per commit. Order the deletions so every commit still
+builds (green): remove a file only after everything importing it is already gone. This is a
+tree traversal of the import graph — delete entry points first (pages/routes), then the
+components they used, then the composables/resources those used, down to the leaves. Drop a
+barrel/`index` re-export in the same commit that orphans the file it points to. Combine files
+into one commit only when they cannot be separated without breaking the build (e.g. files that
+import each other).
+
+Avoid including unrelated untracked files in commits.
+
+Before commits: `pnpm run lint --fix`
 
 ## Stack & Tooling
 

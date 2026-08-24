@@ -25,7 +25,7 @@ const WORDMARKS: Record<string, React.ReactNode> = {
   ),
 }
 
-export const SCENES: SceneConfig[] = CASE_STUDIES.map((data) => ({
+export const SCENES: Array<SceneConfig> = CASE_STUDIES.map((data) => ({
   ...data,
   landmark: LANDMARKS[data.id],
   wordmark: WORDMARKS[data.id] ?? null,

@@ -7,7 +7,7 @@ type Color = {
 }
 
 type Props = {
-  palette: Color[]
+  palette: Array<Color>
   isPrimary?: boolean
 }
 

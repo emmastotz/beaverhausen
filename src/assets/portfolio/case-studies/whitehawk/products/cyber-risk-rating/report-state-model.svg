@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 500" width="960" height="500" font-family="Inter, system-ui, -apple-system, 'Segoe UI', Helvetica, sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#1a1a1a"/>
+    </marker>
+    <marker id="arrowGray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#767676"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="960" height="500" fill="#ffffff"/>
+
+  <text x="40" y="26" font-size="13" font-weight="600" fill="#1a1a1a" letter-spacing="0.4">REPORT STATE MODEL</text>
+
+  <!-- data layer -->
+  <rect x="65" y="46" width="830" height="60" fill="none" stroke="#1a1a1a" stroke-width="1.5"/>
+  <text x="480" y="72" font-size="15" font-weight="600" fill="#1a1a1a" text-anchor="middle">WhiteHawk data layer</text>
+  <text x="480" y="92" font-size="12.5" fill="#767676" text-anchor="middle">Refreshes daily from external sources</text>
+
+  <!-- crossing arrow -->
+  <line x1="480" y1="106" x2="480" y2="234" stroke="#1a1a1a" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="496" y="150" font-size="12.5" font-weight="600" fill="#1a1a1a">Update</text>
+  <text x="496" y="167" font-size="12" fill="#767676">analyst initiated</text>
+
+  <!-- snapshot boundary -->
+  <line x1="40" y1="188" x2="920" y2="188" stroke="#767676" stroke-width="1" stroke-dasharray="5 5"/>
+  <text x="40" y="182" font-size="11.5" font-weight="600" fill="#767676" letter-spacing="0.6">SNAPSHOT BOUNDARY</text>
+  <text x="40" y="210" font-size="12.5" fill="#767676">Data crosses only when the analyst clicks Update.</text>
+
+  <!-- states -->
+  <rect x="65" y="250" width="170" height="64" fill="none" stroke="#1a1a1a" stroke-width="1.5"/>
+  <text x="150" y="288" font-size="14" fill="#1a1a1a" text-anchor="middle">In Progress</text>
+
+  <rect x="285" y="250" width="170" height="64" fill="none" stroke="#1a1a1a" stroke-width="1.5"/>
+  <text x="370" y="288" font-size="14" fill="#1a1a1a" text-anchor="middle">Products Needed</text>
+
+  <rect x="505" y="250" width="170" height="64" fill="none" stroke="#1a1a1a" stroke-width="1.5"/>
+  <text x="590" y="288" font-size="14" fill="#1a1a1a" text-anchor="middle">Ready for QA</text>
+
+  <rect x="725" y="250" width="170" height="64" fill="#1a1a1a" stroke="#1a1a1a" stroke-width="1.5"/>
+  <text x="810" y="282" font-size="14" fill="#ffffff" text-anchor="middle">Complete</text>
+  <text x="810" y="300" font-size="12" fill="#c9c9c9" text-anchor="middle">Delivered</text>
+
+  <!-- transitions -->
+  <line x1="235" y1="282" x2="283" y2="282" stroke="#1a1a1a" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="259" y="272" font-size="11" fill="#767676" text-anchor="middle">save</text>
+
+  <line x1="455" y1="282" x2="503" y2="282" stroke="#1a1a1a" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="479" y="272" font-size="11" fill="#767676" text-anchor="middle">save</text>
+
+  <line x1="675" y1="282" x2="723" y2="282" stroke="#1a1a1a" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="699" y="272" font-size="11" fill="#767676" text-anchor="middle">save</text>
+
+  <!-- editable bracket -->
+  <path d="M 65 340 L 65 348 L 675 348 L 675 340" fill="none" stroke="#767676" stroke-width="1"/>
+  <text x="370" y="368" font-size="12.5" fill="#1a1a1a" text-anchor="middle">Editable. Update refreshes the data; Save commits the snapshot.</text>
+  <text x="370" y="386" font-size="12.5" fill="#767676" text-anchor="middle">Transitions move forward only.</text>
+
+  <!-- locked note -->
+  <path d="M 725 340 L 725 348 L 895 348 L 895 340" fill="none" stroke="#767676" stroke-width="1"/>
+  <text x="810" y="368" font-size="12.5" fill="#1a1a1a" text-anchor="middle">Locked.</text>
+
+  <!-- super admin return -->
+  <path d="M 895 314 L 895 440 L 590 440 L 590 316" fill="none" stroke="#767676" stroke-width="1.2" stroke-dasharray="5 4" marker-end="url(#arrowGray)"/>
+  <text x="742" y="432" font-size="12" fill="#767676" text-anchor="middle">reopen: super admin (a developer) only</text>
+</svg>

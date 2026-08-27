@@ -10,6 +10,11 @@ import LandingPage from '@/pages/index'
 import PortfolioPage from '@/pages/portfolio'
 import BeaverhausenPortfolioPage from '@/pages/portfolio/beaverhausen'
 import WhiteHawkPortfolioPage from '@/pages/portfolio/whitehawk'
+import WhiteHawkClientAPage from '@/pages/portfolio/whitehawk/client-a'
+import WhiteHawkClientBPage from '@/pages/portfolio/whitehawk/client-b'
+import WhiteHawkComplyPage from '@/pages/portfolio/whitehawk/comply'
+import WhiteHawkEngagePage from '@/pages/portfolio/whitehawk/engage'
+import WhiteHawkPlatformPage from '@/pages/portfolio/whitehawk/platform'
 
 function RootLayout() {
   const { state } = useTransition()
@@ -41,6 +46,26 @@ const router = createBrowserRouter([
       {
         path: '/portfolio/whitehawk',
         element: <WhiteHawkPortfolioPage />,
+      },
+      {
+        path: '/portfolio/whitehawk/platform',
+        element: <WhiteHawkPlatformPage />,
+      },
+      {
+        path: '/portfolio/whitehawk/engage',
+        element: <WhiteHawkEngagePage />,
+      },
+      {
+        path: '/portfolio/whitehawk/comply',
+        element: <WhiteHawkComplyPage />,
+      },
+      {
+        path: '/portfolio/whitehawk/client-a',
+        element: <WhiteHawkClientAPage />,
+      },
+      {
+        path: '/portfolio/whitehawk/client-b',
+        element: <WhiteHawkClientBPage />,
       },
     ],
   },

@@ -82,13 +82,13 @@ designed.
 
 Shared, at `src/components/portfolio/products/`:
 
-| File                 | Job                                                                       |
-| -------------------- | ------------------------------------------------------------------------- |
-| `types.ts`           | The schema above                                                          |
-| `ProductChapter.tsx` | Title, `AutoHProvider`, masthead, blocks in order, field note, back link  |
-| `ChapterMasthead.tsx`| Two-column copy plus hero at `md`, stacked below                          |
-| `ChapterBlock.tsx`   | Heading plus `Paragraph` list plus artifact slots                         |
-| `ChapterArtifact.tsx`| The flipbook frame plus caption; handles both `single` and `pair`         |
+| File                  | Job                                                                      |
+| --------------------- | ------------------------------------------------------------------------ |
+| `types.ts`            | The schema above                                                         |
+| `ProductChapter.tsx`  | Title, `AutoHProvider`, masthead, blocks in order, field note, back link |
+| `ChapterMasthead.tsx` | Two-column copy plus hero at `md`, stacked below                         |
+| `ChapterBlock.tsx`    | Heading plus `Paragraph` list plus artifact slots                        |
+| `ChapterArtifact.tsx` | The flipbook frame plus caption; handles both `single` and `pair`        |
 
 Chapter-specific, at `src/components/portfolio/case-studies/whitehawk/products/cyber-risk-rating/`:
 `CyberRiskRatingChapter.tsx`, which imports the ten assets, builds the `ProductChapter` object from
@@ -102,7 +102,11 @@ Vite asset imports next to the component preserves that.
 
 ```tsx
 <div className="mx-auto mt-2 mb-8 aspect-auto max-w-md overflow-hidden rounded-md shadow">
-  <img src={src} alt={alt} className="pointer-events-none size-full object-contain" />
+  <img
+    src={src}
+    alt={alt}
+    className="pointer-events-none size-full object-contain"
+  />
 </div>
 ```
 

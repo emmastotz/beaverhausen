@@ -1,3 +1,5 @@
+import cyberRiskRatingThumb from '@/assets/portfolio/case-studies/whitehawk/products/cyber-risk-rating/cyber-risk-scorecard_thumbnail.png'
+
 export interface Product {
   id: string
   name: string
@@ -5,7 +7,11 @@ export interface Product {
 }
 
 export const PRODUCTS: Array<Product> = [
-  { id: 'platform', name: 'Platform', thumbnail: null },
+  {
+    id: 'cyber-risk-rating',
+    name: 'Cyber Risk Rating',
+    thumbnail: cyberRiskRatingThumb,
+  },
   { id: 'engage', name: 'Engage', thumbnail: null },
   { id: 'comply', name: 'Comply', thumbnail: null },
   { id: 'client-a', name: 'Client A', thumbnail: null },

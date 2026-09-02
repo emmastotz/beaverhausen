@@ -59,9 +59,9 @@ these until group 3.
 
 - [x] 6.1 `pnpm run format` and `pnpm run lint --fix`.
 - [x] 6.2 `pnpm build` (`tsc -b && vite build`) passes.
-- [ ] 6.3 Load `/portfolio/whitehawk/cyber-risk-rating` and check: all ten images render, all eight
+- [x] 6.3 Load `/portfolio/whitehawk/cyber-risk-rating` and check: all ten images render, all eight
       captions are present and match the approved list, the back link fires the water transition.
-- [ ] 6.4 At a narrow viewport, confirm each pair stacks with the analyst or diagram half on top and
+- [x] 6.4 At a narrow viewport, confirm each pair stacks with the analyst or diagram half on top and
       the page has no horizontal scroll. Check the same in dark mode.
-- [ ] 6.5 Confirm `/portfolio/whitehawk` shows the Cyber Risk Rating thumbnail and that its entry
+- [x] 6.5 Confirm `/portfolio/whitehawk` shows the Cyber Risk Rating thumbnail and that its entry
       navigates to the new route.

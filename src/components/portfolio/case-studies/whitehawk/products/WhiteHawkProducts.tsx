@@ -1,9 +1,9 @@
 import { AutoH } from '@/components/primitives/AutoH'
 import { AutoHProvider } from '@/components/primitives/AutoHProvider'
 import { BaseCard } from '@/components/primitives/BaseCard'
-import { BodyT3 } from '@/components/primitives/BodyT3'
+import { BaseT4 } from '@/components/primitives/BaseT4'
 import { TransitionLink } from '@/components/primitives/TransitionLink'
-import { PRODUCTS } from '@/content/case-study-whitehawk'
+import { PRODUCTS } from '@/content/products'
 
 export function WhiteHawkProducts() {
   return (
@@ -16,7 +16,7 @@ export function WhiteHawkProducts() {
               className="block rounded-lg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-iron-orange"
             >
               <BaseCard className="overflow-hidden transition-opacity hover:opacity-80">
-                <div className="aspect-video w-full bg-beaver/10 dark:bg-cream/5">
+                <div className="aspect-square w-full bg-beaver/10 dark:bg-cream/5">
                   {product.thumbnail && (
                     <img
                       src={product.thumbnail}
@@ -28,9 +28,12 @@ export function WhiteHawkProducts() {
                 <div className="p-3">
                   <AutoHProvider>
                     <AutoH>
-                      <BodyT3 className="text-beaver-dark antialiased dark:text-cream">
+                      <BaseT4
+                        variant="body"
+                        className="text-beaver-dark antialiased dark:text-cream"
+                      >
                         {product.name}
-                      </BodyT3>
+                      </BaseT4>
                     </AutoH>
                   </AutoHProvider>
                 </div>

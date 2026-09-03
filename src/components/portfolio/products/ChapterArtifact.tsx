@@ -11,7 +11,7 @@ const WIDTHS: Record<ArtifactWidth, string> = {
 
 function Frame({ artifact }: { artifact: Artifact }) {
   return (
-    <div className="mx-auto aspect-auto overflow-hidden rounded-md shadow">
+    <div className="mx-auto aspect-auto">
       <img
         src={artifact.src}
         alt={artifact.alt}

@@ -100,11 +100,19 @@ February 2024, standing in for 1,429 individual Cyber Risk Rating reports.
 
 ### Requirement: The chapter needs no new shared components
 
-The chapter SHALL be buildable from the existing `product-chapter` component set and schema. No file
-under `src/components/portfolio/products/` and no type in `src/content/products.ts` SHALL change to
-support it.
+The chapter SHALL be buildable from the existing `product-chapter` component set and schema. No new
+component, prop, or schema field SHALL be added to support it, and no type in
+`src/content/products.ts` SHALL change beyond the `PRODUCTS` entry. A styling change applied to the
+frame for all chapters is not an exception to this: it is covered by a `product-chapter` delta rather
+than driven by this chapter's needs.
 
-#### Scenario: Shared components are untouched
+#### Scenario: No new components or schema fields
 
 - **WHEN** the diff for this change is inspected
-- **THEN** it contains no modifications to the shared chapter components or the chapter schema
+- **THEN** it adds no component, prop, or field to the shared chapter set, and changes no type in the
+  chapter schema
+
+#### Scenario: Shared styling changes are specified separately
+
+- **WHEN** a shared component's appearance changes alongside this chapter
+- **THEN** that change is recorded as a `product-chapter` delta, not as a requirement of this page

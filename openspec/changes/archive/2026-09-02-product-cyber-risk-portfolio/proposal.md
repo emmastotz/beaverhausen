@@ -19,8 +19,10 @@ content-only holds.
   Cyber Risk Rating gauge first, the portfolio gauge second, side by side at `md` and wider.
 - Update the second `PRODUCTS` entry: `id` `engage` becomes `cyber-risk-portfolio`, `name` becomes
   `Cyber Risk Portfolio`, `thumbnail` becomes `portfolio_report-thumbnail.png` instead of `null`.
-- **No new or changed shared components.** The `product-chapter` capability already covers everything
-  this chapter needs, including the side-by-side pair and the width scale.
+- **No new shared components.** The `product-chapter` capability already covered everything this
+  chapter needed, including the side-by-side pair and the width scale. The artifact frame did lose its
+  `overflow-hidden rounded-md shadow` alongside this work, but that is a styling decision applied to
+  every chapter and is recorded as a `product-chapter` delta, not as something this chapter forced.
 
 Before:
 

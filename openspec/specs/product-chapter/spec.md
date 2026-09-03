@@ -124,14 +124,15 @@ for the title, `BaseT2` for block headings, `BaseT3` for masthead subheads.
 
 ### Requirement: Artifacts render in the flipbook frame
 
-Every artifact SHALL render inside the frame the flipbook uses: a centered container with
-`overflow-hidden rounded-md shadow` holding an `<img>` with `pointer-events-none size-full
-object-contain`.
+Every artifact SHALL render inside a centered, `object-contain` frame that scales the image to the
+slot's width without cropping it. The frame SHALL NOT add a border, rounded corners, a shadow, or any
+other decoration of its own: these screenshots carry their own chrome, and a second frame around it
+reads as a frame within a frame.
 
-#### Scenario: Artifact matches flipbook presentation
+#### Scenario: Artifact is presented undecorated
 
 - **WHEN** an artifact renders in a chapter
-- **THEN** its container and image classes match the flipbook's artifact frame
+- **THEN** the image scales to the slot width with no border, corner radius, or shadow around it
 
 #### Scenario: Artifacts are not interactive
 

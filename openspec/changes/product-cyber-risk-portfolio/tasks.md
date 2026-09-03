@@ -40,13 +40,13 @@
 - [x] 5.1 Format and lint only the files this change touched: `pnpm exec oxfmt <paths>` and
       `pnpm exec eslint <paths>`. Do not run the repo-wide `pnpm run format` or `lint --fix`.
 - [x] 5.2 `pnpm build` (`tsc -b && vite build`) passes.
-- [ ] 5.3 Load `/portfolio/whitehawk/cyber-risk-portfolio` and check: six images render, all five
+- [x] 5.3 Load `/portfolio/whitehawk/cyber-risk-portfolio` and check: six images render, all five
       captions are present and non-empty, the back link fires the water transition.
-- [ ] 5.4 Judge moment 2 at desktop width. If either half of the pair is illegible at half width, set
+- [x] 5.4 Judge moment 2 at desktop width. If either half of the pair is illegible at half width, set
       `stacked: true` on that slot.
-- [ ] 5.5 Judge the supplier selection table (moment 4) and the cumulative annual risk bar (moment 5)
+- [x] 5.5 Judge the supplier selection table (moment 4) and the cumulative annual risk bar (moment 5)
       at `lg`. Raise either to `xl` if it is not legible at published size.
-- [ ] 5.6 At a narrow viewport, confirm the pair stacks with the Cyber Risk Rating gauge on top and
+- [x] 5.6 At a narrow viewport, confirm the pair stacks with the Cyber Risk Rating gauge on top and
       the page has no horizontal scroll. Check the same in dark mode.
-- [ ] 5.7 Confirm `/portfolio/whitehawk` shows the Cyber Risk Portfolio thumbnail and that its entry
+- [x] 5.7 Confirm `/portfolio/whitehawk` shows the Cyber Risk Portfolio thumbnail and that its entry
       navigates to the new route.

@@ -1,6 +1,5 @@
 import { AutoH } from '@/components/primitives/AutoH'
 import { AutoHProvider } from '@/components/primitives/AutoHProvider'
-import { BaseCard } from '@/components/primitives/BaseCard'
 import { BaseT4 } from '@/components/primitives/BaseT4'
 import { TransitionLink } from '@/components/primitives/TransitionLink'
 import { PRODUCTS } from '@/content/products'
@@ -13,31 +12,29 @@ export function WhiteHawkProducts() {
           <li key={product.id}>
             <TransitionLink
               to={`/portfolio/whitehawk/${product.id}`}
-              className="block rounded-lg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-iron-orange"
+              className="flex flex-col rounded-lg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-iron-orange"
             >
-              <BaseCard className="overflow-hidden transition-opacity hover:opacity-80">
-                <div className="aspect-square w-full bg-beaver/10 dark:bg-cream/5">
-                  {product.thumbnail && (
-                    <img
-                      src={product.thumbnail}
-                      alt={product.name}
-                      className="h-full w-full object-cover"
-                    />
-                  )}
-                </div>
-                <div className="p-3">
-                  <AutoHProvider>
-                    <AutoH>
-                      <BaseT4
-                        variant="body"
-                        className="text-beaver-dark antialiased dark:text-cream"
-                      >
-                        {product.name}
-                      </BaseT4>
-                    </AutoH>
-                  </AutoHProvider>
-                </div>
-              </BaseCard>
+              <div className="aspect-square w-full">
+                {product.thumbnail && (
+                  <img
+                    src={product.thumbnail}
+                    alt={product.name}
+                    className="size-full object-cover"
+                  />
+                )}
+              </div>
+              <div className="px-3">
+                <AutoHProvider>
+                  <AutoH>
+                    <BaseT4
+                      variant="body"
+                      className="text-beaver-dark antialiased dark:text-cream"
+                    >
+                      {product.name}
+                    </BaseT4>
+                  </AutoH>
+                </AutoHProvider>
+              </div>
             </TransitionLink>
           </li>
         ))}

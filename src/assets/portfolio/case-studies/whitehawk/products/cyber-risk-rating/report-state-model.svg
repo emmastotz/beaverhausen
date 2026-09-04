@@ -31,8 +31,9 @@
   <rect x="65" y="250" width="170" height="64" fill="none" stroke="#1a1a1a" stroke-width="1.5"/>
   <text x="150" y="288" font-size="14" fill="#1a1a1a" text-anchor="middle">In Progress</text>
 
-  <rect x="285" y="250" width="170" height="64" fill="none" stroke="#1a1a1a" stroke-width="1.5"/>
-  <text x="370" y="288" font-size="14" fill="#1a1a1a" text-anchor="middle">Products Needed</text>
+  <rect x="285" y="250" width="170" height="64" fill="none" stroke="#767676" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <text x="370" y="282" font-size="14" fill="#1a1a1a" text-anchor="middle">Products Needed</text>
+  <text x="370" y="300" font-size="11.5" fill="#767676" text-anchor="middle">optional</text>
 
   <rect x="505" y="250" width="170" height="64" fill="none" stroke="#1a1a1a" stroke-width="1.5"/>
   <text x="590" y="288" font-size="14" fill="#1a1a1a" text-anchor="middle">Ready for QA</text>
@@ -42,25 +43,25 @@
   <text x="810" y="300" font-size="12" fill="#c9c9c9" text-anchor="middle">Delivered</text>
 
   <!-- transitions -->
-  <line x1="235" y1="282" x2="283" y2="282" stroke="#1a1a1a" stroke-width="1.5" marker-end="url(#arrow)"/>
-  <text x="259" y="272" font-size="11" fill="#767676" text-anchor="middle">save</text>
-
-  <line x1="455" y1="282" x2="503" y2="282" stroke="#1a1a1a" stroke-width="1.5" marker-end="url(#arrow)"/>
-  <text x="479" y="272" font-size="11" fill="#767676" text-anchor="middle">save</text>
-
+  <line x1="235" y1="282" x2="283" y2="282" stroke="#767676" stroke-width="1.2" stroke-dasharray="4 3" marker-end="url(#arrowGray)"/>
+  <line x1="455" y1="282" x2="503" y2="282" stroke="#767676" stroke-width="1.2" stroke-dasharray="4 3" marker-end="url(#arrowGray)"/>
   <line x1="675" y1="282" x2="723" y2="282" stroke="#1a1a1a" stroke-width="1.5" marker-end="url(#arrow)"/>
   <text x="699" y="272" font-size="11" fill="#767676" text-anchor="middle">save</text>
 
+  <!-- bypass: In Progress straight to Ready for QA -->
+  <path d="M 150 314 L 150 344 L 560 344 L 560 316" fill="none" stroke="#1a1a1a" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="355" y="338" font-size="11.5" fill="#1a1a1a" text-anchor="middle">save (most reports)</text>
+
   <!-- editable bracket -->
-  <path d="M 65 340 L 65 348 L 675 348 L 675 340" fill="none" stroke="#767676" stroke-width="1"/>
-  <text x="370" y="368" font-size="12.5" fill="#1a1a1a" text-anchor="middle">Editable. Update refreshes the data; Save commits the snapshot.</text>
-  <text x="370" y="386" font-size="12.5" fill="#767676" text-anchor="middle">Transitions move forward only.</text>
+  <path d="M 65 372 L 65 380 L 675 380 L 675 372" fill="none" stroke="#767676" stroke-width="1"/>
+  <text x="370" y="400" font-size="12.5" fill="#1a1a1a" text-anchor="middle">Editable. Update refreshes; Save commits.</text>
+  <text x="370" y="418" font-size="12.5" fill="#767676" text-anchor="middle">Transitions move forward only.</text>
 
   <!-- locked note -->
-  <path d="M 725 340 L 725 348 L 895 348 L 895 340" fill="none" stroke="#767676" stroke-width="1"/>
-  <text x="810" y="368" font-size="12.5" fill="#1a1a1a" text-anchor="middle">Locked.</text>
+  <path d="M 725 372 L 725 380 L 895 380 L 895 372" fill="none" stroke="#767676" stroke-width="1"/>
+  <text x="810" y="400" font-size="12.5" fill="#1a1a1a" text-anchor="middle">Locked.</text>
 
   <!-- super admin return -->
-  <path d="M 895 314 L 895 440 L 590 440 L 590 316" fill="none" stroke="#767676" stroke-width="1.2" stroke-dasharray="5 4" marker-end="url(#arrowGray)"/>
-  <text x="742" y="432" font-size="12" fill="#767676" text-anchor="middle">reopen: super admin (a developer) only</text>
+  <path d="M 895 314 L 895 462 L 620 462 L 620 316" fill="none" stroke="#767676" stroke-width="1.2" stroke-dasharray="5 4" marker-end="url(#arrowGray)"/>
+  <text x="757" y="454" font-size="12" fill="#767676" text-anchor="middle">reopen: super admin (a developer) only</text>
 </svg>

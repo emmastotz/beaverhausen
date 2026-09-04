@@ -1,20 +1,6 @@
 import type { Chapter } from '@/components/gsap/Flipbook'
 
-export type Product = {
-  id: string
-  name: string
-  thumbnail: string | null
-}
-
-export const PRODUCTS: Product[] = [
-  { id: 'platform', name: 'Platform', thumbnail: null },
-  { id: 'engage', name: 'Engage', thumbnail: null },
-  { id: 'comply', name: 'Comply', thumbnail: null },
-  { id: 'client-a', name: 'Client A', thumbnail: null },
-  { id: 'client-b', name: 'Client B', thumbnail: null },
-]
-
-export const CHAPTERS: Chapter[] = [
+export const CHAPTERS: Array<Chapter> = [
   {
     id: 'habitat',
     tab: 'I',

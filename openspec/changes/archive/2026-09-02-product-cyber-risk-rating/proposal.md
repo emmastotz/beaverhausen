@@ -39,7 +39,11 @@ After:
 
 ```ts
 export const PRODUCTS: Product[] = [
-  { id: 'cyber-risk-rating', name: 'Cyber Risk Rating', thumbnail: cyberRiskRatingThumb },
+  {
+    id: 'cyber-risk-rating',
+    name: 'Cyber Risk Rating',
+    thumbnail: cyberRiskRatingThumb,
+  },
   // ...
 ]
 ```
@@ -48,7 +52,11 @@ The artifact frame is the one already used inside the flipbook, with a caption a
 
 ```tsx
 <div className="mx-auto mt-2 mb-8 aspect-auto max-w-md overflow-hidden rounded-md shadow">
-  <img src={src} alt={alt} className="pointer-events-none size-full object-contain" />
+  <img
+    src={src}
+    alt={alt}
+    className="pointer-events-none size-full object-contain"
+  />
 </div>
 ```
 

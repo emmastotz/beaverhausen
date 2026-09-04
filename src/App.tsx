@@ -13,8 +13,8 @@ import WhiteHawkPortfolioPage from '@/pages/portfolio/whitehawk'
 import WhiteHawkClientAPage from '@/pages/portfolio/whitehawk/client-a'
 import WhiteHawkClientBPage from '@/pages/portfolio/whitehawk/client-b'
 import WhiteHawkComplyPage from '@/pages/portfolio/whitehawk/comply'
+import WhiteHawkCyberRiskRatingPage from '@/pages/portfolio/whitehawk/cyber-risk-rating'
 import WhiteHawkEngagePage from '@/pages/portfolio/whitehawk/engage'
-import WhiteHawkPlatformPage from '@/pages/portfolio/whitehawk/platform'
 
 function RootLayout() {
   const { state } = useTransition()
@@ -48,8 +48,8 @@ const router = createBrowserRouter([
         element: <WhiteHawkPortfolioPage />,
       },
       {
-        path: '/portfolio/whitehawk/platform',
-        element: <WhiteHawkPlatformPage />,
+        path: '/portfolio/whitehawk/cyber-risk-rating',
+        element: <WhiteHawkCyberRiskRatingPage />,
       },
       {
         path: '/portfolio/whitehawk/engage',

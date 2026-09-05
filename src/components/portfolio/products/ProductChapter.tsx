@@ -26,20 +26,22 @@ export function ProductChapter({ chapter }: { chapter: Chapter }) {
       </div>
 
       <AutoHProvider>
-        <div className="mt-12 flex flex-col space-y-12">
+        <div className="mt-12 flex flex-col space-y-16">
           <ChapterMasthead masthead={chapter.masthead} />
 
           {chapter.blocks.map((block) => (
             <ChapterBlock key={block.heading} block={block} />
           ))}
+
+          <div className="mx-auto w-full max-w-3xl">
+            <FieldNote
+              text={chapter.fieldNote}
+              className="text-beaver dark:text-enamel"
+            />
+          </div>
         </div>
 
         <div className="mx-auto max-w-3xl">
-          <FieldNote
-            text={chapter.fieldNote}
-            className="text-beaver dark:text-enamel"
-          />
-
           <AppLink to="/portfolio/whitehawk" className="mt-8 inline-block">
             Back to WhiteHawk
           </AppLink>

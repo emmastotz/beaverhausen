@@ -55,13 +55,21 @@ an exclamation.
 
 ### Requirement: One way back, through the page transition
 
-The page SHALL offer exactly one navigation affordance: an `AppLink` (or `TransitionLink`) to the
-landing page, so leaving fires the water transition.
+The page SHALL offer exactly one navigation affordance in its content: an `AppLink` (or
+`TransitionLink`) to `/portfolio`, so leaving fires the water transition. It points at the portfolio
+rather than the landing page because the header already links home, and a visitor who reached a dead
+URL was most likely after the work.
 
-#### Scenario: The link returns to the landing page
+#### Scenario: The link returns to the portfolio
 
 - **WHEN** a visitor clicks the link
-- **THEN** the water-fill transition fires and the landing page renders
+- **THEN** the water-fill transition fires and the portfolio page renders
+
+#### Scenario: The header still offers full navigation
+
+- **WHEN** the page renders
+- **THEN** the site header is present with its usual links, so the visitor is not stranded if they
+  ignore the in-content link
 
 #### Scenario: No competing affordances
 

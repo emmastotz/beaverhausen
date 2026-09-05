@@ -66,6 +66,12 @@ applies.
 Rejected: "404" as a heading (a status code is not a sentence), anything apologetic, and "Dammed up",
 which reads as a pun the rest of the site would not make.
 
+### The way out points at the portfolio
+
+The header already links home, so an in-content link to `/` would duplicate the wordmark. `/portfolio`
+is the substantive destination, and the URLs most likely to land here are retired product pages, whose
+visitor wanted the work. The header stays the escape hatch for anyone who wanted something else.
+
 ### Copy lives in the page, not in `src/content/`
 
 The contact page holds its own strings inline. Two sentences that exist in one place do not need a

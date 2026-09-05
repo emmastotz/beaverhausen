@@ -11,8 +11,8 @@
 - [ ] 1.4 Add the copy: `AutoH` + `BaseT1` reading "Nothing built here", then a `BaseT4` display
       paragraph reading "No structure at this address. Either it moved, or it was never built." Match
       the contact page's colour classes.
-- [ ] 1.5 Add one `AppLink` to `/`, and nothing else. No search, no suggested links, no second call to
-      action.
+- [ ] 1.5 Add one `AppLink` to `/portfolio`, and nothing else. No search, no suggested links, no
+      second call to action.
 
 ## 2. The route
 
@@ -32,6 +32,6 @@
       through to the not-found page.
 - [ ] 3.6 Click through every named route in `App.tsx` and confirm none of them now render the
       not-found page.
-- [ ] 3.7 Confirm the link back fires the water transition and lands on `/`.
+- [ ] 3.7 Confirm the link back fires the water transition and lands on `/portfolio`.
 - [ ] 3.8 Check the page in dark mode, at a narrow viewport, and with `prefers-reduced-motion: reduce`
       set, confirming the scene stills and nothing scrolls horizontally.

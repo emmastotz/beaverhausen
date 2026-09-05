@@ -20,8 +20,9 @@ general case is the reason to fix it: every typo, every stale link, every crawle
   > **Nothing built here**
   > No structure at this address. Either it moved, or it was never built.
 
-- A single `AppLink` back to the landing page, so the visitor leaves through the water transition
-  rather than the browser's back button.
+- A single `AppLink` to `/portfolio`, so the visitor leaves through the water transition rather than
+  the browser's back button. It points at the portfolio, not home, because the header already links
+  home and a dead product URL suggests the visitor wanted the work.
 - Duplicate the scene markup and import the existing `contact.css` rather than extracting a shared
   component. Deliberate, and commented as such: the not-found page's design is expected to diverge
   from contact, and coupling them now would make that harder rather than easier.

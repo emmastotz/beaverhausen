@@ -1,11 +1,4 @@
-# whitehawk-product-stub-pages Specification
-
-## Purpose
-
-Provides resolvable, placeholder pages for the WhiteHawk product routes whose chapters have not been
-written yet, so links from the products section have a real destination.
-
-## Requirements
+## MODIFIED Requirements
 
 ### Requirement: Five stub routes exist under `/portfolio/whitehawk/`
 
@@ -42,11 +35,3 @@ retired URLs SHALL fall through to the not-found page rather than redirecting.
 
 - **WHEN** a visitor navigates to `/portfolio/whitehawk/unknown-slug`
 - **THEN** the not-found page renders
-
-### Requirement: Stub pages use the water-fill transition
-Navigation from any stub page back to `/portfolio/whitehawk` or to other internal routes SHALL use
-`TransitionLink` / `AppLink`, not a plain `<a>` or React Router `<Link>`.
-
-#### Scenario: Back link on a stub page triggers the transition
-- **WHEN** a visitor clicks a back/return link on a product stub page
-- **THEN** the water-fill transition fires before the destination page renders

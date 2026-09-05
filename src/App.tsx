@@ -7,6 +7,7 @@ import { TransitionProvider } from '@/context/TransitionProvider'
 import AboutPage from '@/pages/about'
 import ContactPage from '@/pages/contact'
 import LandingPage from '@/pages/index'
+import NotFoundPage from '@/pages/not-found'
 import PortfolioPage from '@/pages/portfolio'
 import BeaverhausenPortfolioPage from '@/pages/portfolio/beaverhausen'
 import WhiteHawkPortfolioPage from '@/pages/portfolio/whitehawk'
@@ -67,6 +68,7 @@ const router = createBrowserRouter([
         path: '/portfolio/whitehawk/client-b',
         element: <WhiteHawkClientBPage />,
       },
+      { path: '*', element: <NotFoundPage /> },
     ],
   },
 ])

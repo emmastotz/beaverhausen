@@ -1,4 +1,14 @@
-## ADDED Requirements
+# whitehawk-compliance-frameworks-page Specification
+
+## Purpose
+
+The third WhiteHawk product chapter and the last of the tier 1 set: a case study of the guided
+CMMC and Australian Essential 8 assessments, arguing that the interaction vocabulary generalized
+across two standards while the framework model deliberately did not. Replaces the former comply stub
+page. It is also the first chapter that grew the shared product-chapter capability rather than
+fitting it.
+
+## Requirements
 
 ### Requirement: The chapter resolves at its own route
 
@@ -67,23 +77,35 @@ Later Observations carries no artifact.
 ### Requirement: Both pairs lead with CMMC
 
 Moments 2 and 4 SHALL each be a `pair` whose first artifact is the CMMC view and whose second is the
-Essential 8 view. Both SHALL render side by side at `md` and wider so the two frameworks can be
-compared directly, and stack below `md` with CMMC on top.
+Essential 8 view, so the same framework occupies the same position in both. Moment 2 SHALL be
+`stacked` in an `xl` slot with its CMMC half narrowed to `lg`; moment 4 SHALL render side by side in
+an `xl` slot.
 
-#### Scenario: CMMC leads on desktop
+#### Scenario: CMMC leads in both pairs
 
-- **WHEN** moment 2 or moment 4 renders at `md` or wider
-- **THEN** the CMMC view sits left of the Essential 8 view
+- **WHEN** a visitor reads moment 2 or moment 4
+- **THEN** the CMMC view precedes the Essential 8 view
 
-#### Scenario: CMMC leads when stacked
+#### Scenario: The Field Guide pair stacks
 
-- **WHEN** moment 2 or moment 4 renders below `md`
-- **THEN** the CMMC view sits above the Essential 8 view, sharing one caption
+- **WHEN** moment 2 renders at any width
+- **THEN** its two images sit one above the other, the CMMC half narrower than the Essential 8 half,
+  sharing one caption
 
-#### Scenario: The two pairs are ordered consistently
+#### Scenario: The Divergence pair compares side by side
 
-- **WHEN** a visitor reads both pairs
-- **THEN** the same framework occupies the same position in each
+- **WHEN** moment 4 renders at `md` or wider
+- **THEN** the two controls sit in two columns for direct comparison
+
+### Requirement: The masthead hero follows the copy
+
+The chapter SHALL set `heroBelow`. Its hero is a full-page view tall enough that leading with it would
+push the three masthead entries off the screen.
+
+#### Scenario: Copy precedes the hero
+
+- **WHEN** a visitor loads the chapter
+- **THEN** Specimen, Working Hypothesis, and Provenance render above the hero artifact
 
 ### Requirement: Every artifact carries a caption and alt text
 
@@ -113,19 +135,20 @@ measured.
 - **WHEN** a visitor reads the account count
 - **THEN** the copy says how many accounts have the assessments, not how many completed one
 
-### Requirement: The chapter needs no new shared components
+### Requirement: The chapter grew the shared capability rather than fitting it
 
-The chapter SHALL be buildable from the existing `product-chapter` component set and schema. No new
-component, prop, or schema field SHALL be added to support it, and no type in
-`src/content/products.ts` SHALL change beyond the `PRODUCTS` entry.
+This chapter SHALL add exactly two optional schema fields, `masthead.heroBelow` and
+`Artifact.width`, both recorded as a `product-chapter` delta. Unlike the two chapters before it, it
+could not be built from the existing component set alone. Both fields SHALL be absent from the
+earlier chapters, which SHALL continue to render unchanged. No new component SHALL be added, and no
+existing type SHALL change shape.
 
-#### Scenario: No new components or schema fields
+#### Scenario: The additions are optional and opt-in
 
-- **WHEN** the diff for this change is inspected
-- **THEN** it adds no component, prop, or field to the shared chapter set, and changes no type in the
-  chapter schema
+- **WHEN** a chapter omits `heroBelow` and per-artifact `width`
+- **THEN** it renders exactly as it did before those fields existed
 
-#### Scenario: Shared styling changes are specified separately
+#### Scenario: Capability changes are specified, not folded in
 
-- **WHEN** a shared component's appearance changes alongside this chapter
+- **WHEN** a shared component or the chapter schema changes alongside this chapter
 - **THEN** that change is recorded as a `product-chapter` delta, not as a requirement of this page

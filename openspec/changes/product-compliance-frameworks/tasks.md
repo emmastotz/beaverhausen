@@ -39,13 +39,13 @@
 - [x] 5.1 Format and lint only the files this change touched: `pnpm exec oxfmt <paths>` and
       `pnpm exec eslint <paths>`. Do not run the repo-wide `pnpm run format` or `lint --fix`.
 - [x] 5.2 `pnpm build` (`tsc -b && vite build`) passes.
-- [ ] 5.3 Load `/portfolio/whitehawk/compliance-frameworks` and check: six images render, all four
+- [x] 5.3 Load `/portfolio/whitehawk/compliance-frameworks` and check: six images render, all four
       captions are present and non-empty, the back link fires the water transition.
-- [ ] 5.4 Judge both pairs at desktop width. If either half of either pair is illegible at half width,
+- [x] 5.4 Judge both pairs at desktop width. If either half of either pair is illegible at half width,
       set `stacked: true` on that slot.
-- [ ] 5.5 Judge the hero (moment 1) and the maturity columns (moment 3) at `lg`. Raise either to `xl`
+- [x] 5.5 Judge the hero (moment 1) and the maturity columns (moment 3) at `lg`. Raise either to `xl`
       if it is not legible at published size.
-- [ ] 5.6 At a narrow viewport, confirm both pairs stack with CMMC on top and the page has no
+- [x] 5.6 At a narrow viewport, confirm both pairs stack with CMMC on top and the page has no
       horizontal scroll. Check the same in dark mode.
-- [ ] 5.7 Confirm `/portfolio/whitehawk` shows the Compliance Frameworks thumbnail and that its entry
+- [x] 5.7 Confirm `/portfolio/whitehawk` shows the Compliance Frameworks thumbnail and that its entry
       navigates to the new route.

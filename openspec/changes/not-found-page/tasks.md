@@ -26,12 +26,12 @@
 - [x] 3.2 `pnpm build` (`tsc -b && vite build`) passes.
 - [x] 3.3 Confirm `src/pages/contact/index.tsx` and `src/components/contact/contact.css` are
       unmodified in the diff.
-- [ ] 3.4 Load `/portfolio/typo` and confirm the not-found page renders with the scene, copy, and
+- [x] 3.4 Load `/portfolio/typo` and confirm the not-found page renders with the scene, copy, and
       link, rather than React Router's error screen.
-- [ ] 3.5 Load `/portfolio/whitehawk/platform`, `/engage`, and `/comply` and confirm each falls
+- [x] 3.5 Load `/portfolio/whitehawk/platform`, `/engage`, and `/comply` and confirm each falls
       through to the not-found page.
-- [ ] 3.6 Click through every named route in `App.tsx` and confirm none of them now render the
+- [x] 3.6 Click through every named route in `App.tsx` and confirm none of them now render the
       not-found page.
-- [ ] 3.7 Confirm the link back fires the water transition and lands on `/portfolio`.
-- [ ] 3.8 Check the page in dark mode, at a narrow viewport, and with `prefers-reduced-motion: reduce`
+- [x] 3.7 Confirm the link back fires the water transition and lands on `/portfolio`.
+- [x] 3.8 Check the page in dark mode, at a narrow viewport, and with `prefers-reduced-motion: reduce`
       set, confirming the scene stills and nothing scrolls horizontally.

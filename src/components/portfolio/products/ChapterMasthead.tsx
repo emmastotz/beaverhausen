@@ -23,18 +23,27 @@ export function ChapterMasthead({
 }: {
   masthead: ProductChapter['masthead']
 }) {
+  const copy = (
+    <div className="mx-auto flex max-w-3xl flex-col space-y-6">
+      <MastheadEntry heading="Specimen" text={masthead.specimen} />
+      <MastheadEntry heading="Working Hypothesis" text={masthead.hypothesis} />
+      <MastheadEntry heading="Provenance" text={masthead.provenance} />
+    </div>
+  )
+
   return (
     <section className="grid items-start gap-8">
-      <ChapterArtifact slot={masthead.hero} />
-
-      <div className="mx-auto flex max-w-3xl flex-col space-y-6">
-        <MastheadEntry heading="Specimen" text={masthead.specimen} />
-        <MastheadEntry
-          heading="Working Hypothesis"
-          text={masthead.hypothesis}
-        />
-        <MastheadEntry heading="Provenance" text={masthead.provenance} />
-      </div>
+      {masthead.heroBelow ? (
+        <>
+          {copy}
+          <ChapterArtifact slot={masthead.hero} />
+        </>
+      ) : (
+        <>
+          <ChapterArtifact slot={masthead.hero} />
+          {copy}
+        </>
+      )}
     </section>
   )
 }

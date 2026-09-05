@@ -12,7 +12,7 @@ import BeaverhausenPortfolioPage from '@/pages/portfolio/beaverhausen'
 import WhiteHawkPortfolioPage from '@/pages/portfolio/whitehawk'
 import WhiteHawkClientAPage from '@/pages/portfolio/whitehawk/client-a'
 import WhiteHawkClientBPage from '@/pages/portfolio/whitehawk/client-b'
-import WhiteHawkComplyPage from '@/pages/portfolio/whitehawk/comply'
+import WhiteHawkComplianceFrameworksPage from '@/pages/portfolio/whitehawk/compliance-frameworks'
 import WhiteHawkCyberRiskPortfolioPage from '@/pages/portfolio/whitehawk/cyber-risk-portfolio'
 import WhiteHawkCyberRiskRatingPage from '@/pages/portfolio/whitehawk/cyber-risk-rating'
 
@@ -56,8 +56,8 @@ const router = createBrowserRouter([
         element: <WhiteHawkCyberRiskPortfolioPage />,
       },
       {
-        path: '/portfolio/whitehawk/comply',
-        element: <WhiteHawkComplyPage />,
+        path: '/portfolio/whitehawk/compliance-frameworks',
+        element: <WhiteHawkComplianceFrameworksPage />,
       },
       {
         path: '/portfolio/whitehawk/client-a',

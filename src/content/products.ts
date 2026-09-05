@@ -1,3 +1,4 @@
+import frameworksThumb from '@/assets/portfolio/case-studies/whitehawk/products/compliance-frameworks/frameworks_thumbnail.png'
 import portfolioReportThumb from '@/assets/portfolio/case-studies/whitehawk/products/cyber-risk-portfolio/portfolio_report-thumbnail.png'
 import cyberRiskRatingThumb from '@/assets/portfolio/case-studies/whitehawk/products/cyber-risk-rating/cyber-risk-scorecard_thumbnail.png'
 
@@ -18,7 +19,11 @@ export const PRODUCTS: Array<Product> = [
     name: 'Cyber Risk Portfolio',
     thumbnail: portfolioReportThumb,
   },
-  { id: 'comply', name: 'Comply', thumbnail: null },
+  {
+    id: 'compliance-frameworks',
+    name: 'Compliance Frameworks',
+    thumbnail: frameworksThumb,
+  },
   { id: 'client-a', name: 'Client A', thumbnail: null },
   { id: 'client-b', name: 'Client B', thumbnail: null },
 ]
@@ -29,6 +34,9 @@ export const PRODUCTS: Array<Product> = [
 export interface Artifact {
   src: string
   alt: string
+  // Narrows this image inside its slot. Useful in a stacked pair whose two
+  // halves want different widths.
+  width?: ArtifactWidth
 }
 
 // The flipbook artifact frame is max-w-md. Dense screenshots need more room.
@@ -68,6 +76,9 @@ export interface ProductChapter {
     hypothesis: string
     provenance: string
     hero: ArtifactSlot
+    // A tall hero pushes the copy off the screen. Set to put the three entries
+    // first and the hero after them.
+    heroBelow?: boolean
   }
   blocks: Array<ChapterBlock>
   fieldNote: string

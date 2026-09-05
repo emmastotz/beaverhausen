@@ -29,6 +29,9 @@ export const PRODUCTS: Array<Product> = [
 export interface Artifact {
   src: string
   alt: string
+  // Narrows this image inside its slot. Useful in a stacked pair whose two
+  // halves want different widths.
+  width?: ArtifactWidth
 }
 
 // The flipbook artifact frame is max-w-md. Dense screenshots need more room.
@@ -68,6 +71,9 @@ export interface ProductChapter {
     hypothesis: string
     provenance: string
     hero: ArtifactSlot
+    // A tall hero pushes the copy off the screen. Set to put the three entries
+    // first and the hero after them.
+    heroBelow?: boolean
   }
   blocks: Array<ChapterBlock>
   fieldNote: string

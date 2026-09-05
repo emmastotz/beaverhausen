@@ -66,6 +66,13 @@ applies.
 Rejected: "404" as a heading (a status code is not a sentence), anything apologetic, and "Dammed up",
 which reads as a pun the rest of the site would not make.
 
+### No card behind the copy
+
+The contact page centers a `BaseCard` because it holds a form, which needs a surface to sit on. Three
+lines of copy do not: the card became a box around nothing, so the content sits on the landscape and
+is centered instead. Colours are then chosen against the scene rather than against `bg-dusk/80`,
+which is why the heading goes to `cream` in dark mode rather than `enamel`.
+
 ### The way out points at the portfolio
 
 The header already links home, so an in-content link to `/` would duplicate the wordmark. `/portfolio`

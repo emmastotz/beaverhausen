@@ -1,4 +1,13 @@
-## ADDED Requirements
+# not-found-page Specification
+
+## Purpose
+
+What an unmatched URL renders. The router previously had no catch-all, so any mistyped or retired
+path fell through to React Router's unstyled error screen. This capability covers route precedence,
+the page's composition and voice, the single way out, and the deliberate duplication of the contact
+page's landscape scene.
+
+## Requirements
 
 ### Requirement: Any unmatched URL renders the not-found page
 
@@ -27,19 +36,50 @@ every named route still wins. No unmatched URL SHALL reach React Router's built-
 
 ### Requirement: The page mirrors the contact page's composition
 
-The not-found page SHALL use `DefaultLayout` with `Header`, render the landscape scene behind the
-content, and center a `BaseCard` holding the copy, matching `/contact`. It SHALL be thin: composition
-and copy only, with no local state.
+The not-found page SHALL use `DefaultLayout` with `Header` and render the same landscape scene behind
+its content as `/contact`. It SHALL be thin: composition and copy only, with no local state.
+
+Its content SHALL sit directly on the scene rather than on a `BaseCard`. The contact page needs a
+card because it carries a form; this page carries three lines and reads better against the landscape.
+The content stack SHALL be centered, both its alignment and its text.
 
 #### Scenario: The page is recognisably part of the site
 
 - **WHEN** the not-found page renders
-- **THEN** the header, landscape scene, and card surface match those on `/contact`
+- **THEN** the header and landscape scene match those on `/contact`
+
+#### Scenario: No card behind the copy
+
+- **WHEN** the not-found page renders
+- **THEN** the heading, line, and link sit directly on the scene with no card surface behind them
+
+#### Scenario: Content is centered
+
+- **WHEN** the not-found page renders
+- **THEN** the heading, line, and link are centered as a column, and their text is centered
 
 #### Scenario: Heading uses the shared heading machinery
 
 - **WHEN** the page renders its heading
 - **THEN** it is emitted by `AutoH`, not a hardcoded `<h1>`
+
+### Requirement: Colours are tuned for the scene, not a card
+
+Without a card surface, the copy sits on the landscape in both themes and SHALL take colours chosen
+against it: the heading `text-beaver-dark dark:text-cream`, the line
+`text-beaver dark:text-beaver-dark`, and the link the `ghost` interactive variant so it reads as
+`iron-orange` with the shared underline affordance.
+
+#### Scenario: Copy is legible in both themes
+
+- **WHEN** a visitor loads the page in light or dark mode
+- **THEN** the heading and line render in the colours above, against the landscape rather than a card
+
+#### Scenario: The link uses the accent affordance
+
+- **WHEN** the link renders
+- **THEN** it uses the `ghost` variant, so it is `iron-orange` with the site's underline-build
+  treatment
 
 ### Requirement: Copy states the situation without apologising
 

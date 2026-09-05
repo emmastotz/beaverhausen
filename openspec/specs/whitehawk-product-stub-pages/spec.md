@@ -11,10 +11,11 @@ written yet, so links from the products section have a real destination.
 
 The router SHALL have stub routes for `/portfolio/whitehawk/client-a` and
 `/portfolio/whitehawk/client-b`, the two tier 2 explorations whose chapters are not yet written. Each
-SHALL render a visible placeholder page and SHALL NOT return a 404. `/portfolio/whitehawk/platform`,
+SHALL render a visible placeholder page. `/portfolio/whitehawk/platform`,
 `/portfolio/whitehawk/engage`, and `/portfolio/whitehawk/comply` SHALL NOT exist; those products now
 ship as full chapters at `/portfolio/whitehawk/cyber-risk-rating`,
-`/portfolio/whitehawk/cyber-risk-portfolio`, and `/portfolio/whitehawk/compliance-frameworks`.
+`/portfolio/whitehawk/cyber-risk-portfolio`, and `/portfolio/whitehawk/compliance-frameworks`. The
+retired URLs SHALL fall through to the not-found page rather than redirecting.
 
 #### Scenario: Each remaining product route resolves
 
@@ -22,25 +23,25 @@ ship as full chapters at `/portfolio/whitehawk/cyber-risk-rating`,
 - **THEN** a page renders with at minimum the product name and a "coming soon" or placeholder
   message
 
-#### Scenario: The platform route no longer resolves
+#### Scenario: The platform route falls through
 
 - **WHEN** a visitor navigates to `/portfolio/whitehawk/platform`
-- **THEN** no route matches and the app renders its standard not-found state
+- **THEN** the not-found page renders
 
-#### Scenario: The engage route no longer resolves
+#### Scenario: The engage route falls through
 
 - **WHEN** a visitor navigates to `/portfolio/whitehawk/engage`
-- **THEN** no route matches and the app renders its standard not-found state
+- **THEN** the not-found page renders
 
-#### Scenario: The comply route no longer resolves
+#### Scenario: The comply route falls through
 
 - **WHEN** a visitor navigates to `/portfolio/whitehawk/comply`
-- **THEN** no route matches and the app renders its standard not-found state
+- **THEN** the not-found page renders
 
-#### Scenario: Unknown whitehawk sub-routes still 404
+#### Scenario: Unknown whitehawk sub-routes fall through
 
 - **WHEN** a visitor navigates to `/portfolio/whitehawk/unknown-slug`
-- **THEN** the app renders its standard not-found state (no route matches)
+- **THEN** the not-found page renders
 
 ### Requirement: Stub pages use the water-fill transition
 Navigation from any stub page back to `/portfolio/whitehawk` or to other internal routes SHALL use

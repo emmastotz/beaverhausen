@@ -12,8 +12,9 @@ general case is the reason to fix it: every typo, every stale link, every crawle
 
 - Add a not-found page at `src/pages/not-found/index.tsx`, rendered by a `path: '*'` catch-all route
   in `src/App.tsx`.
-- Mirror the contact page's composition: `DefaultLayout`, `Header`, the landscape scene behind, and a
-  centered `BaseCard` holding the copy.
+- Mirror the contact page's composition: `DefaultLayout`, `Header`, and the landscape scene behind.
+  The copy sits directly on the scene rather than on a `BaseCard`; contact needs a card because it
+  carries a form, this page carries three centered lines.
 - Copy in the site's voice, following the contact page's shape of a short plain heading and one dry
   sentence:
 

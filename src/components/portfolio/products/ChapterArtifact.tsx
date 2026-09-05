@@ -10,8 +10,9 @@ const WIDTHS: Record<ArtifactWidth, string> = {
 }
 
 function Frame({ artifact }: { artifact: Artifact }) {
+  const width = artifact.width ? WIDTHS[artifact.width] : ''
   return (
-    <div className="mx-auto aspect-auto">
+    <div className={`mx-auto aspect-auto ${width}`}>
       <img
         src={artifact.src}
         alt={artifact.alt}
@@ -25,9 +26,7 @@ export function ChapterArtifact({ slot }: { slot: ArtifactSlot }) {
   const width = WIDTHS[slot.width ?? 'md']
 
   return (
-    <figure
-      className={`mx-auto mt-2 mb-8 w-full sm:px-4 md:px-8 lg:px-4 ${width}`}
-    >
+    <figure className={`mx-auto mt-2 mb-8 w-full sm:px-4 md:px-8 lg:px-4 ${width}`}>
       {slot.kind === 'single' ? (
         <Frame artifact={slot.artifact} />
       ) : (

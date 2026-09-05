@@ -26,7 +26,7 @@ export function ChapterArtifact({ slot }: { slot: ArtifactSlot }) {
   const width = WIDTHS[slot.width ?? 'md']
 
   return (
-    <figure className={`mx-auto mt-2 mb-8 w-full sm:px-4 md:px-8 lg:px-4 ${width}`}>
+    <figure className={`mx-auto w-full sm:px-4 md:px-8 lg:px-4 ${width}`}>
       {slot.kind === 'single' ? (
         <Frame artifact={slot.artifact} />
       ) : (
